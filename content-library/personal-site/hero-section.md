@@ -8,16 +8,12 @@ Ken's Gallery
 
 ## Subtitle
 
-Capturing life as it happens.
+A quiet place for photographs, fragments, and small observations.
 
-Constantly evolving, deeply observing, and translating daily inspirations into visual stories.
-
-Welcome to my space.
-
-I'm Ken—a place where I curate my visual observations through photography and document my musings.
+I collect moments of light, color, and daily life — then let them settle here.
 
 ---
 
 ## Background Image
 
-hero-background.jpg
+[herosection-background.jpg](images/herosection-background.jpg)
