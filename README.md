@@ -1,13 +1,13 @@
 # Website-lab
 ## About
 
-This repository stores everything related to my personal website.
+这个仓库是用于我的agent协助网站建设项目的引导、内容管理和灵感收集
 
 ---
 
 ## Goal
 
-Build a modern portfolio with Framer and Codex.
+让AI agent在这些内容的引导下更加懂得我想要的设计风格与效果，利用AI工具协助网站建设
 
 ---
 
@@ -16,12 +16,4 @@ Build a modern portfolio with Framer and Codex.
 - Framer
 - Codex
 - GitHub
-
----
-
-## Style
-
-- Minimal
-- Editorial
-- Photography
-- Calm
+- ChatGPT
