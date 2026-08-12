@@ -11,8 +11,8 @@
 - Status: Home exists across Desktop, Tablet, and Phone; the requested Menu Opening, story, seven-dish card revision, and Desktop/Tablet expandable dish-card interaction are implemented, with full-page QA still open
 - Content status: Fictional Demo and Draft
 - Demo URL: Missing
-- Last canvas audit: 2026-08-11
-- Last document update: 2026-08-11
+- Last canvas audit: 2026-08-12
+- Last document update: 2026-08-12
 
 This file records the current Framer canvas as the source of truth. Earlier plans based on `The Evening`, `The Table`, and the former linear arrival-to-reservation story have been retired. Do not rebuild those structures from old chat history or older copies of this document.
 
@@ -267,10 +267,10 @@ The site uses one locked light editorial system. The Craft section uses the soft
 |---|---|---|
 | Brand name | AURELIA | Demo |
 | Restaurant type | Private dining restaurant template | Demo |
-| Address | Not provided | Missing |
+| Address | `18 Aurelia Lane, New York, NY 10013` | Fictional Demo; replace before publish |
 | Opening hours | Not provided | Missing |
-| Phone | Not provided | Missing |
-| Email | Not provided | Missing |
+| Phone | `+1 212 555 0148` | Fictional Demo; replace before publish |
+| Email | `reservations@aurelia.example` | Fictional Demo; reserved `.example` domain; replace before publish |
 | Capacity | Not provided | Missing |
 | Menu price | Not provided | Missing |
 | Chef name and verified biography | Not provided | Missing |
@@ -311,7 +311,7 @@ Recommended structure:
 3. A seven-dish editorial sequence using one shared card pattern: image, dish name, short description, and Home Arrow Right when collapsed; a larger image with Story-only text and Arrow Up when expanded on Desktop/Tablet; static content on Phone. Page Instances use Fill width so the sequence follows its container in Preview.
 4. One controlled image interruption between movements, using a different crop and scale from Home.
 5. A compact practical note for dietary accommodation, menu format, and pricing only when verified values exist.
-6. A final `Reserve a seat` handoff.
+6. A final dark `Reserve a seat` handoff with an asymmetric headline/introduction lead, the shared `ButtonPrimary`, and a responsive Email / Telephone / Address contact band.
 
 Content system:
 
@@ -319,6 +319,7 @@ Content system:
 - Current editable fields: Dish Image with per-instance Alt, Dish Name, Description, and Story. Recommended future fields: movement, optional dietary note, order, and visibility.
 - Price must remain optional and hidden when empty.
 - Do not repeat the fixed Home Evening Chapters or embed another DishSelector.
+- Menu handoff Demo contacts are `reservations@aurelia.example`, `+1 212 555 0148`, and `18 Aurelia Lane, New York, NY 10013`. Email and telephone are clickable; all three values and the booking destination must be replaced by the buyer before publishing.
 
 Buyer editing note:
 
@@ -387,7 +388,7 @@ Recommended structure:
 
 1. Compact opening: `Choose a night.` or another approved direct title.
 2. One sentence explaining whether the action is an enquiry or a confirmed booking.
-3. Real booking embed, external booking handoff, or native enquiry form.
+3. Native reservation-request form; do not embed or hand off to an external booking system.
 4. Form fields only when needed: name, email, preferred date, party size, booking type, and message.
 5. Complete states: default, focus, filled, error, disabled, submitting, success, and service failure.
 6. Verified fallback contact method.
@@ -395,7 +396,8 @@ Recommended structure:
 
 Content system:
 
-- Current booking provider and form endpoint are missing, so integration is blocked.
+- Reserve uses a native reservation-request form; no external booking embed or handoff will be used.
+- The form's real data destination and privacy handling are still missing, so live submission remains blocked.
 - A Demo form may be designed, but it must not imply that a reservation was confirmed or that data was submitted.
 - `Reserve a seat` remains the single label for the primary reservation intent across the site.
 
@@ -459,11 +461,11 @@ Menu should be the first new page because it can use the current Demo food conte
 
 | Page | Content | Structure | Components | Links | SEO | Desktop | Tablet | Phone | Preview |
 |---|---|---|---|---|---|---|---|---|---|
-| Home | Demo | Built | Built | Home anchors only | Existing title and description | Built | Built | Built; targeted QA caveat | Partial targeted QA |
-| Menu | Demo | Requested scope built | `MenuDishCard` expandable interaction built; CMS deferred | Existing handoff; destination blocked | Existing title and description | Collapsed/expanded states visually checked | Collapsed/expanded states visually checked | Static card visually checked | Component steady states checked; live click path and full-page five-width QA remain |
+| Home | Demo | Built | Built; Invitation CTA now uses shared `ButtonPrimary` | Reserve CTA and shared navigation/footer point to `/reserve` | Existing title and description | Built | Built | Built; targeted QA caveat | Reserve CTA visually checked; full regression remains |
+| Menu | Demo | Requested scope built | `MenuDishCard` expandable interaction built; shared `ButtonPrimary` used in handoff; CMS deferred | Reservation handoff points to `/reserve` | Existing title and description | Collapsed/expanded states and CTA visually checked | Collapsed/expanded states visually checked | Static card visually checked | Component steady states checked; live click path and full-page five-width QA remain |
 | Private Dining | Planned; facts partly blocked | To do | To do | To do | To do | To do | To do | To do | To do |
 | About | Planned; biography blocked | To do | To do | To do | To do | To do | To do | To do | To do |
-| Reserve | Planned; integration blocked | To do | Form system pending | To do | To do | To do | To do | To do | To do |
+| Reserve | Demo; native submission destination blocked | Compact request page rebuilt from an empty canvas | Native request form and `ReservationSubmit` state component; Demo contact fallback | Home, Menu, Navbar, and Footer connected; email/phone/map fallback active | Title and description retained | Horizontal form visually checked | Horizontal Desktop/Tablet form checked | Single-column form retained | Targeted canvas screenshots checked; live link/focus QA remains |
 
 ## 13. Known QA and Delivery Work
 
@@ -490,6 +492,11 @@ Menu should be the first new page because it can use the current Demo food conte
 | `MenuDishCard` expands only on Desktop and Tablet; Phone remains static | Active | Desktop/Tablet can reveal editorial depth with native state Variants and shared Hover, while Phone avoids hover-only affordances and extra interaction weight | 2026-08-11 |
 | `MenuDishCard` reuses Home `Arrow Essentials / Arrow Right`, hides name and short Description in Expanded, uses Fill Page Instance width, and fixes motion at `spring-physics` stiffness 250 | Active | Keeps the affordance consistent with Home, gives Story full ownership of the expanded text area, prevents fixed-length Preview behavior, and standardizes motion across states | 2026-08-11 |
 | Menu Opening and Changing Menu Statement use the supplied Paul Kalkbrenner page compositions as layout references | Active | Establishes a stronger typographic opening and a high-density asymmetric story section while preserving AURELIA content, Inter typography, and the existing color tokens | 2026-08-11 |
+| Menu Reservation Handoff uses fictional Demo contact details and a responsive editorial contact band | Active | Replaces the empty placeholder with a credible Marketplace-template handoff while keeping operational facts explicitly replaceable and non-production | 2026-08-12 |
+| `ButtonPrimary` is a white-on-dark reusable Fit/Fit component with editable Label and Link Properties | Active | Follows `framer/basic` Button ownership rules, stays visible on AURELIA's dark CTA sections, and lets Home, Menu, and future pages configure destinations without redrawing the button | 2026-08-12 |
+| `/reserve` uses a compact two-zone Demo request page, not a fake confirmed-booking flow | Active | Gives all site Reserve intents a real destination now while keeping the missing live provider, operational policy, and confirmation states visibly blocked | 2026-08-12 |
+| `/reserve` was rebuilt as one compact request scope after the earlier canvas content was removed | Active | Replaces the non-brand-aligned two-section attempt with a single white, editorial two-zone composition: direct title, request-only explanation, email action, and clearly labelled Demo fallbacks | 2026-08-12 |
+| `/reserve` uses a responsive native reservation-request form | Active | Keeps the title and primary reading sequence stacked while using the form itself to occupy wide screens: four columns on Desktop, two on Tablet, and one column on Phone | 2026-08-12 |
 | `The Evening`, `The Table`, `Reserve` four-page plan | Retired | Came from an earlier direction that was overturned | 2026-08-11 |
 | Oversized visible Science Gothic Hero wordmark | Retired | The text layer is hidden in the current Hero | 2026-08-11 |
 | Home as arrival-to-reservation chronology | Retired | Does not describe the live Canvas | 2026-08-11 |
@@ -498,8 +505,8 @@ Menu should be the first new page because it can use the current Demo food conte
 ## 15. Recovery State
 
 - Current Framer project: `6EYvZfFo1CleDR77cYUF`.
-- Current page: Menu `/menu`.
-- Current conversation session: `5`.
+- Current page: Reserve `/reserve`.
+- Current conversation session: `3`.
 - Canvas writes in the 2026-08-11 Menu revision: Opening and Changing Menu Statement rebuilt; `MenuDishCard` created; seven dish instances added; old three inconsistent cards removed; Tablet and Phone page breakpoints added. A later reference pass rebuilt only Opening and Changing Menu Statement around the supplied music/impact compositions.
 - Knowledge-base page checklists: `./checklist/`.
 - Live Menu breakpoint roots: Desktop 1200 `CuPy0iH7F`, Tablet 810 `z5tC4bH2D`, Phone 390 `AyfdERUsu`.
@@ -509,8 +516,12 @@ Menu should be the first new page because it can use the current Demo food conte
 - Page-instance evidence: all seven cards retain independent Image, Name, Description, Story, and Image Alt values; first, middle, and final instances were checked across all three page breakpoints.
 - Opening evidence: Desktop uses a large upper field, a full-width oversized `menu` h1, 15px compact supporting line, and a 58%-width left-owned image; Tablet uses a 72%-width image; Phone uses a full-width 350×280 image.
 - Story evidence: Desktop uses a 58% oversized headline and narrow right story column; the complete story is one Rich Text node containing six paragraph blocks rather than six separate layers. Tablet preserves the asymmetric two-column layout; Phone changes to a vertical headline → story sequence with 14px body copy.
+- Reservation Handoff evidence: Desktop uses an asymmetric headline/introduction lead plus a three-column Email / Telephone / Address band; Tablet retains the editorial split at reduced type and spacing; Phone changes to a single-column contact sequence. The shared `ButtonPrimary` now links to `/reserve`; email and telephone values remain directly clickable, and the section carries an explicit replacement notice.
+- Shared Button evidence: `ButtonPrimary` owns its white / soft-grey / pressed fills, consistent `16px 22px` padding, Fit/Fit geometry, black 13px Inter label, Hover/Pressed gesture states, and editable Label plus Link Properties. Home's separately drawn Invitation button was removed and replaced by a component instance.
+- Reserve page evidence: the former Reserve content was removed by the user, then rebuilt from its empty Desktop 1200, Tablet 810, and Phone 390 roots. The rebuilt page uses the default Layout Template and one compact `main` scope: `Choose a night.` h1, direct request-only Demo explanation, editorial `Email reservations →` mailto action, and linked Demo email/telephone/map fallbacks. The fallback contact values use a justified local 15px Inter treatment rather than the current 11px Phone `Type/Body` preset. Desktop and Phone canvas screenshots were visually checked; no publish was performed.
+- Fictional Handoff contacts: `reservations@aurelia.example`, `+1 212 555 0148`, `18 Aurelia Lane, New York, NY 10013`. These are presentation-only Demo values and must never be treated as verified restaurant operations.
 - Reference visual evidence: one final Desktop screenshot was viewed for each revised Section and compared against the two supplied reference screenshots.
 - Known diagnostic exception: page-stack spacing lint can report false negative spacing on layout-template-backed breakpoint replicas; targeted serialized section rects on Desktop/Tablet were sequential. Framer publish preflight after the interaction work returned `ready` with zero errors and zero warnings; no publish was performed.
 - Reusable pattern documentation: `framer/advance-design/expandable-editorial-card.md`.
-- Remaining Menu QA: operate Desktop and Tablet Hover → Expand → Collapse in a live external Page Preview, verify focus presentation, run 320/390/810/1200/1440+ full-page QA, reassess Kitchen Interruption, stress-test optional/missing fields and extreme image ratios, verify the shared handoff/link, and complete overflow/accessibility review.
-- Next safe action: re-read the Menu checklist, then complete the remaining full-page Preview and blocker-dependent checks without changing Navbar, Footer, Home `DishSelector`, or other pages.
+- Remaining Menu QA: operate Desktop and Tablet Hover → Expand → Collapse in a live external Page Preview, verify focus presentation, run 320/390/810/1200/1440+ full-page QA, reassess Kitchen Interruption, stress-test optional/missing fields and extreme image ratios, replace Demo handoff contacts/booking destination with verified production values, and complete overflow/accessibility review.
+- Next safe action: re-read the Reserve checklist, then select the real booking provider or form path and complete the blocked form, policy, accessibility, five-width, and live click-path checks without changing Home, Menu, Navbar, or Footer.

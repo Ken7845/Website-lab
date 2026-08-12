@@ -2,13 +2,13 @@
 
 Page: Reserve  
 Path: `/reserve`  
-Status: To do; booking integration Blocked  
+Status: Native reservation-request form in progress; live submission Blocked  
 Primary CTA: `Reserve a seat`
 
 ## Definition of Ready
 
 - [x] Page purpose and structural direction are approved in `PROJECT.md`.
-- [ ] Decide whether the final action is instant booking, an external provider handoff, or an enquiry request.
+- [x] Final action: native reservation-request form; no external booking embed or handoff.
 - [ ] Supply the real booking provider, destination URL, form endpoint, or approved integration.
 - [ ] Supply verified response time, availability rules, cancellation policy, address, arrival instructions, accessibility, email, and phone as applicable.
 - [ ] Approve the exact opening title and confirmation language.
@@ -30,32 +30,32 @@ Reserve is the most operational page. It should be shorter and clearer than Home
 
 ### 1. Compact opening
 
-- [ ] Exactly one h1.
-- [ ] Keep the opening concise and inside the initial viewport.
-- [ ] State the action directly; avoid atmospheric copy that delays booking.
-- [ ] Do not add decorative image, eyebrow, trust strip, or fake availability counter.
+- [x] Exactly one h1.
+- [x] Keep the opening concise and inside the initial viewport.
+- [x] State the action directly; avoid atmospheric copy that delays booking.
+- [x] Do not add decorative image, eyebrow, trust strip, or fake availability counter.
 
 ### 2. Booking explanation
 
-- [ ] Clearly distinguish request, confirmation, and external-provider behavior.
-- [ ] Do not imply availability or confirmation before the provider confirms it.
-- [ ] Identify Demo state when no live service is connected.
+- [x] Clearly distinguish request, confirmation, and external-provider behavior.
+- [x] Do not imply availability or confirmation before the provider confirms it.
+- [x] Identify Demo state when no live service is connected.
 
 ### 3. Booking provider or form
 
-- [ ] Choose one primary path: embed, external handoff, or native form.
+- [x] Primary path: native reservation-request form.
 - [ ] Third-party dependency, account requirement, privacy, and paid plan are documented.
 - [ ] If external, the CTA destination is real and its open/new-tab behavior is intentional.
-- [ ] If native, collect only required information.
+- [x] Native form collects only request essentials: name, email, preferred date, party size, booking type, and optional message.
 
 ### 4. Native form requirements, when used
 
-- [ ] Visible label above every input; placeholder never substitutes for a label.
-- [ ] Fields: name, email, preferred date, party size, booking type, and message only when needed.
-- [ ] Correct input types and required/optional indicators.
-- [ ] Shared Reservation Field component or a clearly maintainable field system.
-- [ ] Shared Button component for Submit.
-- [ ] States: default, focus, filled, invalid, disabled, submitting, success, service failure, and incomplete.
+- [x] Visible label above every input; placeholder never substitutes for a label.
+- [x] Fields: name, email, preferred date, party size, booking type, and optional message.
+- [x] Correct input types and required/optional indicators.
+- [x] Clearly named, maintainable Reservation Field system.
+- [x] Shared `ReservationSubmit` component for Submit.
+- [x] Button structures exist for default, incomplete, submitting, success, and service-failure states; live state behavior remains unverified until a data destination exists.
 - [ ] Error text appears beside or below the affected field and uses accessible contrast.
 - [ ] Submit label describes the result, for example `Send request` when it is not instant booking.
 - [ ] Keyboard order, Tab, Shift-Tab, Enter submission, and error return path work.
@@ -71,32 +71,32 @@ Reserve is the most operational page. It should be shorter and clearer than Home
 ### 6. Practical information
 
 - [ ] Address, arrival time, cancellation, accessibility, response time, phone, and email appear only when verified.
-- [ ] Phone uses `tel:`, email uses `mailto:`, and address uses a real map URL.
-- [ ] Long information is grouped into meaningful clusters, not a dense bordered table.
-- [ ] Practical information is available in the body, not only Footer.
+- [x] Phone uses `tel:`, email uses `mailto:`, and address uses a map URL; all current values are explicitly Demo.
+- [x] Long information is grouped into meaningful clusters, not a dense bordered table.
+- [x] Practical information is available in the body, not only Footer.
 
 ## Shared system and responsive
 
-- [ ] Use shared Layout Template, Navbar, Footer, Button, and field system.
-- [ ] Navigation and all Home reservation CTAs point to the real `/reserve` destination once this Page is ready.
-- [ ] Desktop uses a quiet two-zone composition with clear width ownership.
-- [ ] Tablet keeps form and supporting information readable without squeezing columns.
-- [ ] Phone is a strict single column with the action before secondary facts.
+- [x] Use shared Layout Template, Navbar, Footer, and Button; field system remains blocked because no real form is present.
+- [x] Navigation, Footer, Home CTA, and Menu CTA point to `/reserve`.
+- [x] Desktop uses a quiet two-zone composition with clear width ownership.
+- [x] Tablet keeps the request and supporting information readable without squeezing columns.
+- [x] Phone is a strict single column with the action before secondary facts.
 - [ ] Inputs, selects, date controls, text area, and Submit have approximately 44px touch targets.
 - [ ] 320/390 labels, errors, dates, emails, and button text do not overflow.
 - [ ] Verify 320, 390, 810, 1200, and 1440+.
 
 ## SEO, accessibility, motion, and performance
 
-- [ ] Unique Page Title and Meta Description.
-- [ ] Exactly one h1 and logical h2/h3 hierarchy.
+- [x] Unique Page Title and Meta Description.
+- [x] Exactly one h1 and logical h2 hierarchy.
 - [ ] Form contrast, placeholder contrast, Focus rings, labels, helper text, and errors meet reading needs.
 - [ ] Screen-reader names describe every control and result.
 - [ ] Error is not communicated by color alone.
 - [ ] Reduced Motion does not delay or hide form feedback.
 - [ ] Motion is limited to clear state transitions and feedback.
 - [ ] Provider embed does not create unexpected CLS, overflow, or inaccessible focus traps.
-- [ ] No unnecessary background image or heavy media competes with the form.
+- [x] No unnecessary background image or heavy media competes with the request action.
 
 ## Marketplace stress tests
 
@@ -126,8 +126,19 @@ Reserve is the most operational page. It should be shorter and clearer than Home
 
 ## Latest Part Result
 
-Scope: Page plan  
-Status: Blocked
+Scope: Rebuilt Demo request page and existing cross-page Reserve routing  
+Status: Partial Pass; native form structure built, live submission remains Blocked
+
+Passed:
+- Home's separately drawn Reserve control was replaced by a shared instance; Home, Menu, shared Navigation, and shared Footer now route to `/reserve`.
+- After the prior Reserve content was removed, `/reserve` was rebuilt from an empty canvas with Desktop 1200, Tablet 810, and Phone 390 layouts, one h1, direct request language, a Demo disclaimer, an editorial mailto action, and body-level Demo email/telephone/map fallbacks.
+- The rebuild uses one compact main scope rather than the prior non-brand-aligned two-section approach. Desktop is a quiet two-zone composition; Phone is a strict title → action → fallback reading sequence.
+- The Demo email, telephone, and address use a local 15px Inter exception so new Phone contact information does not inherit the current 11px `Type/Body` preset.
+- The approved native request path is now represented by a labelled reservation form with Name, Email, Preferred date, Party size, Booking type, and optional Message. Date and party size share a Desktop row and stack on Phone.
+- `ReservationSubmit` provides Default, Incomplete, Pending, Success, and Error variants and is bound as the form submit control. The page explicitly states that the Demo form cannot send requests until a data destination and privacy notice are configured.
+- Desktop and Tablet use a balanced two-column reservation form. The first column holds Name, Email, and Booking type; its Date-and-party row fills exactly the same column width. The second column holds Message with the `Request a table` action directly beneath it. Phone stacks both columns and its Date-and-party fields into one clear action sequence. Every input fills its allocated column; the Demo notice sits outside the form.
+- Desktop and Phone canvas screenshots were visually checked after the final CTA refinement. No publish was performed.
 
 Blocked:
-- Booking provider, form endpoint, data handling, response time, policies, address, phone, email, and fallback contact are missing.
+- Form data destination, data handling, response time, policies, verified address, verified phone, verified email, privacy language, and live confirmation/failure behavior are missing.
+- 320, 1440+, keyboard/focus, Reduced Motion, and live click-path Preview checks remain.

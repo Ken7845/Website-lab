@@ -139,10 +139,13 @@ The page must explain food more clearly than Home while avoiding another Evening
 
 ### 8. Reservation handoff
 
-- [ ] Use `Reserve a seat` consistently.
-- [ ] Reuse the shared Button component.
+- [x] Use `Reserve a seat` consistently.
+- [x] Reuse the shared `ButtonPrimary` component.
 - [ ] Link to a real Reserve page or booking destination.
-- [ ] Preserve the dark conclusion only if it does not mechanically duplicate Home Invitation; vary composition while keeping the token system.
+- [x] Use clearly marked fictional Demo contact values until verified production details exist: `reservations@aurelia.example`, `+1 212 555 0148`, and `18 Aurelia Lane, New York, NY 10013`.
+- [x] Make the Demo email and telephone directly clickable while retaining an explicit replace-before-publish notice.
+- [x] Preserve the dark conclusion without mechanically duplicating Home Invitation: Desktop uses an asymmetric lead and three-column contact band, Tablet tightens the split, and Phone changes to a single-column contact sequence.
+- [x] Verify the optimized Handoff visually at Desktop, Tablet, and Phone component screenshots.
 
 ## CMS or component gate
 

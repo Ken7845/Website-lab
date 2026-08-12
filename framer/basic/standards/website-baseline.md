@@ -210,6 +210,7 @@ Layout Template
 - 优先使用 Stack 和 Grid，明确谁拥有宽度。
 - 内容区设置合理 max-width，宽屏不无限拉伸。
 - 间距来自稳定系统，不逐个 Section 随机设置。
+- Targeted Preview 或截图如确认文字被父级 Stack 裁切，先排查该父级的固定尺寸、Padding 和宽度所有权；确认文字本应自然外溢且不存在横向溢出后，把该父级 Stack 的 `overflow` 改为 `visible`，再复检相关断点。不要把 `visible` 设为默认值，也不要用它掩盖错误尺寸或布局溢出。
 - 允许不同 Section 使用不同构图，不把全站变成同一种容器模板。
 
 Layer、Component 和 Variant 使用语义名称。详细规则见 `framer/basic/standards/layer-naming.md`。
