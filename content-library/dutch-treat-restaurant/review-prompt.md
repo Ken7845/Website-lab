@@ -43,7 +43,7 @@ Visual Style:
 - 哪些地方被我要求修改
 - 为什么第一次设计没有达到预期
 - 后续修改解决了什么问题
-- 这次做这个项目的过程中我们遇到了两三次reconnect的问题，这让我必须打开新的task窗口然后让你去接上一段task的内容，这个问题每次都通过新开task窗口并提出优化方案比如压缩图片的方式解决，这个部分很重要，因为这个问题极大的降低了工作效率， 所以总结一下你在处理图片的时候遇到的问题以及以后要怎么解决，这个部分补充到AGENTS.md的图片处理部分，我不希望以后还会这种问题，
+- 这次项目中出现了多次 reconnect，明显降低了效率。复盘图片查看、压缩、上传和恢复方式，并把可复用结论补充到 `framer/basic/workflows/image-workflow.md`；Session、targeted read 和批量写入规则补充到 `framer/basic/workflows/token-saving.md`。不要把 Framer 专项细节继续堆入仓库级 `AGENTS.md`。
 
 把这些可以优化并且可以使未来项目优化的地方总结并补充道AGENTS.md里面
 
