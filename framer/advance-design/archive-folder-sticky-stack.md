@@ -80,15 +80,31 @@ Use this for Creation records first, then optionally migrate Observation rows on
 The preferred maintenance model is:
 
 - One component: `Archive Option Row`
-- One variant per work record
-- Variant controls the row label content, status, route/link, and custom cursor preview if that record has one
-- Page folders only place component instances and select the correct variant
+- Structural variants only: Desktop and Phone, plus the minimum pointer-only Hover Gesture Variant; normally this is one shared `Desktop Hover`, not a duplicated `Phone Hover`
+- Component Properties control number, title, meta, status, base fill, and hover fill
+- Page instances control the real content, route/link, and custom cursor preview
+- New work means duplicating an instance and changing its properties, not duplicating a record variant
 
-This is cleaner than hand-building rows per folder, because a new work can be added by creating or duplicating a variant and then placing an instance.
+This is cleaner than hand-building rows or creating a full variant set per record. A new work should not add Desktop + Phone + Hover copies inside the component.
+
+The Ken Studio Campus row is the reference maintenance pattern:
+
+```text
+Archive Option Row / Desktop
+└── Campus page instance
+    ├── Number: 02
+    ├── Title: Campus
+    ├── Meta: PHOTOGRAPHY
+    └── Cursor Variant: Campus
+```
+
+Content lives on the instance. The component remains a template.
 
 Important hover-preview note:
 
 When rows are placed as component instances, the custom cursor preview needs to be checked on the page instance as well as inside the component variant. If the preview disappears after componentizing rows, reselect each desktop/tablet row instance and apply the custom cursor component + matching preview variant there.
+
+The row brightening state belongs to the shared component. Create one Hover Gesture Variant, expose hover fill as an instance property, and let every project row supply only its color/content values. Do not add per-record hover copies or a touch-only hover variant without a verified pointer requirement.
 
 Phone should not reuse the exact desktop row layout. Use phone-specific row variants:
 
@@ -134,8 +150,8 @@ After creating or replacing row components, check this matrix before moving on:
 
 | Check | Why it matters |
 |---|---|
-| Component variants | Each work record needs its own variant with correct title, number, meta, status, and visual state. |
-| Page instances | Each instance must select the correct variant; otherwise rows may all show default text such as `Project Title`. |
+| Component variants | Keep only structural/responsive and gesture variants; no record-specific copies. |
+| Page instances | Each instance must contain the correct title, number, meta, fill, link and cursor values. |
 | Custom cursor | Cursor preview often disappears after componentizing because the page instance no longer has the cursor binding. |
 | Hover state | Hover should be a component hover variant or gesture state, not only a guessed outer effect. |
 | Links | Only add links after the route exists and is confirmed. |
@@ -153,17 +169,17 @@ The fix is to verify both layers:
 
 ```text
 Archive Option Row component
-└── variants / hover variants / cursor defaults
+└── Desktop / Phone / Hover structure + content/fill properties
 
 Page folder
-└── component instances / selected variants / custom cursor bindings
+└── component instances / property values / custom cursor bindings
 ```
 
 Never finish a component migration after checking only the component canvas.
 
 ## Responsive row rules
 
-Phone rows should be designed as their own variants, not as squeezed desktop rows.
+Phone rows should use one shared Phone structural variant, not a Phone variant per record and not a squeezed Desktop row.
 
 Recommended phone row structure:
 

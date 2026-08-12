@@ -18,9 +18,9 @@ Morrow & Grain Bakehouse
 2. Taste Skill
 3. inspiration 文件夹中相关的餐饮网站的案例，重点阅读dutch-treat-restaurant这个案例的study-case和HANDOFF.md
 4. 当前项目中的品牌资料info.md
-5. 当前项目的图片资料，要特别注意AGENTS.md中强调的图片处理方式，还有一个比较特殊的，这次的图片是AI生成的，每张图片里包含四个场景或者四个产品，做网站的时候是使用单个产品的图片，所以这里要求开始做之前对照片进行一分四的裁切，不要改变照片内容，然后再做处理
+5. 当前项目的图片资料。图片处理遵循 `../../framer/basic/workflows/image-workflow.md`。本项目图片为 AI 生成的四场景/四产品拼图，搭建前使用一个可恢复的批处理脚本完成一分四裁切，不改变图片内容，再生成网页输出版本
 6. 主要参考的设计是balkan-bakery
-7. 明确本次任务的要求，不仅要做到视觉设计，还要做到一定的交互动效，相关要求阅读motion-design.md
+7. 明确本次任务的要求：首次搭建同时完成视觉、Styles、Components、交互、响应式、语义和链接。执行顺序阅读 `../../framer/basic/workflows/build-checklist.md`，动效要求阅读 `../../framer/basic/patterns/motion-design.md`
 
 理解以下关系：
 

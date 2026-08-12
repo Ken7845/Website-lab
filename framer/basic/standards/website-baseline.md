@@ -1,0 +1,487 @@
+# Framer 网站基础规范
+
+本文档定义所有 Framer 网站必须满足的最低完成标准，适用于 Section、Page 和完整 Website。
+
+它不规定固定风格，也不替代项目的 Brand Voice、Style Guide 和 Inspiration。它负责确保一个视觉上成立的网站，同时具备系统、响应式、交互、语义、可访问性和维护能力。
+
+## 使用关系
+
+- 项目事实与范围：`content-library/<project>/PROJECT.md`
+- 执行顺序：`framer/basic/workflows/build-checklist.md`
+- 默认结构：`framer/basic/patterns/pattern-recipes.md`
+- 完成前抓漏：`framer/basic/workflows/preflight-audit.md`
+- Marketplace 附加要求：`framer/basic/standards/marketplace-guidelines.md`
+- 专项细节：从 `README.md` 按任务读取
+
+Baseline 必须在首次搭建阶段进入 Definition of Done，不能等到最终 Polish 才检查。
+
+---
+
+## 1. 第一性原理
+
+一个成型的网站需要同时满足：
+
+```text
+视觉层：品牌、构图、排版、图片、内容叙事
+系统层：Text Styles、Color Styles、Components、Variants、CMS 决策
+交互层：Links、Hover、Sticky、Overlay、Lightbox、Forms
+语义层：Metadata、Heading、Alt、按钮与链接语义
+响应式层：Desktop、Tablet、Phone 的真实适配
+交付层：命名、性能、QA、维护说明和发布准备
+```
+
+只完成视觉层不能称为完成。
+
+开始前必须明确：
+
+- 目标用户是谁。
+- 网站帮助用户理解什么。
+- 网站最重要的行动是什么。
+- 每个页面存在的目的。
+- 品牌事实、内容和素材是否足够。
+
+缺少事实内容时标记 `Missing`，不得自行编造地址、价格、营业时间、人员和联系方式。
+
+---
+
+## 2. Brand 与视觉质量
+
+网站需要明确 Brand Direction：
+
+- Brand personality
+- Core concept
+- Visual memory point
+- Typography direction
+- Color direction
+- Image strategy
+- Motion character
+
+避免：
+
+- 标准 Hero + Cards + CTA 的机械模板结构。
+- 只替换图片、颜色和文字。
+- 平均化所有 Inspiration。
+- 与项目无关的流行视觉语言。
+- 用花哨动效掩盖内容和层级问题。
+
+页面顺序应服务品牌叙事与转化，不因为“网站通常这样”而增加 Section。
+
+---
+
+## 3. Style System
+
+最小 Text Styles：
+
+- Display / H1
+- H2
+- H3（需要时）
+- Body Large
+- Body
+- Caption
+- Eyebrow / Label
+- Button Label
+
+最小 Color Styles / Variables：
+
+- Background / Base
+- Background / Inverse
+- Surface
+- Text / Primary
+- Text / Secondary
+- Accent / Primary
+- Border / Divider
+- State / Hover
+- State / Focus
+
+要求：
+
+- Styles 在批量搭建页面前建立，不在最后统一补。
+- 命名按用途，不按临时颜色值或页面名称。
+- 同一种语义角色复用同一 Text Style。
+- 页面背景、主要文字、品牌色、按钮、Navbar、Footer、Overlay 和 Link States 优先使用 Styles/Variables。
+- 允许少量有理由的局部例外，不能让直接样式成为主要系统。
+
+Heading 语义与视觉 Style 是两件事：
+
+- 页面主要标题在内容关系成立时使用 `h1`，但不强制绑定最大号 H1/Display Style。
+- 主要 Section 标题在层级关系成立时使用 `h2`，视觉上可以使用更克制的现有 Style。
+- 子级内容在真实从属关系成立时使用 `h3`，不能为了完成 Checklist 把普通标签或项目名升级为 Heading。
+- Eyebrow、价格、标签不能因视觉醒目而误设为 Heading。
+
+不要为了使用语义而使用语义，也不要让语义预设破坏页面：
+
+- 先判断内容职责，再选择 tag；没有真实页面主标题时，不为凑一个 `h1` 把无关文字设为 `h1`。
+- tag、字体角色、字号和行高分别判断。`h1` 不等于必须使用全站最大字号，`p` 也不等于只能使用最小正文样式。
+- 如果套用 H1/H2/P 预设造成重叠、裁切、破坏性换行或与图像比例失衡，先换成符合页面的现有视觉 Style 或局部响应式值；不要机械保留不合适的预设。
+- 不能通过把所有内容降为 `p` 来逃避层级。最终标准是内容关系正确、视觉成立、屏幕阅读器顺序可理解。
+
+响应式字号必须有明确策略，不把 Desktop 字号逐页临时缩小成 Phone。
+
+---
+
+## 4. Components、Variants 与 Properties
+
+优先组件化跨页面或高频重复结构：
+
+- Navbar
+- Footer
+- Buttons
+- Product / Menu / Project Cards
+- Contact Info Rows
+- Form Fields
+- 其他实际重复结构
+
+Variant 表达状态或结构：
+
+- Desktop / Tablet / Phone
+- Light / Dark
+- Default / Hover / Active / Disabled
+- Compact / Expanded
+
+Property、Fill 或 CMS 表达内容差异。
+
+同一行、卡片或项目模板中，标题、编号、Meta、状态、图片、基础 Fill、Hover Fill 和 Link 等可编辑内容，应优先暴露为 Component Properties / Variables，并在页面 Instance 上设置。不要把每个项目复制成一个内容 Variant。
+
+推荐：
+
+```text
+ArchiveOptionRow
+├── Desktop
+├── Phone
+└── Desktop Hover
+
+Instance Properties
+├── Number
+├── Title
+├── Meta
+├── Surface
+└── Hover Surface
+```
+
+`Desktop Hover` 是默认唯一的 pointer hover 状态；Phone 触摸路径不机械复制 Hover Variant。若特定项目确实需要手机外接指针状态，必须先由真实 Preview 证明，再增加最小必要变体。
+
+Variant 只承担 Desktop / Phone、Default / Hover 等真实结构或状态差异。新增项目通常只增加一个 Instance 和对应内容，不增加一组内容 Variant。
+
+禁止：
+
+- `Variant 2`、`Copy` 等无语义命名。
+- 为每张不同照片创建相同结构的 Variant。
+- 为每条项目记录复制 Desktop、Phone 和 Hover 内容 Variant。
+- 同时保留两个表达同一标题或状态的重复 Property。
+- 为简单效果制造几十个状态。
+- 为了组件数量而组件化一次性 Section。
+
+组件化后必须回到实例检查：Variant、Properties、Link、Effect、Hover、Cursor 和各断点 override。
+
+### 组件内部与外部实例的尺寸契约
+
+组件不是脱离页面存在的画板。凡是内部含有固定坐标、裁切窗口、横竖轨道、Absolute 内容或基于像素的动效，必须先定义并保持“组件内部尺寸 ↔ 页面实例可用尺寸”的对应关系。
+
+- Desktop、Tablet、Phone 的 Component Variant 必须与外部 Instance 所选断点一一对应；不要在 Phone 页面继续使用 Desktop Variant，或让 Tablet Instance 继承不兼容的固定尺寸。
+- 外部 Instance 的 `width`、`height`、`max-width`、父级 Stack 分配方式，必须能容纳组件内部的关键 Fixed 容器。内部尺寸可以是固定值，外部根尺寸则可按内容使用 Fill / Fit / 明确 max-width；重点是两者必须属于同一套尺寸模型。
+- 当内部有 Image Viewport、slide、number reel 或文字 reel 等像素坐标时，外部可用宽高一变，内部的 Fixed 值、pitch、裁切窗口与状态位移必须同时重新计算或切换到对应 Variant。
+- 不要只在 Component Canvas 中看起来正确。必须把实例放回真实 Section，在 Desktop、Tablet、Phone 外部 Preview 中检查首项、中间项、末项，以及父级宽度变化后的对齐。
+
+示例：外部实例在 Desktop 给图片裁切区 585px 的稳定可用宽度时，组件内部的 Image Viewport、每张 slide 和横向位移 pitch 都必须以 585px 为坐标基准；Tablet 若改为 500px，则必须使用 Tablet 专属的 500px 轨道与位移值。只改外部 Instance 或只改内部组件，都会让切换后的图片偏离裁切框。
+
+创建后强制回到页面实例检查时，追加：
+
+- [ ] 外部 Instance 与当前 Desktop / Tablet / Phone Variant 对应。
+- [ ] Instance 的外部宽高模型能容纳内部的 Fixed Viewport、轨道和裁切窗口。
+- [ ] 固定坐标组件已在外部 Preview 改变可用宽度后复查，没有变形、露白或偏移。
+
+---
+
+## 5. Layout 与共享结构
+
+多页面网站默认：
+
+```text
+Layout Template
+├── Navbar Component
+├── Content Placeholder
+└── Footer Component
+```
+
+要求：
+
+- 页面只维护自己的 Content。
+- Navbar/Footer 不在每页复制。
+- 优先使用 Stack 和 Grid，明确谁拥有宽度。
+- 内容区设置合理 max-width，宽屏不无限拉伸。
+- 间距来自稳定系统，不逐个 Section 随机设置。
+- 允许不同 Section 使用不同构图，不把全站变成同一种容器模板。
+
+Layer、Component 和 Variant 使用语义名称。详细规则见 `framer/basic/standards/layer-naming.md`。
+
+---
+
+## 6. 页面结构与内容目标
+
+每个页面必须有明确目的和主要行动。
+
+常见页面职责：
+
+- Home：解释品牌、建立兴趣并引导核心行动。
+- About：建立信任，说明故事、过程、团队或价值。
+- Product / Service / Menu：清楚展示可选择内容。
+- Gallery / Work：展示证据、作品、空间或过程。
+- Contact / Visit：完成联系、到店、预约或询价。
+
+不要机械创建全部页面。页面和 Section 以 `PROJECT.md` 为准。
+
+正式页面不得存在：
+
+- Lorem Ipsum。
+- 无说明占位内容。
+- 无来源的品牌事实。
+- 无目标 CTA。
+- 只能通过 Footer 才能找到的核心行动。
+
+---
+
+## 7. Links 与 Conversion
+
+以下信息在主要出现位置必须可操作：
+
+- Logo → `/`
+- 电话 → `tel:`
+- 邮箱 → `mailto:`
+- 地址 → Map URL
+- 社交账号 → Real external URL
+- 预约、购买、询价、到店 → Clear CTA
+
+要求：
+
+- 主体与 Footer 的关键信息一致。
+- Navbar、Footer、CTA 不使用空链接。
+- 不连接到不存在、Draft 或无关页面。
+- 外部链接按需要在新标签页打开。
+- Contact 页面没有表单时，必须有清楚的替代联系路径。
+
+---
+
+## 8. SEO 与页面语义
+
+每个正式页面必须有：
+
+- 唯一 Page Title。
+- 独立 Meta Description。
+- 一个主要 `h1`。
+- 按关系组织的 `h2/h3`。
+- 清晰页面路径。
+
+全站必须有：
+
+- favicon。
+- Open Graph 图片。
+- 必要社交分享信息。
+
+不能只在首页设置 Metadata，也不能用字号模拟 Heading。
+
+---
+
+## 9. 图片与 Alt
+
+图片必须：
+
+- 符合品牌和内容目标。
+- 使用适合容器的网页输出尺寸。
+- 在各断点保留核心视觉信息。
+- 不含不应出现的截图 UI、黑块或控件。
+
+Alt 判断：
+
+- 信息性图片：简短、具体、与上下文相关的 Alt。
+- 装饰性图片：显式空 Alt。
+- 不允许 Alt 未定义。
+
+裁切、联系表、批处理和 reconnect 规则见 `framer/basic/workflows/image-workflow.md`。
+
+---
+
+## 10. Responsive
+
+最低检查宽度：
+
+- 320px Phone
+- 390px Phone
+- 810px Tablet
+- 1200px Desktop
+- 1440px+ Wide Desktop
+
+Desktop 关注构图、空间感、大图和 max-width。
+
+Tablet 需要真实布局调整，不能只是缩小 Desktop。
+
+Phone 检查：
+
+- 核心导航完整。
+- 内容顺序自然。
+- Row/Grid 转为合适 Stack 或减少次要信息。
+- Heading、邮箱、价格、日期和 metadata 不破坏性断行。
+- 触控目标约 44×44px 或更大。
+- 图片重新设置比例和焦点。
+- 无横向溢出和极小文字。
+
+Footer 在 Phone 使用自然垂直阅读顺序。
+
+---
+
+## 11. Motion 与交互
+
+Motion 服务：
+
+- 品牌氛围。
+- 阅读节奏。
+- 状态反馈。
+- 空间层级。
+
+优先使用 Framer 原生 Effects、Variants 和 Overlays。
+
+默认模式：
+
+- Sticky/scroll Navbar → Navbar Variants。
+- Phone Navbar Menu → Relative Overlay。
+- 简单图片放大 → Lightbox Effect。
+- 页面级 Modal → Fixed Overlay。
+- Dense Row Hover → Gesture Variant + color/opacity。
+- Image Hover → Outer Frame + Inner Image scale。
+
+禁止：
+
+- 密集链接、整行或整个卡片 hover scale。
+- 直接闪现的 Overlay/Lightbox。
+- 过度 bounce、旋转和无目的动画。
+- 为简单原生效果引入 Custom Code。
+
+详细规则见 `framer/basic/patterns/motion-design.md` 和 `framer/basic/patterns/pattern-recipes.md`。
+
+---
+
+## 12. Accessibility 与 Reduced Motion
+
+检查：
+
+- 颜色对比度和正文尺寸。
+- 可见 Focus 状态。
+- 键盘顺序符合视觉顺序。
+- Hover 信息在触控/键盘下可获得。
+- 按钮和链接名称描述操作结果。
+- Overlay、Lightbox、Form 不造成焦点丢失。
+
+Reduced Motion 下：
+
+- 取消大位移、强缩放、视差和持续自动运动。
+- 可以保留短透明度变化。
+- 不得破坏内容、导航和反馈。
+
+不为简单项目强制增加 Custom Code；优先使用 Framer 和系统原生行为。
+
+---
+
+## 13. CMS 决策
+
+优先评估 CMS 的条件：
+
+- 同一结构大量重复。
+- 用户需要经常增删排序。
+- 内容有明确字段。
+- 需要筛选、分类或详情页。
+
+不为了“看起来专业”而 CMS 化少量静态内容。
+
+CMS 必须字段清楚、默认内容完整、无测试数据，并能承受长标题、不同图片比例和可选字段缺失。
+
+---
+
+## 14. Performance 与维护
+
+- 图片尺寸匹配容器。
+- 动画数量克制。
+- 不保留无意义 Code、Components、Variants 和 CMS 字段。
+- 核心视觉可通过 Styles 修改。
+- 核心结构可通过 Components/Properties 修改。
+- Layer 和内容入口清楚。
+- 第三方依赖和授权明确。
+
+目标是后续修改比首次搭建更简单。
+
+---
+
+## 15. Definition of Done
+
+### Section Done
+
+- 使用正确 Text/Color Styles。
+- 重复结构使用合适 Component/Property/CMS。
+- 图片、Alt、Links 和 Heading 完成。
+- Desktop、Tablet、Phone 成立。
+- 必要 Motion 和 Interaction 完成。
+- Targeted readback 无结构性遗漏。
+
+### Page Done
+
+- 内容与页面目的完整。
+- Metadata、一个 h1 和主要 h2/h3 完成。
+- Navbar、Footer、CTA 和 Contact/Visit 信息可操作。
+- 所有图片有明确 Alt 判断。
+- 320/390/810/1200/1440+ 行为合理。
+- 完成一次目标化 Preview 检查。
+
+### Website Done
+
+- Layout Template、Navbar、Footer、Buttons 和核心 Styles 成立。
+- 全部正式页面进入 Build Status Matrix。
+- favicon、Open Graph、Links、Accessibility 和 Performance 完成。
+- Sticky、Overlay、Lightbox、Form 等关键交互真实验证。
+- 通过 `framer/basic/workflows/preflight-audit.md`。
+- 例外和 Missing 内容记录在 `PROJECT.md`。
+
+---
+
+## 16. 避免集中 Polish
+
+不要采用：
+
+```text
+先完成所有视觉页面
+→ 最后统一补 Styles、Phone、SEO、Alt、Links、Components 和 QA
+```
+
+应该按 Section/Page 纵向完成：
+
+```text
+内容
+→ 视觉
+→ Styles
+→ Components
+→ Links 与语义
+→ Responsive
+→ Motion
+→ Targeted Preview
+→ Done
+```
+
+如果最终 Polish 仍需要新增 Metadata、Heading、Alt、Phone Navigation、共享 Components 或核心 Styles，说明首次搭建没有执行 Baseline。
+
+真正的最终 Polish 主要处理：
+
+- 小范围间距与换行。
+- 图片焦点。
+- Hover 对比度。
+- 动画节奏。
+- 少量文案修正。
+- 发布前点击抽查。
+
+---
+
+## 最终标准
+
+视觉上：像一个真实且有辨识度的品牌。
+
+结构上：像一个可理解、可维护的系统。
+
+使用上：用户能够理解内容并完成行动。
+
+交付上：不把基础能力和结构债务留给最终 Polish。

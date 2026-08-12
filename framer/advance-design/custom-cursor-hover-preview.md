@@ -120,13 +120,13 @@ Framer 会提示 custom cursor transition 可能让鼠标变“慢”。所以�
 
 只有当目标就是“图片跟随鼠标时有一种柔软、滞后的质感”时，才加轻微 transition。
 
-本次使用过：
+Ken Studio / AURELIA 的较轻跟随设置：
 
 ```text
-spring-duration 0.42s 0.18 0s
+spring-physics 400
 ```
 
-如果感觉拖沓，优先减小 duration，或者只保留 variant transition，不给 custom cursor 本身加 transition。
+如果仍然感觉拖沓，提高 physics 值，或移除 Custom Cursor transition，只保留 Reel / variant 的切换动画。
 
 ## 图片比例与内容完整度
 
@@ -293,11 +293,236 @@ Page instance 一定会显示 cursor
 2. 改名为新作品名。
 3. 替换 preview image。
 4. 根据素材方向调整 preview 尺寸。
-5. 回到 archive row component，创建/复制对应 row variant。
-6. 在页面实例选择新 row variant。
+5. 回到页面复制一个 `Archive Option Row` instance。
+6. 在 Instance 修改 Number、Title、Meta、Fill 和 Link。
 7. 在页面实例确认 custom cursor 指向新 preview variant。
 
 每新增一个作品，用同一张检查表走完，而不是边看边修。
+
+## 列表组件化：Cursor binding 放在哪里
+
+当列表的每一行需要同时具备可编辑文案、浅灰 hover 与悬浮图片预览时，把**行本身**做成原生 Component，而不是把整组列表连同 preview 一起做进一个大组件。
+
+推荐分层：
+
+```text
+Page section
+└── Index/List container
+    ├── Chapter / Archive Row instance 01
+    ├── Chapter / Archive Row instance 02
+    └── ...
+
+Chapter / Archive Row component
+├── Variant: Desktop
+├── Variant: Tablet
+├── Variant: Phone
+├── Gesture variant: Desktop Hover
+└── Gesture variant: Tablet Hover
+
+Cursor Preview component
+├── Variant: item 01 image
+├── Variant: item 02 image
+└── ...
+```
+
+### 组件职责
+
+`Chapter / Archive Row` component 只管理：
+
+- 标题与描述的 string properties；
+- Desktop / Tablet / Phone 的行内排版；
+- divider、内边距与 `height="auto"`；
+- 原生 Hover gesture variant 的浅灰背景与短 transition。
+
+`Cursor Preview` component 只管理：
+
+- 每个条目的图片；
+- 每张图片自己的预览宽高；
+- variant 切换 transition。
+
+页面里的**每个 Row instance**管理：
+
+- 它自己的标题和描述值；
+- Custom Cursor 指向同一个 `Cursor Preview` component；
+- Custom Cursor 的正确图片 variant。
+
+不要只在 Row component 定义里设置 custom cursor。组件化后，页面实例可能有自己的 override；最终必须在页面层逐项检查 instance 的 cursor binding。
+
+### Ken Studio 的已验证范例
+
+`Ken Studio / Works / Observation Index Area` 采用的是 `ArchiveOptionRow`：
+
+- Row 有 `Desktop`、`Phone` 和对应 Hover gesture variants；
+- `Project Title`、`Meta`、`Number`、`Project Link`、`Base Fill`、`Hover Fill` 都是 instance properties；
+- 页面里每一个作品 instance 自己绑定 `Cursor Preview / Works` 的对应 variant；
+- Hover 使用组件内部状态，Cursor Preview 保持为独立组件。
+
+这避免了“组件化后预览消失”的问题，也让单行内容、手机排版与 hover 外观可复用。
+
+### Preview 图片：先选定“完整内容”还是“统一滚动窗口”
+
+这两个要求在素材比例不一致时不能同时由一个普通 Frame fill 自动完成，必须先选策略：
+
+| 目标 | Preview Frame | 图片处理 | 适合 |
+|---|---|---|---|
+| 每张图完整显示 | 宽度固定、高度 `fit-image` | 保留真实图片比例 | 静态 cursor preview / 不同尺寸的 variant |
+| 所有状态以固定步长滚动 | 所有 slide 锁定同一宽高 | 素材同一比例，或先做 letterbox 衍生图 | 垂直 / 横向 reel |
+
+固定 Reel 不能让一张横图与一张竖图都“原尺寸完整覆盖”同一个窗口；否则其中一张必然被裁切。若内容完整比满框更重要，先把非同一比例的图片制作成带背景留白的统一比例 web derivative，再上传到 Framer。不要拉伸原图。
+
+`overflow: clip` 与小圆角用于显示窗口边缘；它们不是图片内容的排版方案。
+
+## 完整制作配方：固定尺寸 Cursor Preview Reel
+
+下面是可以直接复用的原生 Framer 方案。适用于固定数量的目录、菜品、作品或章节，并且需要“图片滚动 + 鼠标粘滞”而不是淡入淡出。
+
+### 0. 先固定内容数量与素材策略
+
+在开始前确认三件事：
+
+1. 条目数是否固定。例如 AURELIA 是固定 4 个章节；新增条目会同时改变 row instances、cursor variants 与 Reel slide 数，不能交给可无限增加的 CMS list。
+2. Reel 是否必须每格相同大小。若必须，先统一所有 image derivative 的画布比例；若不必须，改用每张图自己的 `fit-image` variant，放弃固定步长 Reel。
+3. Phone 是否需要 hover。Phone 不依赖 cursor preview 传达主要信息，但应保留完整标题和描述；桌面指针设备才是该动效的核心场景。
+
+### 1. 建立三个独立层级
+
+```text
+Section / List container
+├── Row instance 01 → cursor variant 01
+├── Row instance 02 → cursor variant 02
+└── Row instance 03 …
+
+Row component
+├── Desktop / Tablet / Phone variants
+├── Desktop Hover / Tablet Hover gesture variants
+└── editable title + description properties
+
+Cursor Preview Reel component
+├── State variant 01
+├── State variant 02
+└── …
+    └── one shared clipped viewport + one shared image stack
+```
+
+不要把 row、整组列表和 cursor preview 合并成一个大 component。它们的复用粒度、外部编辑方式和响应式职责都不同。
+
+### 2. Row component 必须这样建立
+
+1. 从一条已经正确排版的原始 row 创建 component，或以同一结构新建 component。
+2. 组件内部建立 `Desktop`、`Tablet`、`Phone` 三个普通 variants；不要把 breakpoint 写在页面实例内硬撑。
+3. 标题与描述使用独立 string properties，例如 `Chapter Title` 和 `Chapter Description`。
+4. Hover 只做 Gesture variants：背景变浅灰、`scale = 1`、短 tween/spring；不要给 row 再加放大。
+   - 为 Desktop、Tablet、Phone 都建立对应的 Hover gesture variant，使窄屏但带鼠标的预览也一致。
+   - 真实触摸设备没有 hover 或 cursor；Phone 的文字内容必须独立完整，不能依赖预览图片传达信息。
+5. 每个内部 variant 的参考尺寸必须与页面外部实例在相应设备上的参考尺寸相同，且都使用 `height="auto"`。AURELIA 示例为 Desktop `1136px`、Tablet `754px`、Phone `350px`，页面 instance 均为 `width="1fr" height="auto"`。
+6. 页面中的每一条都使用同一个 Row component instance；Desktop / Tablet / Phone breakpoint 分别选择对应内部 variant。
+
+这是防止组件在外部套用后比例、文字换行和 divider 宽度变形的尺寸契约。
+
+### 3. Cursor Preview Reel component 的精确结构
+
+以 4 项、每项 `300 × 200px` 为例：
+
+```text
+ChapterCursorPreview
+├── Arrival variant
+│   └── Preview Viewport — 300 × 200, overflow: clip
+│       └── Preview Reel — vertical Stack, 300 × auto
+│           ├── Slide 01 — 300 × 200
+│           ├── Slide 02 — 300 × 200
+│           ├── Slide 03 — 300 × 200
+│           └── Slide 04 — 300 × 200
+├── First Plates variant  → Reel top: -200px
+├── From the Kitchen      → Reel top: -400px
+└── After                 → Reel top: -600px
+```
+
+制作规则：
+
+- Viewport 必须是固定宽高、`overflow: clip`、小圆角；它是唯一可见窗口。
+- Reel 必须是一个纵向 Stack，`gap: 0px`，宽度与 Viewport 一致，高度 `auto`。
+- 每张 slide 的宽高必须相同；第 `n` 状态的位移 = `-(n - 1) × slide height`。
+- 所有图片只在 Primary Variant 的 Stack 内创建一次；其他状态 variants 只覆盖 Reel 的 `top`。不要每个 Variant 再复制一套图片。
+- 给 Reel 本身设置 `spring-duration 0.52s 0.22 0s` 左右的 transition。根 variant 的同类 transition 用于尺寸 / 外框状态同步。
+- 后续替换图片时，只替换 Primary Stack 中对应 slide 的 fill；所有状态会自动继承。
+
+### 4. Custom Cursor binding 必须设置在页面实例
+
+对每个实际 Row instance 设置：
+
+```text
+Custom Cursor type: ComponentNode
+Component: ChapterCursorPreview
+Variant: 与该 row 对应的状态
+Follow: false
+Transition: spring-physics 400
+```
+
+两层 transition 的职责不同：
+
+| 层级 | 控制对象 | 效果 |
+|---|---|---|
+| Reel transition | 图片 Stack 的 `top` | 状态之间的纵向滚动 |
+| Custom Cursor transition | preview 跟随鼠标的位置 | Ken Studio 式轻微粘滞 / 回弹 |
+
+只设置 Reel transition 不会让鼠标运动本身变粘；只设置 Custom Cursor transition 则会有粘滞但图像会硬切。两者都要有。
+
+组件定义里有 Cursor 设置不代表页面 instance 已生效。完成组件化后必须在页面的 Desktop、Tablet、Phone 三端分别读取 / 检查每个实例的 `customCursor.componentNodeId`、`variant` 和 `transition`。
+
+### 5. 模板交付：让预览图片可以一处替换
+
+不要让买家在四个 Variant 中逐张替换图片；这会留下错误的副本 override，令 Reel 在滚动时出现旧图。
+
+正确做法是在 `Cursor Preview Reel component` 本身建立固定数量的 **image properties**：
+
+```text
+Arrival Preview Image
+First Plates Preview Image
+From The Kitchen Preview Image
+After Preview Image
+```
+
+每个 property 只绑定 Primary Variant 的 Reel 中对应 slide 的 `fill`。其他 cursor state variants 必须继承同一个 Reel 和这些 fill bindings，不能在任何 Replica Variant 单独替换图片。
+
+模板使用者的操作路径：
+
+1. 在 Components 面板打开 `ChapterCursorPreview`；
+2. 在右侧属性中替换四个 `… Preview Image`；
+3. 不改 Slide 顺序、不添加或删除 slide；
+4. 回到 Desktop 和 Tablet Preview 横移四行，确认每个 Row 的 Cursor variant 仍对应正确图片。
+
+这是全局预览组件，因此图片属性显示在 `ChapterCursorPreview` 的组件定义中，而不在每个 `EveningChapterRow` instance 内。替换一次会同步四个列表行和全部响应式 breakpoint。
+
+### 6. AURELIA 已验证示例
+
+`ChapterCursorPreview`：
+
+- 4 个状态：Arrival、First Plates、From the Kitchen、After；
+- 固定 Viewport：`300 × 200px`；
+- 4 个 Slide：均 `300 × 200px`；
+- Reel 位移：`0 / -200 / -400 / -600px`；
+- Reel transition：`spring-duration 0.52s 0.22 0s`；
+- Row Custom Cursor transition：`spring-physics 400`。
+- 图片属性：Arrival / First Plates / From The Kitchen / After，各一项，均绑定到共享 Reel 的 Primary slide。
+
+### 7. 最终 QA 清单
+
+- 默认页面没有固定 preview stage。
+- 每个 row 的标题和描述仍可在外部 instance 编辑。
+- Desktop、Tablet、Phone 的 Row instance 都使用匹配的内部 variant。
+- 所有 row 的 Cursor component id 相同，但 Cursor variant 各自匹配。
+- 每个 Cursor binding 都有同一个轻量 transition；没有意外放大。
+- Phone Row 有对应 Hover gesture variant；同时确认触摸内容不依赖 hover。
+- 四个 `… Preview Image` 属性各自绑定一个 Primary Reel slide，且所有 cursor variants 没有图片 fill override。
+- Preview Reel 的 slide 数与 row 数相同，顺序一致。
+- 第 `n` 个 variant 的位移等于 `-(n - 1) × slide height`。
+- Viewport 之外不出现相邻图片残留。
+- 连续从 row A 横移到 row B 时，图片滚动不硬切，鼠标框有轻微粘滞。
+- 图片比例不一致时，已明确选择裁切或 letterbox derivative，未拉伸。
+- Phone 不依赖 hover 才能阅读或操作。
+- Framer change diagnostics 没有 blocking error；用一次真实 Desktop / Tablet Preview 检查跟随手感。
+
+不要在 archive row component 内为新作品复制 Desktop、Phone 和 Hover 内容 Variant。Row component 只维护结构与状态；作品内容留在页面 Instance。
 
 ## Transition 使用边界
 

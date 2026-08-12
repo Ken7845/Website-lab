@@ -2,6 +2,8 @@
 
 这个文件给以后接手 Framer 项目的 agent 读。目标不是多写规则，而是减少反复试错、重复读取和“改好一个地方又弄坏另一个地方”的额度浪费。
 
+开始前先读当前项目 `PROJECT.md`。搭建顺序由 `framer/basic/workflows/build-checklist.md` 管理，常见结构由 `framer/basic/patterns/pattern-recipes.md` 管理；本文件只管理读取、批量操作、Session 和验证成本。
+
 ## 第一性原理
 
 Framer 页面问题通常分三层：
@@ -185,6 +187,38 @@ Outer visible frame / card
 
 特别注意：组件化后最容易丢的是 effect、cursor、link、instance controls。
 
+## 内容模板不要扩张成 Variant 迷宫
+
+同一结构的项目行、卡片或列表项，优先只保留断点和状态 Variant：
+
+```text
+Archive Option Row
+├── Desktop
+├── Phone
+└── Desktop Hover
+```
+
+默认只保留一个真正服务鼠标/触控板的 Hover Gesture Variant。Phone 属于触摸路径时不复制 `Phone Hover`；只有项目明确要求手机外接指针，并且 Preview 证明需要独立状态时才增加。
+
+项目内容在页面 Instance 设置：
+
+```text
+Number / Title / Meta / Status
+Base Fill / Hover Fill
+Image / Link / Cursor Preview
+```
+
+不要为每个项目复制一套 Desktop、Phone 和 Hover Variant。这样会把一次内容新增变成多处同步，并让旧默认值残留在页面实例。
+
+重构顺序：
+
+1. 找到一个已通过 Instance Properties 正确工作的项目行作为基准。
+2. 把结构、断点和 Hover 收敛到模板 Variant。
+3. 把内容与 Fill 暴露为 Properties。
+4. 先让所有页面 Instance 改用模板 Variant并写入真实内容。
+5. 回读 Desktop / Tablet / Phone、Link 和 Cursor。
+6. 最后删除旧内容 Variants 和重复变量。
+
 ## Hover 的默认策略
 
 密集列表、archive row、menu row 默认不要 scale。
@@ -203,7 +237,7 @@ Outer visible frame / card
 - hover 后改变布局尺寸；
 - 用 overlay 伪装 row hover。
 
-如果 hover 是 component 行的一部分，优先在 component 内部建 Hover Gesture Variant。
+如果 hover 是 component 行的一部分，优先在 component 内部建一个共享 Hover Gesture Variant，并用实例属性传入各项目需要的 hover fill。不要因为记录内容不同复制 hover variant，也不要为默认触摸路径复制 Phone Hover。
 
 ## Custom cursor preview 的默认策略
 
@@ -273,3 +307,69 @@ Review warning 不要机械清零，要判断它是不是设计意图。
 如果需要截图，只截目标容器，不截整页。
 
 如果需要回读，只回读目标节点，不读整页。
+
+## Morrow & Grain Polish 复盘
+
+这次任务暴露了两类高成本问题。
+
+### 1. 视觉完成被误判为网站完成
+
+页面内容、图片和 Desktop 构图已经成熟，所以主观上接近完成；但以下工作被推迟到最后：
+
+- Phone 完整导航。
+- Metadata、Heading、Alt Text。
+- `tel:`、`mailto:`、地图和社交链接。
+- Text Styles、Color Styles 和组件命名。
+- Preview 中真实点击检查。
+
+这些不是微小 Polish，而是网站基础能力。集中到最后处理会迫使 Agent 重新读取整站、重新理解节点关系，并在多个任务类型之间频繁切换。
+
+以后每个 Page / Section 都应使用 `framer/basic/standards/website-baseline.md` 的 Definition of Done，在首次搭建时同时完成视觉、Styles、链接、语义和响应式。
+
+### 2. Overlay 先选错结构，再靠检查纠错
+
+Phone Navbar Menu 最初使用了 Fixed Overlay 和跨 Component Event Handler。这个方案层级长、调试面大，并且不符合 Framer 对锚定 Menu 的默认类型。
+
+以后直接使用：
+
+```text
+Menu Trigger
+└── Relative Overlay
+    ├── Close
+    ├── Navigation Links
+    └── Contact CTA
+```
+
+完整做法与已验证参数见 `framer/basic/patterns/motion-design.md` 的 “Phone Navbar Menu Overlay：一次成型方法”。
+
+### 低成本执行规则
+
+1. 开工前先做原生能力决策，不边搭边选技术方案。
+2. 同类内容批量写入：Metadata 一批、Alt 一批、Links 一批。
+3. 交互结构、内容、链接和动画在一次修改中完成。
+4. 回读只看目标 Component、Variant 和 breakpoint。
+5. Preview 每个关键交互走一次完整路径，不连续截多张相同状态。
+6. 只有验证发现具体问题时才进入第二轮修改。
+7. 最终 Polish 不再新增网站基础能力；如果仍需新增，回溯首次搭建流程。
+
+## 每轮任务的 Token 预算结构
+
+建议把调用分配为：
+
+```text
+1 次 targeted read
+1 次批量 apply
+1 次 targeted review/readback
+1 次关键 Preview 路径
+```
+
+复杂任务可以按 Component 或 Page 重复这个单元，但不要对每个文本、图片或链接单独重复整套流程。
+
+允许额外调用的条件：
+
+- API 明确拒绝属性。
+- Preview 出现可见错误。
+- 响应式断点发生结构差异。
+- 用户在执行中改变需求。
+
+“想再确认一次”本身不是重复读取整页或重复截图的理由。

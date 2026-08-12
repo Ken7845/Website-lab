@@ -12,7 +12,7 @@ traditions, seasonal ingredients, and everyday rituals.
 
 Brand Personality: Warm, crafted, honest, tactile, modern, welcoming
 
-isual Direction: Cream paper tones, toasted brown, muted terracotta, charcoal, natural oak, linen, flour texture, soft morning light
+Visual Direction: Cream paper tones, toasted brown, muted terracotta, charcoal, natural oak, linen, flour texture, soft morning light
 
 Photography Style: Editorial food photography, natural light, realistic textures, slight film grain, 35mm lens feeling, never overly polished or plastic-looking
 
@@ -43,8 +43,7 @@ Body Copy:
 Morrow & Grain is a neighborhood bakery built around slow fermentation, seasonal ingredients, and the simple pleasure of sharing something freshly baked. Every loaf, pastry, and tart is prepared in small batches, with care given to texture, flavor, and the rhythm of each season.
 
 Value Section
-M
-ade by Hand
+Made by Hand
 
 Mixed, shaped, folded, and baked in small batches every day.
 

@@ -14,6 +14,48 @@
 
 # 核心原则
 
+## 0. 简洁、清楚、有区分度
+
+Layer 名称应使用“在当前父级语境中仍能准确定位”的最短表达。
+
+- 优先 1–3 个清楚单词；只有真实职责需要时才增加 `Section`、`Row`、`Grid`、`Image` 等类型。
+- 父级已经提供语境时，不重复祖先前缀。
+- 同级 Layer 必须有区分度；不同父级允许复用 `Image`、`Copy`、`Content` 等短名称。
+- 不把整条层级路径塞进一个名称，也不连续重复项目名、Section 名或内容类别。
+- Scroll Target 是例外：名称必须与真实 `elementId` 完全一致，即使它不符合普通语义命名格式。
+
+推荐：
+
+```text
+Creation
+├── Painting Continuum
+│   ├── Doctrine of the Mean
+│   │   ├── Image
+│   │   └── Copy
+│   └── Depth
+│       ├── Image
+│       └── Copy
+└── Digital Form
+    └── Website Covers
+```
+
+避免：
+
+```text
+Creation Section
+└── Creation Painting Continuum Section
+    └── Creation Painting Continuum Doctrine of the Mean Artwork Row
+        ├── Creation Painting Continuum Doctrine of the Mean Artwork Image Frame
+        └── Creation Painting Continuum Doctrine of the Mean Artwork Copy Stack
+```
+
+判断顺序：
+
+1. 在同级中能否唯一识别。
+2. 父级是否已经说明语境。
+3. 删除重复前缀后是否仍然清楚。
+4. 类型后缀是否真的帮助定位。
+
 ## 1. 禁止使用 Framer 默认名称
 
 不要保留：
@@ -54,7 +96,7 @@ Navigation Bar
 
 # 2. 命名原则
 
-使用：
+缺少父级语境时使用：
 
 ```
 功能 + 类型
@@ -192,7 +234,7 @@ Stack 2
 ```
 
 
-根据用途命名。
+根据用途命名。父级已说明主题时只保留当前层职责，不重复父级名称。
 
 
 ## 垂直布局 Stack
@@ -209,6 +251,18 @@ Product Information Stack
 Footer Content Stack
 
 Navigation Links Stack
+```
+
+在明确父级内可以简化：
+
+```text
+Hero
+├── Content
+└── Image
+
+Footer
+├── Navigation
+└── Legal
 ```
 
 
@@ -623,6 +677,10 @@ Container
 5. 优先通过 Layer 名称理解页面结构，而不是通过视觉猜测。
 
 6. 保持 Layer Tree 能同时被设计师和 AI Agent 理解。
+
+7. 命名使用最短可区分表达，不重复祖先前缀。
+
+8. 批量重命名前先保护 Scroll Target：启用 `scrollTargetEnabled` 的 Frame 名称必须与 `elementId` 完全一致。
 
 
 ---
