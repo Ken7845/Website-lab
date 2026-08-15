@@ -280,9 +280,9 @@ Review warning 不要机械清零，要判断它是不是设计意图。
 
 但如果 review 报错来自刚刚新增的 variant，先修掉，不要留给用户发现。
 
-## 每阶段恢复记录
+## 每阶段覆盖更新 canonical Recovery
 
-长任务容易 reconnect。每完成一个阶段，至少在工作笔记或最终回复里留下：
+长任务容易 reconnect。每完成一个阶段，在项目 `RECOVERY.md` 或 PROJECT 的单一 Recovery 章节覆盖更新：
 
 - Framer project / page path。
 - 主要 component 名。
@@ -291,7 +291,7 @@ Review warning 不要机械清零，要判断它是不是设计意图。
 - 已检查的 breakpoint。
 - 还没做或故意不做的内容。
 
-这样下一个 agent 不需要从头读，也不会覆盖已经做好的东西。
+不要在工作笔记、页面 Checklist、PROJECT 尾部和最终回复同时追加多份 current checkpoint。这样下一个 agent 不需要从头读，也不会被旧 Session 误导；完成或被替代的实施证据按需移入 request-specific Checklist / `HISTORY.md`，普通版本变化交给 Git。
 
 ## 最省 token 的交付方式
 

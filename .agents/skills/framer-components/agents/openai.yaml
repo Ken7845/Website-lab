@@ -1,0 +1,4 @@
+interface:
+  display_name: "Framer Components"
+  short_description: "Build maintainable Framer components and variants"
+  default_prompt: "Use $framer-components to design or repair this Framer component, variant, property, or shared system."

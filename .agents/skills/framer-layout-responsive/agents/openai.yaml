@@ -1,0 +1,4 @@
+interface:
+  display_name: "Framer Layout & Responsive"
+  short_description: "Audit and adapt Framer layouts across breakpoints"
+  default_prompt: "Use $framer-layout-responsive to modify this Framer layout without breaking existing patterns or breakpoints."

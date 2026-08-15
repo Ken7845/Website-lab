@@ -4,7 +4,7 @@ Page: Menu
 Path: `/menu`  
 Status: Requested revision implemented; full-page QA in progress  
 Primary CTA: `Reserve a seat`  
-Content status: Planned Demo
+Content status: Demo; operational facts remain Missing
 
 ## Definition of Ready
 
@@ -137,19 +137,17 @@ The page must explain food more clearly than Home while avoiding another Evening
 - [ ] Missing fields are hidden, not replaced with invented values.
 - [ ] If a dietary-contact link exists, it uses a real destination.
 
-### 8. Reservation handoff
+### 8. Reservation Handoff — current shared contract
 
-- [x] Use `Reserve a seat` consistently.
-- [x] Reuse the shared `ButtonPrimary` component.
-- [ ] Link to a real Reserve page or booking destination.
-- [x] Use clearly marked fictional Demo contact values until verified production details exist: `reservations@aurelia.example`, `+1 212 555 0148`, and `18 Aurelia Lane, New York, NY 10013`.
-- [x] Make the Demo email and telephone directly clickable while retaining an explicit replace-before-publish notice.
-- [x] Preserve the dark conclusion without mechanically duplicating Home Invitation: Desktop uses an asymmetric lead and three-column contact band, Tablet tightens the split, and Phone changes to a single-column contact sequence.
-- [x] Verify the optimized Handoff visually at Desktop, Tablet, and Phone component screenshots.
+- [x] Reuse the single shared `Reservation Handoff` Component immediately before the shared Footer; do not recreate the retired page-specific Menu handoff.
+- [x] Keep Menu-specific Heading and Supporting Copy editable through the shared Component.
+- [x] Reuse the current shared `Button` with `Reserve a seat` linked to `/reserve`.
+- [x] Do not restore the old `ButtonPrimary` handoff tree or its three-column Email / Telephone / Address band; those rows are preserved in [HISTORY.md](../HISTORY.md#2026-08-12-menu-handoff-shared-button-work-and-reserve-rebuild).
+- [ ] Revalidate the current Menu instance, shared-source regression, and Phone static rendering through the [shared-shell Checklist](./shared-shell-and-reservation-handoff.md) before a final Pass.
 
 ## CMS or component gate
 
-- [x] Document the reusable Dish Card component choice in `PROJECT.md` Decisions before Canvas implementation is marked complete.
+- [x] Document the reusable Dish Card component choice in `DECISIONS.md` before Canvas implementation is marked complete.
 - [x] Use a reusable Component + Properties for the current seven dishes.
 - [x] CMS is introduced only if a later buyer-editing audit proves frequent add/remove/reorder is required.
 - [ ] If CMS is introduced later, its fields have buyer-facing names and complete Demo defaults.
@@ -179,6 +177,7 @@ The page must explain food more clearly than Home while avoiding another Evening
 
 ## SEO, accessibility, and performance
 
+- [ ] Apply the standard line-by-line `onInView` text appearance effect to editorial headings only. Use About Phone → Opening Content → Opening Heading as the visual and timing reference; keep long-form Story/body copy static to avoid scroll lag, and exclude navigation, buttons, controls, form labels, and other functional UI text.
 - [x] Unique Page Title and Meta Description.
 - [x] Exactly one h1; movement titles use h2; dish titles use h3 only when their relationship warrants it.
 - [x] All seven dish-card images have specific Alt through the existing Dish Image instance control.
@@ -201,7 +200,7 @@ The page must explain food more clearly than Home while avoiding another Evening
 - [ ] Content, CMS/component model, styles, links, semantics, images, Alt, and interactions are complete.
 - [ ] Five widths and targeted Preview pass.
 - [ ] Marketplace editing and replacement stress tests pass.
-- [ ] Page Status and recovery state are updated in `PROJECT.md`.
+- [ ] Page status is current in `STATUS.md`; the single latest continuation pointer is current in `RECOVERY.md`.
 
 ## Latest Part Result
 
@@ -219,14 +218,14 @@ Pass:
 - Seven distinct Demo-safe Story values and seven specific Image Alt values were written at Page Instance level and inherited correctly by Tablet and Phone replicas.
 - First, middle, and final instances were read back across Desktop, Tablet, and Phone; image, name, Description, Story, and breakpoint Variant remained independent and correct.
 - New on-demand screenshots passed for Desktop collapsed/expanded, Tablet expanded, and the full Menu page after the Arrow/Story/Fill correction. Framer Preview preflight returned `ready` with zero errors and zero warnings; no publish was performed.
-- Reusable implementation guidance is recorded in `framer/advance-design/expandable-editorial-card.md`.
+- Reusable implementation guidance is recorded in `framer/advance-design/aurelia/expandable-editorial-card.md`.
 
 Fix Required:
 - Run the full `/menu` Preview at 320, 390, 810, 1200, and 1440+; this component pass does not claim whole-page five-width completion.
 - In a live external Page Preview, operate one Desktop and one Tablet card through Hover → Expand → Collapse and confirm keyboard focus presentation. The native event graph and visual steady states passed readback, but the editor canvas did not provide a reliable real-click interaction surface without publishing.
-- Reassess the unchanged Kitchen Interruption and complete the untouched practical-note/reservation-link checks during full Menu QA.
+- Reassess the unchanged Kitchen Interruption and complete the practical-note plus shared-Handoff regression checks during full Menu QA.
 - Complete instance replacement stress tests for missing image, portrait/landscape extremes, missing optional fields, and buyer reorder instructions.
 
 Blocked:
 - Price and dietary policy are not verified.
-- Final booking destination is missing.
+- The internal handoff destination `/reserve` exists; its production form data destination, privacy handling, policies, and confirmed result behavior remain missing.

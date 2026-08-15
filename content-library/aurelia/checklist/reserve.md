@@ -77,8 +77,8 @@ Reserve is the most operational page. It should be shorter and clearer than Home
 
 ## Shared system and responsive
 
-- [x] Use shared Layout Template, Navbar, Footer, and Button; field system remains blocked because no real form is present.
-- [x] Navigation, Footer, Home CTA, and Menu CTA point to `/reserve`.
+- [x] Use the shared Layout Template, Navbar, Footer, Button, native labelled field system, and `ReservationSubmit` state component; production data destination, validation/error behavior, privacy handling, and result behavior remain Blocked.
+- [x] Shared Navigation and Footer plus the Home, Menu, and Chefs Reservation Handoffs point to `/reserve`.
 - [x] Desktop uses a quiet two-zone composition with clear width ownership.
 - [x] Tablet keeps the request and supporting information readable without squeezing columns.
 - [x] Phone is a strict single column with the action before secondary facts.
@@ -88,6 +88,7 @@ Reserve is the most operational page. It should be shorter and clearer than Home
 
 ## SEO, accessibility, motion, and performance
 
+- [ ] Apply the standard line-by-line `onInView` text appearance effect to editorial headings only. Use About Phone → Opening Content → Opening Heading as the visual and timing reference; keep long-form Story/body copy static to avoid scroll lag, and exclude navigation, buttons, controls, form labels, and other functional UI text.
 - [x] Unique Page Title and Meta Description.
 - [x] Exactly one h1 and logical h2 hierarchy.
 - [ ] Form contrast, placeholder contrast, Focus rings, labels, helper text, and errors meet reading needs.
@@ -122,7 +123,7 @@ Reserve is the most operational page. It should be shorter and clearer than Home
 - [ ] Five widths and successful, error, and close/return paths pass.
 - [ ] Marketplace integration replacement test passes.
 - [ ] All site-wide `Reserve a seat` links are updated and checked.
-- [ ] `PROJECT.md` status, blockers, and recovery state are updated.
+- [ ] `STATUS.md` contains current page status/blockers, and `RECOVERY.md` contains only the latest continuation pointer.
 
 ## Latest Part Result
 
@@ -130,7 +131,7 @@ Scope: Rebuilt Demo request page and existing cross-page Reserve routing
 Status: Partial Pass; native form structure built, live submission remains Blocked
 
 Passed:
-- Home's separately drawn Reserve control was replaced by a shared instance; Home, Menu, shared Navigation, and shared Footer now route to `/reserve`.
+- The separately drawn Reserve controls were consolidated: Home, Menu, and Chefs use the shared Reservation Handoff, while shared Navigation and Footer also route to `/reserve`.
 - After the prior Reserve content was removed, `/reserve` was rebuilt from an empty canvas with Desktop 1200, Tablet 810, and Phone 390 layouts, one h1, direct request language, a Demo disclaimer, an editorial mailto action, and body-level Demo email/telephone/map fallbacks.
 - The rebuild uses one compact main scope rather than the prior non-brand-aligned two-section approach. Desktop is a quiet two-zone composition; Phone is a strict title → action → fallback reading sequence.
 - The Demo email, telephone, and address use a local 15px Inter exception so new Phone contact information does not inherit the current 11px `Type/Body` preset.

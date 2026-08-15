@@ -48,6 +48,8 @@
 - [ ] Navbar Desktop / Tablet / Phone
 - [ ] Footer Desktop / Tablet / Phone
 - [ ] Layout Template：Navbar / Content Placeholder / Footer
+- [ ] 可复用组件在自身 Variant 中拥有真实的横向 Padding；不依赖页面 Section 的统一横向 Padding 才能正确预览。
+- [ ] 混合 Section 将组件与普通文字/图片拆到各自的 Padding Wrapper；外层 Section 只保留背景和垂直节奏。
 
 只建立实际会复用的系统，不为了数量创建 Styles 或 Components。
 
@@ -104,13 +106,13 @@ Page 未通过以上条件时，不得标记 Done。
 - [ ] 相同结构不同内容：Property、Fill 或 CMS，不是大量 Variants。
 - [ ] 项目行、卡片和列表没有按内容复制 Desktop / Phone / Hover Variant；内容从 Instance Properties 设置。
 
-偏离默认模式时，在 `PROJECT.md` Decisions 中记录原因。
+偏离默认模式且会持续影响后续工作时，在 `DECISIONS.md` 或 PROJECT 的 Decisions 章节记录原因。
 
 ## 6. Responsive Gate
 
 ### Desktop
 
-- [ ] 内容宽度和 max-width 合理。
+- [ ] 外层 Page Content / full-bleed Section 使用全宽，不设 `max-width`；只在内层内容 Wrapper 或组件上设置合理 `max-width`。
 - [ ] Navbar 单行且 Sticky 正常。
 - [ ] 图片构图、留白和大屏节奏成立。
 
@@ -146,10 +148,10 @@ Page 未通过以上条件时，不得标记 Done。
 - [ ] 全站核心文字由 Text Styles 控制。
 - [ ] Navbar、Footer、Buttons 使用共享 Components。
 - [ ] Layer、Component、Variant 命名语义化。
-- [ ] 所有正式页面进入 Build Status Matrix。
+- [ ] 所有正式页面进入 `STATUS.md` 或 PROJECT Current Status 的 Build Status Matrix。
 - [ ] 执行 `framer/basic/workflows/preflight-audit.md`。
 - [ ] 关键 Preview 路径通过。
-- [ ] 已知例外记录在 `PROJECT.md`。
+- [ ] 会持续影响后续工作的已知例外记录在 `DECISIONS.md` 或 PROJECT Decisions；当前缺口记录在 Status。
 
 Marketplace 项目再执行 `framer/basic/standards/marketplace-guidelines.md`。
 
@@ -173,9 +175,9 @@ Home
 
 报告前：
 
-- [ ] 更新项目 `PROJECT.md` 的 Build Status Matrix。
-- [ ] 更新 Decisions / Exceptions。
-- [ ] 长任务更新 Recovery State。
+- [ ] 更新项目 `STATUS.md` 或 PROJECT Current Status 的 Build Status Matrix。
+- [ ] 更新 `DECISIONS.md` 或 PROJECT Decisions / Exceptions。
+- [ ] 长任务只更新 `RECOVERY.md` 或 PROJECT 的单一最新 Recovery checkpoint。
 
 只报告：
 

@@ -1,8 +1,10 @@
 # Private Dining Page Checklist
 
+> **Retired record:** `/private-dining` was removed from the active AURELIA sitemap on 2026-08-15. Preserve this file for history; do not execute it or create/link the page unless the user explicitly restores the direction.
+
 Page: Private Dining  
 Path: `/private-dining`  
-Status: To do; operational facts partly Blocked  
+Historical status at authoring: To do; operational facts partly Blocked
 Primary CTA: `Reserve a seat` or an approved private-dining enquiry label
 
 ## Definition of Ready

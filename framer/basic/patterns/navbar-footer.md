@@ -27,7 +27,7 @@ Layout Template
 
 - Desktop 导航保持单行，高度通常不超过 80px。
 - Navbar 应常驻顶部，使用 Sticky，`top: 0`，并设置合理的 z-index。
-- 推荐加入滚动方向反馈：向下滚动时隐藏，向上滚动时出现。
+- 滚动方向反馈可按项目需要加入：向下滚动时隐藏、向上滚动时出现。对于刻意极小、固定、持续可见的 Navbar，不要为满足通用模式而加入隐藏行为；在项目 Decisions 中记录该例外即可。
 - 优先使用 Framer 原生 Scroll Variant Effect 和 Component Variant。
 - 动画应短、平稳、克制，不改变页面布局高度。
 - 转场可使用 Spring Physics，推荐 stiffness 250。
@@ -46,6 +46,17 @@ Layout Template
 - Tablet：缩小间距与 padding，仍需保持清晰单行。
 - Phone：只保留 Logo 与必要入口，完整导航可使用 Framer 原生 Overlay。
 - 如果明确使用 Drawer Variant，应建立 Closed 与 Open Variants，保持 Logo 和菜单按钮位置稳定。
+
+### Phone Drawer Variant（紧凑 Navbar 的推荐模式）
+
+当 Phone 导航是紧凑固定顶栏时，可以优先使用同一个共享 `Navbar` Component 的 `Phone`（Closed）和 `Phone Open` Variants，而不是 Overlay：
+
+- `Phone` 使用固定高度和 `overflow: clip`；抽屉内容仍存在，只由裁切隐藏。
+- `Phone Open` 从 Closed 结构派生，只将外层高度改为 `auto`，显示同一组真实链接。
+- Logo、Menu/Close 触发器和链接容器在两个 Variant 中保持相同位置、宽度和内容；不可在打开时重建另一套导航。
+- Menu 与 Close 使用精确的 `SET_VARIANT` 目标切换；Phone 链接保留真实页面目标。
+- Press 反馈采用原生 `tapEffect` 的短暂透明度变化，保持 `scale: 1`，不得改变高度、间距或造成 reflow。
+- 此模式不要求 Overlay；只有确实需要覆盖全页、遮罩或独立 Modal 语义时才使用 Overlay。
 
 ### Phone 菜单 Overlay
 
@@ -68,11 +79,9 @@ Footer 不只是展示 Brand，还要帮助用户继续浏览、联系和行动�
 - 品牌名称或 Logo。
 - 简短品牌说明或 tagline。
 - 页面导航：Home、Menu、About、Gallery、Visit、Contact 等。
-- 地址与地图链接。
-- 营业时间。
-- 电话和 Email，并使用 `tel:` 与 `mailto:` 链接。
-- 社交媒体链接，外部链接按需在新标签页打开。
-- 清晰 CTA，例如 Plan Your Visit、Get Directions 或 Contact。
+- 地址与地图链接、营业时间、电话、Email、社交和 CTA 仅在当前项目已确认需要且有事实/真实目标时加入。
+- 电话和 Email 存在时必须使用 `tel:` 与 `mailto:` 链接。
+- 用户明确指定极简 Footer 时，可只保留 Brand、tagline、页面导航、已确认的联系信息、版权和 Demo 说明；不要为满足通用清单添加社交或重复 CTA。
 - Copyright 和必要的模板 Demo 说明。
 
 ### 排版

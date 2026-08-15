@@ -115,6 +115,19 @@ Heading 语义与视觉 Style 是两件事：
 - 如果套用 H1/H2/P 预设造成重叠、裁切、破坏性换行或与图像比例失衡，先换成符合页面的现有视觉 Style 或局部响应式值；不要机械保留不合适的预设。
 - 不能通过把所有内容降为 `p` 来逃避层级。最终标准是内容关系正确、视觉成立、屏幕阅读器顺序可理解。
 
+### 标题占位与视觉权重优先于预设字号
+
+标题的 HTML 语义、Text Style 与最终视觉字号必须分开判断。`h1` 说明页面主标题的内容关系，并不要求它始终占用全站同样的视觉面积；Display 或 H1 Style 是可复用的起点，不是不可覆盖的版式答案。
+
+- 在 Desktop 放置标题前，先同时判断：标题字数和单词长度、预期换行数、可用容器宽度、标题 Frame 在 Section 中的实际占位、相邻图片/正文的权重，以及该标题需要承担的是页面开场、Section 转场还是单一词语的视觉锚点。
+- 一个短标题（尤其是单词标题）使用默认 H1 尺号时，可能因实际文字面积过小而失去开场权重；可以保留 `h1` tag，同时提高局部字号、调整宽度或字距，使它在画面中形成必要的占位。
+- 一个较长标题使用同一 H1 尺号时，可能因多行和总文字面积而占满首屏、压迫图片或正文、破坏留白；应保留正确的 `h1` tag，但按当前容器和叙事角色降低局部字号、收窄 Frame、调整行高或设置合理 max-width，使它与页面其他元素重新取得平衡。
+- 不要仅因两个标题同为 `h1` 就强制共用完全相同的字号，也不要仅因同一 Text Style 已存在就忽略标题长度差异。优先比较“标题在画面中实际占多少空间、比相邻元素重多少”，而非只比较 CSS/Framer 字号数值。
+- 调整顺序应为：先确认文字职责与 tag → 检查当前断点的 Frame width/max-width 和预期行数 → 评估画面占位与相邻内容权重 → 再选择局部字号、tracking、line-height 或宽度 override。不得通过错误 tag、绝对定位、裁切文字或任意缩小正文来弥补标题失衡。
+- 每个 Desktop 调整都必须在 Tablet 与 Phone 重新判断；标题长度、换行和可用宽度改变后，不机械继承 Desktop 的字号或占位比例。
+
+示例：AURELIA 的 `/menu` 中单词 `menu` 为 `h1`，Desktop 以 200px 建立开场锚点；`/about` 中较长的 `A meal begins long before the table.` 同样保留 `h1` 语义，却以 96px、70% 宽度获得更平衡的首屏占位。两者的正确性来自各自在画面中的总权重，而非共享同一个 H1 视觉尺寸。
+
 响应式字号必须有明确策略，不把 Desktop 字号逐页临时缩小成 Phone。
 
 ---
@@ -175,12 +188,29 @@ Variant 只承担 Desktop / Phone、Default / Hover 等真实结构或状态差�
 
 ### 组件内部与外部实例的尺寸契约
 
+### 组件文字的三端契约
+
+组件内部不要直接引用已经成型的 `Text Style`。页面 Breakpoint 与 Component Variant 是两套独立系统；直接引用 Style 不会可靠地随着组件的 Desktop / Tablet / Phone Variant 自动切换，容易造成组件画布、实例和实际排版不一致。
+
+- 在组件内以当前项目 Text Style 为视觉基准，手动写入相同的字体、字重/轴、字号、字距、行高、段落间距、颜色与文字宽度；不要临时换字体或另造一套排版语言。
+- 每个包含响应式文字的组件必须有语义化 `Desktop`、`Tablet`、`Phone` Variant，并在每个 Variant 内明确覆盖文字的三端数值与可用宽度。
+- Page Instance 必须选择与页面断点一致的 Component Variant；不得让 Phone 继续继承 Desktop 文字尺寸。
+- Text Style 仍是页面普通文字与系统参考的唯一来源；组件的手动值必须在对应项目的 current manifest、active decision 或组件记录中可追溯到该 Style 的 L / M / S 参数。
+- 文字视觉大小与 HTML 语义分开处理：页面只能有一个 `h1`；组件可采用 H1 的视觉比例，但在非页面主标题的场景保留正确的 `h2` / `h3` 语义。
+
 组件不是脱离页面存在的画板。凡是内部含有固定坐标、裁切窗口、横竖轨道、Absolute 内容或基于像素的动效，必须先定义并保持“组件内部尺寸 ↔ 页面实例可用尺寸”的对应关系。
 
 - Desktop、Tablet、Phone 的 Component Variant 必须与外部 Instance 所选断点一一对应；不要在 Phone 页面继续使用 Desktop Variant，或让 Tablet Instance 继承不兼容的固定尺寸。
 - 外部 Instance 的 `width`、`height`、`max-width`、父级 Stack 分配方式，必须能容纳组件内部的关键 Fixed 容器。内部尺寸可以是固定值，外部根尺寸则可按内容使用 Fill / Fit / 明确 max-width；重点是两者必须属于同一套尺寸模型。
 - 当内部有 Image Viewport、slide、number reel 或文字 reel 等像素坐标时，外部可用宽高一变，内部的 Fixed 值、pitch、裁切窗口与状态位移必须同时重新计算或切换到对应 Variant。
 - 不要只在 Component Canvas 中看起来正确。必须把实例放回真实 Section，在 Desktop、Tablet、Phone 外部 Preview 中检查首项、中间项、末项，以及父级宽度变化后的对齐。
+
+### 组件自身的 Padding 归属
+
+- 可复用组件的横向 Padding 属于组件自身：只要它决定了组件的可见边界、hover/pressed 表面、分隔线、图片裁切、触控区，或内部 Fixed 容器的可用宽度，就必须写在该组件的 Desktop / Tablet / Phone Variant 根层或其可见内部 Stack，不能依赖某一个页面 Section 的横向 Padding 才成立。
+- 页面外层 Section 负责背景与垂直节奏；组件外层 List / Stack 只负责排序、间距、对齐和可用宽度。不要让它同时承担所有组件的左右留白，否则 Component Canvas 无法预览真实效果，组件被复用到另一页时也会失去尺寸契约。
+- 一个 Section 同时含组件与普通标题、正文或图片时，去掉 Section 的统一横向 Padding：组件自行处理自己的 Padding；标题/正文使用独立的 Text / Introduction Stack；普通图片和收尾文字使用独立的 Media / Closing Wrapper。这样非组件内容仍能保留同一视觉对齐，组件也能独立预览。
+- 例外：一次性、完全不包含可复用组件的普通内容 Section，可以继续在 Section 外层统一设置横向 Padding。
 
 示例：外部实例在 Desktop 给图片裁切区 585px 的稳定可用宽度时，组件内部的 Image Viewport、每张 slide 和横向位移 pitch 都必须以 585px 为坐标基准；Tablet 若改为 500px，则必须使用 Tablet 专属的 500px 轨道与位移值。只改外部 Instance 或只改内部组件，都会让切换后的图片偏离裁切框。
 
@@ -189,6 +219,8 @@ Variant 只承担 Desktop / Phone、Default / Hover 等真实结构或状态差�
 - [ ] 外部 Instance 与当前 Desktop / Tablet / Phone Variant 对应。
 - [ ] Instance 的外部宽高模型能容纳内部的 Fixed Viewport、轨道和裁切窗口。
 - [ ] 固定坐标组件已在外部 Preview 改变可用宽度后复查，没有变形、露白或偏移。
+- [ ] 改变或单独预览组件时，组件自身已包含其真实横向 Padding；没有依赖某一页面 Section 的 Padding 才看起来正确。
+- [ ] 混合 Section 已将组件、标题/正文、图片/收尾内容拆到各自的 Padding 所有者；外层只保留背景与垂直节奏。
 
 ---
 
@@ -208,10 +240,43 @@ Layout Template
 - 页面只维护自己的 Content。
 - Navbar/Footer 不在每页复制。
 - 优先使用 Stack 和 Grid，明确谁拥有宽度。
-- 内容区设置合理 max-width，宽屏不无限拉伸。
+- 最外层 Page Content 与承担背景色/图的 full-bleed Section 必须使用全宽，不设 `max-width`；它们负责铺满 Preview 视口，避免在超出设计画板宽度时露出两侧色带。
+- `max-width` 只放在这些外层之内、确实需要控制阅读行长或组件尺寸契约的 Content Wrapper、文本列、列表或组件上；先区分“铺背景的外层”与“约束内容的内层”，不要把两者合并。
 - 间距来自稳定系统，不逐个 Section 随机设置。
 - Targeted Preview 或截图如确认文字被父级 Stack 裁切，先排查该父级的固定尺寸、Padding 和宽度所有权；确认文字本应自然外溢且不存在横向溢出后，把该父级 Stack 的 `overflow` 改为 `visible`，再复检相关断点。不要把 `visible` 设为默认值，也不要用它掩盖错误尺寸或布局溢出。
 - 允许不同 Section 使用不同构图，不把全站变成同一种容器模板。
+- 图片容器的比例、裁切与焦点必须保留该图承担的主要内容；如果人物、菜品主体、动作、空间关系或必要文字因裁切而变得不可读，应先调整图片位或更换素材，而不是为了版式整齐保留无效图片。完整判断与跨页面素材选取规则见 `framer/basic/workflows/image-workflow.md` §5.1–§5.2。
+
+### 用嵌套 Stack 建立叙事层级，而不是统一 gap
+
+大型 Section 不是一串同级的文字和图片。先按叙事关系切成若干“段”，再把每一段拆成更小的相关元素组；每一级 Stack 只负责它自己的关系与间距。这样图片、文字、转场与留白都有明确的主次，而不是所有内容以一个统一 gap 平铺。
+
+推荐关系树：
+
+```text
+Section（Surface / 外部 Padding）
+└── Content Stack（内容最大宽度 / 主段之间的节奏）
+    ├── Heading Group（标题与开场留白）
+    └── Narrative Stack（多个叙事段之间的大停顿）
+        ├── Story-Image Group（故事与其直接承接图片之间的小 gap）
+        │   ├── Story Copy Group（段落与局部说明）
+        │   └── Image Row
+        ├── Text-Image Composition（文字组与图片组的中等 gap）
+        │   ├── Story Copy Stack
+        │   └── Image Row
+        └── Closing Story Group
+```
+
+- `Section` 的 padding 负责内容与背景边缘的距离；不要用子元素 gap 假装成 Section 留白。
+- `Content Stack` 只负责标题、叙事大组或明显篇章之间的一级节奏。它的 gap 可以较小或较大，但必须表达篇章关系，不能成为页面所有距离的默认值。
+- `Narrative Stack` 用较大的 gap 分隔真正的故事转场，例如一段经历结束、图片作为证据出现、叙事进入下一阶段；它让读者感到“进入了下一部分”。
+- `Story-Image Group` 用较小 gap 把有直接因果或说明关系的文字和图片绑在一起。读者应一眼知道这张图属于哪段故事，而不是把它读成独立图库。
+- `Text-Image Composition` 可以使用水平 Stack，在 Desktop 让一组故事与另一张图片形成对话；其中的文字 Stack 仍应有自己的更小 gap。到 Phone 时改为垂直 Stack，保持“文字 → 图片 → 文字”的自然阅读顺序，不仅是把 Desktop 压窄。
+- gap 的数值不需要全站相同，也不应随机。它们应形成有限、可解释的层级，例如：元素内部 < 文字与直接图片 < 同一叙事段 < 篇章转场 < Section padding。先定义关系，再为每层选择数值。
+- 不要只把所有子项放入一个大 Stack 后设置一个统一 gap；这会消除标题、故事、图片与收束之间的语义距离，使页面缺少主次和叙事节奏。
+- 创建或重构时，先画出父子关系和每个 gap 服务的对象，再写入 Stack。不要用绝对定位或空白 Spacer 代替这些真实关系。
+
+案例：AURELIA `/about` 的手动调优将 Cooking 与 Relationships 拆成标题层、多个 Narrative Stack、故事—图片小组和文字—图片对话组。外层/内容层/段落层/局部组分别使用不同 gap，使长故事、两张图片和收束文字既连续又有转场；这一结构优先于把所有节点塞进同一个等距 Stack。
 
 Layer、Component 和 Variant 使用语义名称。详细规则见 `framer/basic/standards/layer-naming.md`。
 
@@ -433,11 +498,11 @@ CMS 必须字段清楚、默认内容完整、无测试数据，并能承受长�
 ### Website Done
 
 - Layout Template、Navbar、Footer、Buttons 和核心 Styles 成立。
-- 全部正式页面进入 Build Status Matrix。
+- 全部正式页面进入 `STATUS.md` 或 PROJECT Current Status 的 Build Status Matrix。
 - favicon、Open Graph、Links、Accessibility 和 Performance 完成。
 - Sticky、Overlay、Lightbox、Form 等关键交互真实验证。
 - 通过 `framer/basic/workflows/preflight-audit.md`。
-- 例外和 Missing 内容记录在 `PROJECT.md`。
+- 持久例外记录在 `DECISIONS.md` 或 PROJECT Decisions；当前 Missing / Blocked 记录在 Status 与 current facts source。
 
 ---
 

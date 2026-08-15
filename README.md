@@ -1,160 +1,89 @@
 # Website-lab
 
-Website-lab 是面向 AI Agent 的网站设计与交付系统，不只是灵感和文件仓库。
+Website-lab 是面向人类与 AI Agent 的网站设计、项目事实和 Framer 交付知识库。它的目标不是让 Agent 阅读更多，而是让每类信息只有一个权威位置，使网站在中断、换 Session 或多轮修改后仍能被准确接续。
 
-目标是让 Agent 在读取明确输入后，按照同一条质量链完成 Section、Page 或完整网站，使第一次交付已经符合 Baseline，最终 Polish 只处理细节。
-
-## 系统结构
+## 架构
 
 ```text
 AGENTS.md
-├── 仓库级协作、授权与读取路由
+├── 仓库级优先级、最小读取路由与永久硬边界
+├── .knowledge-validation.json    不可变归档、迁移与验证策略
+├── .agents/skills/
+│   ├── design-taste/             平台无关的设计判断
+│   ├── framer-*/                 按任务选择的 Framer Skills
+│   └── knowledge-maintenance/    仅在知识写入、迁移与验证时触发
 ├── content-library/
-│   ├── 项目事实、品牌、内容、素材与 PROJECT.md
-│   └── project-manifest-template.md
+│   ├── README.md                 项目知识职责
+│   ├── project-manifest-template.md
+│   └── <project>/PROJECT.md      每个项目的唯一入口
 ├── inspiration/
-│   └── 按网站类型整理的创意参考
-├── skills/taste-skill/
-│   └── 基础设计质量与反模板化标准
-└── framer/basic/
-    ├── standards/
-    ├── patterns/
-    └── workflows/
+│   └── 按网站类型保存创意参考，不保存 current 项目状态
+├── history/                       退役的仓库级手册与迁移证据；默认不读
+└── framer/
+    ├── README.md                唯一 Framer task router
+    ├── basic/                    稳定的平台标准、Patterns 与 Workflows
+    ├── checklist.md              Part / Page / Website 验收
+    └── advance-design/           已验证的项目级高级模式
 ```
 
-## Agent 入口
+## 信息所有权
 
-1. 阅读 `AGENTS.md`。
-2. 读取当前项目的 `content-library/<project>/PROJECT.md`。
-3. 按 `PROJECT.md` 指向读取品牌、内容、素材和 Inspiration。
-4. Framer 任务读取 `framer/basic/README.md`，按任务加载最少必要规则。
-5. 使用 `framer/basic/workflows/build-checklist.md` 执行，不把基础能力留给最终 Polish。
-6. 使用 `framer/basic/workflows/preflight-audit.md` 验收后再报告完成。
+| 信息 | 权威位置 | 不承担的职责 |
+|---|---|---|
+| 仓库路由、授权、事实边界 | `AGENTS.md` | 不复制 Framer 实施手册 |
+| 项目目标、Scope、事实与资料索引 | `content-library/<project>/PROJECT.md` | 不保存长篇过程流水 |
+| 当前建设状态 | 项目 `STATUS.md` 或 PROJECT 的 Current Status | 不保存旧状态时间线 |
+| 持久设计决定与真实例外 | 项目 `DECISIONS.md` 或 PROJECT 的 Decisions | 不记录每次小操作 |
+| 当前恢复点 | 项目 `RECOVERY.md` 或 PROJECT 的 Recovery | 只保留一个最新 checkpoint |
+| 已关闭的 Prompt、handoff、旧快照 | 项目 `HISTORY.md` / `history/` | 不覆盖 current state |
+| 已批准的逐页与请求合同 | 项目 `checklist/` | 不替代 PROJECT 或平台验收 |
+| 品牌事实、正式文案与素材 | PROJECT 链接的 Approved sources | 不从 Inspiration 推断事实 |
+| 基础设计判断 | `.agents/skills/design-taste/SKILL.md` | 不替代品牌或平台约束 |
+| Framer 实施与验收 | `framer/basic/`、`framer/checklist.md`、选中的 Framer Skill | 不决定品牌事实 |
+| 创意参考 | `inspiration/` | 不保存项目 current status |
+| 退役的仓库级手册 | `history/` | 不参与 current 路由或覆盖现行规则 |
+| 知识新增、迁移与结构验证 | `.agents/skills/knowledge-maintenance/`、`.knowledge-validation.json` | 不参与普通网站任务 |
 
-## 开始一个新网站：你需要做什么
+若信息冲突，以 `AGENTS.md` 的权威优先级为准。
 
-### 1. 创建项目资料夹
+## 开始或更新一个项目
 
-```text
-content-library/<project-name>/
+1. 在 `content-library/<project-name>/` 创建或更新 `PROJECT.md`。
+2. 新项目从 `content-library/project-manifest-template.md` 开始。
+3. 提供网站目标、目标用户、页面与 CTA、品牌方向、事实、文案、素材和参考。
+4. 将未知事实标为 `Missing`，演示事实标为 `Demo`；不要为了资料完整而猜测。
+5. 大项目总览或长篇多分点建设要求按 `framer/basic/workflows/change-control.md` 决定 PROJECT、Checklist 和请求记录。
+6. 当前状态持续覆盖更新；旧 Prompt、handoff 和有长期价值的快照再进入 History。
+
+## Current 与 History
+
+`PROJECT.md`、`STATUS.md` 和 `RECOVERY.md` 回答“现在是什么、做到哪里、下一步是什么”。更新时替换旧值，不向文件尾部追加聊天式日志。
+
+`DECISIONS.md` 保存仍会影响未来工作的决定，并把被替代项标记为 `Superseded`。`HISTORY.md` 与 `history/` 保存已经结束且值得追溯的材料。普通版本变化由 Git 负责，不需要为每个旧版本建立副本。
+
+## Agent 如何使用本仓库
+
+Agent 从 `AGENTS.md` 开始，只读取当前 Scope 必要的 PROJECT、Approved sources、平台规则和 selected Skill。README 只解释架构，不是另一份执行手册。
+
+Framer 的完成标准与执行细节由以下入口管理：
+
+- `framer/README.md`
+- `.agents/skills/framer-*/SKILL.md`
+- `framer/basic/README.md`
+- `framer/checklist.md`
+- `framer/basic/workflows/change-control.md`
+- `framer/basic/workflows/preflight-audit.md`
+
+## 知识写入验证
+
+新增、移动、去重或重构 Basic、Advanced Design、项目状态、Router 或 Skill 时，使用 `knowledge-maintenance`，并在完成前运行：
+
+```bash
+python3 .agents/skills/knowledge-maintenance/scripts/validate_repository.py --strict
 ```
 
-复制 `content-library/project-manifest-template.md` 为项目的 `PROJECT.md`。
+验证器检查 active links / anchors、Skill metadata、旧路由、索引覆盖、不可变归档、全库关键词与 canonical 文件中的精确知识契约、current/history 卫生、Markdown 删除迁移目标和 `git diff HEAD --check`。普通网站建设不预读这套维护上下文。
 
-### 2. 提供必须由你决定的输入
+## 核心目标
 
-- 网站目标和目标用户。
-- 页面列表或业务上必须表达的内容。
-- 主要 CTA：购买、预约、到店、联系、询价等。
-- 品牌方向、喜欢和不喜欢的感觉。
-- 正式事实：地址、价格、营业时间、联系方式、人员和授权。
-- 正式文案、图片和可用素材。
-- Inspiration 及你对参考的具体感受。
-- 明确必须使用和明确不要使用的功能。
-
-不完整的事实标记为 `Missing`，不要为了让资料看起来完整而猜测。
-
-### 3. 只确认真正影响方向的选择
-
-Agent 会先汇总：
-
-- 对项目目标的理解。
-- Sitemap 与页面目的。
-- 视觉和系统方向。
-- 关键 Framer Patterns。
-- Missing / Blocked 内容。
-
-你只需要确认会改变品牌、信息架构或主要交互的选择。已经授权的搭建、响应式、SEO、Alt、链接和 QA 不需要逐项确认。
-
-## Agent 会自动做什么
-
-### 开工前
-
-- 检查 `PROJECT.md` 是否达到 Definition of Ready。
-- 读取 Brand Voice、Style Guide、内容、素材和相关 Inspiration。
-- 从 Framer Basic 选择最少必要标准、Pattern 和 Workflow。
-- 列出当前 Scope 和明确不做的内容。
-
-### 搭建时
-
-- 先建立最小 Text Styles、Color Styles、Buttons、Navbar、Footer 和 Layout Template。
-- 按 Section/Page 纵向完成视觉、Styles、Components、Links、Heading、Alt、Responsive 和 Motion。
-- 对常见需求直接使用 Pattern Recipes，不临场试错。
-- 同类修改批量完成，不拆成大量重复调用。
-- 更新 `PROJECT.md` 的 Build Status Matrix 和 Recovery State。
-
-### 完成前
-
-- 对当前 Scope 执行 Preflight Audit。
-- 检查 320、390、810、1200、1440+ 的必要行为。
-- 在 Preview 中真实测试关键路径。
-- 批量修复具体问题，只复测受影响路径。
-- 报告 Pass、Fix Required 或 Blocked，不用“差不多完成”。
-
-## 协作流程
-
-```text
-你提供目标、事实、素材与审美方向
-→ Agent 检查 Ready 并整理方案
-→ 你确认重大方向
-→ Agent 按 Baseline 纵向搭建
-→ Agent 执行 Preflight 与 Preview
-→ 你进行最终主观审美检查
-→ 你确认后发布
-```
-
-## 不同 Scope 使用同一条质量链
-
-- 做一个 Section：该 Section 必须同时完成 Styles、Links、Alt、Responsive 和 Motion。
-- 做一个 Page：该 Page 还必须完成 Metadata、H1/H2、Navbar/Footer 路径和 Preview。
-- 做完整 Website：再完成全局系统、全部页面矩阵、性能、可访问性和交付要求。
-
-Scope 可以不同，Baseline 不会因为任务较小而被遗忘。
-
-## 你不需要提前解决的技术问题
-
-以下默认由 Agent 根据 Website-lab 规则处理：
-
-- Text/Color Style 结构。
-- Component、Variant、Property 和 CMS 决策。
-- Desktop、Tablet、Phone 转换。
-- Metadata、Heading、Alt 和链接协议。
-- Navbar、Overlay、Lightbox、Hover 的原生模式。
-- Preflight、状态记录和 reconnect 恢复。
-
-只有这些选择会改变品牌、内容事实、成本或主要体验时，Agent 才需要再次询问。
-
-## 完成的定义
-
-网站完成不是“截图看起来不错”，而是同时满足：
-
-- 视觉与品牌方向成立。
-- 内容真实且转化路径清楚。
-- Text/Color Styles、Components 和 Variants 可维护。
-- Desktop、Tablet、Phone 均成立。
-- 动效和交互使用合适的原生模式。
-- Metadata、Heading、Alt、Links 和 Accessibility 完整。
-- 关键交互在 Preview 中真实验证。
-
-详细标准见 `framer/basic/standards/website-baseline.md`。
-
-## 核心原则
-
-```text
-完整输入
-→ 固定建设顺序
-→ 已验证默认模式
-→ Section / Page / Website 三层验收
-→ 自动化或结构化 Preflight
-→ 一次 Preview 路径
-→ 交付
-```
-
-规则的价值不是让 Agent 读更多，而是减少临场猜测、重复检查和返工。
-
-## 技术与工具
-
-- Framer
-- Codex
-- GitHub
-- ChatGPT
+交付必须同时满足品牌与真实内容、可维护结构、Desktop / Tablet / Phone、必要交互、语义与可访问性。知识库本身也必须可维护：当前状态清楚、历史不冒充事实、下一位 Agent 不需要重新拼接聊天记录。

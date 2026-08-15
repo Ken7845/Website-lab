@@ -1,0 +1,4 @@
+interface:
+  display_name: "Framer Interactions"
+  short_description: "Choose and verify native Framer interactions"
+  default_prompt: "Use $framer-interactions to implement this Framer motion or interaction with the smallest native pattern."

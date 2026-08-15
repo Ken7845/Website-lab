@@ -1,0 +1,4 @@
+interface:
+  display_name: "Framer QA"
+  short_description: "Targeted Framer verification and delivery audit"
+  default_prompt: "Use $framer-qa to evaluate the completed Framer scope and report Pass, Fix Required, or Blocked."

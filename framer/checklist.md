@@ -1,8 +1,10 @@
 # Framer Part Completion Checklist
 
-本文件把 `framer/basic` 的规则转换为每个工作部分完成后的强制自审与自修补清单。
+本文件是实施后的 evaluator：把 `framer/basic` 的规则转换为每个工作部分完成后的强制自审与自修补清单。
 
-它不是最终交付时才使用的总检查表。每完成一个 Section、Component、交互、图片批次、Breakpoint、Page 或共享结构，都必须立即检查对应部分；发现问题先修补并复检，再进入下一个部分。
+它不是开工前必须全读的建设手册，也不是只在最终交付时才使用的总检查表。先从 `framer/README.md` inspect / reconcile、选择一个 primary repo Skill 并完成当前 Part；随后只读取本文件路由表和对应章节。发现问题先修补并复检，再进入下一个部分。
+
+纯 Audit / Preflight 任务可以把 `framer-qa` 作为 primary Skill 并直接进入本文件。长篇多分点 Prompt 与连续修改的写入前规则见 `framer/basic/workflows/change-control.md`；这是实施前的条件 Gate，不要求预读本文件全部 evaluator。
 
 规则来源：
 
@@ -16,12 +18,15 @@
 - `framer/basic/workflows/preflight-audit.md`
 - `framer/basic/workflows/image-workflow.md`
 - `framer/basic/workflows/token-saving.md`
+- `framer/basic/workflows/change-control.md`
 
 ---
 
 ## 项目级 Checklist 文件夹规范
 
 本文件同时规定知识库项目目录中的 Checklist 如何创建和维护。项目级 Checklist 负责把已经批准的总览和页面方案转成后续可以逐页、逐 Part 执行的合同；本文件后续各章节仍负责每个 Part 完成后的强制验收。
+
+长篇多分点 Prompt 的逐字记录、确认 Gate 与连续修改约束锁由 `framer/basic/workflows/change-control.md` 维护；本节只维护项目 Checklist 的目录、页面文件、状态和同步合同。
 
 ### 触发与执行顺序
 
@@ -48,6 +53,9 @@ Checklist 只能位于当前知识库项目目录：
 ```text
 content-library/<project>/
 ├── PROJECT.md
+├── STATUS.md            # complex projects; current Build / QA
+├── DECISIONS.md         # complex projects; active why-decisions
+├── RECOVERY.md          # complex projects; one latest checkpoint
 └── checklist/
     ├── README.md
     ├── home.md
@@ -61,7 +69,7 @@ content-library/<project>/
 - 文件名使用页面 slug 的 kebab-case，例如 `private-dining.md`。
 - `README.md` 是索引和共享工作流，不代替页面文件。
 - 不把 Checklist 放在临时工作区、发布目录、图片目录、聊天导出目录或项目目录之外。
-- `PROJECT.md` 必须链接 Checklist 索引和每个页面文件；Checklist 索引也必须回链 `PROJECT.md`。
+- `PROJECT.md` 必须链接 Checklist 索引和每个页面文件；Checklist 索引也必须回链 `PROJECT.md`，并链接项目实际使用的 Current Status / Decisions / Recovery owner。
 
 ### README.md 必须包含
 
@@ -69,8 +77,8 @@ content-library/<project>/
 - 强制执行闭环和 Part 路由提醒。
 - 当前页面、路径、文件和状态索引。
 - Shared Foundation Gate：Layout Template、Navbar、Footer、Button、Styles、Focus、Reduced Motion、favicon、Open Graph、授权和编辑说明。
-- Page Result / Recovery State 的统一记录格式。
-- 对 `PROJECT.md`、`framer/basic/` 和本文件的有效相对链接。
+- Latest Part Result 与 canonical Recovery reference 的统一记录格式。
+- 对 `PROJECT.md`、当前 Status / Decisions / Recovery owner、`framer/basic/` 和本文件的有效相对链接。
 
 ### 每个页面 Markdown 必须包含
 
@@ -89,7 +97,7 @@ content-library/<project>/
 13. Marketplace 替换压力测试：长文案、不同图片比例、缺失可选字段、增删排序和买家编辑入口。
 14. Targeted Preview 路径。
 15. Page Done 门槛。
-16. Latest Part Result：Pass、Fix Required、Blocked、Verified widths、Verified paths、Shared components 和 Recovery State。
+16. Latest Part Result：Pass、Fix Required、Blocked、Verified widths、Verified paths、Shared components 和 canonical Recovery reference；不在页面 Checklist 复制第二份 current checkpoint。
 
 页面文件必须针对当前页面写具体检查项。禁止把本文件的 18 个通用章节原样复制五次，也禁止只写视觉 Section 而遗漏 Styles、Links、语义、响应式、Focus、状态和交付。
 
@@ -105,17 +113,17 @@ content-library/<project>/
 
 强制同步：
 
-- Checklist 页面状态与 `PROJECT.md` Build Status Matrix 必须一致。
-- 每完成一个 Part，更新页面文件的 Latest Part Result 和 Recovery State。
+- Checklist 页面状态与项目 current status owner 必须一致：复杂项目使用 `STATUS.md`，小项目使用 `PROJECT.md` 的 Current Status。
+- 每完成一个 Part，更新页面文件的 Latest Part Result；当前恢复指针写入 `RECOVERY.md` 或 PROJECT 的单一 Recovery 章节，不在页面文件和多个入口重复维护 current checkpoint。
 - 每完成一个 Page，执行本文件的 Page 路由和 `preflight-audit.md`，再把状态改为 `Pass`。
-- 叙事、页面目的或信息架构变化时，先更新 `PROJECT.md`，再更新受影响 Checklist，不能只改 Canvas。
+- 叙事、页面目的或信息架构变化时，先更新 `PROJECT.md`；需要持续解释原因时再更新 `DECISIONS.md` 或 PROJECT 的 Decisions 章节，然后同步受影响 Checklist，不能只改 Canvas。
 - Missing 和 Blocked 不用虚构内容填满；保留真实状态并继续完成不依赖阻塞项的工作。
 
 ---
 
-## 0. 强制使用方法
+## 0. 实施后使用方法
 
-每个 Part 使用以下闭环：
+当前 Part 实施完成后使用以下闭环：
 
 ```text
 完成一个 Part
@@ -124,7 +132,7 @@ content-library/<project>/
 → 标记 Pass / Fix / Blocked
 → 同类问题批量自修补
 → 只复检受影响范围
-→ 更新 PROJECT.md 状态
+→ 更新 STATUS / RECOVERY 的当前 owner
 → 才能进入下一个 Part
 ```
 
@@ -135,7 +143,7 @@ content-library/<project>/
 - [ ] 任一必查项失败时，当前 Part 状态为 `Fix Required`，不得报告完成。
 - [ ] 能在当前授权范围内修复的问题必须直接自修补，不把基础缺陷留给用户。
 - [ ] 缺少事实、权限或素材时标记 `Blocked`，继续完成不依赖阻塞项的工作。
-- [ ] 用户明确设计意图与通用规则冲突时保留用户意图，并在 `PROJECT.md` 的 Decisions / Exceptions 记录。
+- [ ] 用户明确设计意图与通用规则冲突时保留用户意图，并在 `DECISIONS.md` 或 PROJECT 的 Decisions / Exceptions 章节记录。
 - [ ] 只复检当前 Part 及受影响的共享依赖，不无目的重读整页或整站。
 
 ### 高效率审查分级
@@ -203,7 +211,7 @@ content-library/<project>/
 - [ ] 使用正确的 Styles、语义、链接和内容入口。
 - [ ] 重复结构已判断普通 Frame / Component / Property / CMS 的正确归属。
 - [ ] Desktop、Tablet、Phone 均已处理，而不是只完成 Desktop。
-- [ ] 必要交互已在 Preview 中真实操作，不只看 Canvas。
+- [ ] 静态平面设计已由 Agent 直接通过目标画布/截图审阅；必要交互已完成目标化结构读回。高级动效、Cursor、Hover 或 Variant 组件的实际视觉效果优先请用户在 Framer 中确认。仅在用户要求或真实行为无法由该证据建立时，才由 Agent 进入 Preview 操作。
 - [ ] 新增 Layer、Component、Variant 没有默认名称。
 - [ ] Targeted readback 确认实际值，而不是根据命令成功推测完成。
 - [ ] 本轮新增 Error 已解决；Warning 已判断是问题还是明确设计意图。
@@ -668,7 +676,7 @@ content-library/<project>/
 ### Website Done
 
 - [ ] Layout Template、Navbar、Footer、Buttons 和核心 Styles 成立。
-- [ ] 全部正式页面进入 Build Status Matrix。
+- [ ] 全部正式页面进入项目 current status owner 的 Build Status Matrix。
 - [ ] favicon、Open Graph、Links、Accessibility、Performance 完成。
 - [ ] Sticky、Overlay、Lightbox、Form 等关键交互真实验证。
 - [ ] 已执行 `framer/basic/workflows/preflight-audit.md`。
@@ -697,12 +705,12 @@ Shared components:
 - [ ] 输出开始截断时立即缩小范围，不继续打印整页树。
 - [ ] 已知结构一次批量写入，不把同类修改拆成大量调用。
 - [ ] 修改后只回读目标节点、实例和断点。
-- [ ] Preview 只走关键路径，不重复截相同状态。
+- [ ] 浏览器 Preview 不是默认审查工具：先做 targeted readback，再由用户确认可直接观察的视觉与高级交互效果；仅在必要例外中走关键 Preview 路径，且不重复截相同状态。
 - [ ] API 超时或工具无输出时先读当前状态，不重复提交同一写入。
 - [ ] 图片查看是可降级子步骤，不让整个 Framer 任务因视觉工具阻塞。
-- [ ] 第一次视觉查看前已写 Recovery Checkpoint。
-- [ ] 每完成一个 Part 已记录项目、页面、Session、组件、Variant、实例、断点、完成项和剩余项。
-- [ ] `PROJECT.md` 的 Build Status Matrix、Decisions / Exceptions、Recovery State 已更新。
+- [ ] 第一次视觉查看前已在 canonical Recovery owner 写入一个当前 Checkpoint。
+- [ ] 每完成一个 Part 已覆盖更新 canonical Recovery owner 中的项目、页面、Session、组件、Variant、实例、断点、完成项和剩余项；没有在多个文件追加第二份 current diary。
+- [ ] `PROJECT.md` current manifest、`STATUS.md` / Current Status、`DECISIONS.md` / Decisions、`RECOVERY.md` / Recovery 已按项目实际拆分更新，且没有维护两份 current 明细。
 
 推荐单元：
 
@@ -710,7 +718,7 @@ Shared components:
 1 次 targeted read
 → 1 次批量 apply
 → 1 次 targeted review
-→ 1 次关键 Preview
+→ 用户视觉确认或 1 次必要的关键 Preview
 → 本文件对应 Part 自审与修补
 ```
 

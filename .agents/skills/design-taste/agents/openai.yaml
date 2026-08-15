@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Taste"
+  short_description: "Audit-first, context-aware web design judgment"
+  default_prompt: "Use $design-taste to infer and protect the right visual direction for this web design task."

@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "inactive_text_globs": [
+    "history/**",
+    "content-library/**/history/**",
+    ".agents/skills/design-taste/references/original-design-taste.md",
+    "content-library/**/checklist/knowledge-architecture/**"
+  ],
+  "skip_markdown_link_globs": [
+    "content-library/aurelia/history/project-pre-migration-2026-08-15.md"
+  ],
+  "immutable_archives": {
+    ".agents/skills/design-taste/references/original-design-taste.md": "aa194351b246b8b4799099d4ed7b033d29eab6e6e3d58d8d2172978be7b3ec89",
+    "content-library/aurelia/history/project-pre-migration-2026-08-15.md": "462b699f6ef9fbf4af28528252faefc4dc924192a303adddf50c88e9582f52c8",
+    "history/repository/agents-pre-router-2026-08-15.md": "41d6e7173072abf3ace332decebdeb4612ce2a2f5e4a5fc493bdcd015a86b3a1",
+    "history/repository/readme-pre-router-2026-08-15.md": "fa477f890adfd7d06526103f34f05efa325638c11434c87318ce184c6f60cd1e",
+    "history/repository/project-manifest-template-pre-split-2026-08-15.md": "c05718d0cdebe84c78520b733669962172848141400620565f39cf88614b766e"
+  },
+  "semantic_markdown_migrations": {
+    "content-library/aurelia/checklist/about.md": {
+      "destination": "content-library/aurelia/checklist/about/about.md",
+      "reason": "The page contract moved into an About subfolder and was reconciled with later approved request records."
+    }
+  },
+  "known_project_manifest_exceptions": {
+    "content-library/dutch-treat-restaurant": "Pre-existing legacy project; a PROJECT.md migration has not yet been authorized."
+  },
+  "known_overloaded_projects": {
+    "content-library/ken-studio/PROJECT.md": "Pre-existing 656-line manifest remains explicit migration debt and was outside the AURELIA refactor scope."
+  },
+  "stale_active_terms": [
+    "skills/taste-skill/",
+    "framer/basic/workflows/agent-connection.md",
+    "framer/advance-design/archive-folder-sticky-stack.md",
+    "framer/advance-design/button-filler-hover.md",
+    "framer/advance-design/custom-cursor-hover-preview.md",
+    "framer/advance-design/dish-selector-image-matrix.md",
+    "framer/advance-design/expandable-editorial-card.md",
+    "framer/advance-design/image-strip-number-reel.md"
+  ],
+  "required_terms": [
+    "targeted read",
+    "Component Definition",
+    "Page Instance",
+    "Breakpoint Override",
+    "width ownership",
+    "spring-physics 250 30 1 0s",
+    "350 × 440px",
+    "4091px × 410px",
+    "2450px × 250px",
+    "≤ 1200px",
+    "≤ 1MB",
+    "≤ 2MP",
+    "dataless",
+    "scrollTargetEnabled",
+    "SET_VARIANT",
+    "onTap",
+    "spring-duration 0.52s 0.22 0s",
+    "Marketplace",
+    "82vh",
+    "860px",
+    "CuPy0iH7F",
+    "z5tC4bH2D",
+    "AyfdERUsu",
+    "CAbFL0Tw6",
+    "zz0sK4qC1",
+    "w84t84ST7",
+    "O0dtSoRtO"
+  ],
+  "required_path_terms": {
+    ".agents/skills/framer-components/SKILL.md": [
+      "Component Definition",
+      "Page Instance",
+      "Breakpoint Override"
+    ],
+    ".agents/skills/framer-layout-responsive/SKILL.md": [
+      "width ownership"
+    ],
+    "framer/basic/workflows/token-saving.md": [
+      "targeted read",
+      "Component Definition",
+      "width ownership"
+    ],
+    "framer/basic/workflows/image-workflow.md": [
+      "≤ 1200px",
+      "≤ 1MB",
+      "≤ 2MP",
+      "dataless"
+    ],
+    "framer/basic/standards/layer-naming.md": [
+      "scrollTargetEnabled"
+    ],
+    "framer/basic/patterns/navbar-footer.md": [
+      "SET_VARIANT"
+    ],
+    "framer/basic/patterns/motion-design.md": [
+      "82vh",
+      "860px"
+    ],
+    "framer/basic/standards/marketplace-guidelines.md": [
+      "Marketplace"
+    ],
+    "framer/advance-design/aurelia/image-strip-number-reel.md": [
+      "4091px × 410px",
+      "2450px × 250px"
+    ],
+    "framer/advance-design/aurelia/expandable-editorial-card.md": [
+      "spring-physics 250 30 1 0s",
+      "onTap"
+    ],
+    "framer/advance-design/ken-studio/custom-cursor-hover-preview.md": [
+      "spring-duration 0.52s 0.22 0s"
+    ],
+    "content-library/aurelia/checklist/chefs/chefs.md": [
+      "350 × 440px"
+    ],
+    "content-library/aurelia/history/project-pre-migration-2026-08-15.md": [
+      "CuPy0iH7F",
+      "z5tC4bH2D",
+      "AyfdERUsu"
+    ],
+    "content-library/aurelia/checklist/about/2026-08-13-story-typography-and-relationships.md": [
+      "CAbFL0Tw6"
+    ],
+    "content-library/aurelia/HISTORY.md": [
+      "zz0sK4qC1",
+      "w84t84ST7",
+      "O0dtSoRtO"
+    ]
+  }
+}

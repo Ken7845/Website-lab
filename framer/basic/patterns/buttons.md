@@ -86,6 +86,15 @@ CTA Stack (Fill / Fit, only placement)
 - 每个断点只有在字号或 Padding 确实不同的时候才保留独立结构 Variant。
 - 不为每种按钮文案建立新的 Hover Variant。
 
+## Small Variant（Phone 可用）
+
+以后每一个可复用 Button Component 都必须同时提供 Small Variant，供 Phone 的紧凑版面、卡片或次级 CTA 使用。Small 不是复制一份新的组件：它必须复用同一组 Content、Link 与 Click Property，并且拥有与常规按钮一致的状态逻辑。
+
+- 默认同时建立对应的 Small Hover 状态；有指针设备进入 / 离开时的效果必须与常规尺寸同一逻辑，Phone 不因没有 hover 而失效。
+- Small 的字号、Padding 与常规尺寸分开管理，但仍保持 Fit / Fit、文字由拥有可见边界的 Button Stack 的 Padding 包住。
+- AURELIA 当前 `White Small` 的基准是 `12px 18px` Padding、`10px` Label；新的 Small 表面或配色以此为尺寸参考，除非页面已有明确的系统尺寸。
+- 若 Small 用于独立的主要操作，需另外确认实际点击目标是否足够；Small 适合紧凑语境，不应被固定高度的外层容器裁切。
+
 ## 常见错误
 
 ### 1. 给文字设置 Relative 或百分比宽度
@@ -127,6 +136,7 @@ CTA Stack (Fill / Fit, only placement)
 - [ ] Desktop、Tablet、Phone 选择正确 Variant。
 - [ ] 320 / 390 / 810 / 1200 / 1440+ 无裁切、零尺寸或横向溢出。
 - [ ] Hover 前后尺寸不变化，文字对比度有效。
+- [ ] 每个可复用按钮同时具备 Small Variant，且 Small Hover 与常规状态逻辑一致。
 - [ ] Link 的点击区域与可见按钮边界一致。
 - [ ] 修改共享 Component 后，抽查全部受影响实例。
 

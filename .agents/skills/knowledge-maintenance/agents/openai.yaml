@@ -1,0 +1,4 @@
+interface:
+  display_name: "Knowledge Maintenance"
+  short_description: "Classify and validate Website-lab knowledge changes"
+  default_prompt: "Use $knowledge-maintenance to classify, preserve, route, and validate this Website-lab knowledge update."
