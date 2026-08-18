@@ -2,6 +2,25 @@
 
 本目录是仓库内 Framer 工作的唯一入口。先检查并协调当前状态，再选择一个主要仓库 Skill；不要把全部 Skills、Checklist 和 references 同时预读。
 
+## 0. Live Canvas Hard Gate
+
+纯仓库文档、规划和知识维护跳过本 Gate，不连接 Canvas。
+
+任何需要读取、审计或修改真实 Framer Canvas 的任务必须按顺序执行：
+
+所有 `npx @framer/agent@latest ...` CLI 命令在 sandbox 中必须从第一次尝试就使用 **required elevated permissions**（network + skill / session file access）。不得先用默认 sandbox 试跑；permission / network error 是环境 blocker，不证明 Framer Agent 没有对应能力。
+
+1. 运行 `npx @framer/agent@latest setup` 并等待进程退出；只有成功退出且没有 setup error 才算完成。显示 setup 状态、自述成功、超时或报错都不算。
+2. 加载已安装的 official `$framer` Skill。
+3. 使用已确认的 Project URL / ID 运行 `npx @framer/agent@latest session new "<url-or-id>"`，成功取得 session ID，并在本轮全程复用。
+4. 读取由 `session new` 刷新的 `projects/<safeProjectId>/index.md` task map：先读 `Anything` 行，再读当前任务对应行及其指向。
+5. 再选择下方一个 primary repo Skill，作为平台入口之上的判断层。
+6. 写入前先运行一次 `npx @framer/agent@latest exec -s <sessionId>` targeted live-tree readback；后续 Framer CLI 命令继续使用同一 session。
+
+上述任一步报错、超时、无输出或缺少必需证据时，**Gate remains closed**。仓库 Skills 不提供 Canvas 连接；不得静默切换到 Browser / Playwright / Computer Use、猜测的本地 API 或官网搜索。只有官方 task map / docs 已证实精确能力缺口，且用户在获知 blocker 后明确授权，UI 工具才可作为 fallback；Agent 不得自行授权。官网文档不是 Skill，编辑器 DOM 观察也不是 Framer Agent targeted readback。
+
+正式实施前显示一行 **Framer Agent gate receipt**：`setup OK / session connected / task-map <row> / live readback OK`。不报告 session ID 或内部节点 ID；任一项未通过就停止。
+
 ## 1. 先 Inspect / Reconcile
 
 任何写入前先确认：
@@ -10,9 +29,9 @@
 2. 当前项目 `content-library/<project>/PROJECT.md`。只有任务正在恢复中断状态时再读 `RECOVERY.md`；只有用户指定了现有 Part 合同时再读对应页面 / 请求 Checklist。
 3. 用户本轮要求是新增、校正还是明确覆盖旧要求；连续修改按 [`basic/workflows/change-control.md`](basic/workflows/change-control.md) 建立约束锁。
 4. 当前真实结构与最后成功状态；中断任务先恢复，不根据聊天记忆重做。
-5. 任务是否需要连接 Framer Canvas。只在需要真实 Framer 连接时，先运行官方要求的 `npx @framer/agent@latest setup`，完成后再加载已安装的官方 `framer` Skill。仓库不再维护平行的 `agent-connection.md`。
+5. 当前结论的证据来源是 Framer Agent targeted readback、明确标注的 UI fallback，还是尚未验证；只有第一种可直接写为 Verified Canvas current state。
 
-官方 `framer` Skill 负责平台连接与能力入口，不计入下面的“一个主要仓库 Skill”。
+官方 `$framer` Skill 负责平台连接与能力入口，不计入下面的“一个主要仓库 Skill”。仓库不再维护平行的 `agent-connection.md`。
 
 ## 2. 只选一个 Primary Repo Skill
 
@@ -28,6 +47,17 @@
 
 完整网站任务也只选择当前实施 Part 的主要 Skill；Part 改变时重新 inspect / reconcile，再决定是否切换 primary Skill。
 
+### Multi-domain primary-skill precedence
+
+不要根据最显眼的表面特征过早路由。写入前先对当前可交付 Part 扫描：Page / Section composition、reusable Component contract、interaction state、breakpoint transformation、final QA。
+
+- 新建、复制或重构可复用 Component 时，`framer-components` 优先；即使它同时是 Accordion、Hover Row 或 Responsive Card，也先确立 Definition / Instance / Breakpoint 责任。
+- 已成立 Component 的合同不变，只修改 trigger、target、transition、Overlay 或 motion 时，才以 `framer-interactions` 为 primary。
+- 不涉及可复用 Component 责任的 Page / Section 构图、Stack / Grid 或断点变换，以 `framer-layout-responsive` 为 primary。
+- 其他命中域记为 secondary concerns，只读 task map 指向的小节或 Reference；不为一个组件人为切成四个并行 Skills。
+
+当 primary 为 `framer-components` 且会建立或改写组件责任时，必须先通过其 **Component Requirement Contract**；读过 Baseline 不等于已将规则应用到当前组件。
+
 ## 3. Change Control 是写入前的条件路由
 
 仅在以下情况读取 [`basic/workflows/change-control.md`](basic/workflows/change-control.md)：
@@ -37,6 +67,8 @@
 - 新反馈可能与先前要求、现有 Checklist 或已验证状态冲突。
 
 长篇 Prompt 的逐字 Checklist 与确认 Gate 是实施前例外；普通小修、审阅、诊断或已确认 Part 不因此暂停。
+
+Context Compaction 或 Session 恢复后，重新读取 official `$framer` Skill 及 task-map 行、当前 `PROJECT.md`、请求 Checklist、primary repo Skill 和 active Component Requirement Contract；通过同一 session 的 targeted readback 确认后再续写，不从压缩摘要重建责任。
 
 ## 4. Implement 后再进入 Checklist / QA
 

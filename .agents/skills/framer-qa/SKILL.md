@@ -1,19 +1,24 @@
 ---
 name: framer-qa
-description: "Evaluate a completed Framer Section, Component, interaction, breakpoint, Page, or Website through targeted readback, visual evidence, responsive/accessibility checks, Marketplace stress, preflight, and recovery/status updates. Use after implementation, for explicit audits or diagnoses, or before delivery/publishing. This is an evaluator and verifier, not a design generator; do not preload it before ordinary creative work."
+description: "Secondary repository evaluation for a completed Framer Section, Component contract, interaction, breakpoint, Page, or Website through targeted evidence, ownership symmetry, responsive/accessibility checks, Marketplace stress, preflight, and status updates. Use after implementation, for audits or diagnoses, or before delivery. For live Canvas work, first complete official $framer setup, session, and task-map routing. It is a verifier, not a design generator."
 ---
 
 # Framer QA
 
 Evaluate the implemented scope against evidence. Do not redesign from a memorized checklist.
 
+## Platform gate
+
+For any live Canvas read or write, first complete the repository `Live Framer Canvas Gate`, using **required elevated permissions** for every Framer CLI command from the first attempt: successful `npx @framer/agent@latest setup`, official `$framer` Skill, successful `npx @framer/agent@latest session new "<url-or-id>"`, generated `projects/<safeProjectId>/index.md` task-map routing, then a targeted `npx @framer/agent@latest exec -s <sessionId>` live-tree readback. Any error means **Gate remains closed**. Before implementation, show the user a concise **Framer Agent gate receipt**. This Skill is secondary reasoning only; never substitute Browser / Playwright / Computer Use. Repo-only planning or documentation skips the Gate.
+
 ## Define the audit
 
 1. Name the exact scope: Section, Component, interaction, breakpoint, Page, or Website.
 2. Record exclusions and the user's active constraint lock.
 3. Inspect the current implementation before reading detailed QA material.
-4. Locate applicable headings with `rg -n '^##|^###'` and load only those sections from [framer/checklist.md](../../../framer/checklist.md).
-5. Add Marketplace checks only for Marketplace work.
+4. If the scope created, duplicated, or reassigned a reusable Component, locate its active `Component Requirement Contract`; absence of the contract is `Fix Required`, not permission to reconstruct ownership from memory.
+5. Locate applicable headings with `rg -n '^##|^###'` and load only those sections from [framer/checklist.md](../../../framer/checklist.md).
+6. Add Marketplace checks only for Marketplace work.
 
 ## Evidence ladder
 
@@ -34,6 +39,7 @@ Check only what the scope can affect:
 
 - Existence and duplication: the requested function appears once where intended; no redundant Section or CTA intent was added.
 - Structure and ownership: Definition → Instance → Breakpoint Override; full-bleed, wrapper, gutter, and component boundaries are coherent.
+- Contract symmetry: for every Component concern, compare planned Decision / Owner with the actual Canvas owner, then replace planned readback/Preview proof with evidence or an explicit Blocked reason.
 - Content and facts: Approved/Draft/Demo/Missing states remain honest; links and labels lead to real destinations.
 - Breakpoints: actual Desktop, Tablet, Phone, and any project-specific widths are inspected; narrow layouts transform rather than mechanically shrink.
 - Components/interactions: Properties, state routes, trigger targets, shared behavior, touch behavior, and Reduced Motion remain intact.
@@ -53,6 +59,8 @@ Classify the result:
 - `Pass`: evidence proves the scoped contract.
 - `Fix Required`: an in-scope issue can be repaired now; batch-fix the class and recheck only affected evidence.
 - `Blocked`: a real fact, asset, permission, service, or unavailable evidence prevents completion.
+
+For an active Component Requirement Contract, every row must end as evidenced `Pass` or reasoned `Blocked`; an unchecked or planned-only row is not completion. When the user asks to finish the current Part or complete it in one pass, do not stop after implementation while an authorized, executable checklist item remains unclassified.
 
 Update project state by responsibility:
 

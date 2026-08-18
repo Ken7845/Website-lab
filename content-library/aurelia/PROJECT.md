@@ -1,6 +1,6 @@
 # AURELIA Current Project
 
-- Updated: 2026-08-15
+- Updated: 2026-08-16
 - Platform: Framer
 - Project ID: `6EYvZfFo1CleDR77cYUF`
 - Project URL: `https://framer.com/projects/6EYvZfFo1CleDR77cYUF`
@@ -109,6 +109,7 @@ Opening
 Compact opening
 -> native reservation-request form
 -> Demo result / fallback information
+-> full-width Reservation FAQ surface
 -> shared Footer
 ```
 
@@ -176,6 +177,7 @@ The page language is a locked light editorial system with controlled near-black 
 | Shared `Template` | All five pages use the same Layout Template with shared Navbar, Content Placeholder, and Footer. | [Shared-shell Checklist](./checklist/shared-shell-and-reservation-handoff.md) |
 | `Navigation` | Desktop, Tablet, Phone Closed, and Phone Open; compact fixed `35px` system; links to Home, Menu, About, Chefs, and Reserve. | [Navbar/Footer pattern](../../framer/basic/patterns/navbar-footer.md) |
 | `Footer` | Shared navigation for the five current pages plus clickable Demo email and telephone; no separate Footer CTA, social links, address, map, or hours. | [Shared-shell Checklist](./checklist/shared-shell-and-reservation-handoff.md) |
+| `Reel Text` | Native text-reel component with editable `Label` and `Link` Properties. `League Gothic`, `Button`, and `Body` are the exposed font Variants; each has a native Hover gesture state. In every Variant, an in-flow Helper owns content width and a clipped viewport; the three-row absolute Track uses `0px` gap and Hover `bottom=0`. Button follows the current `Type/Button` treatment: Inter `600 / 10px / 0.02em / 1em`, with a `10px` viewport and `-20px → 0px` track route. Navbar links and Footer navigation use Reel Text on Desktop / Tablet only; their Phone variants use ordinary `Type/Button` / `Type/Body` Rich Text. Footer brand uses `League Gothic`. | [Reel Text reference](../../framer/advance-design/aurelia/text-reel.md) |
 | `Reservation Handoff` | One deep-inverse shared component with editable Heading and Supporting Copy; used by Home, Menu, and Chefs; one `Button` links to `/reserve`. | [Shared-shell Checklist](./checklist/shared-shell-and-reservation-handoff.md) |
 | `Button` | Shared White / Dark and Small state system with Label, Link, and Click ownership. Small states use `12px x 18px` padding, `10px` labels, and `spring-physics 250 30 1 0s`. | [Current Button pattern](../../framer/basic/patterns/buttons.md), [exact project evidence](./history/project-pre-migration-2026-08-15.md) |
 | `EveningChapterRow` | Fixed Home chapter row with component-owned breakpoint padding. | [Pre-migration snapshot](./history/project-pre-migration-2026-08-15.md) |
@@ -183,6 +185,7 @@ The page language is a locked light editorial system with controlled near-black 
 | `DishSelector` | Fixed seven-dish Home interaction with dedicated responsive state logic. | [Image matrix](../../framer/advance-design/aurelia/dish-selector-image-matrix.md), [reel pattern](../../framer/advance-design/aurelia/image-strip-number-reel.md) |
 | `MenuDishCard` | One reusable editable component. Desktop/Tablet expand; Phone static; Page Instances are Fill. | [Expandable editorial card](../../framer/advance-design/aurelia/expandable-editorial-card.md) |
 | `ChefStoryRow` | One editable component with Desktop, Tablet, Phone, and Wide Phone Collapsed/Expanded pairs. | [Chef story row](../../framer/advance-design/aurelia/chef-story-row.md) |
+| `FAQ Row` | Eight Reserve instances with editable Question and Answer Properties; Closed/Open and pointer Hover states use the AURELIA spring contract. The enclosing FAQ surface is full width; bordered rows remain Fill rather than taking a root/list `max-width`. | [Reserve FAQ revision](./checklist/reserve/2026-08-16-faq-surface-motion-responsive-revision.md) |
 | Reservation field system | Labelled native request fields plus `ReservationSubmit` states for Default, Incomplete, Pending, Success, and Error. | [Reserve Checklist](./checklist/reserve.md) |
 | Hero / cursor / scroll | `hero`, `Hero Loader`, custom `AURELIA` cursor, and external `Lenis` remain existing systems. | [Home Checklist](./checklist/home.md) |
 

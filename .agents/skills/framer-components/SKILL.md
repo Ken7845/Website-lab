@@ -1,11 +1,15 @@
 ---
 name: framer-components
-description: "Design, inspect, or repair native Framer Components, Variants, Component Properties, Instances, Styles, CMS bindings, Buttons, Navbar/Footer systems, and shared Layout Templates. Use when deciding Component versus Frame, content Properties versus state Variants, instance overrides, shared behavior, naming, or component-owned sizing. Do not use for a page-composition-only change, motion-only task, or final audit."
+description: "Compile, design, inspect, or repair native Framer Component contracts: Definitions, Variants, Properties, Instances, Styles, CMS, shared systems, and component-owned sizing. Use whenever creating, duplicating, or restructuring a reusable Component, including an interactive or responsive row/card; this is primary over layout or interaction Skills while ownership is being established. For live Canvas work, first complete official $framer setup, session, and task-map routing. Do not use for page-composition-only, established-component motion-only, or final-audit work."
 ---
 
 # Framer Components
 
 Build reusable systems only where reuse or state actually exists.
+
+## Platform gate
+
+For any live Canvas read or write, first complete the repository `Live Framer Canvas Gate`, using **required elevated permissions** for every Framer CLI command from the first attempt: successful `npx @framer/agent@latest setup`, official `$framer` Skill, successful `npx @framer/agent@latest session new "<url-or-id>"`, generated `projects/<safeProjectId>/index.md` task-map routing, then a targeted `npx @framer/agent@latest exec -s <sessionId>` live-tree readback. Any error means **Gate remains closed**. Before implementation, show the user a concise **Framer Agent gate receipt**. This Skill is secondary reasoning only; never substitute Browser / Playwright / Computer Use. Repo-only planning or documentation skips the Gate.
 
 ## Inspect before creating
 
@@ -20,6 +24,29 @@ Component Definition
 ```
 
 4. For repeated revisions, apply the short constraint lock in [change-control.md](../../../framer/basic/workflows/change-control.md).
+
+## Compile a Component Requirement Contract
+
+Before the first Canvas write that creates, duplicates, or changes a reusable Component's ownership, compile this contract from current Canvas evidence plus only the relevant routed rules. Reading a long Baseline is not proof that a rule was applied.
+
+Use `rg -n` to locate the applicable headings rather than loading whole references. Fill every row with a concrete decision or `N/A — <reason>`; no blank cell is allowed. `Governing source` must identify a targeted `path.md#heading`, a numbered user requirement, current Canvas evidence, or a reasoned `N/A`; a bare filename or the word “Baseline” is not a usable rule link.
+
+| Concern | Decision / N/A reason | Owner | Governing source | Readback proof | Preview proof |
+|---|---|---|---|---|---|
+| Section background / vertical rhythm |  |  |  |  |  |
+| Available width / placement |  |  |  |  |  |
+| Visible boundary / border / surface |  |  |  |  |  |
+| Internal padding / hit area |  |  |  |  |  |
+| Readable max-width |  |  |  |  |  |
+| Editable content / Properties |  |  |  |  |  |
+| States / routes |  |  |  |  |  |
+| Breakpoint contract |  |  |  |  |  |
+| Accessibility / touch / focus |  |  |  |  |  |
+| Evidence sample |  |  |  |  |  |
+
+Set `Contract status: Ready` only after all owner decisions and planned proof paths are complete. If a request Checklist exists, persist the table there under `## Component Requirement Contract`; otherwise keep the compact contract in working state. Do not create another repository file merely for the contract.
+
+Before implementation, show one concise **Component contract receipt**: `owners complete / N/A reasoned / readback planned / preview planned`. Any missing field keeps the write gate closed; do not substitute a generic claim that the Baseline was read.
 
 ## Assign responsibility
 
@@ -42,11 +69,13 @@ Component Definition
 
 ## Implement in one layer at a time
 
-1. Fix the canonical Component Definition first when the defect is shared.
-2. Fix Page Instance content/width only when the definition is correct.
-3. Fix a Breakpoint Override only when the difference is intentionally breakpoint-specific.
-4. Batch the known changes, then read back the definition, representative first/middle/last instances, and affected breakpoints.
-5. Invoke `framer-qa` after the system is implemented; do not preload the entire QA checklist.
+1. Implement the `Ready` contract in ownership order; do not invent a second layout model while writing.
+2. Fix the canonical Component Definition first when the defect is shared.
+3. Fix Page Instance content/width only when the definition is correct.
+4. Fix a Breakpoint Override only when the difference is intentionally breakpoint-specific.
+5. Batch the known changes, then read back each contract row through Definition, representative first/middle/last Instances, affected Breakpoint Overrides, standalone Component, and real Page Preview as applicable.
+6. Replace planned proof with actual evidence and set the contract to `Pass` or `Blocked`; never mark it `Pass` from a successful write command.
+7. Invoke `framer-qa` after the system is implemented; do not preload the entire QA checklist.
 
 ## Conditional references
 

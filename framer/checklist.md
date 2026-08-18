@@ -143,6 +143,8 @@ content-library/<project>/
 - [ ] 任一必查项失败时，当前 Part 状态为 `Fix Required`，不得报告完成。
 - [ ] 能在当前授权范围内修复的问题必须直接自修补，不把基础缺陷留给用户。
 - [ ] 缺少事实、权限或素材时标记 `Blocked`，继续完成不依赖阻塞项的工作。
+- [ ] 用户要求“完成”、“一次性完成”或完成当前 Part 时，Scope 内每个项目必须为 `Pass`、有证据的 `Blocked` 或用户明确授权的 `Deferred`；不得带未分类的 `[ ]` 结束。
+- [ ] 新建、复制或改写可复用 Component 责任时，实施前的 `Component Requirement Contract` 已为 `Ready`；实施后已按同一合同反向验证为 `Pass` 或 `Blocked`。
 - [ ] 用户明确设计意图与通用规则冲突时保留用户意图，并在 `DECISIONS.md` 或 PROJECT 的 Decisions / Exceptions 章节记录。
 - [ ] 只复检当前 Part 及受影响的共享依赖，不无目的重读整页或整站。
 

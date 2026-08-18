@@ -75,6 +75,19 @@ Reserve is the most operational page. It should be shorter and clearer than Home
 - [x] Long information is grouped into meaningful clusters, not a dense bordered table.
 - [x] Practical information is available in the body, not only Footer.
 
+### 7. Reservation FAQ
+
+- [x] Add an editorial FAQ section after the native request form and before Footer.
+- [x] Use one reusable `FAQ Row` component with buyer-editable Question and Answer properties; default instances remain Closed.
+- [x] Add eight buyer-editable fictional reference answers covering booking window, changes, dietary needs, party size, private dining, accessibility, arrival, and reservation contact; do not leave instruction-style `Demo answer` placeholders in the visible accordion.
+- [x] Use existing Type/Caption, Type/Heading 3, Type/Body Large question, and smaller Type/Body answer styles plus Feather Plus/Minus icons.
+- [x] Keep the FAQ in a separate full-width soft-grey surface; its outer section and bordered-row list have no `max-width`. `FAQ Row` owns its own horizontal padding; the non-component introduction retains its own readable measure and breakpoint padding.
+- [x] Use the existing Surface, Text and Muted color system for the light FAQ surface; preserve a quieter answer hierarchy and a restrained light-grey Hover surface.
+- [x] Use the established `spring-physics 250 30 1 0s` transition across FAQ states and a subtle `0.98` press scale.
+- [ ] Preview-test Open, Closed, Hover, keyboard, Focus, touch, long-copy and Reduced Motion states on Desktop, Tablet and Phone.
+- [ ] Verify all fictional reference answers are replaced by the restaurant’s verified policy before production publication.
+- [ ] Follow the detailed [Reserve FAQ build and QA checklist](./reserve-faq-build-checklist.md) before marking the page complete.
+
 ## Shared system and responsive
 
 - [x] Use the shared Layout Template, Navbar, Footer, Button, native labelled field system, and `ReservationSubmit` state component; production data destination, validation/error behavior, privacy handling, and result behavior remain Blocked.
@@ -128,7 +141,7 @@ Reserve is the most operational page. It should be shorter and clearer than Home
 ## Latest Part Result
 
 Scope: Rebuilt Demo request page and existing cross-page Reserve routing  
-Status: Partial Pass; native form structure built, live submission remains Blocked
+Status: Partial Pass; native form and FAQ structure built, live submission remains Blocked
 
 Passed:
 - The separately drawn Reserve controls were consolidated: Home, Menu, and Chefs use the shared Reservation Handoff, while shared Navigation and Footer also route to `/reserve`.
@@ -139,7 +152,8 @@ Passed:
 - `ReservationSubmit` provides Default, Incomplete, Pending, Success, and Error variants and is bound as the form submit control. The page explicitly states that the Demo form cannot send requests until a data destination and privacy notice are configured.
 - Desktop and Tablet use a balanced two-column reservation form. The first column holds Name, Email, and Booking type; its Date-and-party row fills exactly the same column width. The second column holds Message with the `Request a table` action directly beneath it. Phone stacks both columns and its Date-and-party fields into one clear action sequence. Every input fills its allocated column; the Demo notice sits outside the form.
 - Desktop and Phone canvas screenshots were visually checked after the final CTA refinement. No publish was performed.
+- A new `Reservation FAQ` sits after the existing request/form/fallback content on its own full-width soft-grey surface. It uses eight default-Closed instances of `FAQ Row`; each exposes Question and Answer properties, toggles through connected Closed/Open variants, and uses Feather Plus/Minus with a pointer hover variant. Questions and icons use the dark Text system; answers use the smaller Muted hierarchy; dividers use the original light-grey stroke. All FAQ states use `spring-physics 250 30 1 0s` with a subtle `0.98` press scale. The visible answers are now complete fictional restaurant-policy examples rather than editing instructions; the section introduction still tells buyers to replace them with verified production policy.
 
 Blocked:
 - Form data destination, data handling, response time, policies, verified address, verified phone, verified email, privacy language, and live confirmation/failure behavior are missing.
-- 320, 1440+, keyboard/focus, Reduced Motion, and live click-path Preview checks remain.
+- 320, 1440+, keyboard/focus, Reduced Motion, FAQ interaction, and live click-path Preview checks remain.

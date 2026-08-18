@@ -62,6 +62,12 @@ Do not mark a Page complete because its Desktop layout looks finished. A Page re
 | Reserve | `/reserve` | [reserve.md](./reserve.md) | Native request form built; Partial Pass; live submission blocked |
 | Shared shell & reservation handoff | Shared components + all five pages; Handoff on `/`, `/menu`, `/chefs` | [shared-shell-and-reservation-handoff.md](./shared-shell-and-reservation-handoff.md) | Implemented; Fix Required visual/Phone confirmation |
 
+## Project-level current audits
+
+| Audit | File | Current status |
+|---|---|---|
+| Marketplace release readiness | [2026-08-16 full release audit](./marketplace/2026-08-15-canvas-readiness-audit.md) | Fix Required; 55/100 provisional score; Canvas, buyer editability, listing, launch and post-launch checklist |
+
 ## Retired and repository-level records
 
 | Record | File | Status |

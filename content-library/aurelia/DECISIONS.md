@@ -114,6 +114,8 @@ Outer Page Content and full-bleed Sections remain full width. `max-width` belong
 
 Reusable component roots own their horizontal padding. Parent Sections own page-level vertical rhythm. Responsive work must preserve this ownership instead of compensating with arbitrary fixed widths or absolute positioning.
 
+Long bordered rows such as `EveningChapterRow` and `FAQ Row` keep their root/list and external instances Fill. Their border should respond to available page width; only a true inner reading measure or fixed-geometry contract may be bounded.
+
 ### D-17: Breakpoints transform independently
 
 Desktop `1200`, Tablet `810`, and Phone `390` are authored compositions; Chefs also has Wide Phone `599`. Stress checks include `320` and `1440+`.

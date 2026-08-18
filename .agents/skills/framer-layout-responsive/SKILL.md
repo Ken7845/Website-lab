@@ -1,11 +1,15 @@
 ---
 name: framer-layout-responsive
-description: "Audit, create, or modify Framer page and section layouts across Desktop, Tablet, Phone, and project-specific breakpoints. Use for composition, spacing, stacking, responsive transformation, width ownership, full-bleed/max-width issues, overflow, breakpoint regressions, or adding/reworking a section in an existing Framer page. Do not use for isolated component-state architecture, interaction-only work, or final QA unless layout is the primary problem."
+description: "Secondary repository reasoning for auditing, creating, or modifying Framer layouts across breakpoints. Use for composition, spacing, stacking, responsive transformation, width ownership, overflow, regressions, or reworking a section. For live Canvas work, first complete official $framer setup, session, and project task-map routing; this Skill never replaces the platform connection. Do not use for isolated component-state architecture, interaction-only work, or final QA unless layout is primary."
 ---
 
 # Framer Layout and Responsive
 
 Preserve the page's existing design logic while giving each breakpoint an intentional composition.
+
+## Platform gate
+
+For any live Canvas read or write, first complete the repository `Live Framer Canvas Gate`, using **required elevated permissions** for every Framer CLI command from the first attempt: successful `npx @framer/agent@latest setup`, official `$framer` Skill, successful `npx @framer/agent@latest session new "<url-or-id>"`, generated `projects/<safeProjectId>/index.md` task-map routing, then a targeted `npx @framer/agent@latest exec -s <sessionId>` live-tree readback. Any error means **Gate remains closed**. Before implementation, show the user a concise **Framer Agent gate receipt**. This Skill is secondary reasoning only; never substitute Browser / Playwright / Computer Use. Repo-only planning or documentation skips the Gate.
 
 ## Start from evidence
 

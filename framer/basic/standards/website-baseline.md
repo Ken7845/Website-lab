@@ -188,6 +188,17 @@ Variant 只承担 Desktop / Phone、Default / Hover 等真实结构或状态差�
 
 ### 组件内部与外部实例的尺寸契约
 
+### 长条边框组件的宽度归属
+
+当 FAQ、可展开故事行、章节行等长条边框组件的边界应跟随页面可用宽度时，组件根层、外部 Instance 与承载它的 List 不应为了“看起来整齐”而加入任意 `max-width`。
+
+- 宽度由父级 Section 的可用空间和 Instance 的 Fill 决定；组件自身负责横向 Padding、边框/分隔线、触控区与内部内容关系。
+- `max-width` 只属于真正需要阅读行长控制的内部文字 Wrapper，或已经验证的固定几何契约；它不能承担整条边框的宽度。
+- 发现边框在 Preview 加宽后不响应时，依次检查组件根层、页面 Instance、最近父级 List/Stack 与 Section 的宽度归属；不要通过拉伸图片、固定像素宽度或 Absolute 定位补偿。
+- 至少在 Desktop、Tablet、Phone，以及窄屏和加宽 Preview 中检查收起与展开状态的边框连续性、文字可读性与图片比例。
+
+这是一条尺寸归属原则，不要求所有组件使用同一内部结构。AURELIA 的 `EveningChapterRow` 与 `FAQ Row` 是当前项目中的对应证据。
+
 ### 组件文字的三端契约
 
 组件内部不要直接引用已经成型的 `Text Style`。页面 Breakpoint 与 Component Variant 是两套独立系统；直接引用 Style 不会可靠地随着组件的 Desktop / Tablet / Phone Variant 自动切换，容易造成组件画布、实例和实际排版不一致。

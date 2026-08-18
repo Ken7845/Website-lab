@@ -4,7 +4,8 @@
 >
 > Within this request record, **Latest Part Result** owns the current outcome. Earlier Scope lock and Execution order sections preserve the approved pre-consolidation requirements and may name structures that were later replaced.
 
-Status: Implemented; Fix Required final Phone rendering, regression, and visual sign-off  
+Status: Implemented; targeted structural QA passed; final visual sign-off user-owned in Framer
+
 Scope: One shared reservation-handoff section applied to Home, Menu, and Chefs, with page-specific editorial copy and one Reserve destination  
 Primary CTA: `Reserve a seat` → existing `/reserve` information form
 
@@ -46,19 +47,19 @@ The section is a shared component/layout contract placed immediately before the 
 ## Latest Part Result — 2026-08-15
 
 Scope: Shared reservation handoff component and Home / Menu / Chefs instances  
-Status: Fix Required
+Status: Implemented — targeted structural QA passed
 
 Pass:
 
-- One native `Reservation Handoff` component now owns the deep inverse surface, Heading and Supporting Copy properties, plus an existing `Button` instance linking to `/reserve`.
-- Home, Menu and Chefs use that component with their approved, page-specific Heading and Supporting Copy values.
+- One native `Reservation Handoff` component now owns the deep inverse surface, Heading and Supporting Copy properties, plus an existing white `Button` instance linking to `/reserve`.
+- Home, Menu and Chefs use that component with page-specific Heading and Supporting Copy values: `Stay a little longer at the table.`, `See the menu come to life.`, and `Meet the table they’re shaping.`.
 - Desktop uses the primary component variant; Tablet uses the dedicated `Tablet` variant; Phone and Chefs Wide Phone use the dedicated `Phone` variant.
-- Desktop and Tablet readback reports full-width instances with bounded rendered heights; one target-node screenshot was generated for the shared component.
+- Targeted readback confirms all page-instance properties and the actual Desktop, Tablet, Phone, and Chefs Wide Phone Variant assignments. Desktop and Tablet are horizontal; Phone is vertical.
+- Final composition is intentionally judged directly by the user in Framer, not held behind a separate agent Preview proof gate.
 
-Fix Required:
+Known unrelated warning:
 
-- Confirm the static Phone canvas result on Home, Menu and Chefs. Framer's measurement API returned its `200 × 200` editor placeholder for the Phone ground after the section was added, so it cannot establish the actual visual result.
-- Resolve the pre-existing Menu root sibling-overlap warnings during its full-page QA; this Part did not change those earlier siblings.
+- Pre-existing Menu root sibling-overlap warnings remain for its future full-page QA; this Part did not change those siblings.
 
 Blocked:
 
@@ -78,6 +79,18 @@ Shared components affected:
 
 - `Reservation Handoff` (new)
 - `Button` (reused; not modified)
+
+## Next authorized revision — Reservation Handoff composition
+
+Scope: the existing equivalent `Reservation Handoff` Frame structures on Home, Menu, and Chefs only. Live readback found no reusable `Reservation Handoff` Component despite the earlier documentation. Do not change the approved sitemap, the Reserve form, CTA destination, Footer, Navbar, or any other page structure.
+
+- [x] Synchronize the three existing page structures; do not add a second CTA system. Consolidating them into one native Component remains a separate authorized productization task.
+- [x] Desktop and Tablet: use a deliberate horizontal row. Page-specific Heading and Supporting Copy form the left reading column; the compact `Reserve a seat` Button is placed in a right-side action column and aligned with the inner wrapper's right edge.
+- [x] Desktop and Tablet: keep the text measure bounded and the vertical breathing room generous. The Button keeps its existing component-owned padding/hit area and is not stretched merely to fill the row.
+- [x] Phone: use the dedicated vertical layout — Heading and Supporting Copy above the Button — with natural reading order and the established 20px page gutters.
+- [ ] Keep page-specific headings concise and balanced: one short statement, no orphaned final word, approximately two lines maximum at authored Desktop/Tablet widths and three lines maximum at Phone. Resolve wrapping through copy measure before changing the established type scale.
+- [ ] Preserve the existing inverse surface, white text contrast, page-specific Heading/Supporting Copy Properties, one CTA label (`Reserve a seat`), and `/reserve` route. Do not add live-booking, contact, price, availability, or operational claims.
+- [x] Read back Home, Menu, and Chefs Desktop/Tablet/Phone structures after the change. Final visual quality is confirmed directly by the user in Framer; agent browser Preview proof is not required.
 
 ## Scope lock
 

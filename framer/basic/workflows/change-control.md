@@ -27,6 +27,17 @@
 
 项目级 Checklist 的目录、页面文件、状态与同步合同继续由 [`../../checklist.md`](../../checklist.md) 的“项目级 Checklist 文件夹规范”维护。
 
+## 将知识规则编译进组件请求合同
+
+当一次请求会新建、复制或改写可复用 Component 责任，且本轮已存在请求 Checklist 时，在用户原话之后另建 `## Component Requirement Contract`：
+
+1. 用户原话保持逐字、不改写；Component Contract 是派生实施合同，不能取代原始要求。
+2. 先完成 `framer/README.md` 的 multi-domain 扫描与 primary-skill 选择，再使用 [`framer-components`](../../../.agents/skills/framer-components/SKILL.md#compile-a-component-requirement-contract) 的唯一标准表格。
+3. 只编译当前组件命中的规则；每行记录具体 Decision / N/A reason、Owner、Governing source、Readback proof 和 Preview proof，不把 Baseline 整篇复制进 Checklist。Markdown 来源写为 `path.md#heading`；也可引用编号用户原话或 current Canvas evidence，不能只写裸文件名或“Baseline”。
+4. `Contract status: Ready` 是组件写入前提；实施后用同一张表替换计划证据，再改为 `Pass` 或 `Blocked`。
+
+用户已明确要求开始执行，且派生合同没有扩大 Scope 或改变用户方向时，完成 `Ready` 后直接继续，不为合同格式再次询问。合同暴露新范围、破坏性变更或真实设计分歧时才暂停确认。
+
 ## 连续修改前的需求回顾
 
 同一个 Part、Component、Section 或交互进入第二轮及后续修改时，不得只根据用户最新一条消息继续。每次新的写入前必须回顾从该 Part 开始以来用户给出的相关提示与修正，并整理一份短约束锁：
@@ -59,4 +70,3 @@
 - 是否存在已知限制。
 
 不要向用户倾倒内部节点 ID、完整工具输出或重复过程。发现用户方案有结构性问题时，应给出证据和更低成本的替代方案。
-

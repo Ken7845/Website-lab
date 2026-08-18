@@ -18,6 +18,14 @@
 - 空间感
 - 高级感
 
+## Transition 参数的归属
+
+- 先读取当前项目的 `PROJECT.md`、`DECISIONS.md` 和已验收组件；已有项目动效契约时，复用该项目参数，而不是重新猜测一组数值。
+- `Spring physics stiffness 250` 可以作为尚未建立项目契约时的起始提案；必须在项目内补全并记录 damping、mass、delay 等实际参数，再作为该项目的可复用依据。
+- 不把某个项目的数值提升为所有网站的强制默认值。AURELIA 的 `spring-physics 250 30 1 0s` 是该项目的已批准证据，不是跨项目的唯一答案。
+- 同一组件的 Default、Hover、Open、Closed 等相关状态默认使用同一套 transition；只有状态语义或真实 Preview 证明需要差异时才拆分。
+- Press 反馈应克制、可感知即可；避免让整行或主操作在点击时产生明显缩小。
+
 
 ## 页面进入动画
 

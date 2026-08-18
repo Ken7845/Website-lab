@@ -1,4 +1,4 @@
 interface:
   display_name: "Framer Components"
-  short_description: "Build maintainable Framer components and variants"
-  default_prompt: "Use $framer-components to design or repair this Framer component, variant, property, or shared system."
+  short_description: "Compile and build reliable Framer component contracts"
+  default_prompt: "Use $framer-components to compile the ownership contract, then design or repair this Framer component and verify it symmetrically."

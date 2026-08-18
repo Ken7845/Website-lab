@@ -1,11 +1,15 @@
 ---
 name: framer-interactions
-description: "Choose, implement, or repair native Framer motion and interaction: Hover or Gesture Variants, open/closed states, relative or fixed Overlays, Lightbox, menus, cursor previews, scroll effects, transitions, and reduced-motion behavior. Use when the task's main risk is trigger/target routing, motion responsibility, pointer versus touch behavior, or advanced interaction fidelity. Do not use for static layout-only changes or final QA."
+description: "Secondary repository reasoning for native Framer motion and interaction: Variants, Overlays, Lightbox, menus, cursor previews, scroll effects, transitions, and reduced motion. Use when the main risk is trigger/target routing, motion responsibility, pointer versus touch behavior, or advanced interaction fidelity. For live Canvas work, first complete official $framer setup, session, and project task-map routing; this Skill never replaces the platform connection. Do not use for static layout-only changes or final QA."
 ---
 
 # Framer Interactions
 
 Use the smallest native pattern that communicates hierarchy, story, feedback, or state change.
+
+## Platform gate
+
+For any live Canvas read or write, first complete the repository `Live Framer Canvas Gate`, using **required elevated permissions** for every Framer CLI command from the first attempt: successful `npx @framer/agent@latest setup`, official `$framer` Skill, successful `npx @framer/agent@latest session new "<url-or-id>"`, generated `projects/<safeProjectId>/index.md` task-map routing, then a targeted `npx @framer/agent@latest exec -s <sessionId>` live-tree readback. Any error means **Gate remains closed**. Before implementation, show the user a concise **Framer Agent gate receipt**. This Skill is secondary reasoning only; never substitute Browser / Playwright / Computer Use. Repo-only planning or documentation skips the Gate.
 
 ## Audit the existing behavior
 

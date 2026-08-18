@@ -31,6 +31,24 @@ Website-lab 是个人网站与独立站的设计实验室、项目事实库与 F
 
 读取、审计、targeted readback 和其他可逆验证可以直接进行。用户已明确授权的局部修复，以及不改变方向的 Responsive、SEO、Alt、Link、命名和结构完善，可以直接完成并验证。
 
+## Live Framer Canvas Gate
+
+任何需要读取、审计或修改真实 Framer Canvas 的任务，必须按以下状态机进入；不得跳步：
+
+所有 `npx @framer/agent@latest ...` CLI 命令在 sandbox 中都必须从第一次尝试就申请 **required elevated permissions**（network + skill / session file access）；不得先在默认 sandbox 中运行。权限拒绝或网络失败是环境 blocker，不是 Framer 能力缺失。
+
+1. **Installed**：运行 `npx @framer/agent@latest setup` 并等待进程退出。只有命令成功退出且没有 setup error 才算完成；界面显示“setup”、Agent 声称“已 setup”、超时或错误输出都不算。
+2. **Loaded**：加载 official `$framer` Skill，不以网页搜索或仓库 Skill 替代。
+3. **Connected**：使用已确认的 Project URL / ID 运行 `npx @framer/agent@latest session new "<url-or-id>"`，成功取得 session ID；本轮后续命令复用该 session，不重复建立。
+4. **Routed**：`session new` 才会刷新 `projects/<safeProjectId>/index.md`。读取其 `Anything` 行、当前任务对应行及它们明确指向的少量文件，再选择一个 primary repository Skill。
+5. **Verified**：修改前先通过 `npx @framer/agent@latest exec -s <sessionId>` 与 `framer.agent.*` 做一次 targeted live-tree readback；后续官方 CLI 命令必须复用同一 session。
+
+上述任一状态报错、超时、无输出或缺少必需证据时，**Gate remains closed**：先诊断或报告准确 blocker，不得继续 Canvas 判断或自行改用 UI。仓库内的 `framer-layout-responsive`、`framer-components`、`framer-interactions` 与 `framer-qa` 只负责判断方法，不提供 Canvas 连接，也不能替代官方 `$framer` Skill。不得把搜索 Framer 官网、Browser / Playwright / Computer Use 或对编辑器 DOM 的观察表述为“已读取 Framer Skill”或“Framer Agent 已验证”。只有当官方 task map / docs 已证实精确能力缺口，且用户在获知 blocker 后明确授权，才可采用 UI fallback；Agent 不得自行授权。
+
+正式实施前必须向用户显示一行 **Framer Agent gate receipt**：`setup OK / session connected / task-map <row> / live readback OK`。不展示 session ID 或内部节点 ID；任一项不是 OK 就不能声称已连接 Framer Agent。
+
+纯仓库文档、规划或知识维护不连接 Canvas，也不运行 setup。未经可追踪的 Framer Agent targeted readback，不得把 Canvas 判断写成 Verified current state。
+
 ## 最小读取路径
 
 1. 先读本文件。
@@ -41,6 +59,7 @@ Website-lab 是个人网站与独立站的设计实验室、项目事实库与 F
 |---|---|
 | 品牌、事实、文案、素材 | `PROJECT.md` 链接的 Approved sources |
 | 设计方向与反模板化 | 本轮明确相关的 `.agents/skills/design-taste/SKILL.md` 与少量 Inspiration |
+| 真实 Framer Canvas 读取或写入 | 先完成 `Live Framer Canvas Gate`，再选择下面一个 primary repo Skill |
 | Framer Section / Page 布局与断点 | `.agents/skills/framer-layout-responsive/SKILL.md` |
 | Framer Component / Variant / Property / shared system | `.agents/skills/framer-components/SKILL.md` |
 | Framer motion / Overlay / Lightbox / Hover | `.agents/skills/framer-interactions/SKILL.md` |
@@ -50,7 +69,7 @@ Website-lab 是个人网站与独立站的设计实验室、项目事实库与 F
 | 高级组件模式 | `framer/advance-design/` 中与当前项目或模式直接相关的文件 |
 | 知识新增、迁移、去重、Skill / Router 修改 | `.agents/skills/knowledge-maintenance/SKILL.md` |
 
-普通小范围 Framer 任务通常只需本文件、当前 `PROJECT.md` 和一个 primary Skill；只有 Skill 明确路由时才追加详细 Reference。任务类型不清楚时再读 `framer/README.md`。旧项目没有 `PROJECT.md` 时，先用 `content-library/project-manifest-template.md` 建立入口并标记未知事实。Context 压缩或 Session 恢复后，重新读取当前 Part 的 PROJECT、变更控制和 Checklist 路由，不靠记忆续写。
+普通小范围 Framer 任务通常只需本文件、当前 `PROJECT.md`、live Canvas 平台入口（仅在真实连接时）和一个 primary repo Skill；只有 Skill 明确路由时才追加详细 Reference。任务类型不清楚时再读 `framer/README.md`。旧项目没有 `PROJECT.md` 时，先用 `content-library/project-manifest-template.md` 建立入口并标记未知事实。Context 压缩或 Session 恢复后，重新读取 official `$framer` Skill 及 task-map 行、当前 Part 的 PROJECT、请求 Checklist、primary repo Skill 和 active Component Requirement Contract；先用同一 session targeted readback 重建证据，不靠记忆或压缩摘要续写。
 
 知识维护任务完成前运行 `knowledge-maintenance` 的 strict validator；不得用扩大排除范围或删除精确证据换取通过。
 

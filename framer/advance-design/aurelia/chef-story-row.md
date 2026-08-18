@@ -1,5 +1,7 @@
 # Framer 高级组件：ChefStoryRow
 
+> **Current Canvas contract — verified 2026-08-16.** The `/chefs` page owns the available inline width: `Chef Profiles` and all three Page Instances are Fill (`1fr`) at Desktop, Tablet, Phone, and Wide Phone, with no `maxWidth` on the list. The portrait remains governed by its breakpoint-specific frame; the adjacent Story / identity region takes the responsive remainder. Treat this as the current source of truth over older revision notes.
+
 ## 适用范围
 
 `ChefStoryRow` 用于 AURELIA `/chefs` 这类“先通过肖像相遇、再按需阅读一位人物长故事”的编辑型人物序列。它让首屏保持稀疏，同时让每位人物的姓名、角色和第一人称故事保留在同一个可展开的阅读单元中。
@@ -53,7 +55,7 @@
 - Phone → `Phone Collapsed`
 - Wide Phone → `Wide Phone Collapsed`
 
-Page 的 `Chef Profiles` 列表拥有可用宽度；Instance 均为 `1fr` / Fill，高度 auto。不要在外层 Section 额外加横向 Padding 来补组件边界，也不要将 Instance 改成 100% Relative 或固定宽度。
+Page 的 `Chef Profiles` 列表拥有可用宽度：Desktop、Tablet、Phone、Wide Phone 均为 `1fr` / Fill、高度 auto，且列表本身没有 `maxWidth`。三个 Page Instance 也均为 `1fr` / Fill、高度 auto。不要在外层 Section 额外加横向 Padding 或 `maxWidth` 来补组件边界，也不要将 Instance 改成 100% Relative 或固定宽度。
 
 `599px` 是当前画布的 Wide Phone authored width，不是可凭空假设的浏览器范围。若要调整断点区间，先在 Page 的 Breakpoint 设置中读取实际最小 / 最大范围，再同步验证 Wide Phone 与相邻 Phone / Tablet 状态。
 
@@ -84,13 +86,13 @@ ChefStoryRow (Component)
 | Desktop Collapsed | 386.5 × 580px | `1fr`，Identity 高 580px，底部 Padding 50px | Row gap 50px。 |
 | Desktop Expanded | 326.5px × `1fr` | 604px × `1fr` | 根高 580px；Row gap 50px。 |
 | Tablet Collapsed | 380px × `1fr` | `1fr` × `1fr` | 根高 570px；Row gap 48px；Identity gap 20px。 |
-| Tablet Expanded | `1fr` × `1fr`（外层 Portrait Column 434px 高） | auto × `1fr` | Row gap 30px；Story wrapper 429px 宽。 |
+| Tablet Expanded | 固定 `289.33 × 434px`（约 2:3；Portrait Column 与 Chef Portrait 一致） | `1fr` × `1fr` | Row gap 30px；肖像不随可用宽度拉伸，Story / identity 吸收边框变宽后的剩余空间。 |
 | Phone Collapsed | `1fr` × 440px | `1fr` × auto | 先肖像、后身份；Identity gap 20px。 |
 | Phone Expanded | `fit-image` × `1fr`（Portrait Column 220px 高） | `1fr` × `1fr` | Identity gap 100px；Story wrapper gap 54px。 |
 | Wide Phone Collapsed | 279px × `1fr` | `1fr` × `1fr` | 根高 400px；Row gap 25px。 |
 | Wide Phone Expanded | 166 × 245px | `1fr` × `1fr` | 外 Row 543 × 620px；Row gap 30px；Identity gap 70px。 |
 
-替换头像时，先保持这些容器契约，再检查 focal point 和可读性。不能用 `Fill`、百分比或外部 Section Padding 改写参与上述尺寸关系的 Portrait Column / Chef Portrait。
+替换头像时，先保持这些容器契约，再检查 focal point 和可读性。不能用 `Fill`、百分比或外部 Section Padding 改写参与上述尺寸关系的 Portrait Column / Chef Portrait；响应宽度应由 Page list → Instance → Story / identity 的 `1fr` 链承接，而不是由人物图承担。
 
 ## 状态路由
 
@@ -117,9 +119,9 @@ ChefStoryRow (Component)
 | 检查 | 必须通过的证据 |
 |---|---|
 | 路由 | 四个断点均能 `Collapsed → Expanded → Collapsed`，且没有跳到其他断点。 |
-| 宽度 | Page Instance 在 Desktop / Tablet / Phone / Wide Phone 都为 `1fr`，根 Padding 由组件拥有。 |
+| 宽度 | `Chef Profiles` 在 Desktop / Tablet / Phone / Wide Phone 都为 `1fr` 且无 `maxWidth`；三个 Page Instance 同样为 `1fr`，根 Padding 由组件拥有。 |
 | 替换 | 首、中、末 Instance 分别替换 Portrait、长 Name / Role、双倍 Content、空 Role；无横向溢出、裁切或空白断层。 |
-| 图片 | 纵向和横向替换图都保留人物可读焦点；Phone Collapsed 仍为 440px 高。 |
+| 图片 | 纵向和横向替换图都保留人物可读焦点；Tablet Expanded 固定为 `289.33 × 434px`（约 2:3），Phone Collapsed 仍为 440px 高。 |
 | 动效 | `spring-physics 250 30 1 0s` 不改变页面的阅读顺序；Reduced Motion 下最终状态和 Back 操作仍清楚。 |
 | 可访问性 | Button 可键盘进入、Focus 可见、展开内容紧随对应 Trigger；每张 Portrait 有准确 Alt。 |
 | Preview | 至少实测 320 / 390 / 599 / 810 / 1200 / 1440+，并检查首项、中间项、末项。 |
@@ -129,6 +131,7 @@ ChefStoryRow (Component)
 | 症状 | 原因 | 修复 |
 |---|---|---|
 | 预览拉宽后右侧留白或背景露黑 | 把 root / Section 锁为过小 max-width，或让外层拥有组件的横向 Padding | 保持 Page / Section full bleed；只在必要的内层限制宽度，根 Padding 留在组件。 |
+| 边框变宽时人物图被拉伸，或 Story 没有跟随边框 | `Chef Profiles` / Instance 链中仍有 `maxWidth` 或固定宽度；或 Tablet Expanded 的 Portrait / Story 同时使用 `1fr` | 依次检查 `Chef Profiles → Page Instance → Chef Identity Row`：列表与 Instance 都恢复为 `1fr`、移除列表 `maxWidth`；Tablet Expanded 将 Portrait Column 与 Chef Portrait 保持 `289.33 × 434px` / 约 2:3，Chef Identity 保持 `1fr`。 |
 | Phone 头像变形或故事不随宽度变化 | 改写了 Portrait Container 的 350 / 440 或 `fit-image` 合同，或 Story 父级不是 Fill | 恢复对应 Variant 的 Portrait 与 `1fr` Story 链；不要在 Text 上加 Padding。 |
 | 展开后跳到 Desktop 或无法返回 | 继承了错误断点的 `SET_VARIANT` 目标 | 回读 Button Click Property，按上表设为同断点配对 Variant。 |
 | 新厨师需要新 Variant | 将内容当成状态 | 复制一个 Page Instance，写入四个 Properties；不增加 Component Variant。 |
@@ -170,6 +173,7 @@ Back button: Button White, label “Back” → Desktop Collapsed
 
 Tablet pair:
 810px × 570px; collapsed padding 0 / 28 / 0 / 28; expanded padding 36 / 28 / 50 / 28
+Expanded portrait: fixed 289.33 × 434px (about 2:3); Story / identity: Fill (`1fr`)
 Open: Dark Small → Tablet Expanded; Back: White Small → Tablet Collapsed
 
 Phone pair:
