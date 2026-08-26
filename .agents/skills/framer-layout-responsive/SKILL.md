@@ -38,7 +38,7 @@ Page breakpoint root
 → media/text child
 ```
 
-- A full-bleed outer Section should not inherit an unrelated `max-width`; constrain an intentional inner wrapper.
+- A full-bleed outer Section and its near-outer structural Stacks should remain fluid. Do not automatically place `max-width` on the first inner wrapper; trace to the deepest Content Wrapper, reading column, list, or component that genuinely owns the constraint. See `framer/basic/standards/website-baseline.md#5-layout-与共享结构`.
 - Let exactly one layer own horizontal gutters. Do not repair child alignment by stacking padding at multiple levels.
 - Prefer `Fill / 1fr` for page instances when the parent owns available width. Do not use `100% Relative` to hide an unclear ownership chain.
 - Fixed-coordinate tracks, reels, viewports, slides, and windows keep their internal fixed geometry; make the surrounding page responsive instead.

@@ -112,7 +112,7 @@ Page 未通过以上条件时，不得标记 Done。
 
 ### Desktop
 
-- [ ] 外层 Page Content / full-bleed Section 使用全宽，不设 `max-width`；只在内层内容 Wrapper 或组件上设置合理 `max-width`。
+- [ ] 外层 Page Content、full-bleed Section 与近外层结构 Stack 使用全宽，不设 `max-width`；约束落在最深的局部内容 Owner，并对比 1200 / 1440+ 确认 Desktop 仍会扩展。
 - [ ] Navbar 单行且 Sticky 正常。
 - [ ] 图片构图、留白和大屏节奏成立。
 

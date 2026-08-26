@@ -252,7 +252,9 @@ Layout Template
 - Navbar/Footer 不在每页复制。
 - 优先使用 Stack 和 Grid，明确谁拥有宽度。
 - 最外层 Page Content 与承担背景色/图的 full-bleed Section 必须使用全宽，不设 `max-width`；它们负责铺满 Preview 视口，避免在超出设计画板宽度时露出两侧色带。
-- `max-width` 只放在这些外层之内、确实需要控制阅读行长或组件尺寸契约的 Content Wrapper、文本列、列表或组件上；先区分“铺背景的外层”与“约束内容的内层”，不要把两者合并。
+- 紧邻 Section 的第一层或前几层结构 Stack 通常仍属于流式页面骨架，也不得因为“统一内容宽度”就默认加 `max-width`。尤其在 Desktop，过早约束会让 Hero、Grid、Navbar 和 Footer 停止响应更宽视口，并把本应由子级承担的宽度责任锁死。
+- `max-width` 只放在真正需要控制阅读行长或组件尺寸契约的最深有效 Owner，例如局部 Content Wrapper、文本列、列表或组件。判断时沿 `Breakpoint → Section → structural Stack → local content owner` 逐层追踪；先区分“铺背景/分配可用宽度的骨架”与“约束具体内容的内层”，不要把两者合并。
+- 验证时至少比较 Desktop 1200 与 1440+：外层和近外层 Stack 应继续 Fill / `1fr` 扩展，只有被明确选定的局部 Owner 保持最大宽度。若移除约束后行长过长，应约束文字列或局部 Grid，而不是把 `max-width` 重新加回靠外层的公共 Stack。
 - 间距来自稳定系统，不逐个 Section 随机设置。
 - Targeted Preview 或截图如确认文字被父级 Stack 裁切，先排查该父级的固定尺寸、Padding 和宽度所有权；确认文字本应自然外溢且不存在横向溢出后，把该父级 Stack 的 `overflow` 改为 `visible`，再复检相关断点。不要把 `visible` 设为默认值，也不要用它掩盖错误尺寸或布局溢出。
 - 允许不同 Section 使用不同构图，不把全站变成同一种容器模板。
