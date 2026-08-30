@@ -48,6 +48,8 @@ Complete. Confirmed by the user (“开始” / “直接完成”); implementat
 
 ## Component Requirement Contract
 
+- Contract status: Pass
+
 | Requirement | Contract |
 |---|---|
 | Component | Modify the existing `Project Card`; do not create a duplicate card system. |
@@ -73,8 +75,8 @@ Complete. Confirmed by the user (“开始” / “直接完成”); implementat
 | Editable content / Properties | Keep existing Project Card and service properties; add no business facts. | Existing Components | Follow-up 1, 4 | Controls and CMS bindings remain. | N/A |
 | States / routes | Hover retains identical geometry; text lowers to 86% opacity. Service Row removes inactive arrow and its invalid implied route. | Project Card / Service Row | Follow-up 1, 4 | Hover replica + Service Row children. | Hover and touch default |
 | Breakpoint contract | Navbar/Footer brand treatment applies Desktop, Tablet and Phone. | Navbar / Footer | Follow-up 2 | Variant replica readback. | Desktop and Phone |
-| Accessibility / touch / focus | Mark has factual Alt; textual brand remains visible; no information depends on hover. | Navbar / Footer / Project Card | PROJECT.md §10 | Alt, text visibility, touch default. | Phone default |
-| Evidence sample | One targeted crop check, live definition/instance/replica readback, then targeted QA. | Agent | image-workflow.md §0; framer-components | Recorded in Completion evidence. | One per affected visual state |
+| Accessibility / touch / focus | Mark has factual Alt; textual brand remains visible; no information depends on hover. | Navbar / Footer / Project Card | [PROJECT.md §10](../../PROJECT.md#10-system-and-platform-plan) | Alt, text visibility, touch default. | Phone default |
+| Evidence sample | One targeted crop check, live definition/instance/replica readback, then targeted QA. | Agent | [image-workflow.md §0](../../../../framer/basic/workflows/image-workflow.md#0-最高优先级视觉预算与停止条件); [framer-components](../../../../.agents/skills/framer-components/SKILL.md#compile-a-component-requirement-contract) | Recorded in Completion evidence. | One per affected visual state |
 
 ## Confirmation record
 

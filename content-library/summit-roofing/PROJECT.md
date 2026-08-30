@@ -5,21 +5,21 @@
 - Project name: Summit Roofing
 - Platform: Framer Marketplace
 - Project type: Marketplace Template
-- Overall status: Home built and QA complete; not published
+- Overall status: Home built and Services structurally implemented; not published
 - Project / Canvas URL: `https://framer.com/projects/Submit-Roofing--tdaqnMK09J7IYROr3Ma0-2uiTa?node=augiA20Il` — Verified through the official Framer Agent on 2026-08-23.
 - Demo URL: Missing
 - Content status: Mixed — brand identity and supplied assets are available; all operational copy and contact facts are Demo or Missing.
-- Last updated: 2026-08-23
-- Last verified against current implementation: 2026-08-23 — targeted live-tree readback, responsive checks, bounded Phone preview, non-publishing readiness preview, and WebP asset replacement completed.
+- Last updated: 2026-08-26
+- Last verified against current implementation: 2026-08-26 — official Framer Agent targeted live-tree readback confirms Home structure, shared shell, component variants, CMS contents, links, metadata and Alt state. This audit did not repeat visual Preview or interaction paths.
 
 ## 2. Scope and Authority
 
-- Current scope: Completed the Summit Roofing Home page and its necessary shared systems for a Framer Marketplace template, including styles, reusable Components, Layout Template, CMS content structures, responsive behavior and QA.
-- Explicit non-goals: Publishing, adding paid dependencies or Custom Code, inventing real local-service details, copying Baker Roofing’s brand assets/copy, or adding unapproved secondary pages.
-- Primary page / component: Home (`/`)
+- Current scope: The Summit Roofing Home page and its necessary shared systems are complete. The confirmed Marketplace expansion includes Services, four Service Detail pages, Projects and Project Detail, About, Insights and Insight Detail, and Contact. Services is structurally implemented; the remaining routes remain planned until their own confirmed page Checklists begin.
+- Explicit non-goals: Publishing, adding paid dependencies, inventing real local-service details, copying Baker Roofing’s brand assets/copy, or promoting unapproved secondary pages into the buyer-facing template. The existing `ScrollRevealText.tsx` code component and `/reveal-text-test` page are development-only and need an explicit retain/remove decision before Marketplace delivery.
+- Primary page / component: Home (`/`) is complete; Services (`/services`) is in progress pending its detail-route and visual-evidence limitations. The next build Part is Repair & Maintenance (`/services/repair-maintenance`) after its Checklist is confirmed.
 - User-approved direction: Create an original Summit Roofing composition using Baker Roofing only as a reference for clean typography, hard-edged geometry, image-led storytelling, disciplined spacing and direct service/CTA hierarchy. Do not reproduce Baker's section order, structural proportions, grid ratios, logo, text, project facts or proprietary font files. Use an independent blue-grey visual identity.
-- Current implementation differences: The approved Home is implemented. Unknown operational facts remain intentionally absent or Demo; Marketplace publication materials remain outside the completed Home scope.
-- Items requiring confirmation: Final template scope/pages, final brand copy, demo contact details, service-area claims, supplied-image licensing, Marketplace listing assets and explicit publication approval.
+- Current implementation differences: The approved Home is implemented. Unknown operational facts remain intentionally absent or Demo; Marketplace publication materials remain outside the completed Home scope. Live Canvas currently displays `SUBMIT ROOFING` in the shared Navbar and Footer while this project record names the template `Summit Roofing`; this is recorded as an unresolved brand-name mismatch, not an authorized direction change.
+- Items requiring confirmation: Whether the live brand label should be `SUBMIT ROOFING` or `Summit Roofing`; whether to retain or remove the development-only Reveal Text code component and test page; final brand copy, demo contact details, service-area claims, supplied-image licensing, Marketplace listing assets and explicit publication approval. The multi-page Sitemap and staged image-use plan are confirmed.
 
 ## 3. Knowledge Map
 
@@ -30,10 +30,10 @@
 | Formal Content | This PROJECT §9; all copy is proposed template copy | Draft / Demo |
 | Assets | `/Users/Zhuanz/Desktop/Submit Roofing/` | Supplied; licence status Missing |
 | Inspiration | Baker Roofing homepage: `https://bakerroofing.com/` | Approved layout/style reference, not a structural blueprint |
-| Current Status | Inline §12 | Verified 2026-08-23 |
+| Current Status | Inline §12 | Structurally verified 2026-08-26 |
 | Decisions | Inline §13 | Active |
 | Recovery | Inline §14 | Active |
-| Checklist index | `checklist/home/` | Home request completed; publication excluded |
+| Checklist index | [Page Checklist index](./checklist/README.md); [approved site expansion plan](./checklist/site/2026-08-26-site-expansion-planning.md) | Home requests completed; site master plan approved; page contracts created one page at a time |
 | History index | Not created | Not required |
 
 ## 4. Website Goal
@@ -85,22 +85,42 @@
 | Page | Path | User goal | Primary CTA | Content source | Current status |
 |---|---|---|---|---|---|
 | Home | `/` | Understand capability, evaluate credibility and begin an enquiry | Request an Inspection | Demo template copy and supplied imagery | Built and QA complete; not published |
+| Services | `/services` | Compare the four core service paths and choose the relevant need | Explore a Service / Request an Inspection | Approved service labels; supporting copy remains Demo | Structurally implemented; Page Done blocked by unbuilt detail destinations and bounded visual evidence |
+| Repair & Maintenance | `/services/repair-maintenance` | Understand assessment, maintenance and repair support | Request an Inspection | Demo service copy; operational details Missing | Planned and confirmed; not built |
+| Roof Replacement | `/services/roof-replacement` | Understand replacement triggers, process and material decisions | Request an Inspection | Demo service copy; product and warranty facts Missing | Planned and confirmed; not built |
+| New Construction | `/services/new-construction` | Understand coordination and installation for new builds | Discuss a Project | Demo service copy; contractor credentials Missing | Planned and confirmed; not built |
+| Storm Damage Repair | `/services/storm-damage-repair` | Understand the immediate response path after roof damage | Request an Inspection | Demo service copy; emergency response claims Missing | Planned and confirmed; not built |
+| Projects | `/projects` | Review a filterable body of visual work and evaluate fit | View Project / Request an Inspection | Existing Projects CMS; project facts remain Demo | Planned and confirmed; not built |
+| Project Detail | `/projects/:Projects` | Examine one project’s challenge, scope, solution and visual result | Request a Similar Inspection | Existing Projects CMS; verified case-study facts Missing | Planned and confirmed; not built |
+| About | `/about` | Understand the team, working principles and process | Meet the Team / Request an Inspection | Demo template copy and supplied team imagery | Planned and confirmed; not built |
+| Insights | `/insights` | Find practical roofing guidance and maintenance education | Read Article | Existing Insights CMS; article copy remains Demo | Planned and confirmed; not built |
+| Insight Detail | `/insights/:Insights` | Read one useful article and continue to a relevant service | Explore Services / Request an Inspection | Existing Insights CMS | Planned and confirmed; not built |
+| Contact | `/contact` | Submit a short inspection or estimate enquiry | Send Request | Contact and service-area facts Missing | Planned and confirmed; not built |
+| Reveal Text test | `/reveal-text-test` | Development-only code-component inspection | `ScrollRevealText.tsx` test instance | No buyer-facing content source | Exists in Canvas; exclude from Marketplace scope until retain/remove decision |
 
-Future pages are intentionally not added until the template scope is confirmed.
+The buyer-facing expansion above is confirmed. Four stable service offers use authored routes; Projects and Insights use CMS archive/detail pairs. Careers, Locations, National Accounts and other Baker-specific enterprise routes are intentionally excluded.
 
 ## 9. Narrative and Conversion
 
 | Page | Section / Part | Purpose | Content source | Image role | CTA / next step |
 |---|---|---|---|---|---|
 | Home | Utility bar + nav | Keep urgent contact and route choices obvious | Demo labels; contact values Missing | No image | Request an Inspection |
-| Home | Hero | State the promise and make the inspection route immediate | Proposed copy: “Roofing built to hold up.” | `shingle-install.jpg` or `modern-home.jpg` with dark overlay | Request an Inspection / Explore Services |
+| Home | Hero | State the promise and make the inspection route immediate | Proposed copy: “Roofing built to hold up.” | `shingle-install.webp` or `modern-home.webp` with dark overlay | Request an Inspection / Explore Services |
 | Home | Trust strip | Frame the business around workmanship, communication and care without inventing statistics | Draft value labels | Optional logo mark | Continue to services |
 | Home | Services | Let visitors self-select the reason for visiting | Draft: Repair & Maintenance / Roof Replacement / New Construction / Storm Damage Repair | One wide roof/work image; no equal-card default | View Services |
 | Home | Featured work | Replace claims with visual evidence | Four project titles and locations remain Demo until supplied | Supplied completed-roof, material and storm-damage-repair WebP images | View Projects |
-| Home | Process | Lower friction by explaining the path from inspection to completed work | Draft 3-step labels | `roof-aerial.jpg` or crew image | Start with an Inspection |
-| Home | Team / local proof | Add a human note without fabricated bios | Demo labels only | `crew-lead.jpg` or `roof-harness.jpg` | Meet the Team / Contact |
+| Home | Process | Lower friction by explaining the path from inspection to completed work | Draft 3-step labels | `roof-aerial.webp` or crew image | Start with an Inspection |
+| Home | Team / local proof | Add a human note without fabricated bios | Demo labels only | `crew-lead.webp` or `roof-harness.webp` | Meet the Team / Contact |
 | Home | Insights | Make education a modular content destination rather than filler | Titles remain Demo until supplied | Optional roof-detail image | Read Insights |
 | Home | Closing CTA + footer | Repeat one clean next step and expose all needed navigation/contact fields | Contact values Missing | Detail or no image | Request an Inspection |
+| Services | Intro + service navigator | Present the four approved service paths without forcing equal-card repetition | Approved labels; descriptions are Demo | One strong roof/work image plus service-specific supporting details | Choose a Service |
+| Service Detail | Problem / fit, assessment, work scope, process, FAQs and closing CTA | Answer the decision questions for one stable service offer | Demo copy; facts, warranties and response times Missing | 2–4 relevant jobsite/detail images allocated in §11 | Request an Inspection |
+| Projects | Intro, project filters or categories, visual archive and closing CTA | Turn supplied imagery into proof and route visitors toward comparable work | Existing Projects CMS; project names/locations remain Demo | Flat/commercial and exterior project image groups | View Project |
+| Project Detail | Hero, project facts, challenge, solution, gallery/result and related CTA | Provide a reusable case-study structure without invented claims | Existing Projects CMS; verified facts Missing | Images from one verified project set when supplied | Request a Similar Inspection |
+| About | Story, working principles, process, crew imagery and service CTA | Humanise the template while keeping the tone practical | Demo template copy; bios and credentials Missing | `team.webp` plus selected crew portraits | Request an Inspection |
+| Insights | Intro, featured article, article archive and service CTA | Establish a useful education destination rather than filler | Existing Insights CMS | Roof detail, sample and aerial imagery | Read Article |
+| Insight Detail | Article header, body, useful takeaway, related article/service and CTA | Support search and trust with readable editorial content | Existing Insights CMS | One relevant detail image per article | Explore Services |
+| Contact | Direct contact options, short enquiry form, service-area note and expectation setting | Create the shortest conversion path | Contact facts, form endpoint and privacy text Missing | Optional restrained jobsite/detail image; no generic office stock required | Send Request |
 
 Primary path:
 
@@ -109,6 +129,7 @@ Landing → understand the offer → select a service → view proof / process �
 ```
 
 - Phone / email / map / social / form: Missing. Use visible template placeholders only after the Marketplace template’s demo-content policy is confirmed.
+- Secondary paths: Services → relevant Service Detail → Contact; Projects → Project Detail → Contact; Insights → Insight Detail → relevant Service or Contact.
 
 ## 10. System and Platform Plan
 
@@ -117,12 +138,12 @@ Landing → understand the offer → select a service → view proof / process �
 - Text / Color Style source: Implemented as six shared Color Styles plus responsive display, body, utility and link styles based on §6.
 - Geometry system: All visible radii fixed at `0px`; no rounded Component Variant or breakpoint exception is planned.
 - Shared Components: Button, Service Row, Process Step, Project Card, Article Card, responsive Navbar and responsive Footer are implemented as native Framer Components.
-- CMS decision: Projects and Insights Collections are implemented with four Demo projects and two Demo articles.
+- CMS decision: Existing Projects and Insights Collections own their archive/detail pairs. The four stable services use authored routes with one shared page contract; do not add a Services CMS unless later content scale requires it.
 - Navbar / Footer: Implemented through a responsive `Site Shell` Layout Template with Desktop, Tablet and Phone ownership.
 - Links and semantics: Semantic headings, visible focus and non-hover-only actions required.
 - Accessibility / Focus: Maintain contrast; respect reduced motion; alt text must describe the actual supplied image.
 - Third-party dependency: None proposed.
-- Custom Code: No.
+- Custom Code: Home has no code-component dependency. The project currently contains `ScrollRevealText.tsx` and its `/reveal-text-test` development page; its documented pattern is [Scroll Reveal Text](../../framer/advance-design/summit-roofing/scroll-reveal-text.md). Its Marketplace retention is unresolved.
 
 ## 11. Responsive, Interaction and Assets
 
@@ -138,21 +159,29 @@ Landing → understand the offer → select a service → view proof / process �
 - Reduced Motion: No essential movement; transition effects disabled or simplified.
 - Source asset folder: `/Users/Zhuanz/Desktop/Submit Roofing/` — verified 2026-08-23: 27 supplied assets are WebP, each ≤500KB; prior JPG/PNG sources were removed on user instruction.
 - Project asset library: `images/` — verified 2026-08-23: 38 project assets are WebP, each ≤500KB; `images/home/` contains the 11 uploaded Home assets plus the cropped Navbar Logo asset.
-- Hero candidates: `roofer on roof/shingle-install.jpg`, `exterior/modern-home.jpg`, `flat roof/modern-deck.jpg`.
-- Missing assets: Optional before/after pairs, verified project captions and commercial-use licences. The supplied logo is used for favicon, dark favicon and Apple icon.
+- Hero candidates: `roofer on roof/shingle-install.webp`, `exterior/modern-home.webp`, `flat roof/modern-deck.webp`.
+- Confirmed staged allocation for Repair & Maintenance: `roofer on roof/roofer-ledge.webp`, `roofer on roof/roof-work.webp`, `exterior/roof-detail.webp`.
+- Confirmed staged allocation for Roof Replacement: `exterior/red-roof.webp`, `roofer on roof/shingle-install.webp`, `exterior/modern-home.webp`; reserve `exterior/tile-house.webp` for Projects.
+- Confirmed staged allocation for New Construction: `exterior/house-frame.webp`, `roofer on roof/frame-ladder.webp`, `roofer on roof/roof-framing.webp`; reserve `roofer on roof/roof-build.webp`.
+- Confirmed staged allocation for Storm Damage Repair: `storm damage roof/fire-damage.webp`, one of the visually duplicated `roof-damage.webp` / `storm-repair.webp`, and `storm-roof.webp`; `roof-crane.webp` is optional.
+- Confirmed staged allocation for Projects: flat/commercial work uses `flat-roof.webp`, `roof-aerial.webp`, `facade-roof.webp` and `modern-deck.webp`; exterior work uses `brick-roof.webp`, `tile-house.webp`, `modern-home.webp` and `red-roof.webp`.
+- Confirmed staged allocation for About: `team.webp`, `roofer portait/crew-lead.webp`, `roofer portait/roof-harness.webp`; reserve `crew-beanie.webp` and `crew-smile.webp`.
+- Confirmed staged allocation for Insights: `exterior/roof-detail.webp`, `exterior/roof-samples.webp`, `flat roof/roof-aerial.webp` and unused jobsite details.
+- Missing assets / evidence: Commercial-use licences, verified same-project before/after pairs, verified project facts/locations/captions and a real office/contact scene. Contact/service-area facts, form endpoint and privacy text are also Missing.
 - License status: Missing — confirm all supplied files are licensed for a Framer Marketplace template before publication.
 
 ## 12. Current Status
 
-- Current phase: Home revision complete and QA readback complete; awaiting content/licensing decisions and separate publication approval
-- Active page / component: Home and shared `Site Shell`
-- Current blockers: Supplied-image commercial licensing is Missing; contact, address, service-area and legal facts are Missing; Marketplace Demo/Remix URLs and listing assets do not yet exist. These block Marketplace submission, not the completed Home build.
-- Next approved step: Supply or approve final business facts and image licences, decide whether additional template pages are in scope, then prepare Marketplace listing assets. Publishing requires explicit approval.
-- Last verified: 2026-08-23 — live readback confirms the shared Navbar and Footer use the cropped roof-mark WebP plus the requested `SUBMIT ROOFING` text at Desktop, Tablet and Phone. Featured Work's active Project Card Hover variant uses a 32% black image cover and preserves original text colours at 86% opacity. Lucide icons now use the correct 2px stroke width; inactive Service Row arrows were removed because no service-detail destination is currently approved. No publication occurred.
+- Current phase: Home build and 2026-08-26 structural current-state audit are complete. Services is in progress: its page now uses a distinct four-Section service-directory composition, authored Desktop/Tablet/Phone structures, distinct Service Row content and final metadata. Targeted structural QA and one bounded Desktop masthead visual review pass; final Page Done remains blocked by unbuilt Service Detail destinations and the remaining Preview / 320 / 1440 evidence.
+- Active page / component: Services (`/services`), using the completed Home and shared `Site Shell` as the base. Development-only `ScrollRevealText.tsx` / `/reveal-text-test` remain outside the buyer-facing expansion.
+- Current blockers: Supplied-image commercial licensing is Missing; contact, address, service-area and legal facts are Missing; Marketplace Demo/Remix URLs and listing assets do not yet exist. In addition, the source record says `Summit Roofing` while the shared Canvas brand label is `SUBMIT ROOFING`, and the Reveal Text development code/page needs a retain/remove decision. These block Marketplace submission, not the structurally complete Home build.
+- Next approved step: Create and present the self-contained Repair & Maintenance page Checklist for confirmation before starting its Canvas build. Missing operational facts must remain visibly Demo or Missing and do not block structural planning; image licensing and explicit approval still block Marketplace publication.
+- Last verified: 2026-08-26 — live readback confirms Home’s eight named Sections and its one H1 / seven H2 structure at Desktop, Tablet and Phone; `Site Shell` owns shared Navbar and Footer at all three breakpoints; Projects has four Demo items and Insights has two Demo items; Home CTAs and navigation point to existing Home anchors; metadata and inspected image Alt text are present. Services now has four named Sections in one page-owned vertical content container: an image-led deep-navy masthead, Service Navigator, page-owned Method Ledger and Inspection Handoff. At Desktop 1200, Tablet 810 and Phone 390, the masthead image is 440px / 360px / 240px and the Phone ledger is vertical. The shared `Process Step` source remains available for Home but is not used on Services. All four Service Rows are distinct and the two Buttons / four rows point to verified `/#contact`; final conversion review remains blocked by unbuilt detail routes. One bounded Desktop masthead screenshot confirmed the aerial roof subject and an entrance composition distinct from Home. No publication occurred.
 
 | Page | Content | Styles | Components | Links | SEO | Alt | Desktop | Tablet | Phone | Evidence |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Home | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Targeted readback, 390px bounded preview, 320px stress scan, readiness preview: 0 errors / 0 warnings |
+| Services | Demo | ✓ | ✓ | Partial | ✓ | ✓ | ✓ | ✓ | ✓ | Four distinct Sections; unique Desktop/Phone Service Rows, 810px Tablet flow, specific masthead Alt and one bounded Desktop masthead screenshot; final detail links, 320/1440 review and full-page Preview remain blocked/deferred |
 
 ## 13. Decisions and Exceptions
 
@@ -171,26 +200,28 @@ Landing → understand the offer → select a service → view proof / process �
 | Bind Featured Work’s native CMS template to the existing Project Card | The current Framer binding accepts CMS responsive-image and text variables through the Card Instance; this makes the requested Hover variant active for every Featured Work item while preserving the Projects collection | Home Featured Work only | Active | 2026-08-23 | Native Projects-card exception |
 | Use a transparent cropped roof mark alongside requested text branding | The supplied square logo includes a roof mark plus stacked wording. Navbar and Footer now use a factual cropped roof-only WebP with editable `SUBMIT ROOFING` text beside it, avoiding duplicate wording inside the image | Navbar and Footer, all breakpoints | Active | 2026-08-23 | Cropped full-logo Navbar decision |
 | Keep Lucide stroke width at 2px | The previous value `16` controlled stroke thickness rather than icon box size, producing blob-like icon rendering. Visual size remains owned by each IconNode’s width and height. | Shared Button and Navbar icons | Active repair | 2026-08-23 | — |
+| Expand the template through nine buyer-facing page types | User confirmed a service-led Sitemap informed by Baker Roofing’s page roles while excluding its enterprise-specific Careers, Locations, National Accounts and unsupported company claims | Services, four Service Details, Projects and Project Detail, About, Insights and Insight Detail, Contact | Active | 2026-08-26 | Earlier Home-only scope |
+| Allocate supplied imagery by page role and preserve reserves | The full supplied image set was reviewed; staged use prevents omission without forcing every image into the first implementation pass or repeating visually duplicate storm images | Multi-page expansion assets | Active | 2026-08-26 | — |
 
 ## 14. Recovery
 
-- Active session / connection: Official Framer Agent connection verified during the completed 2026-08-23 build; no publication action was taken.
-- Current page / component: Home and shared `Site Shell` complete.
-- Last successful change: Refined the shared Home components: Project Card now has a 32% black hover cover with 86% text opacity; Navbar and Footer use `roof-mark.webp` plus `SUBMIT ROOFING`; all remaining Lucide icons use a 2px stroke; Service Row’s unneeded arrow was removed.
-- Last targeted readback: Home sections, shared Components, Layout Template, CMS Collections, links, metadata, alt text and zero-radius geometry verified on 2026-08-23.
-- Verified breakpoints / states: Desktop 1200px, Tablet 810px, Phone 390px; Phone Closed/Open Navbar variants; 320px narrow-width structural stress.
-- Remaining approved work: None inside the confirmed Home-build scope. Publication and Marketplace submission preparation require new approval and resolved content/licensing inputs.
-- Exact next action: Obtain image-license and final-business-fact decisions before preparing Marketplace delivery materials.
+- Active session / connection: Official Framer Agent targeted readback verified on 2026-08-26; no publication action was taken.
+- Current page / component: Home and shared `Site Shell` complete; `ScrollRevealText.tsx` and `/reveal-text-test` remain development-only pending a retain/remove decision.
+- Last successful change: Redesigned Services away from the repeated Home pattern: its aerial proof image is now a dark image-led masthead, the service rows form the page directory, Jobsite Proof was removed, and the shared Process Step card sequence was replaced by a page-owned method ledger. No shared Component source was changed.
+- Last targeted readback: Services masthead, service directory, method ledger and close structure verified on 2026-08-26 at Desktop, Tablet and Phone. One bounded Desktop masthead screenshot also confirms a readable aerial roof subject in the revised composition. No full-page Preview or publication occurred.
+- Verified breakpoints / states: Services Desktop 1200px, Tablet 810px and Phone 390px have revised page-owned structures; Phone uses a 240px masthead image and single-column method ledger. Services 320px and 1440px visual review remains unverified.
+- Remaining approved work: Create and obtain confirmation for the Repair & Maintenance page Checklist, then build that route. After all four Service Detail routes exist, restore and verify the individual Services destinations. Projects and its CMS detail template, About, Insights and its CMS detail template, and Contact remain in the approved order. Brand-name and Reveal Text retain/remove decisions remain separate pre-publication issues.
+- Exact next action: Plan the Repair & Maintenance detail page as its own self-contained Checklist, present it for confirmation, and do not write its Canvas until confirmed.
 - Important local asset paths: `/Users/Zhuanz/Desktop/Submit Roofing/`
-- Updated at: 2026-08-23
+- Updated at: 2026-08-26
 
 ## 15. Checklist and Change Control
 
-- Project checklist index: `checklist/home/`
-- Active page checklist: The request checklist below owns the completed Home contract.
-- Active request checklist: `checklist/home/2026-08-23-home-revision-assets-interactions.md`
-- Checklist status: Revision implementation and targeted QA readback complete; publishing excluded.
-- Last synchronization with Current Status: 2026-08-23
+- Project checklist index: [checklist/README.md](./checklist/README.md)
+- Active page checklist: [Services page Checklist](./checklist/services.md) — in progress; structural QA complete, with detail-link and bounded visual-evidence limitations recorded.
+- Active request checklist: [approved site expansion plan](./checklist/site/2026-08-26-site-expansion-planning.md)
+- Checklist status: Project-wide plan Approved; Services page contract In progress; next page Checklist has not yet been created; publishing excluded.
+- Last synchronization with Current Status: 2026-08-26
 
 ## 16. History
 
@@ -209,4 +240,4 @@ Landing → understand the offer → select a service → view proof / process �
 - [x] Current implementation verified against the live Canvas.
 - [x] Change-control requirement identified and request checklist created.
 
-Home is built and QA complete. The project is not ready for Marketplace submission until commercial-use image licences, final business facts and Marketplace delivery assets are resolved; publishing remains separately authorised.
+Home is built and QA complete. Services is structurally implemented but has recorded conversion and visual-evidence limitations; the remaining confirmed expansion routes have not begun. The project is not ready for Marketplace submission until the approved pages are built and verified, commercial-use image licences, final business facts and Marketplace delivery assets are resolved, and publishing is separately authorised.

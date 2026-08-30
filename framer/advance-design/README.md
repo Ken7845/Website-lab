@@ -23,6 +23,7 @@
 | [Image Strip + Number Reel](aurelia/image-strip-number-reel.md) | **Legacy，零损保留** | AURELIA 2026-08-06 较早实现与推导记录 | 追溯旧实现、光学校正与迁移来源；新 selector 先读上面的 Canonical 文档 |
 | [Archive Folder Sticky Stack](ken-studio/archive-folder-sticky-stack.md) | Reference，project-specific；精确复刻合同不完整 | Ken Studio Works，2026-07-14 起的 Sticky Folder / Archive Row 经验 | Folder tab 分层、sticky overlap、scroll space 与 archive row 宽度链；实施前必须重读当前项目结构 |
 | [Custom Cursor Hover Preview](ken-studio/custom-cursor-hover-preview.md) | Reference，mixed provenance | Ken Studio Works；后续包含 AURELIA Fixed Cursor Reel 扩展 | 明确需要 Desktop pointer cursor preview、统一 Cursor Component 或固定 Reel 时；只读命中的章节 |
+| [Scroll Reveal Text](summit-roofing/scroll-reveal-text.md) | Reference，project-derived | Submit Roofing `ScrollRevealText.tsx` 与 `/reveal-text-test`，2026-08-26 live source / instance readback | 需要让一段文字随滚动逐字符由低对比色过渡到完成色，且能接受代码组件与逐字符 DOM 成本时 |
 
 ## Canonical / Legacy 决策
 
