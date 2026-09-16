@@ -56,7 +56,11 @@
 - 不涉及可复用 Component 责任的 Page / Section 构图、Stack / Grid 或断点变换，以 `framer-layout-responsive` 为 primary。
 - 其他命中域记为 secondary concerns，只读 task map 指向的小节或 Reference；不为一个组件人为切成四个并行 Skills。
 
-当 primary 为 `framer-components` 且会建立或改写组件责任时，必须先通过其 **Component Requirement Contract**；读过 Baseline 不等于已将规则应用到当前组件。
+新 Page、重大 Section 重构、多页面差异化，或以“换一种 / different layout”为主要目标时，先用 `design-taste` 编译 **Visual Direction Contract**，再切换到负责 Canvas 结构的一个 primary implementation Skill。这个前置方向阶段不等于同时加载两个建设 Skills；`design-taste` 决定 Preserve / Transform / Avoid、Sibling-page delta、Colour rhythm 与 Asset map，`framer-layout-responsive` 或其他 primary Skill 只实现已 Ready 的合同。
+
+纯 Copy、Link、Metadata、命名或窄范围 breakpoint 修复不触发 Visual Direction Contract。已有多页项目的新页面若没有 sibling comparison，或“不同布局”只描述结构变化而没有保留的视觉系统，合同保持 `Draft`，不得开始 Canvas 写入。
+
+当 primary 为 `framer-components` 且会建立或改写组件责任时，必须先通过其 **Component Requirement Contract**；当任务命中上述视觉方向范围时，必须先通过 **Visual Direction Contract**。读过 Baseline 不等于已将规则应用到当前对象。
 
 ## 3. Change Control 是写入前的条件路由
 
@@ -68,7 +72,7 @@
 
 长篇 Prompt 的逐字 Checklist 与确认 Gate 是实施前例外；普通小修、审阅、诊断或已确认 Part 不因此暂停。
 
-Context Compaction 或 Session 恢复后，重新读取 official `$framer` Skill 及 task-map 行、当前 `PROJECT.md`、请求 Checklist、primary repo Skill 和 active Component Requirement Contract；通过同一 session 的 targeted readback 确认后再续写，不从压缩摘要重建责任。
+Context Compaction 或 Session 恢复后，重新读取 official `$framer` Skill 及 task-map 行、当前 `PROJECT.md`、请求 Checklist、primary repo Skill，以及 active Component Requirement Contract / Visual Direction Contract；通过同一 session 的 targeted readback 确认后再续写，不从压缩摘要重建责任。
 
 ## 4. Implement 后再进入 Checklist / QA
 

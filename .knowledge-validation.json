@@ -78,7 +78,9 @@
     "Component Requirement Contract",
     "Component contract receipt",
     "Decision / N/A reason",
-    "owners complete / N/A reasoned / readback planned / preview planned"
+    "owners complete / N/A reasoned / readback planned / preview planned",
+    "Visual Direction Contract",
+    "Visual contract receipt"
   ],
   "required_path_terms": {
     "AGENTS.md": [
@@ -105,7 +107,17 @@
       "Framer Agent gate receipt",
       "Browser / Playwright / Computer Use",
       "### Multi-domain primary-skill precedence",
-      "Component Requirement Contract"
+      "Component Requirement Contract",
+      "Visual Direction Contract"
+    ],
+    ".agents/skills/design-taste/SKILL.md": [
+      "## Compile a Visual Direction Contract",
+      "Decision / N/A reason",
+      "Sibling-page delta",
+      "Asset map",
+      "Structural proof",
+      "Visual proof",
+      "Visual contract receipt"
     ],
     ".agents/skills/framer-components/SKILL.md": [
       "Component Definition",
@@ -139,18 +151,31 @@
       "required elevated permissions",
       "Gate remains closed",
       "Framer Agent gate receipt",
-      "Browser / Playwright / Computer Use"
+      "Browser / Playwright / Computer Use",
+      "Visual Direction Contract"
     ],
     "framer/basic/workflows/change-control.md": [
       "## 将知识规则编译进组件请求合同",
       "## Component Requirement Contract",
       "Decision / N/A reason",
-      "Contract status: Ready"
+      "Contract status: Ready",
+      "## Visual Direction Contract",
+      "Visual contract receipt"
+    ],
+    "framer/basic/workflows/build-checklist.md": [
+      "## 0A. Visual Direction Gate",
+      "Contract status: Ready",
+      "Visual contract receipt",
+      "Structural status",
+      "Visual status"
     ],
     "framer/checklist.md": [
       "Component Requirement Contract",
       "不得带未分类的 `[ ]` 结束",
-      "Deferred"
+      "Deferred",
+      "Visual Direction Contract",
+      "Structural status",
+      "Visual status"
     ],
     ".agents/skills/framer-interactions/SKILL.md": [
       "## Platform gate",
@@ -176,7 +201,10 @@
       "Framer Agent gate receipt",
       "Browser / Playwright / Computer Use",
       "Contract symmetry",
-      "unclassified"
+      "unclassified",
+      "Visual-contract symmetry",
+      "Structural status",
+      "Visual status"
     ],
     "framer/basic/workflows/token-saving.md": [
       "targeted read",
@@ -187,7 +215,8 @@
       "≤ 1200px",
       "≤ 1MB",
       "≤ 2MP",
-      "dataless"
+      "dataless",
+      "Asset usage ledger"
     ],
     "framer/basic/standards/layer-naming.md": [
       "scrollTargetEnabled"

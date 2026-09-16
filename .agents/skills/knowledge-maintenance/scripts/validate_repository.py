@@ -53,6 +53,27 @@ COMPONENT_CONTRACT_CONCERNS = (
     "Accessibility / touch / focus",
     "Evidence sample",
 )
+VISUAL_CONTRACT_HEADING = "## Visual Direction Contract"
+VISUAL_CONTRACT_HEADERS = (
+    "Concern",
+    "Decision / N/A reason",
+    "Owner",
+    "Governing source",
+    "Structural proof",
+    "Visual proof",
+)
+VISUAL_CONTRACT_CONCERNS = (
+    "Design Read",
+    "Preserve",
+    "Transform",
+    "Avoid",
+    "Sibling-page delta",
+    "Section composition",
+    "Colour rhythm",
+    "Asset map",
+    "Responsive transformation",
+    "Completion evidence",
+)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -726,6 +747,151 @@ class Validator:
                                 f"Pass contract still contains planned or unfinished proof: {cells[0]}",
                             )
 
+    def check_visual_contracts(self) -> None:
+        """Validate persisted visual contracts without pretending to judge aesthetics."""
+
+        expected_headers = [value.casefold() for value in VISUAL_CONTRACT_HEADERS]
+        expected_concerns = {value.casefold(): value for value in VISUAL_CONTRACT_CONCERNS}
+        unfinished_tokens = ("tbd", "todo", "pending", "[ ]", "planned", "unperformed", "not run")
+
+        for path in self.active_markdown():
+            rel_path = self.rel(path)
+            if not rel_path.startswith("content-library/") or "/checklist/" not in rel_path:
+                continue
+
+            text = self.read_text(path)
+            lines = text.splitlines()
+            starts = [i for i, line in enumerate(lines) if line.strip() == VISUAL_CONTRACT_HEADING]
+            if not starts:
+                continue
+            if len(starts) > 1:
+                self.error(
+                    "visual_contract.duplicate",
+                    path,
+                    "A request Checklist must not contain multiple active Visual Direction Contracts.",
+                )
+
+            for start in starts:
+                end = next(
+                    (i for i in range(start + 1, len(lines)) if lines[i].startswith("## ")),
+                    len(lines),
+                )
+                section_lines = lines[start:end]
+                section = "\n".join(section_lines)
+                status_match = re.search(
+                    r"Contract status:\s*(?:\*\*)?(Draft|Ready|Pass|Blocked)(?:\*\*)?",
+                    section,
+                    flags=re.IGNORECASE,
+                )
+                if not status_match:
+                    self.error(
+                        "visual_contract.status",
+                        path,
+                        "Visual Direction Contract must declare Contract status: Draft, Ready, Pass, or Blocked.",
+                    )
+                    status = ""
+                else:
+                    status = status_match.group(1).casefold()
+
+                header_index = None
+                for index, line in enumerate(section_lines):
+                    if not line.lstrip().startswith("|"):
+                        continue
+                    cells = [cell.casefold() for cell in self.markdown_table_cells(line)]
+                    if cells == expected_headers:
+                        header_index = index
+                        break
+                if header_index is None:
+                    self.error(
+                        "visual_contract.headers",
+                        path,
+                        "Visual contract table is missing the canonical six columns or their order changed.",
+                    )
+                    continue
+
+                data_start = header_index + 1
+                if data_start < len(section_lines):
+                    separator = self.markdown_table_cells(section_lines[data_start])
+                    if len(separator) == len(VISUAL_CONTRACT_HEADERS) and all(
+                        re.fullmatch(r":?-{3,}:?", cell) for cell in separator
+                    ):
+                        data_start += 1
+
+                rows: dict[str, list[str]] = {}
+                for line in section_lines[data_start:]:
+                    if not line.lstrip().startswith("|"):
+                        if rows:
+                            break
+                        continue
+                    cells = self.markdown_table_cells(line)
+                    if len(cells) != len(VISUAL_CONTRACT_HEADERS):
+                        self.error(
+                            "visual_contract.columns",
+                            path,
+                            f"Visual contract row must have {len(VISUAL_CONTRACT_HEADERS)} cells: {line.strip()}",
+                        )
+                        continue
+                    concern_key = cells[0].casefold()
+                    if concern_key in rows:
+                        self.error(
+                            "visual_contract.duplicate_concern",
+                            path,
+                            f"Duplicate Visual contract concern: {cells[0]}",
+                        )
+                    rows[concern_key] = cells
+
+                for concern_key, display in expected_concerns.items():
+                    if concern_key not in rows:
+                        self.error(
+                            "visual_contract.concern_missing",
+                            path,
+                            f"Visual contract is missing required concern: {display}",
+                        )
+
+                for concern_key, cells in rows.items():
+                    if concern_key not in expected_concerns:
+                        self.warning(
+                            "visual_contract.unknown_concern",
+                            path,
+                            f"Non-canonical concern should be folded into the fixed contract or justified separately: {cells[0]}",
+                        )
+                    if any(not cell.strip() for cell in cells):
+                        self.error(
+                            "visual_contract.empty_cell",
+                            path,
+                            f"Visual contract row contains a blank cell: {cells[0] or '<unnamed>'}",
+                        )
+                        continue
+
+                    decision = cells[1].strip()
+                    if decision.casefold() == "n/a" or (
+                        decision.casefold().startswith("n/a")
+                        and "—" not in decision
+                        and " - " not in decision
+                    ):
+                        self.error(
+                            "visual_contract.unreasoned_na",
+                            path,
+                            f"N/A must include a reason: {cells[0]}",
+                        )
+
+                    governing_source = cells[3].strip()
+                    if ".md" in governing_source.casefold() and "#" not in governing_source:
+                        self.error(
+                            "visual_contract.unscoped_source",
+                            path,
+                            f"Markdown governing source must target path.md#heading: {cells[0]}",
+                        )
+
+                    if status == "pass":
+                        proof = " ".join(cells[4:]).casefold()
+                        if any(token in proof for token in unfinished_tokens):
+                            self.error(
+                                "visual_contract.unproven_pass",
+                                path,
+                                f"Pass contract still contains planned or unfinished proof: {cells[0]}",
+                            )
+
     def current_markdown_hashes(self) -> dict[str, list[str]]:
         hashes: dict[str, list[str]] = {}
         for path in self.markdown_files():
@@ -797,6 +963,7 @@ class Validator:
         self.check_archives()
         self.check_required_terms()
         self.check_component_contracts()
+        self.check_visual_contracts()
         self.check_deleted_markdown()
         self.check_git_diff()
 

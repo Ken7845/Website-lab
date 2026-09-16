@@ -25,6 +25,10 @@ Do not load the full Checklist or all Framer references before designing.
 
 For a second or later revision of the same Part, read [change-control.md](../../../framer/basic/workflows/change-control.md) and record the short constraint lock before writing. Treat new feedback as an addition or correction unless the user explicitly replaces the earlier direction.
 
+For a new Page, substantial Section redesign, multi-page differentiation, or a request centered on a “different layout,” require a `Ready` [Visual Direction Contract](../design-taste/SKILL.md#compile-a-visual-direction-contract) before writing. This Skill consumes that direction; it does not invent a new aesthetic from Stack/Grid mechanics.
+
+Before changing composition, compare the target with adjacent Sections and relevant sibling pages. Preserve the named typography, palette roles, geometry, spacing logic and image behavior; transform only the contract’s named topology, proportion, alignment, density, media sequence or hierarchy. A structurally different layout that breaks the approved visual language is `Fix Required`.
+
 ## Resolve width ownership
 
 Trace the full chain:

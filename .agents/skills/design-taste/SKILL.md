@@ -42,6 +42,33 @@ Before creating or replacing a section:
 - Preserve signature patterns unless the user approves a new direction.
 - Prefer the smallest coherent change that improves the page as a whole, not a literal patch to one symptom.
 
+## Compile a Visual Direction Contract
+
+Before a new Page, substantial Section redesign, multi-page differentiation pass, or a request whose main requirement is “use a different layout,” compile the applicable visual decisions before implementation. Mechanical copy, link, metadata, naming, or narrow breakpoint fixes do not require this contract.
+
+If a request Checklist exists, persist one `## Visual Direction Contract` there. Otherwise keep the contract in the working response unless project change control requires a file. Use exactly these columns and concerns:
+
+| Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
+|---|---|---|---|---|---|
+| Design Read |  |  |  |  |  |
+| Preserve |  |  |  |  |  |
+| Transform |  |  |  |  |  |
+| Avoid |  |  |  |  |  |
+| Sibling-page delta |  |  |  |  |  |
+| Section composition |  |  |  |  |  |
+| Colour rhythm |  |  |  |  |  |
+| Asset map |  |  |  |  |  |
+| Responsive transformation |  |  |  |  |  |
+| Completion evidence |  |  |  |  |  |
+
+Declare `Contract status: Draft`, then change it to `Ready` only when every owner, source and planned proof is concrete. Markdown sources must target `path.md#heading`; a numbered user requirement or current Canvas evidence is also valid.
+
+For coherent difference, preserve the approved typography, palette roles, geometry, spacing logic, image treatment and interaction character unless the user changes them. Transform topology, proportion, alignment, density, media sequence or hierarchy because the content needs it. A layout is not acceptable merely because it differs: unrelated colors, arbitrary cards, decorative noise or foreign spacing do not satisfy the contract.
+
+For an existing multi-page project, compare the target with relevant sibling pages. Name intentional similarities from the shared system and prohibit accidental reuse of the same hero paradigm, section/layout-family sequence, colour-block rhythm, imagery, process treatment or CTA composition. Apply [image-workflow.md](../../../framer/basic/workflows/image-workflow.md) before selecting or reusing assets.
+
+Before implementation, emit: `Visual contract receipt: direction complete / preserved system named / sibling delta defined / assets assigned / proof planned`. Missing evidence keeps the contract `Draft`; a genuine direction conflict requires user confirmation.
+
 ## Anti-default judgment
 
 - Avoid automatic AI-purple gradients, generic glass panels, centered dark-mesh heroes, equal three-card rows, decorative micro-labels, fake metrics, filler testimonials, and motion with no communicative purpose.

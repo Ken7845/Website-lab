@@ -38,6 +38,18 @@
 
 用户已明确要求开始执行，且派生合同没有扩大 Scope 或改变用户方向时，完成 `Ready` 后直接继续，不为合同格式再次询问。合同暴露新范围、破坏性变更或真实设计分歧时才暂停确认。
 
+## 将视觉规则编译进页面或 Section 请求合同
+
+当请求会创建新 Page、重大重构 Section、区分多页面构图，或主要要求是“使用不同布局”时，在用户原话之后建立一个 `## Visual Direction Contract`：
+
+1. 由 [`design-taste`](../../../.agents/skills/design-taste/SKILL.md#compile-a-visual-direction-contract) 编译唯一标准表格；本文件只管理持久化和确认，不复制其设计规则。
+2. 合同必须明确 Design Read、Preserve / Transform / Avoid、Sibling-page delta、Section composition、Colour rhythm、Asset map、Responsive transformation 与 Completion evidence。
+3. 只有 `Contract status: Ready` 才允许进入 Canvas 实施；实施后由同一合同替换 planned proof，并改为 `Pass` 或有证据的 `Blocked`。
+4. 用户已明确授权建设时，不为合同格式重复询问；但 Agent 新推导出的核心构图、素材复用、跨页面相似性或颜色方向若构成真实设计分歧，必须先展示并等待确认。
+5. 写入前显示 `Visual contract receipt`；该 receipt 只证明合同完整，不证明 Canvas 已实现。
+
+Component 与 Visual 合同命中同一请求时，写入同一个 request Checklist，各自保持唯一 heading；不得建立第二份平行设计日志。
+
 ## 连续修改前的需求回顾
 
 同一个 Part、Component、Section 或交互进入第二轮及后续修改时，不得只根据用户最新一条消息继续。每次新的写入前必须回顾从该 Part 开始以来用户给出的相关提示与修正，并整理一份短约束锁：

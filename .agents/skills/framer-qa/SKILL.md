@@ -17,8 +17,9 @@ For any live Canvas read or write, first complete the repository `Live Framer Ca
 2. Record exclusions and the user's active constraint lock.
 3. Inspect the current implementation before reading detailed QA material.
 4. If the scope created, duplicated, or reassigned a reusable Component, locate its active `Component Requirement Contract`; absence of the contract is `Fix Required`, not permission to reconstruct ownership from memory.
-5. Locate applicable headings with `rg -n '^##|^###'` and load only those sections from [framer/checklist.md](../../../framer/checklist.md).
-6. Add Marketplace checks only for Marketplace work.
+5. If the scope created a Page, substantially redesigned a Section, differentiated sibling pages, or promised a “different layout,” locate its active `Visual Direction Contract`; missing or `Draft` direction is `Fix Required`.
+6. Locate applicable headings with `rg -n '^##|^###'` and load only those sections from [framer/checklist.md](../../../framer/checklist.md).
+7. Add Marketplace checks only for Marketplace work.
 
 ## Evidence ladder
 
@@ -45,6 +46,8 @@ Check only what the scope can affect:
 - Components/interactions: Properties, state routes, trigger targets, shared behavior, touch behavior, and Reduced Motion remain intact.
 - Accessibility: semantic headings, Alt, contrast, visible focus, keyboard path, touch targets, and reading order.
 - Delivery: SEO, performance, licensing, editing path, error/loading/empty states, and Marketplace replacement pressure when in scope.
+- Visual-contract symmetry: compare Design Read, Preserve / Transform / Avoid, sibling delta, Section composition, colour rhythm, asset map and responsive transformation against actual evidence. A different structure is not a visual Pass if it abandons the approved project language.
+- Cross-page differentiation: for a new Page, compare masthead paradigm, layout-family sequence, colour-block rhythm, image reuse, heading/body proportion, whitespace, repeated process treatment and CTA composition with the relevant siblings.
 
 Use relevant headings only from:
 
@@ -59,6 +62,8 @@ Classify the result:
 - `Pass`: evidence proves the scoped contract.
 - `Fix Required`: an in-scope issue can be repaired now; batch-fix the class and recheck only affected evidence.
 - `Blocked`: a real fact, asset, permission, service, or unavailable evidence prevents completion.
+
+For Page-level visual work, report `Structural status` and `Visual status` separately; overall `Pass` requires both. Clean diagnostics, successful writes and targeted structure cannot prove aesthetic composition. Use one efficient full-page or compiled Desktop/Phone view when the claim concerns whole-page rhythm; a target Section screenshot cannot prove it. If required visual evidence is unavailable, mark visual status `Blocked` or `Fix Required` rather than implying completion.
 
 For an active Component Requirement Contract, every row must end as evidenced `Pass` or reasoned `Blocked`; an unchecked or planned-only row is not completion. When the user asks to finish the current Part or complete it in one pass, do not stop after implementation while an authorized, executable checklist item remains unclassified.
 

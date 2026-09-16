@@ -118,6 +118,14 @@ Landing
 - Social:
 - Form / booking / purchase:
 
+### Page Visual Identity
+
+本表只保存当前批准的页面身份与页面间差异；完整合同与判断方法由 `.agents/skills/design-taste/SKILL.md` 和页面 Checklist 中的 `Visual Direction Contract` 负责。
+
+| Page | Visual memory point | Dominant composition | Colour rhythm | Sibling difference | Status |
+|---|---|---|---|---|---|
+| Home |  |  |  |  | Draft / Approved / Fix Required |
+
 ## 10. System and Platform Plan
 
 - Platform router:
@@ -153,6 +161,14 @@ Framer 项目从 `../../framer/basic/README.md` 路由；不要在 PROJECT 复�
 - Hero / gallery assets:
 - Missing assets:
 - License status:
+
+### Asset Usage Ledger
+
+本表只保存当前素材分配与使用事实；选图、复用理由、裁切和视觉预算规则由 `../../framer/basic/workflows/image-workflow.md` 负责。
+
+| Asset | Narrative qualities | Approved role | Current use | Reuse decision / reason | Crop / focal notes | Status |
+|---|---|---|---|---|---|---|
+|  |  |  |  |  |  | Candidate / Allocated / Used / Reassigned / Blocked |
 
 图片工作遵循 `../../framer/basic/workflows/image-workflow.md`。
 

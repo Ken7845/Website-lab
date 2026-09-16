@@ -31,6 +31,20 @@
 - [ ] favicon 与 Open Graph 已设置。
 - [ ] 页面路径清晰，无 Draft 页面被正式导航引用。
 
+## 2A. Visual Composition and Cross-page Differentiation
+
+当 scope 命中 Visual Direction Contract 时：
+
+- [ ] Design Read 与当前品牌、页面目的和用户行动一致。
+- [ ] Preserve 项没有被“为了不同”而破坏；Transform 项确实改变了内容需要的构图责任。
+- [ ] Hero / masthead paradigm、Section/layout-family sequence、colour-block rhythm、图片、process treatment 与 CTA composition 没有无理由复制 sibling page。
+- [ ] 每个 Section 有明确 focal point、比例、密度、留白与进入下一段的过渡，不是平均化容器。
+- [ ] Colour rhythm 使用批准的 palette roles，但页面之间不是同一 dark / light / accent 序列的机械复刻。
+- [ ] Asset map 与实际 Fill、Alt、crop、breakpoint 使用一致；复用和遗漏均有理由。
+- [ ] 一张高效 full-page 或 compiled Desktop/Phone evidence 足以证明整体节奏；Section screenshot 不冒充整页证据。
+
+输出分别记录 `Structural status` 与 `Visual status`。命令成功、clean diagnostics 或结构 readback 不能单独让 Visual status 通过。
+
 ## 3. Images
 
 - [ ] 所有信息性图片有 Alt。
@@ -115,6 +129,8 @@
 
 Scope: Section / Page / Website
 Status: Pass / Fix Required / Blocked
+Structural status: Pass / Fix Required / Blocked
+Visual status: Pass / Fix Required / Blocked / N/A — reason
 
 ## Pass
 - ...

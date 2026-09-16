@@ -39,7 +39,7 @@ framer/basic/
 | [`workflows/change-control.md`](workflows/change-control.md) | 长篇多分点 Prompt、第二轮及后续连续修改、要求可能冲突时；属于写入前条件路由 |
 | [`workflows/build-checklist.md`](workflows/build-checklist.md) | 新建 Section / Page / Website 或多 Part 实施顺序；不作为纯 Rename / Link 修复的前置全文 |
 | [`workflows/token-saving.md`](workflows/token-saving.md) | Targeted read、Definition / Instance / Breakpoint 分层、批量写入、宽度所有权、Session / Recovery |
-| [`workflows/image-workflow.md`](workflows/image-workflow.md) | **任何本地素材查看、Framer 截图或 Preview 截图之前**；视觉预算、驻留、联系表、失败降级 |
+| [`workflows/image-workflow.md`](workflows/image-workflow.md) | **任何素材选择、复用、上传、放置、裁切，本地查看、Framer 截图或 Preview 截图之前**；叙事角色、重复控制、视觉预算、驻留、联系表、失败降级 |
 | [`workflows/preflight-audit.md`](workflows/preflight-audit.md) | 实施完成后的 Page / Website Preflight 与交付报告，不是开工教材 |
 
 仓库不再维护平行的 Agent connection 文档。需要真实 Framer 连接时，先运行 `npx @framer/agent@latest setup`，完成后加载已安装的官方 `framer` Skill。
@@ -55,6 +55,8 @@ framer/basic/
 | Audit、诊断、Preflight、交付验收 | `framer-qa` | 当前范围 Checklist 章节；Preflight；Marketplace 时追加 Marketplace reference |
 
 图片任务按主要目标选择 primary Skill：素材叙事与选择使用 `design-taste`；容器、裁切和三端放置使用 `framer-layout-responsive`。两者都必须先遵守 `image-workflow`，但不因此同时加载两个 primary Skills。
+
+新 Page、重大 Section 重构、多页面差异化或“不同布局”先由 `design-taste` 编译 Visual Direction Contract；方向 Ready 后再切换到一个 Framer implementation Skill。纯机械修复不进入这条较重路径。
 
 ## 实施后 Evaluator
 

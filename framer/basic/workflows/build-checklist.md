@@ -15,6 +15,21 @@
 
 如果关键事实是 `Missing`，停止正式内容写入；可以继续完成不依赖该事实的结构工作。
 
+## 0A. Visual Direction Gate
+
+新 Page、重大 Section 重构、多页面差异化，或主要要求为“不同布局”时，批量创建节点前必须完成 active request Checklist 中的 `Visual Direction Contract`：
+
+- [ ] 一行 Design Read 明确页面种类、用户、转化目标与项目视觉语言。
+- [ ] Preserve / Transform / Avoid 区分共享系统、允许变化与禁止默认模式。
+- [ ] Existing multi-page site 已完成 Sibling-page delta，不复制同一 Hero、Section/layout-family sequence、colour-block rhythm、图片、process treatment 或 CTA composition。
+- [ ] 每个 Section 已明确叙事目的、layout family、focal point、内容密度与过渡关系。
+- [ ] Colour rhythm 已说明每段的 background、text、accent、image relationship 与下一段 transition；仅有 palette token 清单不算完成。
+- [ ] Asset map 已记录候选素材、现有使用位置、叙事角色、复用理由、裁切焦点和三端计划。
+- [ ] Structural proof 与 Visual proof 均已规划。
+- [ ] `Contract status: Ready`，并已显示 `Visual contract receipt`。
+
+合同暴露真实设计分歧时先向用户确认。若方向已批准，Agent 可以继续执行，不为合同格式重复暂停。纯 Copy、Link、Metadata、命名或窄范围 breakpoint 修复跳过本 Gate。
+
 ## 1. 最小系统先行
 
 在批量创建页面内容前完成：
@@ -61,6 +76,7 @@
 - [ ] Section 顺序服务内容叙事，不机械复制模板结构。
 - [ ] Desktop、Tablet、Phone 骨架同时存在。
 - [ ] Content Placeholder、Navbar、Footer 没有重复副本。
+- [ ] 第一段代表性视觉 Section 已在目标画布或截图中检查，确认视觉语言成立后再传播到整页；不能用命令成功替代此检查。
 
 ## 3. Section 纵向完成循环
 
@@ -91,6 +107,8 @@
 - [ ] 无 Lorem Ipsum、无未说明占位内容。
 - [ ] 320 / 390 / 810 / 1200 / 1440+ 宽度行为合理。
 - [ ] 页面已完成一次 Preview 检查。
+- [ ] Visual Direction Contract 已从 `Ready` 反向验证为 `Pass` 或有证据的 `Blocked`。
+- [ ] Structural status 与 Visual status 分别记录；两者都 Pass 才能报告 Page Pass。
 
 Page 未通过以上条件时，不得标记 Done。
 

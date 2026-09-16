@@ -1,6 +1,6 @@
 # Framer 图片处理与视觉检查
 
-本文档适用于 Framer 网站的素材盘点、裁切、修复、上传和响应式检查。目标是同时保证视觉质量、网页性能、会话稳定性和中断后的可恢复性。
+本文档适用于 Framer 网站的素材盘点、选择、跨页面复用、裁切、修复、上传、放置和响应式检查。选择或复用已有 Canvas 图片也必须先进入本工作流；不能因为无需打开本地文件就绕过素材叙事与重复控制。目标是同时保证视觉质量、网页性能、会话稳定性和中断后的可恢复性。
 
 ## 0. 最高优先级：视觉预算与停止条件
 
@@ -22,6 +22,8 @@
 - 结构工作先完成并落盘，视觉验证可以单独标记 `Blocked`，不得拖住无关工作。
 
 停止条件不是失败，而是保护任务完成度：视觉工具无输出、CDN 两次失败、文件仍为 dataless、单次输出开始膨胀或无法回答原定问题时，立即结束当前图片审阅。
+
+视觉预算限制调用数量，不取消视觉责任。Section screenshot 只能证明该 Section；Page-level 构图、colour rhythm 或跨页面相似性需要一张高效整页截图或一个 Desktop/Phone 编排图。拿不到合同要求的视觉证据时，将 Visual status 标为 `Blocked` 或 `Fix Required`，不能用结构降级证明审美结论。
 
 ## 1. 原图保护
 
@@ -271,6 +273,16 @@ AURELIA-1 的中断已通过任务日志复核。它不是素材原图解码失�
 - 同一图片可以在确有不同信息角色、且不削弱页面独立叙事时复用；否则优先选择尚未使用、但更贴合当前内容的素材。
 - 记录当前页面使用的图片、Alt 和叙事作用；避免在不同页面无意识地反复引用同一张图片。
 - 素材检阅仍必须遵守本文件的防卡顿路径：先检查驻留与尺寸，再用限定数量的联系表或目标化单图审阅；不得为“找更多图片”而无边界读取整个图片库。
+
+新 Page 或重大 Section 视觉工作在选图前建立项目级 Asset usage ledger；PROJECT 只记录当前分配和使用事实，不复制本工作流：
+
+| Asset | Narrative qualities | Approved role | Current use | Reuse decision / reason | Crop / focal notes | Status |
+|---|---|---|---|---|---|---|
+
+- `Current use` 必须包含已使用的 Page / Section，不能只写 Uploaded。
+- 复用 sibling page 图片必须说明它为何承担新的信息角色；“已经上传”或“比较快”不是理由。
+- 已分配素材必须是 `Used`、`Reassigned — reason` 或 `Blocked — reason`；不能静默遗漏后继续报告完成。
+- Visual Direction Contract 的 Asset map 只编译本轮选中项并链接 PROJECT owner，不复制完整库存。
 
 ## 6. 响应式图片检查
 

@@ -2,6 +2,14 @@
 
 Website-lab 是面向人类与 AI Agent 的网站设计、项目事实和 Framer 交付知识库。它的目标不是让 Agent 阅读更多，而是让每类信息只有一个权威位置，使网站在中断、换 Session 或多轮修改后仍能被准确接续。
 
+## Knowledge Base Version
+
+- Current release: `v2.1.0`
+- Architecture base: `v2.0.0`
+- Released: 2026-09-16
+- Scope: adds the Visual Direction Contract, page/asset identity persistence, symmetric structural/visual QA and machine-checkable contract integrity while preserving the v2 routing and progressive-disclosure architecture.
+- Migration record: [Website-lab Visual Workflow Improvement — v2.1.0](history/repository/2026-09-16-visual-workflow-v2.1.0.md)
+
 ## 架构
 
 ```text

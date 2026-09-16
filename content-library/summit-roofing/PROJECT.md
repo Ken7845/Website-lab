@@ -5,18 +5,18 @@
 - Project name: Summit Roofing
 - Platform: Framer Marketplace
 - Project type: Marketplace Template
-- Overall status: Home built and Services structurally implemented; not published
+- Overall status: Home is complete; Services remains in progress; Repair & Maintenance is structurally implemented but Visual status is Fix Required; not published
 - Project / Canvas URL: `https://framer.com/projects/Submit-Roofing--tdaqnMK09J7IYROr3Ma0-2uiTa?node=augiA20Il` — Verified through the official Framer Agent on 2026-08-23.
 - Demo URL: Missing
 - Content status: Mixed — brand identity and supplied assets are available; all operational copy and contact facts are Demo or Missing.
-- Last updated: 2026-08-26
-- Last verified against current implementation: 2026-08-26 — official Framer Agent targeted live-tree readback confirms Home structure, shared shell, component variants, CMS contents, links, metadata and Alt state. This audit did not repeat visual Preview or interaction paths.
+- Last updated: 2026-09-16
+- Last verified against current implementation: 2026-09-16 — official Framer Agent targeted live-tree readback confirms Repair & Maintenance structure and its Desktop, Tablet and Phone breakpoint owners; clean diagnostics were returned. The later user full-page visual review found sibling-page duplication and an asset-allocation mismatch, so structural evidence remains valid but the page Visual status is Fix Required. This repository migration did not perform a fresh Canvas readback.
 
 ## 2. Scope and Authority
 
-- Current scope: The Summit Roofing Home page and its necessary shared systems are complete. The confirmed Marketplace expansion includes Services, four Service Detail pages, Projects and Project Detail, About, Insights and Insight Detail, and Contact. Services is structurally implemented; the remaining routes remain planned until their own confirmed page Checklists begin.
+- Current scope: The Summit Roofing Home page and its necessary shared systems are complete. The confirmed Marketplace expansion includes Services, four Service Detail pages, Projects and Project Detail, About, Insights and Insight Detail, and Contact. Services and Repair & Maintenance are structurally implemented; the remaining routes remain planned until their own confirmed page Checklists begin.
 - Explicit non-goals: Publishing, adding paid dependencies, inventing real local-service details, copying Baker Roofing’s brand assets/copy, or promoting unapproved secondary pages into the buyer-facing template. The existing `ScrollRevealText.tsx` code component and `/reveal-text-test` page are development-only and need an explicit retain/remove decision before Marketplace delivery.
-- Primary page / component: Home (`/`) is complete; Services (`/services`) is in progress pending its detail-route and visual-evidence limitations. The next build Part is Repair & Maintenance (`/services/repair-maintenance`) after its Checklist is confirmed.
+- Primary page / component: Home (`/`) is complete; Services (`/services`) is in progress pending its detail-route and visual-evidence limitations. Repair & Maintenance (`/services/repair-maintenance`) retains its verified structure but is Fix Required: its composition and colour-block rhythm are too close to Services, and its staged image set was not fulfilled.
 - User-approved direction: Create an original Summit Roofing composition using Baker Roofing only as a reference for clean typography, hard-edged geometry, image-led storytelling, disciplined spacing and direct service/CTA hierarchy. Do not reproduce Baker's section order, structural proportions, grid ratios, logo, text, project facts or proprietary font files. Use an independent blue-grey visual identity.
 - Current implementation differences: The approved Home is implemented. Unknown operational facts remain intentionally absent or Demo; Marketplace publication materials remain outside the completed Home scope. Live Canvas currently displays `SUBMIT ROOFING` in the shared Navbar and Footer while this project record names the template `Summit Roofing`; this is recorded as an unresolved brand-name mismatch, not an authorized direction change.
 - Items requiring confirmation: Whether the live brand label should be `SUBMIT ROOFING` or `Summit Roofing`; whether to retain or remove the development-only Reveal Text code component and test page; final brand copy, demo contact details, service-area claims, supplied-image licensing, Marketplace listing assets and explicit publication approval. The multi-page Sitemap and staged image-use plan are confirmed.
@@ -86,7 +86,7 @@
 |---|---|---|---|---|---|
 | Home | `/` | Understand capability, evaluate credibility and begin an enquiry | Request an Inspection | Demo template copy and supplied imagery | Built and QA complete; not published |
 | Services | `/services` | Compare the four core service paths and choose the relevant need | Explore a Service / Request an Inspection | Approved service labels; supporting copy remains Demo | Structurally implemented; Page Done blocked by unbuilt detail destinations and bounded visual evidence |
-| Repair & Maintenance | `/services/repair-maintenance` | Understand assessment, maintenance and repair support | Request an Inspection | Demo service copy; operational details Missing | Planned and confirmed; not built |
+| Repair & Maintenance | `/services/repair-maintenance` | Understand assessment, maintenance and repair support | Request an Inspection | Demo service copy; operational details Missing | Structural status Pass; Visual status Fix Required; not published |
 | Roof Replacement | `/services/roof-replacement` | Understand replacement triggers, process and material decisions | Request an Inspection | Demo service copy; product and warranty facts Missing | Planned and confirmed; not built |
 | New Construction | `/services/new-construction` | Understand coordination and installation for new builds | Discuss a Project | Demo service copy; contractor credentials Missing | Planned and confirmed; not built |
 | Storm Damage Repair | `/services/storm-damage-repair` | Understand the immediate response path after roof damage | Request an Inspection | Demo service copy; emergency response claims Missing | Planned and confirmed; not built |
@@ -131,6 +131,13 @@ Landing → understand the offer → select a service → view proof / process �
 - Phone / email / map / social / form: Missing. Use visible template placeholders only after the Marketplace template’s demo-content policy is confirmed.
 - Secondary paths: Services → relevant Service Detail → Contact; Projects → Project Detail → Contact; Insights → Insight Detail → relevant Service or Contact.
 
+### Page Visual Identity
+
+| Page | Visual memory point | Dominant composition | Colour rhythm | Sibling difference | Status |
+|---|---|---|---|---|---|
+| Services | A direct service navigator with four work paths | Image-led masthead, linear navigator, ruled method ledger | Deep-navy opening, white navigator, substantial slate-blue method band, pale handoff | Overview and route selection | In progress; bounded visual evidence remains limited |
+| Repair & Maintenance | Condition evidence leading into assessment and repair decisions | Must be recomposed around diagnosis, evidence and scope rather than repeat the Services topology | Preserve approved tokens but change the Services section-colour sequence and weighting | Detail journey, not another overview ledger | Fix Required; active Visual Direction Contract is Draft |
+
 ## 10. System and Platform Plan
 
 - Platform router: `framer/README.md`; the official Framer Agent gate and targeted live-tree readback passed on 2026-08-23.
@@ -170,18 +177,28 @@ Landing → understand the offer → select a service → view proof / process �
 - Missing assets / evidence: Commercial-use licences, verified same-project before/after pairs, verified project facts/locations/captions and a real office/contact scene. Contact/service-area facts, form endpoint and privacy text are also Missing.
 - License status: Missing — confirm all supplied files are licensed for a Framer Marketplace template before publication.
 
+### Asset Usage Ledger
+
+| Asset | Narrative qualities | Approved role | Current use | Reuse decision / reason | Crop / focal notes | Status |
+|---|---|---|---|---|---|---|
+| Services aerial masthead image | Top-down roof-condition overview | Services overview masthead | Services and Repair & Maintenance mastheads in the reviewed Canvas | Repair reuse is not approved: it duplicates the sibling page and bypasses the allocated Repair narrative set | Existing broad aerial crop; no page-specific focal plan recorded | Reassigned from Repair; retain on Services pending later review |
+| `roofer on roof/roofer-ledge.webp` | Human inspection context and roof-edge condition | Repair assessment / inspection evidence | Not evidenced on the reviewed Repair page | Use on Repair after the Visual Direction Contract assigns its exact Section and breakpoint crop | Focal plan Missing until contract becomes Ready | Allocated; not yet fulfilled |
+| `roofer on roof/roof-work.webp` | Active repair work and material handling | Repair work-scope evidence | Not evidenced on the reviewed Repair page | Use on Repair or deliberately reassign with a recorded narrative reason | Focal plan Missing until contract becomes Ready | Allocated; not yet fulfilled |
+| `exterior/roof-detail.webp` | Material and condition detail | Repair maintenance / decision detail | Not evidenced on the reviewed Repair page; also staged for Insights | Cross-page reuse requires separate narrative roles and crop decisions; do not silently reuse | Focal plan Missing until contract becomes Ready | Allocated to Repair; shared future allocation requires review |
+
 ## 12. Current Status
 
-- Current phase: Home build and its 2026-08-26 structural current-state audit are complete. Services remains in progress with its repaired Method Ledger. Repair & Maintenance is now in progress: its authored route and Desktop, Tablet and Phone breakpoints were added on 2026-09-16; content construction and verification remain active. Final Page Done for both pages remains blocked by unbuilt Service Detail destinations, Contact and the remaining Preview / 320 / 1440 evidence.
-- Active page / component: Repair & Maintenance (`/services/repair-maintenance`), using the completed Home and shared `Site Shell` as the base. Development-only `ScrollRevealText.tsx` / `/reveal-text-test` remain outside the buyer-facing expansion.
-- Current blockers: Supplied-image commercial licensing is Missing; contact, address, service-area and legal facts are Missing; Marketplace Demo/Remix URLs and listing assets do not yet exist. In addition, the source record says `Summit Roofing` while the shared Canvas brand label is `SUBMIT ROOFING`, and the Reveal Text development code/page needs a retain/remove decision. These block Marketplace submission, not the structurally complete Home build.
-- Next approved step: Build and verify the confirmed Repair & Maintenance page contract, then restore its individual destination from Services after link readback succeeds. Missing operational facts must remain visibly Demo or Missing and do not block structural planning; image licensing and explicit approval still block Marketplace publication.
-- Last verified: 2026-09-16 — official Framer Agent targeted live readback confirms Home’s eight named Sections and its one H1 / seven H2 structure at Desktop, Tablet and Phone; `Site Shell` owns shared Navbar and Footer at all three breakpoints; Projects has four Demo items and Insights has two Demo items; Home CTAs and navigation point to existing Home anchors; metadata and inspected image Alt text are present. Services has four named Sections in one page-owned vertical content container: an image-led deep-navy masthead, Service Navigator, page-owned Method Ledger and Inspection Handoff. The Method Ledger now contains three named process blocks, each with an H3 and `Body/Default` Demo description. Desktop 1200 and Tablet 810 use a three-column ledger with 1px vertical rules; Tablet uses reduced internal padding. Phone 390 uses a vertical ledger with 1px row dividers, a 4px ledger gap and no duplicate horizontal gutter. The shared `Process Step` source remains available for Home but is not used on Services. All four Service Rows are distinct and the two Buttons / four rows point to verified `/#contact`; final conversion review remains blocked by unbuilt detail routes. One bounded Desktop masthead screenshot confirmed the aerial roof subject and an entrance composition distinct from Home. The 2026-09-16 Method Ledger repair returned clean Framer diagnostics. No publication occurred.
+- Current phase: Home is complete and Services remains in progress. Repair & Maintenance retains a structurally verified first build, but the 2026-09-16 user visual review sets the page to Fix Required for sibling-page duplication, weak page-specific composition and unfulfilled Repair image allocation.
+- Active page / component: Repair & Maintenance (`/services/repair-maintenance`) is the active correction scope. Its new Visual Direction Contract is Draft; no Canvas repair occurred in this repository migration. Development-only `ScrollRevealText.tsx` / `/reveal-text-test` remain outside the buyer-facing expansion.
+- Current blockers: The Repair visual contract is not Ready, its three allocated images lack implemented narrative roles and corrected full-page visual evidence does not exist. Supplied-image commercial licensing, contact, address, service-area and legal facts are Missing; Marketplace Demo/Remix URLs and listing assets do not yet exist. The `Summit Roofing` / `SUBMIT ROOFING` mismatch and Reveal Text retain/remove decision remain unresolved.
+- Next approved step: Compile the Repair & Maintenance Visual Direction Contract to Ready, then in a separately authorised live Canvas task correct and verify that page before advancing to Roof Replacement. Missing operational facts must remain visibly Demo or Missing; image licensing and explicit approval still block Marketplace publication.
+- Last verified: 2026-09-16 — official Framer Agent targeted live readback confirms Home’s eight named Sections and its one H1 / seven H2 structure at Desktop, Tablet and Phone; `Site Shell` owns shared Navbar and Footer at all three breakpoints; Projects has four Demo items and Insights has two Demo items; Home CTAs and navigation point to existing Home anchors; metadata and inspected image Alt text are present. Services has four named Sections in one page-owned vertical content container: an image-led deep-navy masthead, Service Navigator, page-owned Method Ledger and Inspection Handoff. The Method Ledger now contains three named process blocks, each with an H3 and `Body/Default` Demo description. Repair & Maintenance has one vertical page-content container and six named semantic Sections: image-led masthead, Assessment, Work Scope, Repair Process, Repair FAQ and Inspection Handoff. Desktop uses a bounded two-column scope, ruled three-step process and four structured Demo FAQ items; Tablet reduces section padding; Phone changes scope and process to single-column stacks with 24px gutters. The masthead image has factual Alt text and both page CTAs point to verified `/#contact`. Clean diagnostics support these structural facts only. The later user full-page review establishes Visual Fix Required because the page closely repeats Services and reuses its aerial image instead of fulfilling the allocated Repair set. No fresh Canvas readback or publication occurred during this repository migration.
 
 | Page | Content | Styles | Components | Links | SEO | Alt | Desktop | Tablet | Phone | Evidence |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Home | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Targeted readback, 390px bounded preview, 320px stress scan, readiness preview: 0 errors / 0 warnings |
 | Services | Demo | ✓ | ✓ | Partial | ✓ | ✓ | ✓ | ✓ | ✓ | Four distinct Sections; unique Desktop/Phone Service Rows, 810px Tablet flow, specific masthead Alt and one bounded Desktop masthead screenshot; final detail links, 320/1440 review and full-page Preview remain blocked/deferred |
+| Repair & Maintenance | Demo | ✓ | Reused | Partial | Inherited | ✓ | ✓ | ✓ | ✓ | Structural Pass: six semantic Sections, one H1, structured Demo FAQ and Desktop/Tablet/Phone live readback. Visual Fix Required: composition and colour rhythm closely repeat Services, its aerial image was reused, and the allocated Repair set was not fulfilled. |
 
 ## 13. Decisions and Exceptions
 
@@ -205,23 +222,23 @@ Landing → understand the offer → select a service → view proof / process �
 
 ## 14. Recovery
 
-- Active session / connection: Official Framer Agent targeted readback verified on 2026-08-26; no publication action was taken.
+- Active session / connection: No active session is claimed for this repository migration. The latest retained official Framer Agent evidence is the 2026-09-16 structural readback; no publication action was taken.
 - Current page / component: Repair & Maintenance route and shared `Site Shell`; `ScrollRevealText.tsx` and `/reveal-text-test` remain development-only pending a retain/remove decision.
-- Last successful change: On 2026-09-16, rebuilt the page-owned Services Method Ledger without changing shared Components, the masthead, Service Navigator or Inspection Handoff. The former bare three-heading grid now has three semantic H3 process blocks, each with factual Demo-supporting copy. Desktop and Tablet retain three columns with 1px internal rules; Phone stacks the blocks with row dividers and aligned gutters.
-- Last targeted readback: Services masthead, service directory, rebuilt Method Ledger and close structure were verified through official Framer Agent readback on 2026-09-16 at Desktop, Tablet and Phone. The Method Ledger Desktop/Tablet grid contains three blocks with `Display/Card` titles and `Body/Default` descriptions; Phone uses the required vertical layout and returns no Framer diagnostics. One bounded Desktop masthead screenshot from the earlier Services revision confirms a readable aerial roof subject. No full-page Preview or publication occurred.
-- Verified breakpoints / states: Services Desktop 1200px, Tablet 810px and Phone 390px have revised page-owned structures. The rebuilt ledger is a three-column, ruled process sequence on Desktop/Tablet and a vertically divided sequence on Phone. Services 320px and 1440px visual review remains unverified.
-- Remaining approved work: Complete and verify Repair & Maintenance. After all four Service Detail routes exist, restore and verify the individual Services destinations. Projects and its CMS detail template, About, Insights and its CMS detail template, and Contact remain in the approved order. Brand-name and Reveal Text retain/remove decisions remain separate pre-publication issues.
-- Exact next action: Add the Repair & Maintenance page’s first content Part: its image-led masthead and service-fit statement, then read back all three breakpoints before continuing.
+- Last successful change: On 2026-09-16, the first structural build of Repair & Maintenance was completed without changing shared Components. It includes an image-led masthead, assessment, practical scope, three-step process, a four-item structured Demo FAQ and closing inspection handoff. This does not constitute visual completion; the later user review sets Visual status to Fix Required.
+- Last targeted readback: Repair & Maintenance content container, all six semantic Sections, masthead Alt and CTA, Desktop two-column scope, structured four-item FAQ, and the Desktop 1200px / Tablet 810px / Phone 390px breakpoint owners were verified through official Framer Agent readback on 2026-09-16. The final build returned clean Framer diagnostics. No Preview or publication occurred.
+- Verified breakpoints / states: Repair & Maintenance Desktop 1200px, Tablet 810px and Phone 390px own revised structures. Phone uses 24px section gutters, a stacked scope, and a stacked process sequence. These are structural facts; corrected cross-page composition, Repair 320px / 1440px visual review and full-page evidence remain unverified.
+- Remaining approved work: First compile the Repair visual contract to Ready and complete a separately authorised Canvas correction with structural and full-page comparative visual proof. Only after Repair passes may Roof Replacement proceed. Later expansion order, link restoration, brand-name and Reveal Text decisions remain unchanged.
+- Exact next action: Review and approve the Repair Visual Direction Contract decisions before any live Canvas correction; do not start Roof Replacement first.
 - Important local asset paths: `/Users/Zhuanz/Desktop/Submit Roofing/`
-- Updated at: 2026-08-26
+- Updated at: 2026-09-16
 
 ## 15. Checklist and Change Control
 
 - Project checklist index: [checklist/README.md](./checklist/README.md)
-- Active page checklist: [Services page Checklist](./checklist/services.md) — in progress; structural QA complete, with detail-link and bounded visual-evidence limitations recorded.
+- Active page checklist: [Repair & Maintenance page Checklist](./checklist/repair-maintenance/2026-09-16-page-build.md) — Structural status Pass; Visual status Fix Required; active Visual Direction Contract Draft.
 - Active request checklist: [approved site expansion plan](./checklist/site/2026-08-26-site-expansion-planning.md)
-- Checklist status: Project-wide plan Approved; Services page contract In progress; next page Checklist has not yet been created; publishing excluded.
-- Last synchronization with Current Status: 2026-08-26
+- Checklist status: Project-wide plan Approved; Services remains in progress; Repair & Maintenance Fix Required pending a Ready visual contract and later Canvas correction; publishing excluded.
+- Last synchronization with Current Status: 2026-09-16
 
 ## 16. History
 

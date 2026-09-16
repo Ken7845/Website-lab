@@ -98,6 +98,7 @@ content-library/<project>/
 14. Targeted Preview 路径。
 15. Page Done 门槛。
 16. Latest Part Result：Pass、Fix Required、Blocked、Verified widths、Verified paths、Shared components 和 canonical Recovery reference；不在页面 Checklist 复制第二份 current checkpoint。
+17. 当范围是新 Page、主要 Section 重设计、跨页面差异化或用户要求“different layout”时，包含由 `design-taste` 编译的 `Visual Direction Contract`：明确 sibling-page delta、Section composition、Colour rhythm、Asset map、Responsive transformation，以及 Structural proof / Visual proof；轻量文案或机械修复不强制创建。
 
 页面文件必须针对当前页面写具体检查项。禁止把本文件的 18 个通用章节原样复制五次，也禁止只写视觉 Section 而遗漏 Styles、Links、语义、响应式、Focus、状态和交付。
 
@@ -109,7 +110,7 @@ content-library/<project>/
 - `In progress`：正在按 Section 或 Part 纵向建设。
 - `Fix Required`：当前必查项失败，修复前不得进入下一 Part。
 - `Blocked`：缺少事实、素材、权限、服务或真实目标。
-- `Pass`：当前 Part 或 Page 通过对应 readback、Preview 和 Preflight。
+- `Pass`：当前 Part 或 Page 通过对应 readback、Preview 和 Preflight；适用 `Visual Direction Contract` 的范围必须同时达到 Structural status 与 Visual status 的 `Pass`。
 
 强制同步：
 
@@ -145,6 +146,7 @@ content-library/<project>/
 - [ ] 缺少事实、权限或素材时标记 `Blocked`，继续完成不依赖阻塞项的工作。
 - [ ] 用户要求“完成”、“一次性完成”或完成当前 Part 时，Scope 内每个项目必须为 `Pass`、有证据的 `Blocked` 或用户明确授权的 `Deferred`；不得带未分类的 `[ ]` 结束。
 - [ ] 新建、复制或改写可复用 Component 责任时，实施前的 `Component Requirement Contract` 已为 `Ready`；实施后已按同一合同反向验证为 `Pass` 或 `Blocked`。
+- [ ] 新 Page、主要 Section 重设计、跨页面差异化或“different layout”范围在实施前已有 `Ready` 的 `Visual Direction Contract`；实施后按同一合同反向验证，并分别记录 Structural status 与 Visual status。
 - [ ] 用户明确设计意图与通用规则冲突时保留用户意图，并在 `DECISIONS.md` 或 PROJECT 的 Decisions / Exceptions 章节记录。
 - [ ] 只复检当前 Part 及受影响的共享依赖，不无目的重读整页或整站。
 
@@ -246,6 +248,7 @@ content-library/<project>/
 - [ ] Navbar、Footer、Button、Overlay 和 Link State 使用正确语义颜色。
 - [ ] Hover 与 Focus 在所在背景上保持足够对比。
 - [ ] 局部直接样式只有少量、有理由的例外。
+- [ ] 页面间沿用批准的颜色角色，但 Section 明暗顺序、强调色密度和图片色调形成合同中批准的 Colour rhythm，而非复制 sibling page 的整页色块节奏。
 
 自修补：
 
@@ -392,6 +395,8 @@ content-library/<project>/
 - [ ] 装饰图片显式空 Alt。
 - [ ] 不存在 Alt 未定义。
 - [ ] 没有地图 UI、黑块、角落控件或截图痕迹。
+- [ ] `Asset usage ledger` 已记录候选素材的 narrative qualities、Approved role、Current use、Reuse decision / reason、裁切焦点和 allocated / used / reassigned / blocked 状态。
+- [ ] 用户内容库中适合当前叙事且已获批准的素材已被使用、明确重新分配或有证据地标记 Blocked；没有因邻页已方便使用某图就无理由复用。
 
 ### Gallery / Hover
 
@@ -426,6 +431,7 @@ content-library/<project>/
 - [ ] 内容区 max-width 合理，宽屏不无限拉伸。
 - [ ] 构图、留白、大图比例和 Section 节奏成立。
 - [ ] Navbar 单行且 Sticky 正常。
+- [ ] Preserve 的品牌系统与 Transform 的页面构图同时成立；与 sibling page 的 masthead、Section 顺序、图文比例和主要视觉记忆点存在合同中定义的 coherent difference。
 
 ### Tablet
 
@@ -674,6 +680,8 @@ content-library/<project>/
 - [ ] 图片 Alt 完整。
 - [ ] 320 / 390 / 810 / 1200 / 1440+ 合理。
 - [ ] 目标化 Preview 已通过。
+- [ ] 适用时 `Visual Direction Contract` 已从 `Ready` 反向验证为 `Pass`；Structural status 与 Visual status 分别为 `Pass`。
+- [ ] Page 范围已有代表性 Desktop / Tablet / Phone 静态全页视觉证据，可判断构图、颜色节奏、素材分配与 sibling-page differentiation，而不只验证结构值。
 
 ### Website Done
 
@@ -689,6 +697,8 @@ content-library/<project>/
 ```text
 Scope: Section / Component / Page / Website
 Status: Pass / Fix Required / Blocked
+Structural status: Pass / Fix Required / Blocked
+Visual status: Pass / Fix Required / Blocked / N/A — reason
 Pass:
 Fix Required:
 Blocked:
