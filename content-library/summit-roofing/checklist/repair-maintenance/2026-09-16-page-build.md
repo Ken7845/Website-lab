@@ -2,9 +2,11 @@
 
 ## Status
 
+- Record status: Legacy request-specific build record. It preserves the 2026-09-16 planning and review evidence; it is not current Canvas state.
 - Page: Repair & Maintenance
 - Path: `/services/repair-maintenance`
-- Status: Fix Required — structural implementation was read back, but the 2026-09-16 user visual review found sibling-page duplication, weak page-specific composition and an unfulfilled asset allocation.
+- Current Canvas status: Structural and bounded visual Pass — the user approved the Visual Direction Contract and the new `/services/repair-maintenance` route was built on 2026-09-16 with Desktop, Tablet and Phone breakpoint owners. Desktop comparative and Phone visual reviews have passed; stress and Preview evidence remain pending.
+- Legacy review status: Fix Required — the prior structural implementation was read back, but the 2026-09-16 user visual review found sibling-page duplication, weak page-specific composition and an unfulfilled asset allocation.
 - Content status: All explanatory copy is Demo; operational facts remain Missing.
 - Primary CTA: Request an Inspection → `/#contact` until the Contact route exists.
 
@@ -22,7 +24,7 @@
 
 ## Visual Direction Contract
 
-Contract status: Draft
+Contract status: Ready — approved by the user on 2026-09-16 for a new live Canvas build.
 
 | Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
 |---|---|---|---|---|---|
@@ -31,9 +33,9 @@ Contract status: Draft
 | Transform | Redesign the masthead hierarchy, Section sequence, image cadence, assessment/work-scope composition and process treatment so the page expresses diagnosis and repair rather than service selection. | Page and Sections | `2026-09-16-page-build.md#page-contract` | Planned Section and breakpoint readback. | Planned full-page rhythm review. |
 | Avoid | Do not copy the Services masthead-to-list-to-blue-ledger-to-pale-CTA rhythm, reuse its aerial image without reason, or introduce arbitrary novelty outside the approved system. | Page | `../../PROJECT.md#6-brand-direction` | Planned sibling topology and asset-use comparison. | Planned side-by-side Services and Repair review. |
 | Sibling-page delta | Services remains an overview navigator; Repair must lead with condition assessment, use a different dominant composition and media sequence, and avoid the same blue ledger/process silhouette. | Page | `../../PROJECT.md#8-sitemap-and-page-goals` | Planned named-Section and layout-family comparison. | Planned compiled sibling-page comparison. |
-| Section composition | Build a page-specific sequence around condition evidence, assessment, repair scope and maintenance decisions; final layout families require design review before Canvas repair. | Page Sections | `2026-09-16-page-build.md#page-contract` | Planned Section ownership map. | Planned composition review before implementation. |
+| Section composition | Use a light split masthead with `roofer-ledge.webp`; a mist-grey assessment section led by `roof-detail.webp`; a deep-navy work-scope section paired with `roof-work.webp`; a vertical numbered repair sequence; a ruled FAQ; and a quiet mist-grey handoff. | Page Sections | `2026-09-16-page-build.md#page-contract` | Planned Section ownership map. | Planned composition review before implementation. |
 | Colour rhythm | Keep approved token roles while changing their page sequence and visual weight; do not repeat the Services dark masthead, long white body, blue process band and pale CTA rhythm unchanged. | Page and Sections | `../../PROJECT.md#6-brand-direction` | Planned Fill and Color Style readback. | Planned full-page colour-block comparison. |
-| Asset map | Use allocated `roofer-ledge.webp`, `roof-work.webp` and `roof-detail.webp` by narrative role; the Services aerial image is not approved for Repair reuse without a recorded reason. | Page image owners | `../../PROJECT.md#11-responsive-interaction-and-assets` | Planned Fill, Alt and breakpoint crop readback. | Planned approved-asset contact sheet plus Canvas review. |
+| Asset map | Use `roofer-ledge.webp` as masthead inspection evidence, `roof-detail.webp` as condition-detail evidence, and `roof-work.webp` as work-scope evidence. The Services aerial image is not approved for Repair reuse. | Page image owners | `../../PROJECT.md#11-responsive-interaction-and-assets` | Planned Fill, Alt and breakpoint crop readback. | Planned approved-asset contact sheet plus Canvas review. |
 | Responsive transformation | Desktop may use evidence-led asymmetry; Tablet must recompose image/copy pairs; Phone must keep assessment priority, deliberate crops and a clear CTA order rather than merely stacking Desktop. | Page breakpoint owners | `2026-09-16-page-build.md#responsive-and-acceptance-contract` | Planned Desktop 1200, Tablet 810, Phone 390 and stress 320 readback. | Planned representative Desktop, Tablet and Phone evidence. |
 | Completion evidence | Overall Pass requires both structural readback and visual proof of composition, colour rhythm, image allocation and sibling differentiation; clean diagnostics alone are insufficient. | QA | `../../../../framer/basic/workflows/preflight-audit.md#2a-visual-composition-and-cross-page-differentiation` | Existing structural readback retained; correction readback planned. | Current user screenshots establish Fix Required; corrected full-page evidence remains planned. |
 
@@ -56,10 +58,11 @@ Contract status: Draft
 
 ## Latest Part Result
 
-- Structural status: Pass — the referenced build task recorded six semantic Sections, one H1, structured Demo FAQ, breakpoint ownership at Desktop 1200, Tablet 810 and Phone 390, factual masthead Alt and clean diagnostics.
-- Visual status: Fix Required — the user-provided full-page screenshots show a composition and colour-block rhythm too close to Services; the Services aerial image was reused while the three allocated Repair assets were not fulfilled.
-- Fix Required: Compile this Draft contract to Ready, assign the three Repair assets to named narrative roles, redesign the page-specific composition, and later verify it through the official Framer Agent and full-page comparative evidence.
-- Blocked: No live Canvas correction or fresh readback is authorised in this repository migration. Contact, 1440 review, 320 visual stress review and final Preview also remain unresolved.
+- Structural status: Pass — one new page uses the existing `Site Shell`, shared Button instances, six named semantic Sections, one H1, Demo FAQ, page metadata, three factual Alt texts, and Desktop 1200 / Tablet 810 / Phone 390 breakpoint owners. Framer returned clean diagnostics after responsive implementation.
+- Visual status: Pass for the approved bounded evidence — Desktop composition passed against Services and the subsequent Phone review passed for reading order, image crops and CTA visibility. The separate 320px / 1440px stress and Preview evidence remain outstanding.
+- Pass: The current Repair route uses `roofer-ledge.webp` in the light split masthead, `roof-detail.webp` in the mist assessment section, and `roof-work.webp` in the deep-navy work-scope section. It does not reuse the Services aerial image or Services' masthead/index/ledger rhythm. The Services Repair & Maintenance row now routes to `/services/repair-maintenance` across responsive replicas.
+- Fix Required: None in the current structural scope.
+- Blocked: Contact, 320px stress review, 1440px review and final Preview remain unresolved. Publishing remains excluded.
 
 ## Evidence required after correction
 

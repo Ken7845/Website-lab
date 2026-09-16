@@ -56,8 +56,8 @@ Every page contract must include all 16 required categories defined in [Framer P
 |---:|---|---|---|---|
 | Existing | Home | `/` | Existing Home request records in [`home/`](./home/) | Pass for completed Home scope; final Marketplace publication remains blocked |
 | 1 | Services | `/services` | [services.md](./services.md) — implemented and structurally QA-checked; final destinations and bounded visual evidence remain recorded | In progress |
-| 2 | Repair & Maintenance | `/services/repair-maintenance` | `repair-maintenance.md` — create and confirm before Canvas work | To do |
-| 3 | Roof Replacement | `/services/roof-replacement` | `roof-replacement.md` — create and confirm before Canvas work | To do |
+| 2 | Repair & Maintenance | `/services/repair-maintenance` | [Repair build record](./repair-maintenance/2026-09-16-page-build.md) — live route structurally and bounded-visually verified; stress and Preview remain | In progress |
+| 3 | Roof Replacement | `/services/roof-replacement` | [roof-replacement.md](./roof-replacement.md) — user approved start; ready for first Canvas Part | To do |
 | 4 | New Construction | `/services/new-construction` | `new-construction.md` — create and confirm before Canvas work | To do |
 | 5 | Storm Damage Repair | `/services/storm-damage-repair` | `storm-damage-repair.md` — create and confirm before Canvas work | To do |
 | 6 | Projects | `/projects` | `projects.md` — create and confirm before Canvas work | To do |
