@@ -4,7 +4,7 @@
 
 - Page: Roof Replacement
 - Path: `/services/roof-replacement`
-- Current status: In progress — the route, six Sections and Desktop / Tablet / Phone owners are live; final visual confirmation after a local opening-copy repair remains outstanding.
+- Current status: In progress — the route, six Sections and Desktop / Tablet / Phone owners are live; Structural and bounded Desktop Visual Pass are complete, while stress and Preview checks remain outstanding.
 - Content status: Demo explanatory copy. Product systems, warranties, project facts, pricing, response times, credentials, contact facts and service area remain Missing.
 - Primary CTA: `Request an Inspection` → `/#contact` until a real Contact page exists.
 
@@ -88,7 +88,7 @@ Pass:
 - The Services `Roof Replacement` row and its Tablet / Phone replicas all route to `/services/roof-replacement`.
 
 Fix Required:
-- Visual status: Fix Required — the sole planned Desktop screenshot showed the opening headline did not fit its original narrow rail. The Demo headline was shortened in Canvas without changing the shared text style. A future bounded visual review must verify the corrected rail; this Part's image-review budget is exhausted and no second screenshot was taken.
+- None in the bounded Desktop visual scope. The earlier opening-headline fit issue was corrected and passed the 2026-09-17 follow-up review.
 
 Blocked:
 - Real contact details, contact route, product/warranty facts, image licences and publication authorization remain unavailable. Preview, 320px and 1440px checks are deferred.
