@@ -62,9 +62,9 @@ Every page contract must include all 16 required categories defined in [Framer P
 | 5 | Storm Damage Repair | `/services/storm-damage-repair` | [storm-damage-repair.md](./storm-damage-repair.md) — live route structurally and Desktop-visually verified; stress and Preview remain | In progress |
 | 6 | Projects | `/projects` | [projects.md](./projects.md) — live CMS archive structurally and Desktop-visually verified; stress and Preview remain | In progress |
 | 7 | Project Detail | `/projects/:Projects` | [project-detail.md](./project-detail.md) — live CMS detail route structurally and Desktop-visually verified; stress and Preview remain | In progress |
-| 8 | About | `/about` | [about.md](./about.md) — prepared from live shared-system evidence; awaiting user confirmation before Canvas work | To do |
-| 9 | Contact | `/contact` | `contact.md` — create and confirm before Canvas work | To do |
-| 10 | Insights | `/insights` | `insights.md` — create and confirm before Canvas work | To do |
+| 8 | About | `/about` | [about.md](./about.md) — live route structurally verified at Desktop, Tablet and Phone; single-image visual evidence is blocked and stress/Preview remain | In progress |
+| 9 | Contact | `/contact` | [contact.md](./contact.md) — live route structurally verified at Desktop, Tablet and Phone; delivery and visual evidence remain blocked | In progress |
+| 10 | Insights | `/insights` | [insights.md](./insights.md) — live CMS archive structurally verified at Desktop, Tablet and Phone; visual review and detail route remain | In progress |
 | 11 | Insight Detail | `/insights/:Insights` | `insight-detail.md` — create and confirm before Canvas work | To do |
 
 `/reveal-text-test` is development-only and remains outside this buyer-facing build order pending its separate retain/remove decision.

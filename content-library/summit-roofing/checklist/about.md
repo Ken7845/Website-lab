@@ -4,7 +4,7 @@
 
 - Page: About
 - Path: `/about`
-- Current status: To do — prepared 2026-09-18; no Canvas route exists.
+- Current status: In progress — Structural Pass at Desktop, Tablet and Phone; Visual Blocked after the single bounded Desktop review result became unavailable.
 - Content status: Team names, biographies, tenure, credentials, awards, service area and image licences are Missing. Crew imagery is supplied but its people/place facts are unverified.
 - Primary CTA: `Discuss a Project` → `/#contact`.
 
@@ -17,7 +17,7 @@
 
 ## Visual Direction Contract
 
-Contract status: Ready — preparation only. Explicit approval is required before Canvas construction.
+Contract status: Blocked — structural evidence is recorded; visual evidence is blocked for this Part.
 
 | Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
 |---|---|---|---|---|---|
@@ -64,27 +64,30 @@ Contract status: Ready — preparation only. Explicit approval is required befor
 
 ## Latest Part Result
 
-Scope: Page preparation
-Status: To do
+Scope: About route build and QA
+Status: Structural Pass / Visual Blocked
 
 Pass:
-- Live readback confirms `/about` does not exist and shared shell, CTA and responsive system can be reused.
-- Scope lock, Missing facts, asset allocation and Ready Visual Direction Contract are recorded.
+- `/about` is live with the shared Site Shell, metadata, five named semantic Sections, one H1, H2/H3 hierarchy, truthful Demo copy and the shared Button CTA to `/#contact`.
+- Structural readback confirms intentional responsive ownership at Desktop 1200, Tablet 810 and Phone 390: the hero and people panel move from two columns to one; the principles field remains three columns on Tablet and becomes one column on Phone.
+- No CMS schema, shared component, form, Custom Code, publishing action or factual company claim was added.
 
 Fix Required:
-- None before Canvas construction.
+- None in the authorized `/about` scope.
 
 Blocked:
+- The one planned Desktop screenshot was generated, but its locally reduced review output became unavailable during context interruption. No visual inference is recorded and this Part's one-image budget is exhausted; later visual QA requires a separately scoped Part.
 - Real company/team facts, image licences, Contact details and publication authorization.
 
 Verified widths:
-- None.
+- Structural: Desktop 1200, Tablet 810 and Phone 390.
+- Deferred: 320 and 1440 stress widths, live Preview, keyboard/focus and rendered Alt checks.
 
 Verified paths:
-- Planned: `/about`.
+- `/about`; CTA fallback `/#contact`.
 
 Shared components affected:
-- Planned reuse only: Site Shell and Button.
+- Reused only: Site Shell and Button; no shared-component modification.
 
 Recovery:
 - Canonical current pointer: `../PROJECT.md#14-recovery`
