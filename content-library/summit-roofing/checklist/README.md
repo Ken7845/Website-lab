@@ -60,9 +60,9 @@ Every page contract must include all 16 required categories defined in [Framer P
 | 3 | Roof Replacement | `/services/roof-replacement` | [roof-replacement.md](./roof-replacement.md) — live route structurally and Desktop-visually verified; stress and Preview remain | In progress |
 | 4 | New Construction | `/services/new-construction` | [new-construction.md](./new-construction.md) — live route structurally and Desktop-visually verified; stress and Preview remain | In progress |
 | 5 | Storm Damage Repair | `/services/storm-damage-repair` | [storm-damage-repair.md](./storm-damage-repair.md) — live route structurally and Desktop-visually verified; stress and Preview remain | In progress |
-| 6 | Projects | `/projects` | `projects.md` — create and confirm before Canvas work | To do |
-| 7 | Project Detail | `/projects/:Projects` | `project-detail.md` — create and confirm before Canvas work | To do |
-| 8 | About | `/about` | `about.md` — create and confirm before Canvas work | To do |
+| 6 | Projects | `/projects` | [projects.md](./projects.md) — live CMS archive structurally and Desktop-visually verified; stress and Preview remain | In progress |
+| 7 | Project Detail | `/projects/:Projects` | [project-detail.md](./project-detail.md) — live CMS detail route structurally and Desktop-visually verified; stress and Preview remain | In progress |
+| 8 | About | `/about` | [about.md](./about.md) — prepared from live shared-system evidence; awaiting user confirmation before Canvas work | To do |
 | 9 | Contact | `/contact` | `contact.md` — create and confirm before Canvas work | To do |
 | 10 | Insights | `/insights` | `insights.md` — create and confirm before Canvas work | To do |
 | 11 | Insight Detail | `/insights/:Insights` | `insight-detail.md` — create and confirm before Canvas work | To do |
