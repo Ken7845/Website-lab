@@ -25,6 +25,7 @@
 - 不把某个项目的数值提升为所有网站的强制默认值。AURELIA 的 `spring-physics 250 30 1 0s` 是该项目的已批准证据，不是跨项目的唯一答案。
 - 同一组件的 Default、Hover、Open、Closed 等相关状态默认使用同一套 transition；只有状态语义或真实 Preview 证明需要差异时才拆分。
 - Press 反馈应克制、可感知即可；避免让整行或主操作在点击时产生明显缩小。
+- Height reveal 只能插值连续的几何或视觉属性。`visible` 是二元开关：若 Drawer 在 Closed 状态被设为 `visible: false`，它会在 Open 时直接出现，不能被当作平滑进入动画。要做 Navbar 内展开，应让同一 Drawer 保留在两个状态中，再用外层高度与 `overflow: clip` 控制可见范围；要做浮层进入，则使用 Overlay 的 opacity / position enter transition。
 
 
 ## 页面进入动画

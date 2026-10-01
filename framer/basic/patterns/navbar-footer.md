@@ -58,6 +58,25 @@ Layout Template
 - Press 反馈采用原生 `tapEffect` 的短暂透明度变化，保持 `scale: 1`，不得改变高度、间距或造成 reflow。
 - 此模式不要求 Overlay；只有确实需要覆盖全页、遮罩或独立 Modal 语义时才使用 Overlay。
 
+#### Height-reveal ownership and failure checks
+
+Before changing a shared Phone drawer, inspect the complete ownership chain instead of only the Component definition:
+
+```text
+Layout Template breakpoint Frame
+└── fixed / sticky Navbar Component Instance  ← placement, available width, instance height
+    └── Navbar Closed / Open Variant roots   ← state height, surface and clipping
+        └── Drawer                            ← links, CTA, padding and internal rhythm
+```
+
+- The Layout Template instance must allow the Navbar to grow when the open state needs to grow: use `height: auto` unless a separately verified sizing contract owns that height. A fixed closed-height instance will clip an otherwise-correct Open Variant.
+- For a height-reveal drawer, keep `overflow: clip` on both Closed and Open roots. `overflow: visible` lets drawer content spill out before the root has revealed it, which reads as a sudden pop rather than an expansion.
+- Do not use `visible: false` on the Drawer as the mechanism for a smooth height reveal. Visibility is binary and is not interpolated. Keep the same Drawer structure in both variants; let the root's bounded height and clipping hide it while closed.
+- Keep the root transition identical across the paired Closed/Open states unless a Preview proves a state-specific difference is necessary. Do not mix a fast physics spring on one state with a duration spring on the other by accident.
+- If the intended interaction is an anchored floating panel rather than a reveal from the Navbar surface, choose the Relative Overlay pattern instead. Do not combine the two patterns in one state route.
+
+Required Phone Preview path at 390px: `Closed → Open → Close → Open → one real internal link`. Verify that the menu stays within the Navbar surface during expansion, the close control remains reachable, the linked page loads, and the state returns to Closed.
+
 ### Phone 菜单 Overlay
 
 - Phone 宽度无法容纳完整导航时，将右侧 CTA 改为语义明确的 `Menu` 按钮。
