@@ -84,7 +84,11 @@
     "Decision / N/A reason",
     "owners complete / N/A reasoned / readback planned / preview planned",
     "Visual Direction Contract",
-    "Visual contract receipt"
+    "Visual contract receipt",
+    "Website_Lab_V2.1.0",
+    "Workflow Observations",
+    "Later-discovered issue",
+    "Workflow candidate"
   ],
   "required_path_terms": {
     "AGENTS.md": [
@@ -97,7 +101,22 @@
       "required elevated permissions",
       "Gate remains closed",
       "Framer Agent gate receipt",
-      "Browser / Playwright / Computer Use"
+      "Browser / Playwright / Computer Use",
+      "## 轻量 Workflow Observation",
+      "history/workflow-observations/README.md",
+      "不是新的开工 Gate",
+      "普通建设不得预读 observations"
+    ],
+    "README.md": [
+      "Website_Lab_V2.1.0",
+      "## Workflow Observations",
+      "history/workflow-observations/"
+    ],
+    "history/workflow-observations/README.md": [
+      "Do not preload",
+      "Later-discovered issue",
+      "Workflow candidate",
+      "not automatically a new rule"
     ],
     "framer/README.md": [
       "## 0. Live Canvas Hard Gate",

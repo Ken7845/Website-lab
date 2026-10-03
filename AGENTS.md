@@ -102,6 +102,16 @@ Website-lab 是个人网站与独立站的设计实验室、项目事实库与 F
 
 Framer 的建设顺序、Responsive、Accessibility、交互、Part 验收和 Preflight 从 `framer/README.md` 路由到对应 Skill、Reference 与 `framer/checklist.md`，不在本文件重复。完成报告只说明最终改动、选择理由、验证范围和已知限制，不倾倒内部节点 ID 或完整工具输出。
 
+## 轻量 Workflow Observation
+
+完成有实际建设价值的 Page、Section、Component、Interaction 或跨断点 Part 后，在不影响实施和 QA 的前提下，按 [`history/workflow-observations/README.md`](history/workflow-observations/README.md) 追加一条简短 observation。记录用户要求、实际 route、完成内容、验证结果和后来发现的遗漏；只写可核对事实，不写逐步日记、完整聊天、内部推理、节点倾倒或原始工具输出。
+
+- 小型文案、链接、命名、单点 spacing 等普通修复默认不记录；若它暴露了可复用的 workflow failure 才记录。
+- Observation 在实施与 targeted QA 后写入，不是新的开工 Gate，不得暂停建设等待日志，也不得为了日志扩大读取范围。
+- 任务当下只写短记录；后来发现问题时追加 `Later-discovered issue` 与 correction，不改写原始事实。
+- 普通建设不得预读 observations；只有 retrospective 或 knowledge-maintenance 才按项目、时间或失败类型 targeted read。
+- 单条记录只是 evidence，不自动升级为规则。只有重复模式或高影响缺陷经复盘后，才修改 Router、Skill、Reference 或 validator。
+
 ## 文件管理
 
 - 普通文件和文件夹使用 kebab-case；`README.md`、`AGENTS.md`、`PROJECT.md` 等正式入口保留约定大写。

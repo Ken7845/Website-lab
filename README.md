@@ -4,10 +4,13 @@ Website-lab 是面向人类与 AI Agent 的网站设计、项目事实和 Framer
 
 ## Knowledge Base Version
 
+- Repository version: `Website_Lab_V2.1.0`
 - Current release: `v2.1.0`
 - Architecture base: `v2.0.0`
 - Released: 2026-09-16
+- Updated: 2026-10-03
 - Scope: adds the Visual Direction Contract, page/asset identity persistence, symmetric structural/visual QA and machine-checkable contract integrity while preserving the v2 routing and progressive-disclosure architecture.
+- Current revision: adds lightweight workflow observations for later retrospective improvement without adding them to normal task context.
 - Migration record: [Website-lab Visual Workflow Improvement — v2.1.0](history/repository/2026-09-16-visual-workflow-v2.1.0.md)
 
 ## 架构
@@ -26,7 +29,7 @@ AGENTS.md
 │   └── <project>/PROJECT.md      每个项目的唯一入口
 ├── inspiration/
 │   └── 按网站类型保存创意参考，不保存 current 项目状态
-├── history/                       退役的仓库级手册与迁移证据；默认不读
+├── history/                       退役手册、迁移证据与 workflow observations；默认不读
 └── framer/
     ├── README.md                唯一 Framer task router
     ├── basic/                    稳定的平台标准、Patterns 与 Workflows
@@ -50,6 +53,7 @@ AGENTS.md
 | Framer 实施与验收 | `framer/basic/`、`framer/checklist.md`、选中的 Framer Skill | 不决定品牌事实 |
 | 创意参考 | `inspiration/` | 不保存项目 current status |
 | 退役的仓库级手册 | `history/` | 不参与 current 路由或覆盖现行规则 |
+| 真实建设过程的轻量观测 | `history/workflow-observations/` | 不作为 current state、Recovery 或普通任务启动上下文 |
 | 知识新增、迁移与结构验证 | `.agents/skills/knowledge-maintenance/`、`.knowledge-validation.json` | 不参与普通网站任务 |
 
 若信息冲突，以 `AGENTS.md` 的权威优先级为准。
@@ -68,6 +72,12 @@ AGENTS.md
 `PROJECT.md`、`STATUS.md` 和 `RECOVERY.md` 回答“现在是什么、做到哪里、下一步是什么”。更新时替换旧值，不向文件尾部追加聊天式日志。
 
 `DECISIONS.md` 保存仍会影响未来工作的决定，并把被替代项标记为 `Superseded`。`HISTORY.md` 与 `history/` 保存已经结束且值得追溯的材料。普通版本变化由 Git 负责，不需要为每个旧版本建立副本。
+
+## Workflow Observations
+
+有实际建设价值的 Framer / 网站任务在实施与 targeted QA 完成后，可以自然地写入一条简短 workflow observation：记录用户要求、Agent 选择的 route、实际完成内容、验证结果，以及后来发现的遗漏。它用于阶段性复盘和改进 Router / Skill / Reference，不用于证明 current state。
+
+这不是工作日志压力：小型文案、链接、命名或单点 spacing 修复默认不记录；建设中不维护逐步日记；单次记录不复制聊天、工具输出或内部推理。Observations 位于 [`history/workflow-observations/`](history/workflow-observations/README.md)，普通任务不得预读，只有 retrospective 或 knowledge-maintenance 才按需读取。
 
 ## Agent 如何使用本仓库
 
