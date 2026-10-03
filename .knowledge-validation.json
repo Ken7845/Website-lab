@@ -20,6 +20,10 @@
     "content-library/aurelia/checklist/about.md": {
       "destination": "content-library/aurelia/checklist/about/about.md",
       "reason": "The page contract moved into an About subfolder and was reconciled with later approved request records."
+    },
+    "framer/advance-design/aurelia/text-reel.md": {
+      "destination": "framer/advance-design/aurelia/reel-relative-design.md",
+      "reason": "The Reel Text reference was renamed after integrating the Submit Roofing Button Arrow reel into one canonical reel-related pattern."
     }
   },
   "known_project_manifest_exceptions": {

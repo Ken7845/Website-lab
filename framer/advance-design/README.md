@@ -17,7 +17,7 @@
 |---|---|---|---|
 | [Filler 覆盖式 Button Hover](aurelia/button-filler-hover.md) | Canonical filler pattern；legacy component provenance | AURELIA `ButtonPrimary`，2026-08-12；早于当前 `Button` White / Dark Small 系统 | 只在需要内部 filler 自底向上覆盖且外部尺寸不能变化时读取；当前 Button 状态合同读 `basic/patterns/buttons.md` |
 | [ChefStoryRow](aurelia/chef-story-row.md) | Canonical，project-specific | AURELIA `/chefs` 四 authored widths、八个配对状态 | 人物肖像、身份与长故事需要在同一行内按断点展开 / 返回时 |
-| [Reel Text](aurelia/text-reel.md) | Reference，project-derived | AURELIA `Reel Text`，2026-08-16 live Canvas definition、Navbar / Footer instances | 短、单行、可编辑标签需要在 Hover 时纵向滚动，且外部宽度仍由内容驱动时 |
+| [Reel Text + Button Arrow](aurelia/reel-relative-design.md) | Reference，mixed project-derived | AURELIA `Reel Text`，2026-08-16 live Canvas definition、Navbar / Footer instances；Submit Roofing `Controls/Button`，2026-10-02 live structural readback | 短、单行、可编辑标签需要在 Hover 时纵向滚动，或 Button 内双箭头需要在固定窗口中横向 reel 且外部尺寸不变化时 |
 | [Dish Selector 图片矩阵与文字 Reel](aurelia/dish-selector-image-matrix.md) | **Canonical selector / reel** | AURELIA 固定 7 项，2026-08-10 精确实例 | 固定数量图片选择器、单一 Image Strip 与多条同步文字 Reel |
 | [可展开 Editorial Card](aurelia/expandable-editorial-card.md) | Canonical，project-specific | AURELIA `MenuDishCard`，2026-08-11 验证 | Desktop / Tablet 展开长故事、Phone 保持独立静态阅读结构时 |
 | [Image Strip + Number Reel](aurelia/image-strip-number-reel.md) | **Legacy，零损保留** | AURELIA 2026-08-06 较早实现与推导记录 | 追溯旧实现、光学校正与迁移来源；新 selector 先读上面的 Canonical 文档 |
