@@ -8,11 +8,13 @@ This directory turns the approved Summit Roofing site plan into page-by-page Fra
 - `In progress`: The page is being built vertically by Section or Part.
 - `Fix Required`: A required check failed and must be repaired before the next Part.
 - `Blocked`: A real fact, asset, service, permission or destination is missing.
-- `Pass`: The page passed its required readback, Preview and Page Done checks.
+- `Pass`: The page passed its applicable claim-specific evidence and Page Done checks.
 
 ## Fresh-Session Re-entry
 
 For a new chat with no prior conversation context:
+
+Implementation labels below summarize dated records, not a new live inspection. Current request and QA limits come from PROJECT; contracts distinguish recorded implementation from full verification.
 
 ```text
 Read Website-lab/AGENTS.md
@@ -38,11 +40,11 @@ Before building any new buyer-facing page:
 2. Create or update exactly one long-lived page contract at `checklist/<page-slug>.md`.
 3. Keep any later multi-point request verbatim in `checklist/<page-slug>/<date>-<request-name>.md`; do not merge it into the page contract.
 4. Make the page contract self-contained enough for a fresh chat to identify the page role, narrative, Sections, images, reusable systems, responsive transformation, interaction, SEO, validation path and blockers.
-5. Show the planned page Checklist to the user and wait for explicit confirmation before the first Canvas write for that page.
+5. Show and read back the concrete page contract. Apply [authorization and task mode](../../../framer/basic/workflows/change-control.md#authorization-and-task-mode): proceed when the user already authorized that page and scope; wait when only planning was authorized or a genuine direction change appears.
 6. After confirmation, keep the unstarted page `To do`; change it to `In progress` only when the first declared Canvas Part begins.
 7. Do not create all remaining page contracts in advance. Plan the next page only when it becomes the active page, so its contract can incorporate the latest verified shared system and completed-page lessons.
 
-Every page contract must include all 16 required categories defined in [Framer Part Completion Checklist — project folder standard](../../../framer/checklist.md#项目级-checklist-文件夹规范). It must be page-specific rather than a copy of the generic evaluator.
+Every page contract must include the 16 core categories and conditional Visual Direction Contract defined in [canonical project contract schema](../../../framer/basic/workflows/change-control.md#项目级-checklist-文件夹规范). It must be page-specific rather than a copy of the generic evaluator.
 
 ## Approved Master Plan
 
@@ -54,9 +56,9 @@ Every page contract must include all 16 required categories defined in [Framer P
 
 | Build order | Page | Path | Page contract | Current status |
 |---:|---|---|---|---|
-| Existing | Home | `/` | Existing Home request records in [`home/`](./home/) | Pass for completed Home scope; final Marketplace publication remains blocked |
+| Existing | Home | `/` | [Home page contract](./home.md) | Recorded Home build/QA scope; full Component proof matrix and final Marketplace publication remain blocked |
 | 1 | Services | `/services` | [services.md](./services.md) — implemented and structurally QA-checked; final destinations and bounded visual evidence remain recorded | In progress |
-| 2 | Repair & Maintenance | `/services/repair-maintenance` | [Repair build record](./repair-maintenance/2026-09-16-page-build.md) — live route structurally and bounded-visually verified; stress and Preview remain | In progress |
+| 2 | Repair & Maintenance | `/services/repair-maintenance` | [Repair page contract](./repair-maintenance.md) — live route structurally and bounded-visually verified; stress and Preview remain | In progress |
 | 3 | Roof Replacement | `/services/roof-replacement` | [roof-replacement.md](./roof-replacement.md) — live route structurally and Desktop-visually verified; stress and Preview remain | In progress |
 | 4 | New Construction | `/services/new-construction` | [new-construction.md](./new-construction.md) — live route structurally and Desktop-visually verified; stress and Preview remain | In progress |
 | 5 | Storm Damage Repair | `/services/storm-damage-repair` | [storm-damage-repair.md](./storm-damage-repair.md) — live route structurally and Desktop-visually verified; stress and Preview remain | In progress |
@@ -64,7 +66,7 @@ Every page contract must include all 16 required categories defined in [Framer P
 | 7 | Project Detail | `/projects/:Projects` | [project-detail.md](./project-detail.md) — live CMS detail route structurally and Desktop-visually verified; stress and Preview remain | In progress |
 | 8 | About | `/about` | [about.md](./about.md) — live route structurally verified at Desktop, Tablet and Phone; single-image visual evidence is blocked and stress/Preview remain | In progress |
 | 9 | Contact | `/contact` | [contact.md](./contact.md) — live route structurally verified at Desktop, Tablet and Phone; delivery and visual evidence remain blocked | In progress |
-| 10 | Insights | `/insights` | [insights.md](./insights.md) — live CMS archive structurally verified at Desktop, Tablet and Phone; visual review and detail route remain | In progress |
+| 10 | Insights | `/insights` | [insights.md](./insights.md) — live CMS archive structurally verified at Desktop, Tablet and Phone; visual/runtime review remains; detail route is recorded built | In progress |
 | 11 | Insight Detail | `/insights/:Insights` | [insight-detail.md](./insight-detail.md) — live CMS detail route structurally verified at Desktop, Tablet and Phone; visual/stress/Preview remain | In progress |
 
 `/reveal-text-test` is development-only and remains outside this buyer-facing build order pending its separate retain/remove decision.
@@ -142,7 +144,7 @@ Do not append a second current-session diary. Completed historical evidence stay
 - Active Checklist pointer: [PROJECT.md §15](../PROJECT.md#15-checklist-and-change-control)
 - Repository rules: [`AGENTS.md`](../../../AGENTS.md)
 - Framer task router: [`framer/README.md`](../../../framer/README.md)
-- Mandatory Part evaluator and page-file contract: [`framer/checklist.md`](../../../framer/checklist.md)
+- Mandatory Part evaluator: [`framer/checklist.md`](../../../framer/checklist.md)
 - Change control: [`change-control.md`](../../../framer/basic/workflows/change-control.md)
 - Image workflow: [`image-workflow.md`](../../../framer/basic/workflows/image-workflow.md)
 - Preflight: [`preflight-audit.md`](../../../framer/basic/workflows/preflight-audit.md)

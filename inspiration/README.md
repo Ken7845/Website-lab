@@ -1,3 +1,15 @@
-#  inspiration
+# Inspiration index
 
-在这个部分我会去一些网站上寻找素材，摘录下一些画面并描述我的想法以及我的灵感，这个部分很重要，这是你真正了解我想要的风格的重要途径，而不是自己瞎猜，在这个folder我会把网站按类类型进行分类，每次阅读不需要阅读全部，只需要按照对应的类别进行云阅读和理解
+Inspiration saves reference-site signals and retrospective design principles. It does not own current project scope, operating instructions or continuation. Read only the relevant type and reference; user direction and approved project sources remain authoritative.
+
+| Reference | Classification | Route |
+|---|---|---|
+| Apple | Product reference study | [Study](products/apple/inspiration.md) |
+| Balkan Bakery | Restaurant reference study | [Study](restaurant/balkan-bakery/inspiration.md) |
+| Masayoshi | Restaurant reference study; retained legacy filename spelling | [Study](restaurant/masayoshi/insipiration.md) |
+| Nirvana | Restaurant reference study; retained legacy leading-space directory | [Study](restaurant/%20nirvana-on-vitoria/inspiration.md) |
+| June on Cambie | Restaurant structural analysis | [Study](restaurant/june-on-cambie/structure-analysis.md) |
+| Dutch Treat | Project-derived retrospective design case | [Case study](restaurant/dutch-treat-restaurant/case-study.md) |
+| Dutch Treat handoff | Retired pointer; exact record belongs to project History | [History route](restaurant/dutch-treat-restaurant/HANDOFF.md) |
+
+Legacy path spellings remain intact to protect existing asset references. Use the links above; do not guess normalized paths. Current Dutch Treat work starts from its [PROJECT](../content-library/dutch-treat-restaurant/PROJECT.md).

@@ -9,11 +9,11 @@ Preserve the page's existing design logic while giving each breakpoint an intent
 
 ## Platform gate
 
-For any live Canvas read or write, first complete the repository `Live Framer Canvas Gate`, using **required elevated permissions** for every Framer CLI command from the first attempt: successful `npx @framer/agent@latest setup`, official `$framer` Skill, successful `npx @framer/agent@latest session new "<url-or-id>"`, generated `projects/<safeProjectId>/index.md` task-map routing, then a targeted `npx @framer/agent@latest exec -s <sessionId>` live-tree readback. Any error means **Gate remains closed**. Before implementation, show the user a concise **Framer Agent gate receipt**. This Skill is secondary reasoning only; never substitute Browser / Playwright / Computer Use. Repo-only planning or documentation skips the Gate.
+First use the [Framer dispatcher](../../../framer/README.md#2-只选一个-primary-repo-skill), including its ownership precedence and task mode. For live reads or writes, complete the canonical [Live Framer Canvas Gate](../../../AGENTS.md#live-framer-canvas-gate); **Gate remains closed** until its evidence is complete. Show the **Framer Agent gate receipt** before implementation. This Skill supplies reasoning, not a platform connection. Repository-only work skips connection.
 
 ## Start from evidence
 
-1. Read the repository router and the current project's `PROJECT.md`. Load `STATUS.md` or `RECOVERY.md` only when status or continuation matters.
+1. Read the repository router and the current project's `PROJECT.md`. Load the manifest-declared current-status owner or `RECOVERY.md` only when status or continuation matters.
 2. Inspect the actual page, target section, adjacent sections, and Desktop/Tablet/Phone implementations before proposing a change.
 3. Search for an existing section, CTA, or component with the same function. Decide `Add`, `Reuse`, `Modify`, or `No-op` before creating anything.
 4. Reconcile live implementation, current docs, and the user's request. Live implementation and explicit user direction outrank historical plans.

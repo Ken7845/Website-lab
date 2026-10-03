@@ -9,7 +9,7 @@ Use the smallest native pattern that communicates hierarchy, story, feedback, or
 
 ## Platform gate
 
-For any live Canvas read or write, first complete the repository `Live Framer Canvas Gate`, using **required elevated permissions** for every Framer CLI command from the first attempt: successful `npx @framer/agent@latest setup`, official `$framer` Skill, successful `npx @framer/agent@latest session new "<url-or-id>"`, generated `projects/<safeProjectId>/index.md` task-map routing, then a targeted `npx @framer/agent@latest exec -s <sessionId>` live-tree readback. Any error means **Gate remains closed**. Before implementation, show the user a concise **Framer Agent gate receipt**. This Skill is secondary reasoning only; never substitute Browser / Playwright / Computer Use. Repo-only planning or documentation skips the Gate.
+First use the [Framer dispatcher](../../../framer/README.md#2-只选一个-primary-repo-skill), including its ownership precedence and task mode. For live reads or writes, complete the canonical [Live Framer Canvas Gate](../../../AGENTS.md#live-framer-canvas-gate); **Gate remains closed** until its evidence is complete. Show the **Framer Agent gate receipt** before implementation. This Skill supplies reasoning, not a platform connection. Repository-only work skips connection.
 
 ## Audit the existing behavior
 

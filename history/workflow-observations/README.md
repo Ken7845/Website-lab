@@ -43,4 +43,4 @@ Do not create a file after every Prompt. Multiple Prompts, corrections, and foll
 - Record observable facts and durable references; do not store internal reasoning, full chats, raw tool output, session IDs, node dumps, or repeated progress narration.
 - Keep the entry short enough that writing it is a natural closing action, not a second deliverable.
 - A `Workflow candidate` is not automatically a new rule. Promote it only after a repeated pattern or a reviewed high-impact failure.
-- During retrospective, read only the relevant project, date range, or failure class. Summaries belong in `reviews/`; ordinary construction still starts from `AGENTS.md` and current project state.
+- During retrospective, read only the relevant project, date range, or failure class. Repository retrospective summaries belong in [history/repository](../repository/); ordinary construction still starts from `AGENTS.md` and current project state.

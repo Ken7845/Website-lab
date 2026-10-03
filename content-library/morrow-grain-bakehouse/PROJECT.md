@@ -1,5 +1,9 @@
 # Morrow & Grain Bakehouse — Project Manifest
 
+- State schema: 1
+- Current status owner: [Build Status](#14-build-status-matrix)
+- Recovery owner: [Recovery](#18-recovery-state)
+
 ## 1. Project Identity
 
 - Project name: Morrow & Grain Bakehouse
@@ -16,9 +20,9 @@
 
 ## 2. Source Index
 
-- Brand facts and approved demo content: `info.md`
-- Original build brief: `prompt.md`
-- Remaining work: `TODO.md`
+- Brand facts and approved demo content: [info.md](./info.md)
+- Original build brief: [prompt.md](./prompt.md) — historical request, not an independent current-state owner
+- Remaining work detail: [TODO.md](./TODO.md); reconcile it with current status before implementation
 - Images: `images/`
 - Framer baseline: `../../framer/basic/standards/website-baseline.md`
 - Build checklist: `../../framer/basic/workflows/build-checklist.md`
@@ -184,6 +188,10 @@ Test widths: 320 / 390 / 810 / 1200 / 1440+
 
 ## 14. Build Status Matrix
 
+- State revision: 2026-10-03-repository
+- Active request: None — no active request contract is established; legacy remaining-work detail is linked above.
+- Evidence basis: legacy repository records; live Needs refresh.
+
 Legend: ✓ Complete / △ Needs final audit or cleanup / ☐ Not started
 
 | Page | Content | Styles | Components | Links | SEO | Alt | Desktop | Tablet | Phone | Preview |
@@ -225,8 +233,13 @@ See `TODO.md`. Current priorities:
 
 ## 18. Recovery State
 
+- State revision: 2026-10-03-repository
+- Active request: None — no active request contract is established; legacy remaining-work detail is linked above.
+- State reference: [Build Status](#14-build-status-matrix)
+- Reconciled: 2026-10-03 — repository only; recorded live evidence has no supplied date.
+
 - Current Framer project: Morrow & Grain
 - Current phase: QA / Marketplace preparation
 - Last verified interaction: 390px Phone Navbar Menu opens and closes correctly
-- Next source of truth: `TODO.md`
+- Next action: follow [Build Status](#14-build-status-matrix), reconcile [remaining-work detail](./TODO.md), and targeted-read the authorized live scope before changes.
 - Before reporting Ready: execute `../../framer/basic/workflows/preflight-audit.md`

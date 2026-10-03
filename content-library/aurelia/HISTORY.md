@@ -152,3 +152,7 @@ The earlier Home checklist line “Replace the blocked destination only when the
 - [Chefs page contract and completion audits](./checklist/chefs/chefs.md)
 - [Shared shell and reservation handoff](./checklist/shared-shell-and-reservation-handoff.md)
 - [Progressive-disclosure migration request](./checklist/knowledge-architecture/2026-08-15-progressive-disclosure-migration.md)
+
+- [Recovery before routing repair](./history/2026-10-03-recovery-before-routing-repair.md): exact August-era checkpoint retained as history; Status owns the reconciled current gap list.
+
+- [Exact Image Strip reference before local classification](./history/2026-10-03-image-strip-before-classification.md): legacy body preserved byte-for-byte.

@@ -1,5 +1,9 @@
 # HK Place — Project Manifest
 
+- State schema: 1
+- Current status owner: [Current Status](#12-current-status)
+- Recovery owner: [Recovery](#14-recovery)
+
 ## 1. Project Identity
 
 - Project name: HK Place
@@ -29,7 +33,7 @@
 | Style Guide | This manifest §6 and active Home checklist | Draft |
 | Formal Content | `basic-info/basic-information.txt` and menu screenshots | Approved source / transcription pending |
 | Assets | `dishes/`, `exterior/`, `menu/`, `basic-info/` | Approved source |
-| Inspiration | `inspiration/restaurant/balkan-bakery/`, `june-on-cambie/`, `nirvana-on-vitoria/` | Principles only; no copying |
+| Inspiration | [Balkan](../../inspiration/restaurant/balkan-bakery/inspiration.md), [June](../../inspiration/restaurant/june-on-cambie/structure-analysis.md), [Nirvana](../../inspiration/restaurant/%20nirvana-on-vitoria/inspiration.md) | Principles only; no copying |
 | Current Status | Inline §12 | Active |
 | Decisions | Inline §13 | Active |
 | Recovery | Inline §14 | Active |
@@ -145,6 +149,12 @@ Land → Understand cuisine and location → See signature dishes → Trust revi
 
 ## 12. Current Status
 
+- Evidence classification: recorded August build/QA results remain historical. The [Component contract](./checklist/home/2026-08-18-homepage-cold-outreach-build.md#component-requirement-contract) is Blocked for its incomplete row-specific proof matrix; this repair does not establish a new live defect or authorize new Canvas work.
+
+- State revision: 2026-10-03-repository
+- Active request: [Home request](./checklist/home/2026-08-18-homepage-cold-outreach-build.md)
+- Evidence basis: recorded August 18 outcome; no new live verification.
+
 - Current phase: Ready for client review; requested detail revision passed targeted QA.
 - Active page / component: Home `/`.
 - Current blockers: Favicon/logo artwork and complete weekly hours are not supplied; neither was fabricated. Public-use rights remain unverified.
@@ -170,7 +180,11 @@ Land → Understand cuisine and location → See signature dishes → Trust revi
 
 ## 14. Recovery
 
-- Active session / connection: Connected Framer session for HK Place project.
+- State revision: 2026-10-03-repository
+- Active request: [Home request](./checklist/home/2026-08-18-homepage-cold-outreach-build.md)
+- State reference: [Current Status](#12-current-status)
+
+- Active session / connection: no live session established by this repository repair; the August session is historical.
 - Current page / component: Home `/`; Button, Dish Highlight and Review Quote components.
 - Last successful change: Added Closing CTA light-border treatment, filled the Tablet Menu grid with a verified Wonton Lo Mein instance, reduced Tablet Review Quote height, and removed outer/near-outer Stack max-width constraints.
 - Last targeted readback: Affected CTA, Menu and Review nodes across Desktop/Tablet/Phone; page-wide `maxWidth` inventory is empty.
@@ -185,13 +199,13 @@ Land → Understand cuisine and location → See signature dishes → Trust revi
 - Project checklist index: `checklist/README.md`
 - Active page checklist: `checklist/home.md`
 - Active request checklist: `checklist/home/2026-08-18-homepage-cold-outreach-build.md`
-- Checklist status: Pass
-- Last synchronization with Current Status: 2026-08-18
+- Checklist status: recorded Home build Pass; Component row-specific proof matrix remains Blocked after repository evidence migration.
+- Last synchronization with Current Status: 2026-10-03 — repository evidence classification only.
 
 ## 16. History
 
-- History index: Not created.
-- Closed prompt / handoff records: None.
+- History index: [HISTORY.md](./HISTORY.md).
+- Closed records: exact pre-migration contract sections are indexed in HISTORY.md.
 - Superseded plans worth retaining: None.
 
 ## 17. Definition of Ready

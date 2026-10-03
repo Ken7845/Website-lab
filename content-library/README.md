@@ -83,3 +83,22 @@ content-library/<project-name>/PROJECT.md
 3. 通过实际 Canvas / current implementation 回读当前建设状态。
 4. 把仍有效资料链接到 PROJECT；已关闭材料归入 History。
 5. 后续任务统一从 PROJECT 进入，不再每次重新拼接旧文件。
+
+## Current state contract
+
+Every current PROJECT declares `State schema: 1`, a linked `Current status owner` and `Recovery owner`. Owners may be inline headings or split files. This metadata points to existing current knowledge; it is not a second state store.
+
+Status and Recovery contain the same `State revision` and compact `Active request` pointer (a valid link, or `None — reason`). Status owns results, blockers and the next approved step. Recovery owns connection re-entry and links to Status through `State reference`; it does not copy blocker inventories or earlier image plans. Bump the revision and synchronize pointers whenever a Part changes; dates of old live evidence remain unchanged.
+
+New projects use the manifest template. Repo-only reconciliation writes `Evidence basis: repository records; live Needs refresh` rather than inventing current verification. Session IDs in old records are historical until a real connection establishes validity.
+
+## Project index
+
+| Project | Current entry | Layout |
+|---|---|---|
+| AURELIA | [PROJECT](aurelia/PROJECT.md) | Split current owners |
+| Summit Roofing | [PROJECT](summit-roofing/PROJECT.md) | Inline Status / Recovery, History separate |
+| Ken Studio | [PROJECT](ken-studio/PROJECT.md) | Split system, Status, Decisions, Recovery and History |
+| Morrow & Grain | [PROJECT](morrow-grain-bakehouse/PROJECT.md) | Inline legacy state; live Needs refresh |
+| HK Place | [PROJECT](HK%20Place/PROJECT.md) | Inline state and page checklist |
+| Dutch Treat | [PROJECT](dutch-treat-restaurant/PROJECT.md) | Minimal entry; legacy evidence separate |

@@ -9,30 +9,21 @@ Evaluate the implemented scope against evidence. Do not redesign from a memorize
 
 ## Platform gate
 
-For any live Canvas read or write, first complete the repository `Live Framer Canvas Gate`, using **required elevated permissions** for every Framer CLI command from the first attempt: successful `npx @framer/agent@latest setup`, official `$framer` Skill, successful `npx @framer/agent@latest session new "<url-or-id>"`, generated `projects/<safeProjectId>/index.md` task-map routing, then a targeted `npx @framer/agent@latest exec -s <sessionId>` live-tree readback. Any error means **Gate remains closed**. Before implementation, show the user a concise **Framer Agent gate receipt**. This Skill is secondary reasoning only; never substitute Browser / Playwright / Computer Use. Repo-only planning or documentation skips the Gate.
+First use the [Framer dispatcher](../../../framer/README.md#2-只选一个-primary-repo-skill), including its ownership precedence and task mode. For live reads or writes, complete the canonical [Live Framer Canvas Gate](../../../AGENTS.md#live-framer-canvas-gate); **Gate remains closed** until its evidence is complete. Show the **Framer Agent gate receipt** before implementation. This Skill supplies reasoning, not a platform connection. Repository-only work skips connection.
 
 ## Define the audit
 
 1. Name the exact scope: Section, Component, interaction, breakpoint, Page, or Website.
-2. Record exclusions and the user's active constraint lock.
+2. Declare Audit only or Repair, exclusions and the active constraint lock. Audit only reports issues; it does not mutate the target.
 3. Inspect the current implementation before reading detailed QA material.
-4. If the scope created, duplicated, or reassigned a reusable Component, locate its active `Component Requirement Contract`; absence of the contract is `Fix Required`, not permission to reconstruct ownership from memory.
-5. If the scope created a Page, substantially redesigned a Section, differentiated sibling pages, or promised a “different layout,” locate its active `Visual Direction Contract`; missing or `Draft` direction is `Fix Required`.
+4. If the scope created, duplicated, or reassigned a reusable Component, locate its active `Component Requirement Contract`; apply the [contract lifecycle and legacy policy](../../../framer/basic/workflows/change-control.md#contract-lifecycle). Missing Required contracts in schema 1 are Fix Required; missing later-introduced contracts in a legacy audit are an evidence limitation, not a redesign instruction.
+5. If the scope created a Page, substantially redesigned a Section, differentiated sibling pages, or promised a “different layout,” locate its active `Visual Direction Contract`; apply the same lifecycle policy. New work needs Ready direction; a legacy audit preserves dated evidence and labels uncertainty.
 6. Locate applicable headings with `rg -n '^##|^###'` and load only those sections from [framer/checklist.md](../../../framer/checklist.md).
 7. Add Marketplace checks only for Marketplace work.
 
 ## Evidence ladder
 
-Use the least expensive evidence that proves the claim:
-
-1. Targeted structural readback for names, styles, properties, links, variants, dimensions, and ownership.
-2. Targeted Canvas screenshot for static composition when needed.
-3. One necessary live Preview path for behavior, routing, responsive layout, keyboard, or focus that structure cannot prove.
-4. Focused user visual confirmation for advanced motion/cursor/hover when direct evidence remains unavailable.
-
-Do not repeatedly capture the same state. Do not treat a successful write command as proof.
-
-For any local image, screenshot, Preview capture, Gallery, crop, upload, or Alt audit, read [image-workflow.md](../../../framer/basic/workflows/image-workflow.md) before the first visual operation. Its visual budget, local-residency checks, two-attempt limit, and structural fallback are hard safety rules.
+Use the canonical [evidence selection](../../../framer/basic/workflows/image-workflow.md#evidence-selection) for property, composition and runtime claims. User confirmation counts only for the explicitly observed scope. Structure, diagnostics and successful writes do not prove visual or runtime Pass. Observe the workflow's residency, budget and two-attempt stopping limits before visual operations.
 
 ## Targeted matrix
 
@@ -60,12 +51,12 @@ Use relevant headings only from:
 Classify the result:
 
 - `Pass`: evidence proves the scoped contract.
-- `Fix Required`: an in-scope issue can be repaired now; batch-fix the class and recheck only affected evidence.
+- `Fix Required`: an in-scope issue needs repair. In Repair mode batch-fix and recheck; in Audit only mode report the concrete repair without writing.
 - `Blocked`: a real fact, asset, permission, service, or unavailable evidence prevents completion.
 
 For Page-level visual work, report `Structural status` and `Visual status` separately; overall `Pass` requires both. Clean diagnostics, successful writes and targeted structure cannot prove aesthetic composition. Use one efficient full-page or compiled Desktop/Phone view when the claim concerns whole-page rhythm; a target Section screenshot cannot prove it. If required visual evidence is unavailable, mark visual status `Blocked` or `Fix Required` rather than implying completion.
 
-For an active Component Requirement Contract, every row must end as evidenced `Pass` or reasoned `Blocked`; an unchecked or planned-only row is not completion. When the user asks to finish the current Part or complete it in one pass, do not stop after implementation while an authorized, executable checklist item remains unclassified.
+For an active Component Requirement Contract, every applicable proof cell must end as evidenced `Pass`, explicit `Fix Required`, reasoned `Blocked` or `N/A — reason`; an unchecked or planned-only row is not completion. When the user asks to finish the current Part or complete it in one pass, do not stop after implementation while an authorized, executable checklist item remains unclassified.
 
 Update project state by responsibility:
 

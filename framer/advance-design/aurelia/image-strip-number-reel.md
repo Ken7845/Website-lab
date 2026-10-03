@@ -1,5 +1,9 @@
 # Framer 高级组件：可替换 Image Strip + Number Reel
 
+> Status: **Legacy; preserved historical mechanism**.
+> Provenance: AURELIA recorded early implementation 2026-08-06.
+> Verification boundary: [Canonical successor](dish-selector-image-matrix.md); use this file only for historical geometry and migration evidence. Repository classification added 2026-10-03; no fresh Canvas verification.
+
 ## 适用场景
 
 用于“缩略图或按钮切换大图，同时更新数字、标题和说明”的组件：菜品选择器、作品轮播、房型选择、产品系列或 gallery selector。

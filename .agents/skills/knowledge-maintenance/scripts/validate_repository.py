@@ -174,19 +174,28 @@ class Validator:
                 )
 
     def check_policy(self) -> None:
-        broad_patterns = {"*", "**", "*.md", "**/*.md", "content-library/**"}
         for key in ("inactive_text_globs", "skip_markdown_link_globs"):
             patterns = self.config.get(key, [])
             if not isinstance(patterns, list):
                 self.error("policy.invalid_globs", ".knowledge-validation.json", f"{key} must be a list.")
                 continue
             for pattern in patterns:
-                if pattern in broad_patterns:
-                    self.error(
-                        "policy.broad_exclusion",
-                        ".knowledge-validation.json",
-                        f"{key} contains an unsafe broad exclusion: {pattern}",
+                if not isinstance(pattern, str):
+                    self.error("policy.invalid_globs", ".knowledge-validation.json", f"Non-string {key} pattern.")
+                    continue
+                if key == "skip_markdown_link_globs":
+                    permitted = pattern in self.config.get("immutable_archives", {}) and not any(c in pattern for c in "*?[")
+                else:
+                    permitted = pattern in {"history/**", "content-library/**/history/**"} or (
+                        not any(c in pattern for c in "*?[") and (
+                            pattern in self.config.get("immutable_archives", {}) or
+                            len(self.config.get("inactive_document_reasons", {}).get(pattern, "")) >= 20
+                        )
                     )
+                if not permitted:
+                    self.error("policy.broad_exclusion", ".knowledge-validation.json", f"Unbounded or unreviewed {key} scope: {pattern}")
+                if not any(fnmatch.fnmatchcase(self.rel(p), pattern) for p in self.markdown_files()):
+                    self.error("policy.empty_exclusion", ".knowledge-validation.json", f"Exclusion matches no preserved document: {pattern}")
 
         for key in ("known_project_manifest_exceptions", "known_overloaded_projects"):
             entries = self.config.get(key, {})
@@ -330,11 +339,11 @@ class Validator:
                 self.error("skill.description_placeholder", skill_file, "Skill description still contains a placeholder.")
 
             route = f".agents/skills/{name}/SKILL.md"
-            if route not in agents_text:
+            if route not in self.reachable_markdown("AGENTS.md"):
                 self.error(
                     "skill.unrouted",
                     skill_file,
-                    f"AGENTS.md does not route knowledge tasks to {route}.",
+                    f"Skill is not reachable through the canonical AGENTS dispatcher: {route}.",
                 )
 
             if not metadata_file.is_file():
@@ -385,12 +394,82 @@ class Validator:
         slug = re.sub(r"-+", "-", slug).strip("-")
         return slug
 
+    @staticmethod
+    def prose_lines(text: str) -> list[str]:
+        """Preserve line numbers while hiding fenced examples from executable checks."""
+        lines = []
+        fence = None
+        for line in text.splitlines():
+            match = re.match(r"^\s*(`{3,}|~{3,})", line)
+            if match:
+                token = match.group(1)
+                if fence is None:
+                    fence = token
+                elif token[0] == fence[0] and len(token) >= len(fence):
+                    fence = None
+                lines.append("")
+            else:
+                lines.append(line if fence is None else "")
+        return lines
+
+    def reachable_markdown(self, start: str) -> set[str]:
+        visited = set()
+        pending = [start]
+        while pending:
+            item = pending.pop()
+            if item in visited or not (self.root / item).is_file():
+                continue
+            visited.add(item)
+            pending.extend(p for p in self.local_linked_files(self.root / item) - visited if Path(p).suffix.casefold() == ".md")
+        return visited
+
+    def check_required_routes(self) -> None:
+        for source, targets in self.config.get("required_routes", {}).items():
+            p = self.root / source
+            if not p.is_file():
+                self.error("route.owner_missing", source, "Canonical route owner is missing.")
+                continue
+            actual = set()
+            for raw in LINK_RE.findall("\n".join(self.prose_lines(self.read_text(p)))):
+                candidate, fragment = self.resolve_link(p, self.extract_target(raw))
+                if candidate:
+                    actual.add((str(candidate), fragment.casefold()))
+            for target in targets:
+                candidate, fragment = self.resolve_link(self.root / "README.md", target)
+                if (str(candidate), fragment.casefold()) not in actual:
+                    self.error("route.required_missing", source, f"Required canonical link is missing: {target}")
+
+    def rule_target(self, source: Path, target: str) -> tuple[Path | None, str]:
+        """Top-level repository paths are root-relative; ./, ../ and basenames are local."""
+        top = target.split("/", 1)[0]
+        if top in {".agents", "framer", "content-library", "history", "inspiration"}:
+            return self.resolve_link(self.root / "README.md", target)
+        return self.resolve_link(source, target)
+
+    def check_rule_target(self, source: Path, target: str, code: str, location: str) -> None:
+        candidate, fragment = self.rule_target(source, target)
+        if candidate is None or not candidate.is_file():
+            self.error(code + ".missing_source", location, f"Rule source does not exist: {target}")
+        elif fragment and fragment.casefold() not in self.heading_anchors(candidate):
+            self.error(code + ".missing_anchor", location, f"Rule heading does not exist: {target}")
+
+    def check_inline_routes(self) -> None:
+        for path in self.active_markdown():
+            for number, line in enumerate(self.prose_lines(self.read_text(path)), 1):
+                for token in re.findall(r"`([^`]+)`", line):
+                    if any(x in token for x in ("<", ">", "{{", "}}")) or token == "path.md#heading":
+                        continue
+                    anchored = re.fullmatch(r"[^\s]+\.md#[^\s]+", token)
+                    directed = re.search(r"(?:read|follow|load|读取|遵循)\s*`" + re.escape(token), line, re.I)
+                    if anchored or (directed and token.endswith(".md")):
+                        self.check_rule_target(path, token, "route.inline", f"{self.rel(path)}:{number}")
+
     def heading_anchors(self, path: Path) -> set[str]:
         if path in self._heading_cache:
             return self._heading_cache[path]
         counts: dict[str, int] = {}
         anchors: set[str] = set()
-        for line in self.read_text(path).splitlines():
+        for line in self.prose_lines(self.read_text(path)):
             match = HEADING_RE.match(line)
             if not match:
                 continue
@@ -503,6 +582,31 @@ class Validator:
                 if rel_path not in linked:
                     self.error(code, path, f"Knowledge file is not linked directly from {self.rel(index_path)}.")
 
+    def check_discovery(self) -> None:
+        index = self.root / "content-library/README.md"
+        linked = self.local_linked_files(index)
+        for p in (self.root / "content-library").glob("*/PROJECT.md"):
+            if self.rel(p) not in linked:
+                self.error("index.project_unlisted", p, "Project is not directly linked from Content Library index.")
+        inspiration = self.root / "inspiration/README.md"
+        if inspiration.is_file():
+            linked = self.local_linked_files(inspiration)
+            for p in (self.root / "inspiration").rglob("*.md"):
+                if p != inspiration and self.rel(p) not in linked:
+                    self.error("index.inspiration_unlisted", p, "Reference classification is missing from Inspiration index.")
+        for index in (self.root / "content-library").glob("*/checklist/README.md"):
+            text = self.read_text(index)
+            p = index.parent.parent / "PROJECT.md"
+            if self.rel(p) not in self.local_linked_files(index):
+                self.error("index.project_backlink", index, "Checklist index must link its PROJECT owner.")
+            for line in self.prose_lines(text):
+                if not line.lstrip().startswith("|"):
+                    continue
+                for raw in LINK_RE.findall(line):
+                    target, _ = self.resolve_link(index, self.extract_target(raw))
+                    if target and target.is_dir():
+                        self.error("index.ambiguous_page_owner", index, "Page table must link an exact canonical page file, not a directory.")
+
     def check_project_hygiene(self) -> None:
         content_root = self.root / "content-library"
         manifest_exceptions = self.config.get("known_project_manifest_exceptions", {})
@@ -554,6 +658,75 @@ class Validator:
                         f"RECOVERY.md has {recovery_lines} lines; it may be accumulating history.",
                     )
 
+    def owner_section(self, path: Path, fragment: str) -> str:
+        lines = self.prose_lines(self.read_text(path))
+        if not fragment:
+            return "\n".join(lines)
+        counts = {}
+        for index, line in enumerate(lines):
+            m = HEADING_RE.match(line)
+            if not m:
+                continue
+            base = self.slug_base(m.group(2))
+            count = counts.get(base, 0)
+            counts[base] = count + 1
+            anchor = base if count == 0 else f"{base}-{count}"
+            if anchor == fragment.casefold():
+                level = len(m.group(1))
+                end = next((i for i in range(index + 1, len(lines)) if (h := HEADING_RE.match(lines[i])) and len(h.group(1)) <= level), len(lines))
+                return "\n".join(lines[index:end])
+        return ""
+
+    def pointer(self, source: Path, value: str) -> tuple[str, str] | None:
+        if re.match(r"None\s+—\s+\S", value, re.I):
+            return ("none", "")
+        match = LINK_RE.search(value)
+        if not match:
+            return None
+        target = self.extract_target(match.group(1))
+        candidate, fragment = self.resolve_link(source, target)
+        if not candidate or not candidate.is_file() or (fragment and fragment.casefold() not in self.heading_anchors(candidate)):
+            return None
+        return (str(candidate), fragment.casefold())
+
+    def check_current_state(self) -> None:
+        for project in sorted((self.root / "content-library").glob("*/PROJECT.md")):
+            text = "\n".join(self.prose_lines(self.read_text(project)))
+            if self.field(text, "State schema") != "1":
+                self.error("state.schema_missing", project, "Current PROJECT must declare State schema: 1.")
+                continue
+            owners = {}
+            for role in ("Current status owner", "Recovery owner"):
+                value = self.field(text, role) or ""
+                point = self.pointer(project, value)
+                if not point or point[0] == "none":
+                    self.error("state.owner_missing", project, f"Missing valid owner link: {role}")
+                    continue
+                path, fragment = Path(point[0]), point[1]
+                owners[role] = (path, fragment, self.owner_section(path, fragment))
+            if len(owners) != 2:
+                continue
+            status_path, status_fragment, status = owners["Current status owner"]
+            recovery_path, _, recovery = owners["Recovery owner"]
+            revisions = [self.field(t, "State revision") for t in (status, recovery)]
+            if any(not v or not re.fullmatch(r"\d{4}-\d{2}-\d{2}(?:[a-z0-9.-]*)?", v) for v in revisions):
+                self.error("state.revision_missing", project, "Both current owners require an explicit state revision.")
+            elif revisions[0] != revisions[1]:
+                self.error("state.stale_recovery", project, "Recovery revision differs from Status.")
+            points = []
+            for owner_path, t in ((status_path, status), (recovery_path, recovery)):
+                value = self.field(t, "Active request") or ""
+                points.append(self.pointer(owner_path, value))
+            if any(point is None for point in points):
+                self.error("state.active_request_missing", project, "Both owners require a valid Active request or None — reason.")
+            elif points[0] != points[1]:
+                self.error("state.active_request_conflict", project, "Status and Recovery point to different active requests.")
+            reference = self.pointer(recovery_path, self.field(recovery, "State reference") or "")
+            if reference != (str(status_path), status_fragment):
+                self.error("state.reference_conflict", project, "Recovery must reference its declared Status owner.")
+            if len(recovery.splitlines()) > 120:
+                self.error("state.recovery_overloaded", project, "Inline or split Recovery exceeds 120 lines; move chronology to History.")
+
     def check_archives(self) -> None:
         for rel_path, expected in sorted(self.config.get("immutable_archives", {}).items()):
             path = self.root / rel_path
@@ -596,301 +769,131 @@ class Validator:
     def markdown_table_cells(line: str) -> list[str]:
         return [cell.strip() for cell in line.strip().strip("|").split("|")]
 
+    @staticmethod
+    def field(text: str, name: str) -> str | None:
+        match = re.search(r"^\s*(?:-\s*)?" + re.escape(name) + r":\s*(.+)$", text, re.M | re.I)
+        return match.group(1).strip() if match else None
+
+    def checklist_documents(self) -> list[Path]:
+        return [p for p in self.active_markdown() if self.rel(p).startswith("content-library/") and "/checklist/" in self.rel(p)]
+
+    def contract_sections(self, text: str, title: str) -> list[list[str]]:
+        lines = self.prose_lines(text)
+        starts = []
+        for index, line in enumerate(lines):
+            match = HEADING_RE.match(line)
+            if match and re.sub(r"^\d+[.)]\s*", "", match.group(2)).strip().casefold() == title.casefold():
+                starts.append((index, len(match.group(1))))
+        result = []
+        for start, level in starts:
+            end = next((i for i in range(start + 1, len(lines)) if (m := HEADING_RE.match(lines[i])) and len(m.group(1)) <= level), len(lines))
+            result.append(lines[start:end])
+        return result
+
+    def check_contract_applicability(self) -> None:
+        for path in self.checklist_documents():
+            text = "\n".join(self.prose_lines(self.read_text(path)))
+            if self.field(text, "Contract schema") != "1":
+                continue
+            for kind, title in (("Component", "Component Requirement Contract"), ("Visual", "Visual Direction Contract")):
+                value = self.field(text, kind + " contract")
+                sections = self.contract_sections(text, title)
+                code = kind.casefold() + "_contract"
+                if not value or not re.fullmatch(r"Required|N/A\s+—\s+\S.*|Legacy\s+—\s+.*\d{4}-\d{2}-\d{2}.*", value, re.I):
+                    self.error(code + ".applicability", path, "Declare Required, N/A — reason, or Legacy — dated source.")
+                elif value.casefold() == "required" and not sections:
+                    self.error(code + ".required_missing", path, "Required contract is absent.")
+                elif value.casefold().startswith("n/a") and sections:
+                    self.error(code + ".applicability_conflict", path, "N/A request contains an active contract.")
+
     def check_component_contracts(self) -> None:
-        """Validate persisted component contracts without inferring Canvas truth."""
-
-        expected_headers = [value.casefold() for value in COMPONENT_CONTRACT_HEADERS]
-        expected_concerns = {value.casefold(): value for value in COMPONENT_CONTRACT_CONCERNS}
-        unfinished_tokens = ("tbd", "todo", "pending", "[ ]")
-
-        for path in self.active_markdown():
-            rel_path = self.rel(path)
-            if not rel_path.startswith("content-library/") or "/checklist/" not in rel_path:
-                continue
-
-            text = self.read_text(path)
-            lines = text.splitlines()
-            starts = [i for i, line in enumerate(lines) if line.strip() == COMPONENT_CONTRACT_HEADING]
-            if not starts:
-                continue
-            if len(starts) > 1:
-                self.error(
-                    "component_contract.duplicate",
-                    path,
-                    "A request Checklist must not contain multiple active Component Requirement Contracts.",
-                )
-
-            for start in starts:
-                end = next(
-                    (i for i in range(start + 1, len(lines)) if lines[i].startswith("## ")),
-                    len(lines),
-                )
-                section_lines = lines[start:end]
-                section = "\n".join(section_lines)
-                status_match = re.search(
-                    r"Contract status:\s*(?:\*\*)?(Draft|Ready|Pass|Blocked)(?:\*\*)?",
-                    section,
-                    flags=re.IGNORECASE,
-                )
-                if not status_match:
-                    self.error(
-                        "component_contract.status",
-                        path,
-                        "Component Requirement Contract must declare Contract status: Draft, Ready, Pass, or Blocked.",
-                    )
-                    status = ""
-                else:
-                    status = status_match.group(1).casefold()
-
-                header_index = None
-                for index, line in enumerate(section_lines):
-                    if not line.lstrip().startswith("|"):
-                        continue
-                    cells = [cell.casefold() for cell in self.markdown_table_cells(line)]
-                    if cells == expected_headers:
-                        header_index = index
-                        break
-                if header_index is None:
-                    self.error(
-                        "component_contract.headers",
-                        path,
-                        "Component contract table is missing the canonical six columns or their order changed.",
-                    )
-                    continue
-
-                data_start = header_index + 1
-                if data_start < len(section_lines):
-                    separator = self.markdown_table_cells(section_lines[data_start])
-                    if len(separator) == len(COMPONENT_CONTRACT_HEADERS) and all(
-                        re.fullmatch(r":?-{3,}:?", cell) for cell in separator
-                    ):
-                        data_start += 1
-
-                rows: dict[str, list[str]] = {}
-                for line in section_lines[data_start:]:
-                    if not line.lstrip().startswith("|"):
-                        if rows:
-                            break
-                        continue
-                    cells = self.markdown_table_cells(line)
-                    if len(cells) != len(COMPONENT_CONTRACT_HEADERS):
-                        self.error(
-                            "component_contract.columns",
-                            path,
-                            f"Component contract row must have {len(COMPONENT_CONTRACT_HEADERS)} cells: {line.strip()}",
-                        )
-                        continue
-                    concern_key = cells[0].casefold()
-                    if concern_key in rows:
-                        self.error(
-                            "component_contract.duplicate_concern",
-                            path,
-                            f"Duplicate Component contract concern: {cells[0]}",
-                        )
-                    rows[concern_key] = cells
-
-                for concern_key, display in expected_concerns.items():
-                    if concern_key not in rows:
-                        self.error(
-                            "component_contract.concern_missing",
-                            path,
-                            f"Component contract is missing required concern: {display}",
-                        )
-
-                for concern_key, cells in rows.items():
-                    if concern_key not in expected_concerns:
-                        self.warning(
-                            "component_contract.unknown_concern",
-                            path,
-                            f"Non-canonical concern should be folded into the fixed contract or justified separately: {cells[0]}",
-                        )
-                    if any(not cell.strip() for cell in cells):
-                        self.error(
-                            "component_contract.empty_cell",
-                            path,
-                            f"Component contract row contains a blank cell: {cells[0] or '<unnamed>'}",
-                        )
-                        continue
-
-                    decision = cells[1].strip()
-                    if decision.casefold() == "n/a" or (
-                        decision.casefold().startswith("n/a")
-                        and "—" not in decision
-                        and " - " not in decision
-                    ):
-                        self.error(
-                            "component_contract.unreasoned_na",
-                            path,
-                            f"N/A must include a reason: {cells[0]}",
-                        )
-
-                    governing_source = cells[3].strip()
-                    if ".md" in governing_source.casefold() and "#" not in governing_source:
-                        self.error(
-                            "component_contract.unscoped_source",
-                            path,
-                            f"Markdown governing source must target path.md#heading: {cells[0]}",
-                        )
-                    if governing_source.casefold() == "baseline":
-                        self.error(
-                            "component_contract.unscoped_source",
-                            path,
-                            f"Bare Baseline is not a targeted governing source: {cells[0]}",
-                        )
-
-                    if status == "pass":
-                        proof = " ".join(cells[4:]).casefold()
-                        if any(token in proof for token in unfinished_tokens) or "planned" in proof:
-                            self.error(
-                                "component_contract.unproven_pass",
-                                path,
-                                f"Pass contract still contains planned or unfinished proof: {cells[0]}",
-                            )
+        self.check_contracts("Component Requirement Contract", COMPONENT_CONTRACT_HEADERS, COMPONENT_CONTRACT_CONCERNS, "component_contract")
 
     def check_visual_contracts(self) -> None:
-        """Validate persisted visual contracts without pretending to judge aesthetics."""
+        self.check_contracts("Visual Direction Contract", VISUAL_CONTRACT_HEADERS, VISUAL_CONTRACT_CONCERNS, "visual_contract")
 
-        expected_headers = [value.casefold() for value in VISUAL_CONTRACT_HEADERS]
-        expected_concerns = {value.casefold(): value for value in VISUAL_CONTRACT_CONCERNS}
-        unfinished_tokens = ("tbd", "todo", "pending", "[ ]", "planned", "unperformed", "not run")
-
-        for path in self.active_markdown():
-            rel_path = self.rel(path)
-            if not rel_path.startswith("content-library/") or "/checklist/" not in rel_path:
-                continue
-
+    def check_contracts(self, title: str, headers: tuple, concerns: tuple, code: str) -> None:
+        expected = {c.casefold(): c for c in concerns}
+        unfinished = re.compile(r"\b(?:tbd|todo|pending|planned|unperformed|unchecked|not run|not reviewed|not tested)\b|\[ \]", re.I)
+        for path in self.checklist_documents():
             text = self.read_text(path)
-            lines = text.splitlines()
-            starts = [i for i, line in enumerate(lines) if line.strip() == VISUAL_CONTRACT_HEADING]
-            if not starts:
-                continue
-            if len(starts) > 1:
-                self.error(
-                    "visual_contract.duplicate",
-                    path,
-                    "A request Checklist must not contain multiple active Visual Direction Contracts.",
-                )
-
-            for start in starts:
-                end = next(
-                    (i for i in range(start + 1, len(lines)) if lines[i].startswith("## ")),
-                    len(lines),
-                )
-                section_lines = lines[start:end]
-                section = "\n".join(section_lines)
-                status_match = re.search(
-                    r"Contract status:\s*(?:\*\*)?(Draft|Ready|Pass|Blocked)(?:\*\*)?",
-                    section,
-                    flags=re.IGNORECASE,
-                )
-                if not status_match:
-                    self.error(
-                        "visual_contract.status",
-                        path,
-                        "Visual Direction Contract must declare Contract status: Draft, Ready, Pass, or Blocked.",
-                    )
-                    status = ""
-                else:
-                    status = status_match.group(1).casefold()
-
-                header_index = None
-                for index, line in enumerate(section_lines):
-                    if not line.lstrip().startswith("|"):
-                        continue
-                    cells = [cell.casefold() for cell in self.markdown_table_cells(line)]
-                    if cells == expected_headers:
-                        header_index = index
-                        break
+            sections = self.contract_sections(text, title)
+            if len(sections) > 1:
+                self.error(code + ".duplicate", path, "A document must have one active contract of each kind.")
+            schema = self.field("\n".join(self.prose_lines(text)), "Contract schema") == "1"
+            for lines in sections:
+                section = "\n".join(lines)
+                status = self.field(section, "Contract status") or ""
+                status_match = re.match(r"(?:\*\*)?(Draft|Ready|Pass|Fix Required|Blocked)\b", status, re.I)
+                status = status_match.group(1).casefold() if status_match else ""
+                if not status:
+                    self.error(code + ".status", path, "Missing valid Contract status.")
+                implementation = self.field(section, "Implementation status") or ""
+                verification = self.field(section, "Verification status") or ""
+                if schema:
+                    if not re.match(r"^(Implemented|Partial|Not started)\b", implementation, re.I):
+                        self.error(code + ".implementation", path, "Declare implementation stage separately.")
+                    if not re.match(r"^(Pass|Fix Required|Blocked|Not run)\b", verification, re.I):
+                        self.error(code + ".verification", path, "Declare verification result separately.")
+                    if status == "ready" and implementation.casefold().startswith(("implemented", "partial")):
+                        self.error(code + ".stale_ready", path, "Implemented work cannot retain a preparation-only Ready state.")
+                    if status == "pass" and not implementation.casefold().startswith("implemented"):
+                        self.error(code + ".incomplete_pass", path, "Pass requires completed applicable implementation.")
+                    if status in {"draft", "ready"} and not verification.casefold().startswith("not run"):
+                        self.error(code + ".preparation_verification", path, "Preparation status cannot claim a post-implementation verification result.")
+                    if status in {"pass", "blocked", "fix required"} and not verification.casefold().startswith(status):
+                        self.error(code + ".result_conflict", path, "Contract and verification outcomes disagree.")
+                header_index = next((i for i, l in enumerate(lines) if l.lstrip().startswith("|") and [c.casefold() for c in self.markdown_table_cells(l)] == [h.casefold() for h in headers]), None)
                 if header_index is None:
-                    self.error(
-                        "visual_contract.headers",
-                        path,
-                        "Visual contract table is missing the canonical six columns or their order changed.",
-                    )
+                    self.error(code + ".headers", path, "Missing canonical six-column contract table.")
                     continue
-
-                data_start = header_index + 1
-                if data_start < len(section_lines):
-                    separator = self.markdown_table_cells(section_lines[data_start])
-                    if len(separator) == len(VISUAL_CONTRACT_HEADERS) and all(
-                        re.fullmatch(r":?-{3,}:?", cell) for cell in separator
-                    ):
-                        data_start += 1
-
-                rows: dict[str, list[str]] = {}
-                for line in section_lines[data_start:]:
+                rows = {}
+                for line in lines[header_index + 1:]:
                     if not line.lstrip().startswith("|"):
                         if rows:
                             break
                         continue
                     cells = self.markdown_table_cells(line)
-                    if len(cells) != len(VISUAL_CONTRACT_HEADERS):
-                        self.error(
-                            "visual_contract.columns",
-                            path,
-                            f"Visual contract row must have {len(VISUAL_CONTRACT_HEADERS)} cells: {line.strip()}",
-                        )
+                    if all(re.fullmatch(r":?-{3,}:?", c) for c in cells):
                         continue
-                    concern_key = cells[0].casefold()
-                    if concern_key in rows:
-                        self.error(
-                            "visual_contract.duplicate_concern",
-                            path,
-                            f"Duplicate Visual contract concern: {cells[0]}",
-                        )
-                    rows[concern_key] = cells
-
-                for concern_key, display in expected_concerns.items():
-                    if concern_key not in rows:
-                        self.error(
-                            "visual_contract.concern_missing",
-                            path,
-                            f"Visual contract is missing required concern: {display}",
-                        )
-
-                for concern_key, cells in rows.items():
-                    if concern_key not in expected_concerns:
-                        self.warning(
-                            "visual_contract.unknown_concern",
-                            path,
-                            f"Non-canonical concern should be folded into the fixed contract or justified separately: {cells[0]}",
-                        )
-                    if any(not cell.strip() for cell in cells):
-                        self.error(
-                            "visual_contract.empty_cell",
-                            path,
-                            f"Visual contract row contains a blank cell: {cells[0] or '<unnamed>'}",
-                        )
+                    if len(cells) != len(headers):
+                        self.error(code + ".columns", path, "Contract row has the wrong number of cells.")
                         continue
-
-                    decision = cells[1].strip()
-                    if decision.casefold() == "n/a" or (
-                        decision.casefold().startswith("n/a")
-                        and "—" not in decision
-                        and " - " not in decision
-                    ):
-                        self.error(
-                            "visual_contract.unreasoned_na",
-                            path,
-                            f"N/A must include a reason: {cells[0]}",
-                        )
-
-                    governing_source = cells[3].strip()
-                    if ".md" in governing_source.casefold() and "#" not in governing_source:
-                        self.error(
-                            "visual_contract.unscoped_source",
-                            path,
-                            f"Markdown governing source must target path.md#heading: {cells[0]}",
-                        )
-
-                    if status == "pass":
-                        proof = " ".join(cells[4:]).casefold()
-                        if any(token in proof for token in unfinished_tokens):
-                            self.error(
-                                "visual_contract.unproven_pass",
-                                path,
-                                f"Pass contract still contains planned or unfinished proof: {cells[0]}",
-                            )
+                    key = cells[0].casefold()
+                    if key in rows:
+                        self.error(code + ".duplicate_concern", path, f"Duplicate concern: {cells[0]}")
+                    rows[key] = cells
+                for key, label in expected.items():
+                    if key not in rows:
+                        self.error(code + ".concern_missing", path, f"Missing concern: {label}")
+                for key, cells in rows.items():
+                    if key not in expected:
+                        self.warning(code + ".unknown_concern", path, f"Unknown concern: {cells[0]}")
+                    if any(not c.strip() for c in cells) and status != "draft":
+                        self.error(code + ".empty_cell", path, f"Blank cell: {cells[0]}")
+                    if cells[1].casefold().startswith("n/a") and not re.match(r"N/A\s*(?:—|-)\s*\S", cells[1], re.I):
+                        self.error(code + ".unreasoned_na", path, f"N/A needs a reason: {cells[0]}")
+                    source = cells[3]
+                    if source.casefold() == "baseline" or (".md" in source.casefold() and "#" not in source):
+                        self.error(code + ".unscoped_source", path, f"Source must identify a rule heading: {cells[0]}")
+                    for target in re.findall(r"[^\s`<>()|;,]+\.md#[^\s`<>()|;,]+", source):
+                        self.check_rule_target(path, target, code, self.rel(path))
+                    for proof in cells[4:]:
+                        if status == "pass" and unfinished.search(proof):
+                            self.error(code + ".unproven_pass", path, f"Pass has unfinished proof: {cells[0]}")
+                        if schema and status not in {"draft", "ready"}:
+                            if not re.match(r"^(Pass|Fix Required|Blocked|N/A)\s+—\s+\S", proof, re.I):
+                                self.error(code + ".proof_state", path, f"Proof needs a result and evidence/reason: {cells[0]}")
+                            elif status == "pass" and not proof.casefold().startswith(("pass —", "n/a —")):
+                                self.error(code + ".unproven_pass", path, f"Pass has a failing or blocked proof: {cells[0]}")
+                            if proof.casefold().startswith("pass —"):
+                                evidence = LINK_RE.findall(proof)
+                                if not evidence:
+                                    self.error(code + ".evidence_missing", path, f"Pass requires a scoped evidence-record link: {cells[0]}")
+                                for raw in evidence:
+                                    target = self.extract_target(raw)
+                                    if not target.casefold().startswith(("https://", "http://")):
+                                        self.check_rule_target(path, target, code + ".evidence", self.rel(path))
 
     def current_markdown_hashes(self) -> dict[str, list[str]]:
         hashes: dict[str, list[str]] = {}
@@ -958,10 +961,15 @@ class Validator:
         self.check_skills()
         self.check_markdown_links()
         self.check_stale_routes()
+        self.check_required_routes()
+        self.check_inline_routes()
         self.check_index_coverage()
         self.check_project_hygiene()
+        self.check_discovery()
+        self.check_current_state()
         self.check_archives()
         self.check_required_terms()
+        self.check_contract_applicability()
         self.check_component_contracts()
         self.check_visual_contracts()
         self.check_deleted_markdown()

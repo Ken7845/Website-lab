@@ -1,5 +1,9 @@
 # Framer 动效制作：Custom Cursor 悬浮作品预览
 
+> Status: **Reference; mixed provenance**.
+> Provenance: Ken Studio Works cursor preview and later AURELIA fixed cursor-reel notes; dates are retained in their respective sections.
+> Verification boundary: Read only the matched project section; pointer behavior is not a Phone interaction contract. Current capability and runtime must be revalidated. Repository classification added 2026-10-03; no fresh Canvas verification.
+
 ## 适用场景
 
 这个方案适合做作品列表、菜单、目录、archive index 里的悬浮预览效果：

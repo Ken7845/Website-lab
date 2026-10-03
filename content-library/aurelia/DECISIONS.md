@@ -2,7 +2,7 @@
 
 Updated: 2026-08-15
 
-This file contains only decisions that are still active. Retired and superseded directions live in [HISTORY.md](./HISTORY.md). The actual Canvas and later explicit user decisions take precedence over this record.
+This file contains only decisions that are still active. Retired and superseded directions live in [HISTORY.md](./HISTORY.md). Later explicit user decisions can supersede this record. Canvas evidence establishes current implementation, not permission to change an approved direction.
 
 ## Information architecture
 

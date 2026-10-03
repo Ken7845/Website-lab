@@ -80,14 +80,14 @@ Required Phone Preview path at 390px: `Closed → Open → Close → Open → on
 ### Phone 菜单 Overlay
 
 - Phone 宽度无法容纳完整导航时，将右侧 CTA 改为语义明确的 `Menu` 按钮。
-- 紧凑导航菜单优先使用 Framer 原生 Relative Overlay，并直接挂在 Menu 触发器上；Fixed Overlay 留给需要遮罩整个页面的 Modal 或 Lightbox。
+- 当意图是相对触发器浮动的 anchored panel 时使用 Relative Overlay；集成式 height-reveal 使用上方 Drawer Variant。Fixed Overlay 仅用于需要页面遮罩 / modal scope 的体验。
 - Overlay 至少包含 Home、主要页面导航和 Contact 主 CTA，不能迫使用户滚动到 Footer 才能访问核心页面。
 - Menu 触发器和 Overlay 应保留在共享 Navbar Component 内，由 Phone Variant 控制显示，Desktop 与 Tablet 不显示该触发器。
 - 必须提供可见的 Close 按钮，并保留原生外部点击和键盘关闭行为。
 - 打开动画使用透明度配合轻微位移或缩放，时长建议 280–420ms；禁止直接闪现或使用夸张弹跳。
 - Overlay 宽度需要留出屏幕边距。390px 画布可使用约 340px 面板，并启用碰撞检测，避免贴边和横向溢出。
 - 菜单项使用真实链接；Contact CTA 复用现有 Button Component，不为每个链接创建独立 Variant。
-- 完成后必须在 Framer Preview 中真实点击测试打开、关闭与至少一个导航链接，不能只检查画布静态状态。
+- 按 [evidence selection](../workflows/image-workflow.md#evidence-selection) 建立打开、关闭和一个真实链接的 runtime evidence；不可用时保持 Blocked，静态画布不足以证明行为。
 
 ## 3. Footer 要求
 

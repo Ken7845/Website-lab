@@ -4,6 +4,12 @@
 
 PROJECT 是 current manifest 与资料地图。默认可内嵌 Current Status、Decisions 和 Recovery；项目变复杂后可拆到 `STATUS.md`、`DECISIONS.md`、`RECOVERY.md`，但不得同时维护两份明细。
 
+## Current ownership metadata
+
+- State schema: 1
+- Current status owner: [Inline Status](#12-current-status)
+- Recovery owner: [Inline Recovery](#14-recovery)
+
 ## 1. Project Identity
 
 - Project name:
@@ -164,15 +170,18 @@ Framer 项目从 `../../framer/basic/README.md` 路由；不要在 PROJECT 复�
 
 ### Asset Usage Ledger
 
-本表只保存当前素材分配与使用事实；选图、复用理由、裁切和视觉预算规则由 `../../framer/basic/workflows/image-workflow.md` 负责。
+本表只保存当前素材分配与使用事实；选图、复用理由、裁切和视觉预算规则由 [image-workflow.md](../framer/basic/workflows/image-workflow.md) 负责。
 
 | Asset | Narrative qualities | Approved role | Current use | Reuse decision / reason | Crop / focal notes | Status |
 |---|---|---|---|---|---|---|
 |  |  |  |  |  |  | Candidate / Allocated / Used / Reassigned / Blocked |
 
-图片工作遵循 `../../framer/basic/workflows/image-workflow.md`。
+图片工作遵循 [image-workflow.md](../framer/basic/workflows/image-workflow.md)。
 
 ## 12. Current Status
+
+- State revision: YYYY-MM-DD
+- Active request: None — replace with the authorized request link when one exists.
 
 本节为覆盖式 current state。若使用 `STATUS.md`，这里只写摘要、最后验证时间和链接。
 
@@ -200,6 +209,10 @@ Framer 项目从 `../../framer/basic/README.md` 路由；不要在 PROJECT 复�
 
 ## 14. Recovery
 
+- State revision: YYYY-MM-DD
+- Active request: None — must match the Status pointer.
+- State reference: [Current Status](#12-current-status)
+
 本节永远只保留一个最新 checkpoint。若使用 `RECOVERY.md`，这里只保留链接和更新时间。
 
 - Active session / connection:
@@ -222,7 +235,7 @@ Framer 项目从 `../../framer/basic/README.md` 路由；不要在 PROJECT 复�
 - Checklist status: Not created / In progress / Pass / Blocked
 - Last synchronization with Current Status:
 
-长篇、多分点 Prompt 的逐字记录、确认 Gate、页面长期/请求 Checklist 分层，以及连续修改约束锁，遵循 `../../framer/basic/workflows/change-control.md`。Checklist 状态必须与 §12 或 `STATUS.md` 同步。
+长篇、多分点 Prompt 的逐字记录、确认 Gate、页面长期/请求 Checklist 分层，以及连续修改约束锁，遵循 [change-control.md](../framer/basic/workflows/change-control.md)。Checklist 状态必须与 §12 或 `STATUS.md` 同步。
 
 ## 16. History
 

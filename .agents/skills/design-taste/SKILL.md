@@ -11,12 +11,7 @@ Use design judgment as a context-sensitive lens, not as a replacement design sys
 
 Apply this order whenever sources disagree:
 
-1. The user's current explicit direction.
-2. The actual current implementation and approved project language.
-3. Approved project facts, content, and active decisions.
-4. Universal safety and accessibility requirements.
-5. This Skill's general guidance.
-6. Inspiration and archived history.
+Apply [AGENTS authority by question](../../../AGENTS.md#权威优先级): user authorization governs allowed change; approved direction governs intent; targeted current implementation proves existence; approved sources govern facts; platform hard constraints govern feasibility. Inspiration and history do not override these authorities.
 
 Existing approved choices may legitimately include Inter, a custom cursor, a fixed light editorial system, or a deliberate dark transition. Never overturn them merely because a generic preference in the archived source says otherwise.
 
@@ -73,6 +68,8 @@ For an existing multi-page project, compare the target with relevant sibling pag
 - Preserve a repeated Contact layout when its function is unchanged, while adapting its title, copy and imagery to the page's actual context. Different content alone is not sufficient when the page hierarchy or narrative purpose calls for a different composition.
 
 Apply [image-workflow.md](../../../framer/basic/workflows/image-workflow.md) before selecting or reusing assets. Treat every image as a **content-relative image role**, not interchangeable decoration: understand what the image communicates, assign it to the Section whose narrative it supports, preserve its meaningful subject through cropping, and document a real reason for cross-page reuse. A new title or layout never makes an unrelated image appropriate.
+
+Use [Contract lifecycle](../../../framer/basic/workflows/change-control.md#contract-lifecycle) for applicability, separate authorization, implementation and verification states, and scoped evidence links.
 
 Before implementation, emit: `Visual contract receipt: direction complete / preserved system named / sibling delta defined / assets assigned / proof planned`. Missing evidence keeps the contract `Draft`; a genuine direction conflict requires user confirmation.
 

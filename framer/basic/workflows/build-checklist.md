@@ -17,7 +17,7 @@
 
 ## 0A. Visual Direction Gate
 
-新 Page、重大 Section 重构、多页面差异化，或主要要求为“不同布局”时，批量创建节点前必须完成 active request Checklist 中的 `Visual Direction Contract`：
+新 Page、重大 Section 重构、多页面差异化，或主要要求为“不同布局”时，批量创建节点前必须完成 canonical page/request owner 中的 `Visual Direction Contract`（没有文件合同且用户拒绝 Checklist 时，保留在 working state）：
 
 - [ ] 一行 Design Read 明确页面种类、用户、转化目标与项目视觉语言。
 - [ ] Preserve / Transform / Avoid 区分共享系统、允许变化与禁止默认模式。

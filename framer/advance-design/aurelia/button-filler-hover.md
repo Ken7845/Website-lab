@@ -1,5 +1,9 @@
 # Framer 高级组件：Filler 覆盖式 Button Hover
 
+> Status: **Canonical filler pattern; Legacy component provenance**.
+> Provenance: AURELIA ButtonPrimary, 2026-08-12. This example predates the current Button White / Dark Small system.
+> Verification boundary: [Current Button contract](../../basic/patterns/buttons.md); verify current project before reuse. Repository classification added 2026-10-03; no fresh Canvas verification.
+
 ## 适用范围
 
 用于需要明确但克制的 Desktop pointer feedback 的主 CTA。默认态保留轻量的强调线；Hover 用同一个内部 `filler` 覆盖整颗按钮。它不是缩放、阴影或外部 overlay，因此不会改变按钮边界或推开相邻布局。

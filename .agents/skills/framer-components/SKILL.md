@@ -9,7 +9,7 @@ Build reusable systems only where reuse or state actually exists.
 
 ## Platform gate
 
-For any live Canvas read or write, first complete the repository `Live Framer Canvas Gate`, using **required elevated permissions** for every Framer CLI command from the first attempt: successful `npx @framer/agent@latest setup`, official `$framer` Skill, successful `npx @framer/agent@latest session new "<url-or-id>"`, generated `projects/<safeProjectId>/index.md` task-map routing, then a targeted `npx @framer/agent@latest exec -s <sessionId>` live-tree readback. Any error means **Gate remains closed**. Before implementation, show the user a concise **Framer Agent gate receipt**. This Skill is secondary reasoning only; never substitute Browser / Playwright / Computer Use. Repo-only planning or documentation skips the Gate.
+First use the [Framer dispatcher](../../../framer/README.md#2-只选一个-primary-repo-skill), including its ownership precedence and task mode. For live reads or writes, complete the canonical [Live Framer Canvas Gate](../../../AGENTS.md#live-framer-canvas-gate); **Gate remains closed** until its evidence is complete. Show the **Framer Agent gate receipt** before implementation. This Skill supplies reasoning, not a platform connection. Repository-only work skips connection.
 
 ## Inspect before creating
 
@@ -43,6 +43,8 @@ Use `rg -n` to locate the applicable headings rather than loading whole referenc
 | Breakpoint contract |  |  |  |  |  |
 | Accessibility / touch / focus |  |  |  |  |  |
 | Evidence sample |  |  |  |  |  |
+
+Use [Contract lifecycle](../../../framer/basic/workflows/change-control.md#contract-lifecycle) for applicability, separate authorization, implementation and verification states, and scoped evidence links.
 
 Set `Contract status: Ready` only after all owner decisions and planned proof paths are complete. If a request Checklist exists, persist the table there under `## Component Requirement Contract`; otherwise keep the compact contract in working state. Do not create another repository file merely for the contract.
 

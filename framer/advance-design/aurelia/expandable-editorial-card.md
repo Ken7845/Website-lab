@@ -1,5 +1,9 @@
 # Framer 高级组件：可展开 Editorial Card
 
+> Status: **Canonical; project-specific**.
+> Provenance: AURELIA MenuDishCard, recorded verification 2026-08-11.
+> Verification boundary: Dated implementation evidence; runtime, new content and changed widths require targeted validation. Repository classification added 2026-10-03; no fresh Canvas verification.
+
 ## 适用范围
 
 用于菜单、作品、产品或案例列表中的长条卡片：Desktop / Tablet 默认显示图片、标题和短说明；点击后卡片变高、图片放大、短说明切换为较长故事；Phone 保持静态，避免把桌面 Hover 和展开逻辑强加给触控阅读。

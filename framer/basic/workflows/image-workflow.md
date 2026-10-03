@@ -14,7 +14,7 @@
 硬限制：
 
 - 一个 Part 最多查看一张联系表，或最多三张单图；不能两种额度叠加。
-- 同一文件、同一 Framer screenshot URL 或同一视觉状态在一个任务中只查看一次；把 URL、文件名和判断写入恢复记录。
+- 同一文件、同一 Framer screenshot URL 或未改变的同一视觉状态在一个任务中只查看一次；把 URL、文件名和判断写入恢复记录。
 - 单个素材跨本地下载、Framer screenshot、浏览器和视觉工具总共最多尝试两次。两次失败后立即停止视觉链，改做 Fill、Rect、Style、Alt、Effect target 和实例属性审计。
 - 禁止形成 `curl → browser → screenshot → curl` 的循环回退。只允许一个明确备用路径。
 - 用户已指定文件名时，只处理这些文件；不扫描整个目录寻找“可能更合适”的图。
@@ -24,6 +24,22 @@
 停止条件不是失败，而是保护任务完成度：视觉工具无输出、CDN 两次失败、文件仍为 dataless、单次输出开始膨胀或无法回答原定问题时，立即结束当前图片审阅。
 
 视觉预算限制调用数量，不取消视觉责任。Section screenshot 只能证明该 Section；Page-level 构图、colour rhythm 或跨页面相似性需要一张高效整页截图或一个 Desktop/Phone 编排图。拿不到合同要求的视觉证据时，将 Visual status 标为 `Blocked` 或 `Fix Required`，不能用结构降级证明审美结论。
+
+## Evidence selection
+
+先根据要证明的 claim 选择最少足够的证据，再分配 visual budget。没有改变的状态不重复查看；实际修改后是新状态，可以在剩余额度内复检。预算属于声明的 Part，不靠改名重置失败素材的 two-attempt limit。
+
+| Claim | 必要证据 | 不足以证明什么 |
+|---|---|---|
+| Rename / Link / nonvisual Property | targeted values、数量和有效目标 | 不要求截图或全站 Preview |
+| Static Section / Component composition | affected owner readback + bounded screenshot | 局部截图不证明整页节奏 |
+| Page rhythm / cross-page comparison | efficient whole-page contact sheet or compiled representative Desktop/Phone view | clean diagnostics / 单一 Section 不能给 Visual Pass |
+| Hover / Overlay / Cursor / Scroll | state graph readback + one actual necessary interaction path, or explicit user confirmation of that path | settings 不证明 runtime；Phone 验 touch/static，非 Hover |
+| Keyboard / focus / form / navigation | actual relevant runtime path; record tested states and widths | 无法执行的路径保持 Blocked |
+
+Agent 在授权 scope 内完成可用的必要 Preview；路径不可用时可请求 focused user confirmation，并明确未验证范围。不得把请求确认本身记为 Pass。用户确认的实际观测可以作为所述路径的 evidence，不能代替未观察的 submission/service 测试。视觉链失败后继续独立结构工作，required visual/runtime evidence 保持 Blocked。
+
+官方 API 名称和 screenshot 路径以本轮 task map 为准；下方 dated 项目记录只解释机制，不自行证明当前 API capability。
 
 ## 1. 原图保护
 
@@ -123,7 +139,7 @@ targeted serializeNodes 结构检查
 
 稳定性要求：
 
-- 每次只截当前需要判断的节点或 Variant；不要用整页大图代替局部检查。
+- 局部 claim 只截其节点或 Variant；整页 claim 使用上表规定的低像素联系表或编排图，不连续加载高细节长图。
 - 优先使用 `readProject` 的 `screenshot` 返回 URL，不输出原始像素 Buffer。
 - 禁止把 `framer.screenshot()` 返回的 Buffer 直接 `console.log`；它会产生数万行数字，
   放大上下文和传输压力。
@@ -156,7 +172,7 @@ AURELIA-1 的中断已通过任务日志复核。它不是素材原图解码失�
 ```text
 结构回读并写恢复点
 → 只选一个当前最重要的断点
-→ 只截一个 Section / Component / 有界页面裁片
+→ 根据 claim 选择局部裁片或低像素整页联系表
 → 控制预览最长边 ≤ 1200px、总像素尽量 ≤ 2MP、文件 ≤ 1MB
 → 单次只调用一次视觉查看
 → 立即把结论覆盖写回 canonical Recovery owner
@@ -168,8 +184,8 @@ AURELIA-1 的中断已通过任务日志复核。它不是素材原图解码失�
   问题所需的一个有界区域。
 - 响应式 QA 先用节点树、Rect、文本换行、Fill、Alt、链接和 Effect 属性批量检查；
   视觉工具只回答结构数据无法回答的一个构图问题。
-- 如果必须检查整页节奏，先生成低像素联系表，只检查一个断点；另一个断点改用局部
-  Section 截图或放到下一轮。
+- 如果必须检查整页节奏，先生成低像素联系表或一个 Desktop/Phone 编排图；
+  按 claim 规划适用断点，不用局部截图替代尚未建立的整页证据。
 - 一次视觉输出返回后必须先形成判断并覆盖更新 canonical Recovery，不能立即加载第二张图。
 - 对已完成写入的长任务，视觉验证超预算时标记 `Visual QA incomplete` 并正常交接，
   不让已经完成的 Framer 改动因最后一张图而失去任务回复。

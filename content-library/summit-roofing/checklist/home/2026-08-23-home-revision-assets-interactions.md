@@ -1,5 +1,10 @@
 # Home — 2026-08-23 Revision: Assets, Responsive, Interactions
 
+- Contract schema: 1
+- Component contract: Required
+- Visual contract: N/A — this recorded Part contains no visual contract; lifecycle migration makes no construction change.
+- Evidence migration: 2026-10-03; repository-only. Original contract assertions are preserved in project History; no fresh Canvas or runtime proof was produced.
+
 ## Status
 
 Complete. Confirmed by the user (“开始” / “直接完成”); implementation and targeted QA readback are complete. No publishing was authorized or performed.
@@ -48,7 +53,9 @@ Complete. Confirmed by the user (“开始” / “直接完成”); implementat
 
 ## Component Requirement Contract
 
-- Contract status: Pass
+Contract status: Blocked — recorded implementation exists; the full row-specific evidence matrix is not established by this repository-only repair.
+Implementation status: Implemented — historical completion record; current live state not reverified.
+Verification status: Blocked — retain bounded historical results; outstanding evidence requires the live Framer gate.
 
 | Requirement | Contract |
 |---|---|
@@ -63,20 +70,20 @@ Complete. Confirmed by the user (“开始” / “直接完成”); implementat
 | Ownership | `Project Card` owns the image-mask interaction. `Featured Work` owns CMS listing/grid density. `Service Row` owns arrow alignment. `Navbar` remains the shared layout-template component. |
 | Verification | Read back Navbar/template, CMS item count and fields, Desktop/Tablet/Phone grids, Project Card default/hover, and Team crop. |
 
-### Follow-up refinement contract — Ready
+### Follow-up refinement contract — recorded decisions
 
 | Concern | Decision / N/A reason | Owner | Governing source | Readback proof | Preview proof |
 |---|---|---|---|---|---|
-| Section background / vertical rhythm | N/A — no section rhythm change. | Home | Follow-up 1–4 | Existing section tree remains unchanged. | N/A |
-| Available width / placement | Logo mark and `SUBMIT ROOFING` form one horizontal Brand stack; Footer mirrors it. | Navbar / Footer | Follow-up 2 | Brand child sizes and gaps across variants. | Navbar and Footer at Desktop/Phone |
-| Visible boundary / border / surface | Hover image receives a black low-opacity cover; text does not recolor. | Project Card | Follow-up 1 | Hover mask fill and text opacity values. | Project Card hover |
-| Internal padding / hit area | Preserve current Card and Brand padding / link hit area. | Existing Components | Current Canvas evidence | Component attributes unchanged except required children. | N/A |
-| Readable max-width | N/A — existing shared shell width preserved. | Site Shell | Current Canvas | Navbar/Footer outer widths unchanged. | N/A |
-| Editable content / Properties | Keep existing Project Card and service properties; add no business facts. | Existing Components | Follow-up 1, 4 | Controls and CMS bindings remain. | N/A |
-| States / routes | Hover retains identical geometry; text lowers to 86% opacity. Service Row removes inactive arrow and its invalid implied route. | Project Card / Service Row | Follow-up 1, 4 | Hover replica + Service Row children. | Hover and touch default |
-| Breakpoint contract | Navbar/Footer brand treatment applies Desktop, Tablet and Phone. | Navbar / Footer | Follow-up 2 | Variant replica readback. | Desktop and Phone |
-| Accessibility / touch / focus | Mark has factual Alt; textual brand remains visible; no information depends on hover. | Navbar / Footer / Project Card | [PROJECT.md §10](../../PROJECT.md#10-system-and-platform-plan) | Alt, text visibility, touch default. | Phone default |
-| Evidence sample | One targeted crop check, live definition/instance/replica readback, then targeted QA. | Agent | [image-workflow.md §0](../../../../framer/basic/workflows/image-workflow.md#0-最高优先级视觉预算与停止条件); [framer-components](../../../../.agents/skills/framer-components/SKILL.md#compile-a-component-requirement-contract) | Recorded in Completion evidence. | One per affected visual state |
+| Section background / vertical rhythm | N/A — no section rhythm change. | Home | Follow-up 1–4 | Blocked — original record: Existing section tree remains unchanged.; a row-specific completed result is not established here. | Blocked — original record: N/A; a row-specific completed result is not established here. |
+| Available width / placement | Logo mark and `SUBMIT ROOFING` form one horizontal Brand stack; Footer mirrors it. | Navbar / Footer | Follow-up 2 | Blocked — original record: Brand child sizes and gaps across variants.; a row-specific completed result is not established here. | Blocked — original record: Navbar and Footer at Desktop/Phone; a row-specific completed result is not established here. |
+| Visible boundary / border / surface | Hover image receives a black low-opacity cover; text does not recolor. | Project Card | Follow-up 1 | Blocked — original record: Hover mask fill and text opacity values.; a row-specific completed result is not established here. | Blocked — original record: Project Card hover; a row-specific completed result is not established here. |
+| Internal padding / hit area | Preserve current Card and Brand padding / link hit area. | Existing Components | Current Canvas evidence | Blocked — original record: Component attributes unchanged except required children.; a row-specific completed result is not established here. | Blocked — original record: N/A; a row-specific completed result is not established here. |
+| Readable max-width | N/A — existing shared shell width preserved. | Site Shell | Current Canvas | Blocked — original record: Navbar/Footer outer widths unchanged.; a row-specific completed result is not established here. | Blocked — original record: N/A; a row-specific completed result is not established here. |
+| Editable content / Properties | Keep existing Project Card and service properties; add no business facts. | Existing Components | Follow-up 1, 4 | Blocked — original record: Controls and CMS bindings remain.; a row-specific completed result is not established here. | Blocked — original record: N/A; a row-specific completed result is not established here. |
+| States / routes | Hover retains identical geometry; text lowers to 86% opacity. Service Row removes inactive arrow and its invalid implied route. | Project Card / Service Row | Follow-up 1, 4 | Blocked — original record: Hover replica + Service Row children.; a row-specific completed result is not established here. | Blocked — original record: Hover and touch default; a row-specific completed result is not established here. |
+| Breakpoint contract | Navbar/Footer brand treatment applies Desktop, Tablet and Phone. | Navbar / Footer | Follow-up 2 | Blocked — original record: Variant replica readback.; a row-specific completed result is not established here. | Blocked — original record: Desktop and Phone; a row-specific completed result is not established here. |
+| Accessibility / touch / focus | Mark has factual Alt; textual brand remains visible; no information depends on hover. | Navbar / Footer / Project Card | [PROJECT.md §10](../../PROJECT.md#10-system-and-platform-plan) | Blocked — original record: Alt, text visibility, touch default.; a row-specific completed result is not established here. | Blocked — original record: Phone default; a row-specific completed result is not established here. |
+| Evidence sample | One targeted crop check, live definition/instance/replica readback, then targeted QA. | Agent | [image-workflow.md §0](../../../../framer/basic/workflows/image-workflow.md#0-最高优先级视觉预算与停止条件); [framer-components](../../../../.agents/skills/framer-components/SKILL.md#compile-a-component-requirement-contract) | Blocked — original record: Recorded in Completion evidence.; a row-specific completed result is not established here. | Blocked — original record: One per affected visual state; a row-specific completed result is not established here. |
 
 ## Confirmation record
 

@@ -10,7 +10,7 @@
 |---|---|---|---|
 | 多页面共享结构 | Layout Template + Navbar/Footer Components | 每页复制 Navbar/Footer | `framer/basic/patterns/navbar-footer.md` |
 | Sticky 且滚动隐藏 Navbar | Scroll Direction Variant Effect | Custom Code scroll listener | `framer/basic/patterns/navbar-footer.md` |
-| Phone Navbar Menu | Trigger 内 Relative Overlay | 页面级 Fixed Overlay 事件链 | `framer/basic/patterns/motion-design.md` |
+| Phone Navbar Menu | integrated reveal → Drawer Variant；anchored floating panel → Relative Overlay | 把两种机制混成一条 state route | [Navbar models](navbar-footer.md#phone-drawer-variant紧凑-navbar-的推荐模式) |
 | 简单 Gallery 放大 | Lightbox Effect | 每图一个 Overlay/Variant | `framer/basic/patterns/motion-design.md` |
 | 复杂页面级 Modal | Fixed Overlay | Component 内 Fixed Overlay | `framer/basic/patterns/motion-design.md` |
 | Accordion / Disclosure | Open/Closed Component Variants | 多个重叠 Frames | Baseline / Framer 原生 Variant |
@@ -53,7 +53,7 @@ Phone Navbar Variant
         └── Primary CTA
 ```
 
-适用：锚定 Navbar Trigger 的移动菜单。
+适用：锚定 Navbar Trigger 的浮动 panel；集成式高度展开读 [Drawer model](navbar-footer.md#phone-drawer-variant紧凑-navbar-的推荐模式)。
 
 默认：bottom/end、collision detection、340px at 390px、约 360ms opacity + slight y/scale。
 

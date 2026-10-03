@@ -1,8 +1,10 @@
 # AURELIA Current Build and QA Status
 
-- Reconciled: 2026-08-16
+- Reconciled: 2026-10-03 — repository only; last recorded live evidence remains 2026-08-16
+- State revision: 2026-10-03-repository
+- Active request: [Marketplace readiness audit](./checklist/marketplace/2026-08-15-canvas-readiness-audit.md)
 - Evidence basis: latest dated project Checklists, the preserved pre-migration snapshot, and a read-only live Canvas structure and Marketplace release audit on 2026-08-16
-- Canvas verification: page tree, metadata, shared systems, component controls, image Alt ownership, style/token inventory, and CMS presence inspected. Responsive, interaction, Focus, Reduced Motion, navigation, CTA-route, and Reserve-state visual judgment remains user-owned in Framer rather than an agent-proof gate.
+- Canvas verification: page tree, metadata, shared systems, component controls, image Alt ownership, style/token inventory, and CMS presence inspected. The recorded project workflow leaves responsive, interaction, Focus, Reduced Motion, navigation, CTA-route and Reserve-state visual review with the user. Pending reviews remain unverified; actual scoped user observations may be recorded as evidence under [Evidence selection](../../framer/basic/workflows/image-workflow.md#evidence-selection).
 
 This file contains current status only. Replace stale status here when work advances; move implementation chronology to [HISTORY.md](./HISTORY.md).
 

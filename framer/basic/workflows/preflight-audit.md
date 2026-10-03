@@ -9,7 +9,7 @@
 - 发现问题按同类批量修复，不逐项来回调用。
 - Warning 需要判断设计意图；Error 和本轮新增问题必须解决。
 - 审查输出使用 Pass / Fix / Blocked，不使用模糊的“差不多”。
-- 审查按风险分级。Rename、文案、Link 和 Property 修改以结构回读为主；静态视觉、布局和断点由 Agent 直接审阅目标画布/截图并结合目标节点读回；高级动效、Cursor、Hover、Variant 组件先验证事件图、目标、状态与尺寸，再请用户确认实际效果。
+- 审查按风险分级。Rename、文案、Link 和 Property 修改以结构回读为主；静态视觉、布局和断点由 Agent 直接审阅目标画布/截图并结合目标节点读回；高级动效、Cursor、Hover、Variant 组件先验证事件图、目标、状态与尺寸，再按 [Evidence selection](image-workflow.md#evidence-selection) 检查必要 runtime 路径；路径不可用时可请求 focused user confirmation，未验证部分保持 Blocked。
 - 不为同一结论重复使用全页截图、节点截图、浏览器截图和原图查看。一条权威证据足够时立即停止。
 - Component / Section 范围不升级为全站审查；共享依赖只查受影响实例。
 
@@ -119,9 +119,7 @@
 
 每条路径成功一次即可。发现具体错误后修复并只复测受影响路径。
 
-可以省略浏览器 Preview 的情况：纯命名、无视觉变化的文案替换、已结构确认的 Link/Property 修正，以及 Agent 已从画布/截图审阅的静态平面设计。高级动效/组件由用户确认实际效果，而不是由 Agent 反复用鼠标操作浏览器。
-
-仍应使用 Preview 的例外：用户明确要求 Agent 代为测试；真实行为无法通过事件图、结构读回和用户确认建立；或涉及表单提交、外部跳转等必须由实际环境证明的路径。
+验证工具由 [evidence selection](image-workflow.md#evidence-selection) 决定。nonvisual 修复以 readback 为主；static scope 用适当截图；runtime claim 要一次必要 Preview 或已完成的 focused user confirmation。不可用的 required path 保持 Blocked，不能靠设置或请求确认宣称 Pass。
 
 ## 10. Audit Output
 

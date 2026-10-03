@@ -4,13 +4,16 @@ Website-lab 是面向人类与 AI Agent 的网站设计、项目事实和 Framer
 
 ## Knowledge Base Version
 
-- Repository version: `Website_Lab_V2.1.1`
-- Current release: `v2.1.1`
+- Repository version: `Website_Lab_V2.2.0`
+- Current release: `V2.2.0`
+- Release source: current local working tree, based on `d708a0e`; uncommitted
+- Previous release: `V2.1.1` (`d708a0e`)
 - Architecture base: `v2.0.0`
 - Released: 2026-10-03
 - Updated: 2026-10-03
-- Scope: preserves the v2 progressive-disclosure architecture and v2.1 Visual Direction / QA contracts while refining two design decisions that were previously easy to apply too mechanically.
-- Current revision: permits functionally justified layout-family reuse while rejecting site-wide layout monoculture, preserves content-relative image selection, and assigns `max-width` to the deepest valid local owner instead of senior page/Section containers.
+- Scope: knowledge routing, authorization, current-state ownership, contract lifecycle, evidence requirements and maintenance validation; preserves the existing design system and website content.
+- Current revision: one Framer dispatcher and canonical policy owners, synchronized Status / Recovery pointers, explicit implementation and verification states, stronger source/evidence validation, bounded legacy migrations and discoverable project/reference indexes.
+- Release notes: [Website_Lab V2.2.0](history/repository/2026-10-03-knowledge-base-v2.2.0.md)
 - Architecture migration record (v2.1.0 base): [Website-lab Visual Workflow Improvement — v2.1.0](history/repository/2026-09-16-visual-workflow-v2.1.0.md)
 
 ## 架构
@@ -22,7 +25,7 @@ AGENTS.md
 ├── .agents/skills/
 │   ├── design-taste/             平台无关的设计判断
 │   ├── framer-*/                 按任务选择的 Framer Skills
-│   └── knowledge-maintenance/    仅在知识写入、迁移与验证时触发
+│   └── knowledge-maintenance/    在知识审计、写入、迁移与验证时触发
 ├── content-library/
 │   ├── README.md                 项目知识职责
 │   ├── project-manifest-template.md
@@ -81,7 +84,7 @@ AGENTS.md
 
 ## Agent 如何使用本仓库
 
-Agent 从 `AGENTS.md` 开始，只读取当前 Scope 必要的 PROJECT、Approved sources、平台规则和 selected Skill。README 只解释架构，不是另一份执行手册。
+Agent 从 `AGENTS.md` 开始，只读取当前 Scope 必要的 PROJECT、Approved sources、平台规则和 selected Skill。README 只解释架构，不是另一份执行手册。仓库维护走 [knowledge-maintenance](.agents/skills/knowledge-maintenance/SKILL.md)；Framer 工作统一走 [dispatcher](framer/README.md)；项目从 [Content Library index](content-library/README.md) 进入；参考站从 [Inspiration index](inspiration/README.md) 进入。
 
 Framer 的完成标准与执行细节由以下入口管理：
 
@@ -101,6 +104,10 @@ python3 .agents/skills/knowledge-maintenance/scripts/validate_repository.py --st
 ```
 
 验证器检查 active links / anchors、Skill metadata、旧路由、索引覆盖、不可变归档、全库关键词与 canonical 文件中的精确知识契约、current/history 卫生、Markdown 删除迁移目标和 `git diff HEAD --check`。普通网站建设不预读这套维护上下文。
+
+## Laboratory operating reference
+
+[Payment SOP](payment-SOP.md) preserves the personal client-payment reference. It does not authorize transactions or override project facts. Root TODO.md is an empty legacy placeholder, not a current work queue.
 
 ## 核心目标
 

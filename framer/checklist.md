@@ -24,101 +24,9 @@
 
 ## 项目级 Checklist 文件夹规范
 
-本文件同时规定知识库项目目录中的 Checklist 如何创建和维护。项目级 Checklist 负责把已经批准的总览和页面方案转成后续可以逐页、逐 Part 执行的合同；本文件后续各章节仍负责每个 Part 完成后的强制验收。
+页面 / request 合同的创建、目录、必需职责和确认条件由 [change-control — 项目级 Checklist 文件夹规范](basic/workflows/change-control.md#项目级-checklist-文件夹规范) 维护。先按该合同建设，再由本文件按 Part 路由评估；不要用 evaluator 重新决定是否开工。
 
-长篇多分点 Prompt 的逐字记录、确认 Gate 与连续修改约束锁由 `framer/basic/workflows/change-control.md` 维护；本节只维护项目 Checklist 的目录、页面文件、状态和同步合同。
-
-### 触发与执行顺序
-
-当用户提供具体的大项目总览、开工准备、阶段计划、页面架构、叙事方案或会指导后续多轮建设的创意方案时：
-
-```text
-先按 AGENTS.md 询问是否需要项目级 Checklist
-→ 用户确认
-→ 把批准方案写入 content-library/<project>/PROJECT.md
-→ 创建或更新 content-library/<project>/checklist/
-→ 回读目录、链接、页面状态和必需章节
-→ 才进入 Canvas 或正式页面建设
-```
-
-- 用户已经直接要求创建 Checklist 时，不重复询问。
-- 用户明确拒绝时，不创建目录，继续原任务。
-- 已有 Checklist 时更新原文件，不建立 `checklist-2`、`new-checklist` 或聊天专用副本。
-- 小范围修改、单一修复、诊断、审阅或现有 Checklist Part 的连续执行不触发新建询问。
-
-### 固定位置与目录结构
-
-Checklist 只能位于当前知识库项目目录：
-
-```text
-content-library/<project>/
-├── PROJECT.md
-├── STATUS.md            # complex projects; current Build / QA
-├── DECISIONS.md         # complex projects; active why-decisions
-├── RECOVERY.md          # complex projects; one latest checkpoint
-└── checklist/
-    ├── README.md
-    ├── home.md
-    ├── about.md
-    ├── menu.md
-    ├── contact.md
-    └── <other-page-slug>.md
-```
-
-- 一个正式页面对应一个 Markdown。
-- 文件名使用页面 slug 的 kebab-case，例如 `private-dining.md`。
-- `README.md` 是索引和共享工作流，不代替页面文件。
-- 不把 Checklist 放在临时工作区、发布目录、图片目录、聊天导出目录或项目目录之外。
-- `PROJECT.md` 必须链接 Checklist 索引和每个页面文件；Checklist 索引也必须回链 `PROJECT.md`，并链接项目实际使用的 Current Status / Decisions / Recovery owner。
-
-### README.md 必须包含
-
-- 项目级 Checklist 的用途和状态词定义。
-- 强制执行闭环和 Part 路由提醒。
-- 当前页面、路径、文件和状态索引。
-- Shared Foundation Gate：Layout Template、Navbar、Footer、Button、Styles、Focus、Reduced Motion、favicon、Open Graph、授权和编辑说明。
-- Latest Part Result 与 canonical Recovery reference 的统一记录格式。
-- 对 `PROJECT.md`、当前 Status / Decisions / Recovery owner、`framer/basic/` 和本文件的有效相对链接。
-
-### 每个页面 Markdown 必须包含
-
-1. Page 名称、path、当前状态、内容状态和 Primary CTA。
-2. Scope lock / Definition of Ready：目标、已确认内容、Missing、Blocked 和本轮明确不做的范围。
-3. 页面专属叙事顺序；不能只写通用 Hero、Cards、CTA。
-4. 每个 Section 的目的、内容、图片角色、构图职责、CTA 和完成项目。
-5. Text / Color Styles、Heading 语义和 Layer 命名要求。
-6. Component / Variant / Property / CMS 决策，以及创建后回到 Page Instance 的检查。
-7. Navbar、Footer、Button、Link、Contact / Visit 和 Conversion 路径。
-8. 图片驻留、视觉预算、网页输出、裁切、焦点和 Alt。
-9. Desktop、Tablet、Phone 的宽度所有权，以及 320 / 390 / 810 / 1200 / 1440+ 验证。
-10. Motion、Hover、Overlay、Lightbox、Focus、Keyboard 和 Reduced Motion。
-11. Page Title、Meta Description、一个主要 h1、h2/h3、favicon 和 Open Graph 责任。
-12. Performance、第三方依赖、Framer Review 和可维护性。
-13. Marketplace 替换压力测试：长文案、不同图片比例、缺失可选字段、增删排序和买家编辑入口。
-14. Targeted Preview 路径。
-15. Page Done 门槛。
-16. Latest Part Result：Pass、Fix Required、Blocked、Verified widths、Verified paths、Shared components 和 canonical Recovery reference；不在页面 Checklist 复制第二份 current checkpoint。
-17. 当范围是新 Page、主要 Section 重设计、跨页面差异化或用户要求“different layout”时，包含由 `design-taste` 编译的 `Visual Direction Contract`：明确 sibling-page delta、Section composition、Colour rhythm、Asset map、Responsive transformation，以及 Structural proof / Visual proof；轻量文案或机械修复不强制创建。
-
-页面文件必须针对当前页面写具体检查项。禁止把本文件的 18 个通用章节原样复制五次，也禁止只写视觉 Section 而遗漏 Styles、Links、语义、响应式、Focus、状态和交付。
-
-### 状态与同步
-
-项目级状态统一使用：
-
-- `To do`：范围已批准，尚未宣称完成。
-- `In progress`：正在按 Section 或 Part 纵向建设。
-- `Fix Required`：当前必查项失败，修复前不得进入下一 Part。
-- `Blocked`：缺少事实、素材、权限、服务或真实目标。
-- `Pass`：当前 Part 或 Page 通过对应 readback、Preview 和 Preflight；适用 `Visual Direction Contract` 的范围必须同时达到 Structural status 与 Visual status 的 `Pass`。
-
-强制同步：
-
-- Checklist 页面状态与项目 current status owner 必须一致：复杂项目使用 `STATUS.md`，小项目使用 `PROJECT.md` 的 Current Status。
-- 每完成一个 Part，更新页面文件的 Latest Part Result；当前恢复指针写入 `RECOVERY.md` 或 PROJECT 的单一 Recovery 章节，不在页面文件和多个入口重复维护 current checkpoint。
-- 每完成一个 Page，执行本文件的 Page 路由和 `preflight-audit.md`，再把状态改为 `Pass`。
-- 叙事、页面目的或信息架构变化时，先更新 `PROJECT.md`；需要持续解释原因时再更新 `DECISIONS.md` 或 PROJECT 的 Decisions 章节，然后同步受影响 Checklist，不能只改 Canvas。
-- Missing 和 Blocked 不用虚构内容填满；保留真实状态并继续完成不依赖阻塞项的工作。
+页面与当前状态同步遵守 [Content Library — Current state contract](../content-library/README.md#current-state-contract)。
 
 ---
 
@@ -145,7 +53,7 @@ content-library/<project>/
 - [ ] 能在当前授权范围内修复的问题必须直接自修补，不把基础缺陷留给用户。
 - [ ] 缺少事实、权限或素材时标记 `Blocked`，继续完成不依赖阻塞项的工作。
 - [ ] 用户要求“完成”、“一次性完成”或完成当前 Part 时，Scope 内每个项目必须为 `Pass`、有证据的 `Blocked` 或用户明确授权的 `Deferred`；不得带未分类的 `[ ]` 结束。
-- [ ] 新建、复制或改写可复用 Component 责任时，实施前的 `Component Requirement Contract` 已为 `Ready`；实施后已按同一合同反向验证为 `Pass` 或 `Blocked`。
+- [ ] 新建、复制或改写可复用 Component 责任时，实施前的 `Component Requirement Contract` 已为 `Ready`；实施后按同一合同记录 Implementation status、Verification status 与 `Pass / Fix Required / Blocked` 证据。
 - [ ] 新 Page、主要 Section 重设计、跨页面差异化或“different layout”范围在实施前已有 `Ready` 的 `Visual Direction Contract`；实施后按同一合同反向验证，并分别记录 Structural status 与 Visual status。
 - [ ] 跨页面差异以全站 layout-family distribution 判断，不要求每个 Section 独一无二：同职责 Contact / CTA / Form 与共享系统可有理由复用；所有 sibling pages 使用同一 Hero 或完整页面构图的 site-wide layout monoculture 不通过；示例数量不是硬配额。
 - [ ] 用户明确设计意图与通用规则冲突时保留用户意图，并在 `DECISIONS.md` 或 PROJECT 的 Decisions / Exceptions 章节记录。
@@ -216,7 +124,7 @@ content-library/<project>/
 - [ ] 使用正确的 Styles、语义、链接和内容入口。
 - [ ] 重复结构已判断普通 Frame / Component / Property / CMS 的正确归属。
 - [ ] Desktop、Tablet、Phone 均已处理，而不是只完成 Desktop。
-- [ ] 静态平面设计已由 Agent 直接通过目标画布/截图审阅；必要交互已完成目标化结构读回。高级动效、Cursor、Hover 或 Variant 组件的实际视觉效果优先请用户在 Framer 中确认。仅在用户要求或真实行为无法由该证据建立时，才由 Agent 进入 Preview 操作。
+- [ ] 静态平面设计已由 Agent 直接通过目标画布/截图审阅；必要交互已完成目标化结构读回。交互的实际效果按 [evidence selection](basic/workflows/image-workflow.md#evidence-selection) 通过必要 Preview 或具有明确范围的用户确认建立；不可把结构设置当作 runtime 证据。
 - [ ] 新增 Layer、Component、Variant 没有默认名称。
 - [ ] Targeted readback 确认实际值，而不是根据命令成功推测完成。
 - [ ] 本轮新增 Error 已解决；Warning 已判断是问题还是明确设计意图。
@@ -720,7 +628,7 @@ Shared components:
 - [ ] 输出开始截断时立即缩小范围，不继续打印整页树。
 - [ ] 已知结构一次批量写入，不把同类修改拆成大量调用。
 - [ ] 修改后只回读目标节点、实例和断点。
-- [ ] 浏览器 Preview 不是默认审查工具：先做 targeted readback，再由用户确认可直接观察的视觉与高级交互效果；仅在必要例外中走关键 Preview 路径，且不重复截相同状态。
+- [ ] 按 [evidence selection](basic/workflows/image-workflow.md#evidence-selection) 选择结构、静态视觉或真实交互证据；不反复验证未改变的状态。
 - [ ] API 超时或工具无输出时先读当前状态，不重复提交同一写入。
 - [ ] 图片查看是可降级子步骤，不让整个 Framer 任务因视觉工具阻塞。
 - [ ] 第一次视觉查看前已在 canonical Recovery owner 写入一个当前 Checkpoint。

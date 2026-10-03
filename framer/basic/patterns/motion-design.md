@@ -221,7 +221,7 @@ Lightbox 图片不需要依赖整块图片的 hover scale 来提示可点击。
 
 ### Lightbox 检查清单
 
-交付前必须在 Preview 中实际点击检查：
+交付前按 [evidence selection](../workflows/image-workflow.md#evidence-selection) 对适用路径实际点击检查；Preview 不可用时记录明确用户观测或 Blocked：
 
 - 20 张图片是否都能打开。
 - 打开和关闭是否都有连续转场，而不是闪现。
@@ -484,7 +484,7 @@ Button component 至少应考虑：
 - 所有实例使用完全相同的 Hover 样式：可以做一个共享 Hover Gesture Variant。
 - 不同档案袋或记录需要不同 Hover Fill：使用页面 Instance 的 Hover Effect / Color Property。
 
-不要为每条记录分别创建 Hover Gesture Variant。实例化后必须在 Desktop、Tablet、Phone 的真实 Preview 中回读 Hover，不能只根据 Canvas 设置判断。
+不要为每条记录分别创建 Hover Gesture Variant。实例化后按 [evidence selection](../workflows/image-workflow.md#evidence-selection) 验证真实 pointer Hover；Phone 检查 touch/static 行为，不能只根据设置判断。
 
 推荐做法：
 

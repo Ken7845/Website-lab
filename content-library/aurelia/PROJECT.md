@@ -1,11 +1,15 @@
 # AURELIA Current Project
 
+- State schema: 1
+- Current status owner: [STATUS.md](./STATUS.md)
+- Recovery owner: [RECOVERY.md](./RECOVERY.md)
+
 - Updated: 2026-08-16
 - Platform: Framer
 - Project ID: `6EYvZfFo1CleDR77cYUF`
 - Project URL: `https://framer.com/projects/6EYvZfFo1CleDR77cYUF`
 
-This manifest answers only: **what is AURELIA now?** It was reconciled from the latest dated project records during a repository-only migration. The actual Framer Canvas remains the final source of truth whenever a future authorized Canvas inspection finds a difference.
+This manifest answers only: **what is AURELIA now?** It was reconciled from the latest dated project records during a repository-only migration. Targeted Canvas evidence establishes what exists; approved project direction establishes what should exist. Record differences without treating them as new authorization.
 
 Do not preload the project history for ordinary work. Read this file, inspect the actual target when Canvas work is authorized, then load only the relevant page Checklist or implementation reference.
 
@@ -180,8 +184,8 @@ The page language is a locked light editorial system with controlled near-black 
 | `Reel Text` | Native text-reel component with editable `Label` and `Link` Properties. `League Gothic`, `Button`, and `Body` are the exposed font Variants; each has a native Hover gesture state. In every Variant, an in-flow Helper owns content width and a clipped viewport; the three-row absolute Track uses `0px` gap and Hover `bottom=0`. Button follows the current `Type/Button` treatment: Inter `600 / 10px / 0.02em / 1em`, with a `10px` viewport and `-20px → 0px` track route. Navbar links and Footer navigation use Reel Text on Desktop / Tablet only; their Phone variants use ordinary `Type/Button` / `Type/Body` Rich Text. Footer brand uses `League Gothic`. | [Reel Text reference](../../framer/advance-design/aurelia/reel-relative-design.md) |
 | `Reservation Handoff` | One deep-inverse shared component with editable Heading and Supporting Copy; used by Home, Menu, and Chefs; one `Button` links to `/reserve`. | [Shared-shell Checklist](./checklist/shared-shell-and-reservation-handoff.md) |
 | `Button` | Shared White / Dark and Small state system with Label, Link, and Click ownership. Small states use `12px x 18px` padding, `10px` labels, and `spring-physics 250 30 1 0s`. | [Current Button pattern](../../framer/basic/patterns/buttons.md), [exact project evidence](./history/project-pre-migration-2026-08-15.md) |
-| `EveningChapterRow` | Fixed Home chapter row with component-owned breakpoint padding. | [Pre-migration snapshot](./history/project-pre-migration-2026-08-15.md) |
-| `ChapterCursorPreview` | Four visual cursor-preview states for Home Experience. | [Pre-migration snapshot](./history/project-pre-migration-2026-08-15.md) |
+| `EveningChapterRow` | Fixed Home chapter row with component-owned breakpoint padding. | [Historical detail only](./history/project-pre-migration-2026-08-15.md); current readback required before reuse |
+| `ChapterCursorPreview` | Four visual cursor-preview states for Home Experience. | [Historical detail only](./history/project-pre-migration-2026-08-15.md); current readback required before reuse |
 | `DishSelector` | Fixed seven-dish Home interaction with dedicated responsive state logic. | [Image matrix](../../framer/advance-design/aurelia/dish-selector-image-matrix.md), [reel pattern](../../framer/advance-design/aurelia/image-strip-number-reel.md) |
 | `MenuDishCard` | One reusable editable component. Desktop/Tablet expand; Phone static; Page Instances are Fill. | [Expandable editorial card](../../framer/advance-design/aurelia/expandable-editorial-card.md) |
 | `ChefStoryRow` | One editable component with Desktop, Tablet, Phone, and Wide Phone Collapsed/Expanded pairs. | [Chef story row](../../framer/advance-design/aurelia/chef-story-row.md) |

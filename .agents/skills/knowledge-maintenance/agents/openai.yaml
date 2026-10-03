@@ -1,4 +1,4 @@
 interface:
   display_name: "Knowledge Maintenance"
-  short_description: "Classify and validate Website-lab knowledge changes"
-  default_prompt: "Use $knowledge-maintenance to classify, preserve, route, and validate this Website-lab knowledge update."
+  short_description: "Audit routes, preserve evidence and validate knowledge"
+  default_prompt: "Use $knowledge-maintenance to audit ownership and conflicts, apply the authorized repair, preserve evidence, and validate the affected routes."

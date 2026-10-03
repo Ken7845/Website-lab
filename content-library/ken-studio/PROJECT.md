@@ -1,5 +1,9 @@
 # Ken Studio Personal Site
 
+- State schema: 1
+- Current status owner: [STATUS.md](./STATUS.md)
+- Recovery owner: [RECOVERY.md](./RECOVERY.md)
+
 ## 1. Project Identity
 
 - Project name: Ken Studio Personal Site
@@ -10,7 +14,7 @@
 - Framer project ID: `W2l0ZO8Ar0mErx3GOD0d`
 - Demo URL: Missing
 - Content status: Mixed
-- Last updated: 2026-07-30
+- Last updated: 2026-10-03 — repository owner split; last recorded live evidence 2026-07-30
 
 ## 2. Design Read
 
@@ -69,120 +73,19 @@ Home 负责建立氛围和提供入口，不承担完整作品归档。Works 是
 - [Goal](GOAL.md)
 - [Hero Content](hero-section.md)
 
-当前没有独立 `STYLE-GUIDE.md` 或 Works Archive Implementation Plan。字体、颜色、布局和实现状态以本文件为准，不引用已删除的旧文件。
+当前视觉系统由 [STYLE_GUIDE.md](./STYLE_GUIDE.md) 维护，实施与 QA 由 [STATUS.md](./STATUS.md) 维护；没有独立 Works Archive Implementation Plan。旧 `STYLE-GUIDE.md` 不再作为入口。
 
 ## 6. Typography System
 
-全站字体选择以 2026-07-18 读取到的 `/works` 实际设置为准。
-
-### 6.1 Font Roles
-
-| Role | Font | Use | Rule |
-|---|---|---|---|
-| Display | Boldonse Regular 400 | 页面主标题、极少数全站级标题 | 每个页面通常只出现一次，不用于长标题、正文或按钮 |
-| Structural Display | Inter Display Medium 500 | Section 标题、lead statement、作品名称、档案标签 | 负责秩序和清晰度，是全站主要结构字体 |
-| Reading Voice | Libre Baskerville Regular / Italic 400 | 观察文字、短注释、反思性段落 | 只作为安静的第二声部，不装饰性滥用 |
-| Functional Body | Inter Regular / Medium 400-500 | 正文、说明、导航、状态和交互信息 | 保持中性、直接、易读 |
-
-BDO Grotesk 当前存在于项目字体列表，但不加入核心四角色。除非在现有组件中有明确品牌用途，否则后续不新增使用范围。
-
-### 6.2 Canonical Type Scale
-
-| Text Style | Desktop 1200+ | Tablet 810 | Phone 390 | Font / Treatment |
-|---|---:|---:|---:|---|
-| Display / Page Title | 103 px | 80 px | 68 px | Boldonse 400, line-height 1.1 / 1.1 / 1.3, tracking 0 |
-| Heading / Section | 60 px | 48 px | 36 px | Inter Display 500, line-height 1.18, tracking -0.04em |
-| Display / Archive Title | 58 px | 48 px | 38 px | Inter Display 500, line-height 1.05, tracking -0.04em |
-| Body / Lead | 30 px | 26 px | 22 px | Inter Display 500, line-height 1.18, tracking -0.02em |
-| Body / Reading | 20 px | 15 px | 14 px | Libre Baskerville 400, line-height 1.55 |
-| Body / Functional | 16-18 px | 16-17 px | 15-16 px | Inter 500, line-height 1.35 |
-| Archive / Row Title | 20 px target | 18-20 px target | 16-20 px by variant | Inter Display 500, line-height 1.18, tracking -0.02em |
-| Meta / Primary | 12-13 px | 12-13 px | 11-13 px | Inter Display 500, line-height 1.2, tracking 0.06-0.14em |
-
-The values above are canonical starting values, not permission to scale every page mechanically. Copy length, image proportion and viewport fit must be checked together.
-
-### 6.3 Typography Rules
-
-- Boldonse 建立页面身份，不承担密集信息。
-- Inter Display 连接 Home、Works、作品详情页和全站导航结构。
-- Libre Baskerville 只用于真实观察、注释和反思，不用于营销式副标题。
-- 正文理想宽度为 55-65 characters；Phone 使用填充宽度并控制自然换行。
-- 大标题保持左对齐，不通过居中制造默认 Hero。
-- 同一语义层级在不同页面使用同一字体角色、字重和接近的 line-height。
-- 小标签允许 uppercase，但必须具有真实档案意义；letter-spacing 保持在 0.06-0.14em。
-- 数字、年份和状态保持固定列或稳定宽度，避免与标题碰撞。
-- Serif italic 必须检查 descender 和行框，不能出现裁切。
-- 新建 Framer Text Styles 时使用语义命名，不保留一次性字号作为系统默认。
-- HTML 语义与视觉 Text Style 分开判断：只有内容关系确实是页面主标题、章节标题或正文时才使用 h1/h2/h3/p；不能为了通过语义检查机械套用标签。若预设字号造成重叠、裁切或不合理换行，保留正确内容层级，并改用合适的现有视觉 Style 或局部响应式数值。
-
-Recommended Framer Text Styles:
-
-```text
-Display / Page Title
-Display / Archive Title
-Heading / Section
-Body / Lead
-Body / Reading
-Body / Functional
-Meta / Primary
-Meta / Secondary
-Archive / Row Title
-Link / Editorial
-```
+See [STYLE_GUIDE](./STYLE_GUIDE.md) for this unchanged system.
 
 ## 7. Layout and Spacing System
 
-### 7.1 Works-derived Page Rhythm
-
-Current `/works` reference values:
-
-| Area | Desktop | Tablet | Phone |
-|---|---|---|---|
-| Introduction horizontal padding | 44 px | 32 px | 18 px |
-| Introduction top padding | 117 px | 128 px | 104 px |
-| Introduction bottom padding | 159 px | 160 px | 129 px |
-| Introduction internal gap | 56 px | 44 px | 36 px |
-| Archive horizontal padding | 44 px | 32 px | 14 px |
-| Archive top padding | 96 px | 72 px | 56 px |
-| Folder body padding | 34 px | 28 px | 16 px |
-| Folder body gap | 34 px | 28 px | 22 px |
-| Folder tab height | 52 px | 52 px | 44 px |
-
-### 7.2 Global Layout Rules
-
-- 全站以左对齐和稳定内容边缘为主，标题、正文与图片边界需要建立可读的共同轴线。
-- Desktop 和 Tablet 可以使用非对称双列；Phone 重组为清晰单列，不直接压缩 Desktop。
-- 每个 Section 先确定目的，再决定布局。相邻 Section 不重复同一种模板构图。
-- Section 的水平 padding 优先复用 Works 的 44 / 32 / 18 体系；特殊全宽图像可以突破，但必须有明确理由。
-- 大段落与 heading 共用内容宽度；不使用悬空的右上角解释文字。
-- 结构间距使用可复用节奏：14 / 18 / 22 / 28 / 34 / 44 / 56 / 72 / 96 / 128 / 160。
-- 可见容器内文字必须有水平 padding；交互目标 Phone 最小高度 44 px。
-- 使用 Stack、Grid、Components、Variants 和 Breakpoints；不依赖绝对定位修补正常文档流。
-- 图片保持自身比例。仅在构图含义允许时使用 crop，并逐断点确认焦点。
+See [STYLE_GUIDE](./STYLE_GUIDE.md) for this unchanged system.
 
 ## 8. Color and Surface System
 
-Canonical colors derived from Works:
-
-| Token | Value | Use |
-|---|---|---|
-| Background / Base | `#111111` | 全站主背景 |
-| Surface / Observation | `#1D1D1D` | Observation 档案表面 |
-| Surface / Creation | `#2B2926` | Creation 档案表面 |
-| Text / Primary | `rgba(255,255,255,0.94-1)` | 标题和主要内容 |
-| Text / Secondary | `rgba(255,255,255,0.78-0.90)` | lead、正文、交互文字 |
-| Text / Muted | `rgba(255,255,255,0.48-0.60)` | 注释、元数据、状态 |
-| Accent / Observation | `#BD2222` | Observation 标签和必要状态 |
-| Accent / Creation | `#FCE351` | Creation 标签和必要状态 |
-| Divider / Quiet | `rgba(255,255,255,0.12)` | 档案行和结构分隔 |
-
-Rules:
-
-- 页面保持一个深色主题，不在 Section 之间切换成浅色纸张主题。
-- 红色和黄色是档案分类信号，不扩散成通用装饰色。
-- 文字透明度必须通过实际背景上的 WCAG AA 检查。
-- 表面层级依靠相邻深色差、边界和叠放表达，不使用厚重阴影。
-- Radius 保持接近 sharp，默认 0-4 px；按钮若沿用现有组件，需遵循组件自身一致规则。
+See [STYLE_GUIDE](./STYLE_GUIDE.md) for this unchanged system.
 
 ## 9. Content Facts and Boundaries
 
@@ -388,7 +291,7 @@ Rules:
   - Dutch Treat Restaurant — uploaded Framer cover reused across all breakpoints.
   - Morrow & Grain Bakehouse — uploaded Framer cover reused across all breakpoints.
   - Canonical case-study copy, links and detail routes remain missing.
-- Contact sheet: A temporary review sheet exists at `Framer 2/contact-sheets/ken-studio-paintings-review.jpg`; it is a working artifact, not a source asset.
+- Contact sheet: the former `Framer 2/contact-sheets/ken-studio-paintings-review.jpg` is a historical temporary artifact, not currently present at that repository-relative path. Regenerate from resident authorized source files only if the active task needs it.
 - Web derivatives: Create from source according to real Framer container sizes; do not overwrite originals.
 - Alt text: Added for the two reveal images and the three Painting Continuum artworks; most remaining site assets still require audit.
 - License status: User-provided personal work assumed, but publication rights should be confirmed for any third-party website screenshots or external media.
@@ -423,220 +326,15 @@ Until these missing items are resolved, structural and visual work may continue,
 
 ## 18. Build Status Matrix
 
-Legend: `✓` verified or sourced, `◐` existing but requires audit, `□` not complete, `B` blocked by missing content or decision.
-
-| Page | Content | Styles | Components | Links | SEO | Alt | Desktop | Tablet | Phone | Preview |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Home | ◐ | ✓ current scope | ◐ | ◐ | □ | ◐ | ✓ screenshot | ✓ screenshot | ✓ screenshot | ◐ interactive |
-| Works | ◐ | ✓ baseline | ✓ row template | ◐ confirmed routes only | □ | B | ✓ targeted | ✓ targeted | ✓ screenshot | ◐ cursor runtime |
-| Fighting the Chemistry | B | ✓ header scope | ◐ | ◐ | □ | B | ✓ screenshot | ✓ screenshot | ✓ structure + prior screenshot | ◐ interaction |
-| Golden Moment | ✓ source | ◐ | ◐ | ◐ | □ | B | ◐ | ◐ | ◐ | □ |
-| Campus | B | □ | □ | B | □ | B | □ | □ | □ | □ |
-| Shadow | B | □ | □ | B | □ | B | □ | □ | □ | □ |
-| Creation category | B | ◐ | ◐ | B | □ | B | ◐ | ◐ | ◐ | □ |
-| Creation details | B | □ | □ | B | □ | B | □ | □ | □ | □ |
-| About | B | ◐ | ◐ | ◐ | □ | B | ◐ | ◐ | ◐ | □ |
-| Musings | B | □ | □ | B | □ | B | □ | □ | □ | □ |
-
-This matrix is a planning baseline, not a claim that live Preview QA has passed.
+See [STATUS](./STATUS.md) for current results and gaps.
 
 ## 19. Decisions and Exceptions
 
-| Decision | Reason | Scope | Date |
-|---|---|---|---|
-| `/works` typography and spacing become the full-site baseline | It currently expresses the intended quiet archive language most clearly | Website | 2026-07-18 |
-| Boldonse is reserved for page-level display titles | Its weight is distinctive but becomes loud and difficult when repeated densely | Website | 2026-07-18 |
-| Inter Display carries structural hierarchy | It connects large archive titles, lead statements, rows and metadata without adding another font | Website | 2026-07-18 |
-| Libre Baskerville is a restrained reading voice | It supports observation and reflection while remaining secondary to images | Website | 2026-07-18 |
-| BDO Grotesk is not part of the core type system yet | No required role is currently established by Works | Website | 2026-07-18 |
-| The site remains dark-theme locked | Works and Brand Voice rely on soft white type over near-black surfaces | Website | 2026-07-18 |
-| Red and yellow remain category signals | They distinguish Observation and Creation without creating a broad decorative palette | Works and related navigation | 2026-07-18 |
-| Current custom cursor is a Works-only exception | It is already the latest project-specific interaction, but must not become a global cursor and requires keyboard, touch and reduced-motion fallbacks | Works, pointer devices only | 2026-07-18 |
-| Native Framer patterns remain the default | Components, Variants, Styles, Stacks, Breakpoints and native Effects are more maintainable for the known fixed content | Website | 2026-07-18 |
-| No publishing without explicit approval | Routes and formal content remain incomplete | Website | 2026-07-18 |
-| Home narrative does not move directly from a generic Hero to a project grid | The site needs to establish how external observation becomes internal form before presenting an archive or service | Home | 2026-07-18 |
-| Photography and mandala painting are connected through attention, rhythm and structure | The abstract paintings are not literal depictions of photographed subjects | Home / Observation → Creation bridge | 2026-07-18 |
-| Preserve the current user-built Creation reveal | The previous agent implementation was rejected; current canvas geometry and scroll relationships are the implementation source | Home / Creation Reveal | 2026-07-26 |
-| DOMT's white field is treated as artwork content | It is an intentional local visual event, not permission to introduce a general paper-themed site skin | Home / Creation Reveal | 2026-07-18 |
-| Home Creation no longer opens with the old four-cover website grid | Painting is the primary Creation narrative; website practice should appear later as structure made usable, not as a generic product display | Home / Creation | 2026-07-18 |
-| Creation writing may draw from Jung's *The Red Book* as a reference | The paintings were made in dialogue with its mandalas and inner-symbolic language; copy may use restrained mythic and theological imagery without imitation or false quotation | Home / Painting Continuum | 2026-07-26 |
-| Creation receives an opaque Background / Base surface | The preceding sticky reveal must not remain visible beneath the introduction and first artwork; the fill establishes a readable content plane without changing the reveal targets | Home / Painting Continuum | 2026-07-26 |
-| Creation and Digital Form headings reuse the existing `Heading/Section` H2 preset | The project already has canonical H1, H2 and paragraph roles; section copy must not introduce a parallel display style | Home / Creation | 2026-07-27 |
-| Website Practice begins only after the third painting | It preserves the inward-form narrative before translating structure into usable digital space | Home / Website Practice | 2026-07-27 |
-| Website covers have no new scroll animation | Appending content must not add or rename reveal targets; a foreground Background / Base surface provides visual separation instead | Home / Website Practice | 2026-07-27 |
-| Repeated Creation and Digital Form title groups use the native `SectionTitle` component | Their structure and typography are identical; Eyebrow, Heading and Description are exposed as content properties while existing Meta/H2/P presets remain authoritative | Home / Creation | 2026-07-27 |
-| Painting rows remain page-scoped despite the maintenance goal | A hidden component test proved Framer rejects page Scroll Section targets from inside a component and exposes no instance-descendant override path; replacing the rows would remove the independent Image/Copy entrance sequence | Home / Painting Continuum | 2026-07-27 |
-| Footer variants share the phone-derived paired layout | One shared Footer now provides a stable left wordmark and right navigation at Desktop, Tablet and Phone; only confirmed non-draft routes are linked | Shared Footer | 2026-07-27 |
-| Layer names use the shortest clear expression inside their parent context | Repeating ancestor or Section prefixes makes the tree slower to scan without adding meaning; Scroll Target names remain the exact `elementId` exception | Website | 2026-07-29 |
-| `ArchiveOptionRow` is a record-agnostic template | Record content, link, base fill, hover fill and cursor selection belong to page instances; only Desktop and Phone express structural differences | Works | 2026-07-29 |
-| Creation keeps Inner Form and Digital Form inside the same folder | Home establishes painting and website practice as two expressions of Creation; five painting rows and one Morrow & Grain Demo row preserve that hierarchy | Works / Creation Folder | 2026-07-29 |
-| Fighting the Chemistry keeps its two responsive intro orders | Desktop/Phone remain Title First while Tablet remains Lead First; typography and semantics were normalized without changing the photo sequence or scroll timing | Fighting the Chemistry | 2026-07-29 |
-| Tablet intro uses canonical values as a local exception | The inherited Tablet RichText continued rendering the removed `auto-fit` override while reporting a preset binding; direct Boldonse 80 and Inter Display 26 values match the canonical style and prevent runtime clipping | Fighting the Chemistry / Tablet | 2026-07-29 |
-| Visual review uses a fixed evidence budget and stop condition | Repeated original-image decoding, CDN download and screenshot retries have repeatedly become a single point of failure; one authoritative evidence chain is enough and visual failure cannot block independent structural work | Website workflow | 2026-07-30 |
-| Review depth follows change risk | Naming, copy and property changes use structural readback; layout uses one targeted screenshot; hover/cursor/scroll uses one key interaction; full-page review is reserved for page-level work | Website workflow | 2026-07-30 |
-| Semantic tags do not dictate visual size | Correct content hierarchy must be preserved, but a mechanically applied H1/H2/P preset may be replaced by a suitable existing visual style or responsive values when it overlaps, clips or damages the composition | Website | 2026-07-30 |
-| `ArchiveOptionRow` uses breakpoint-matched pointer hover states | Desktop and Phone remain structural variants. `Desktop Hover` and the explicitly requested `Phone Hover` both consume the same per-instance Hover Fill; Phone hover serves narrow-screen pointer environments, while touch-only devices still have no hover event | Works | 2026-07-30 |
-| Phone Footer separates full-width surface from bounded content | The footer background may fill the Phone breakpoint up to 809 px, but the paired wordmark/navigation layout is capped at 480 px and centered so auto-fit text cannot grow beyond the fixed visual composition | Shared Footer / Phone | 2026-07-30 |
-| CTA buttons use padding-driven Fit Content structure | The visible Button Stack owns Border and Padding around Fit Content text; page-level CTA Stacks own Fill width, alignment and Fit height so changed labels resize the boundary without clipping | Home / Observation / Shared CTA | 2026-07-31 |
+See [DECISIONS](./DECISIONS.md) for active approved decisions.
 
 ## 20. Recovery State
 
-- Active Framer session: `1`, connected through the official `@framer/agent` workflow.
-- Current project: Ken Studio
-- Current pages changed: Home `/`, Works `/works`, and Fighting the Chemistry
-  `/fighting-the-chemistry`.
-- Last successful action: Replaced the Observation Polaroid Card's old fixed-size
-  CTA Button 2 with the user-built padding-driven CTA Button. The card now uses a
-  Fill-width / Fit-height CTA Stack, a Fit Link boundary and breakpoint-matched
-  Desktop, Tablet and Phone button variants.
-- Verified breakpoints from live structure: Desktop 1200, Tablet 810, Phone 390.
-- Official visual QA in this task:
-  - Framer-generated full-page screenshots completed for Desktop, Tablet and Phone.
-  - Creation section screenshots completed independently for all three breakpoints.
-  - Tablet reveal screenshot verified after reducing the inherited Desktop image geometry and clipping the 760 px stage.
-  - Phone Hero screenshot verified after adding the 64 px top safe area.
-  - Interactive Preview scrolling still requires a final hands-on pass.
-- Framer canvas changes in this task:
-  - Learned the user-built `CTA Button` from its live Home instances: Border and
-    Padding belong to a Fit Content Stack around the Content property; page CTA
-    Stacks use Fill width and Fit height so the button is not clipped.
-  - Replaced the old `CTA Button 2` inside `Polaroid Card` with the shared
-    `CTA Button`, preserving `View Collection` and the card's Link variable.
-  - Added a Fit Link Stack inside the Fill-width CTA placement Stack so only the
-    visible button boundary is clickable, not the surrounding empty row.
-  - Applied Desktop, Tablet and Phone button variants to the corresponding
-    Polaroid variants; Phone keeps centered placement while larger variants remain
-    left aligned.
-  - Preserved the current user-built Creation reveal and its existing effect targets.
-  - Kept semantic names on ordinary structure and synchronized all 22
-    effect-linked Scroll Target Frames to their exact `elementId` values.
-  - Created `Display/Page Title`, `Heading/Section`, `Body/Lead`, `Body/Reading`,
-    `Body/Reading Italic`, `Meta/Primary` and `Artwork/Title` Text Styles with
-    Desktop / Tablet / Phone slots.
-  - Set `Artwork/Title` to 30 / 26 / 22 px so artwork names remain clearly above
-    their reading copy at all three breakpoints.
-  - Added approved Jung / *The Red Book*-influenced titles and reflections for
-    Doctrine of the Mean Is the Truth, The Birth of the Sun and Depth.
-  - Converted Painting Continuum to alternating Desktop / Tablet rows and
-    single-column Phone rows while preserving the original reveal-target frames.
-  - Added alt text to the two reveal images and three continuum artworks.
-  - Added an opaque Background / Base fill to Creation so the sticky reveal does not
-    bleed through the introduction.
-  - Fixed Tablet reveal composition by using an 810 × 543 base image, a clipped
-    760 px stage and a 560 × 400 document layer.
-  - Updated the Creation entry to `CREATION / INNER FORM`, “A centre forms
-    within.” and its revised inward-attention subtitle while retaining the existing
-    `Heading/Section`, `Meta/Primary` and `Body/Reading` presets.
-  - Added `CREATION / DIGITAL FORM`, “The structure leaves the page.” and a
-    transitional paragraph after the Painting Continuum.
-  - Added Dutch Treat Restaurant and Morrow & Grain Bakehouse covers at matching
-    sizes: Desktop 46.217% × 360 px, Tablet 54% × 282 px and Phone 100% × 248 px.
-  - Added no Scroll Targets or effects to Website Practice.
-  - Renamed the painting container to `Creation / Painting Continuum` and its
-    three content rows to `Artwork 01 / Content Row` through `Artwork 03 / Content Row`.
-  - Created native `SectionTitle` with Eyebrow, Heading and Description controls;
-    replaced the Creation and Digital Form title groups and restored their original
-    Desktop / Tablet / Phone widths.
-  - Kept the `Meta/Primary`, `Heading/Section` and `Body/Reading` presets inside
-    `SectionTitle`; no parallel font styling was introduced.
-  - Tested `ArtworkEntry` as a hidden component before replacement. Framer rejected
-    both page-scoped Scroll Section targets inside the component, so the test
-    instance and component were removed and all three live rows were left unchanged.
-  - Re-audited all six painting Image/Copy effect targets and all six Scroll Target
-    frames after cleanup; target IDs, transitions, elementIds, widths and heights
-    remain unchanged.
-  - Updated the existing shared Footer component instead of duplicating it. Desktop,
-    Tablet and Phone now use the phone-derived left wordmark / right navigation
-    layout with `/`, `/works`, `/about` and `/observations` links.
-  - Matched the Phone Footer Variant to the Layout Template instance's real 160 px
-    height and reduced only its wordmark/navigation sizing; the final instance
-    screenshot shows no top clipping or right-column overflow.
-  - Visually checked the three Footer variants and Home Creation node using Framer
-    on-demand screenshots and `node_repl.emitImage`, without reading Painting originals.
-  - Verified in the live Framer editor that the three breakpoint canvases contain
-    the new section after the third painting and that protected layers remain locked.
-  - Home naming readback found no unnamed page-local Frame/RichText nodes and no
-    Scroll Target whose layer name differs from its `elementId`.
-  - Removed 19 record-specific Desktop/Phone/Hover variants and the duplicate
-    Status/Title properties from `ArchiveOptionRow`; retained only Desktop and Phone.
-  - Added Project Link and Base Fill instance properties to the row template and
-    preserved the confirmed Fighting the Chemistry and Golden Moment routes.
-  - Added Works Creation groups `Inner Form` and `Digital Form`; their six instances
-    use real titles, numbered rows, Creation surface colors, non-scaling Hover Effects
-    and matching Cursor Preview variants.
-  - Targeted readback verified 18 Creation instances across Desktop, Tablet and Phone,
-    with Phone selecting the Phone variant and no missing content/cursor fields.
-  - Desktop interaction view and Framer on-demand Phone screenshot show stable rows
-    with no horizontal overflow. Sticky-folder overlap warnings remain intentional
-    user-authored geometry.
-  - Fighting the Chemistry now uses `Content → Introduction → Title First / Lead
-    First` and `Photo Sequence`; the four effect targets still retain exact
-    `content-appear1` through `content-appear4` names.
-  - Desktop and Phone use the canonical `Display/Page Title` and `Body/Lead`
-    presets. Tablet retains its Lead First composition with canonical 80 px
-    Boldonse and 26 px Inter Display values after clearing a stale `auto-fit`
-    breakpoint override.
-  - Tablet screenshots were iterated until the H1 and Lead no longer clipped or
-    split a word. Phone uses new clean single-block title/lead nodes; old multi-h1
-    and clipped Lead replicas are hidden.
-  - The final Phone on-demand screenshot was generated by Framer, but its image URL
-    failed twice during temporary download. Per image-workflow rules, visual
-    retries stopped and the pass was completed with RichText/tag/visibility/width
-    readback; a later runtime screenshot remains desirable.
-  - Added one shared `Desktop Hover` Gesture Variant to `ArchiveOptionRow`; its fill
-    comes from a per-instance Hover Fill property. Removed page-instance hover
-    effects and disabled custom cursor on the Phone structural variant.
-  - Restored the quiet 1 px bottom divider on the shared Desktop, Phone and hover
-    states so Creation rows match Observation rows.
-  - Removed the redundant Core and Doctrine of the Mean Creation records. Inner
-    Form is now ordered Doctrine of the Mean Is the Truth, Ken, Pure, The Birth of
-    the Sun and Depth; Digital Form retains Morrow & Grain Demo.
-  - Corrected Morrow & Grain's cursor preview binding away from the unrelated Dutch
-    Treat image.
-  - The supplied optimized painting files are under
-    `/Users/Zhuanz/Desktop/Worls/Paintings/Webp`. Filename authority changes `E`
-    to `Ken`. The user uploaded Ken and Pure manually; live cursor readback now shows
-    distinct Framer image URLs for both variants.
-  - Phone readback confirms all ten archive instances select the Phone variant,
-    use `1fr` width, and bind to their matching custom cursor preview. The shared
-    Phone title owns
-    248 px inside its 330 px row; the 390 px screenshot shows normal horizontal
-    titles, with the longest title wrapping to two lines instead of vertically.
-  - Added `Phone Hover` from the Phone structural variant. It preserves the 330 px
-    row, divider and title geometry, and changes only to each instance's Hover Fill.
-    Desktop and Phone hover variants remain shared gesture states rather than
-    record-specific copies.
-  - Phone Footer keeps its full-width surface while `Paired Layout` uses `1fr` with
-    `maxWidth: 480px`. The wordmark column uses `1fr`, `minWidth: 0` and
-    `maxWidth: 336px`; Navigation uses a stable 104 px width within 96–120 px.
-  - The Main Template Phone Footer instance now uses `height: auto` with a 220 px
-    minimum. A 760 px Phone Preview remained inside the viewport with no horizontal
-    overflow; Preview width was restored to 390 px afterward.
-  - `Sanctuary1` was not found under the project image folders, repository history,
-    Spotlight index or available Framer asset readback. Sanctuary was not invented
-    or added with a wrong cover.
-- Current document task: Keep `content-library/ken-studio/PROJECT.md` as the durable design and recovery source.
-- Remaining work:
-  - Run a hands-on Preview pass for the exact Core growth, document crossfade, final arrival and sticky release timing on all three devices.
-  - Verify reduced-motion behavior and real-device memory use; current screenshots validate static composition, not scroll runtime.
-  - Add confirmed links and case-study routes to the two Website Practice covers
-    when those destinations are ready.
-  - Audit Home, About and detail pages against the new type system.
-  - Complete a final published/runtime pointer test for every Works custom cursor;
-    the editor interaction pass verified row hover stability and cursor bindings,
-    but the OS pointer image is not represented in captured screenshots.
-  - Run one later narrow-screen pointer Preview when Framer's embedded preview
-    viewport renders normally; the current embedded canvas loaded the full Works DOM
-    but produced a blank visual frame, so runtime evidence is structural for now.
-  - Provide or identify the exact `Sanctuary1` asset, then add Sanctuary as the next
-    Observation row and bind its cursor preview.
-  - Re-open the final Fighting the Chemistry Phone screenshot or Preview when the
-    Framer screenshot CDN is stable; current structural audit confirms one visible
-    h1 and one visible Lead, with the legacy text nodes hidden.
-  - Apply or normalize the new semantic Text Styles outside the current Home scope.
-  - Resolve missing content and routes.
-  - Complete SEO, remaining alt text and interactive Preview checks before publishing.
-- Important local asset path: `content-library/ken-studio/images`
+See [RECOVERY](./RECOVERY.md) for the one current continuation pointer; exact earlier evidence is indexed in [HISTORY](./HISTORY.md).
 
 ## 21. Definition of Done
 

@@ -4,17 +4,30 @@
     "history/**",
     "content-library/**/history/**",
     ".agents/skills/design-taste/references/original-design-taste.md",
-    "content-library/**/checklist/knowledge-architecture/**"
+    "content-library/aurelia/checklist/knowledge-architecture/2026-08-15-progressive-disclosure-migration.md"
   ],
   "skip_markdown_link_globs": [
-    "content-library/aurelia/history/project-pre-migration-2026-08-15.md"
+    "content-library/aurelia/history/project-pre-migration-2026-08-15.md",
+    "content-library/aurelia/history/2026-10-03-recovery-before-routing-repair.md",
+    "content-library/ken-studio/history/2026-10-03-project-before-owner-split.md",
+    "content-library/summit-roofing/history/2026-10-03-recovery-before-routing-repair.md",
+    "content-library/summit-roofing/history/2026-10-03-contracts-before-lifecycle-repair.md",
+    "content-library/HK Place/history/2026-10-03-contracts-before-lifecycle-repair.md"
   ],
   "immutable_archives": {
     ".agents/skills/design-taste/references/original-design-taste.md": "aa194351b246b8b4799099d4ed7b033d29eab6e6e3d58d8d2172978be7b3ec89",
     "content-library/aurelia/history/project-pre-migration-2026-08-15.md": "462b699f6ef9fbf4af28528252faefc4dc924192a303adddf50c88e9582f52c8",
     "history/repository/agents-pre-router-2026-08-15.md": "41d6e7173072abf3ace332decebdeb4612ce2a2f5e4a5fc493bdcd015a86b3a1",
     "history/repository/readme-pre-router-2026-08-15.md": "fa477f890adfd7d06526103f34f05efa325638c11434c87318ce184c6f60cd1e",
-    "history/repository/project-manifest-template-pre-split-2026-08-15.md": "c05718d0cdebe84c78520b733669962172848141400620565f39cf88614b766e"
+    "history/repository/project-manifest-template-pre-split-2026-08-15.md": "c05718d0cdebe84c78520b733669962172848141400620565f39cf88614b766e",
+    "content-library/summit-roofing/history/2026-10-03-recovery-before-routing-repair.md": "7739aadad81c93b7cd1cfcc502905fc99a0da77d5294cc11f2078f82e367fe71",
+    "content-library/aurelia/history/2026-10-03-recovery-before-routing-repair.md": "b31ca534b07f0ff512d07d52850e8f09cd075790e38d6bb8f05d99c26558eb2b",
+    "content-library/ken-studio/history/2026-10-03-project-before-owner-split.md": "5b59edb1d1645ec11f85ad253f8b8cbc5959d1edde20eb03a2e320ba05429e42",
+    "content-library/dutch-treat-restaurant/history/legacy-handoff.md": "edfa7f764e5df294600ee729ce8adc2ad91ad8a8928eaca536a87a7882075fbe",
+    "content-library/summit-roofing/history/2026-10-03-contracts-before-lifecycle-repair.md": "9e39492ac6b80f6483a4ecc279b8dba05dd690d533d0af2abc4b3fd430815a91",
+    "content-library/HK Place/history/2026-10-03-contracts-before-lifecycle-repair.md": "f8dc28c874e8166c70c4288c5200c2da1a97064deeebddd46bcab6dd1eb81ff7",
+    "content-library/aurelia/history/2026-10-03-image-strip-before-classification.md": "c69d8c229aa7bebe5035c69219af49576475b5c3c2f47663ae96f78d0326bffb",
+    "history/repository/2026-10-03-independent-routing-evaluation.md": "3e7fe33b62a4c3f8bad98fec0f5efa8d99f339aba045c5828238d7b44864e035"
   },
   "semantic_markdown_migrations": {
     "content-library/aurelia/checklist/about.md": {
@@ -26,12 +39,8 @@
       "reason": "The Reel Text reference was renamed after integrating the Submit Roofing Button Arrow reel into one canonical reel-related pattern."
     }
   },
-  "known_project_manifest_exceptions": {
-    "content-library/dutch-treat-restaurant": "Pre-existing legacy project; a PROJECT.md migration has not yet been authorized."
-  },
-  "known_overloaded_projects": {
-    "content-library/ken-studio/PROJECT.md": "Pre-existing 656-line manifest remains explicit migration debt and was outside the AURELIA refactor scope."
-  },
+  "known_project_manifest_exceptions": {},
+  "known_overloaded_projects": {},
   "stale_active_terms": [
     "skills/taste-skill/",
     "framer/basic/workflows/agent-connection.md",
@@ -85,7 +94,7 @@
     "owners complete / N/A reasoned / readback planned / preview planned",
     "Visual Direction Contract",
     "Visual contract receipt",
-    "Website_Lab_V2.1.1",
+    "Website_Lab_V2.2.0",
     "Workflow Observations",
     "Later-discovered issue",
     "Workflow candidate"
@@ -108,7 +117,7 @@
       "普通建设不得预读 observations"
     ],
     "README.md": [
-      "Website_Lab_V2.1.1",
+      "Website_Lab_V2.2.0",
       "## Workflow Observations",
       "history/workflow-observations/"
     ],
@@ -122,15 +131,8 @@
     ],
     "framer/README.md": [
       "## 0. Live Canvas Hard Gate",
-      "npx @framer/agent@latest setup",
-      "npx @framer/agent@latest session new",
-      "npx @framer/agent@latest exec -s",
-      "official `$framer` Skill",
-      "projects/<safeProjectId>/index.md",
-      "required elevated permissions",
       "Gate remains closed",
       "Framer Agent gate receipt",
-      "Browser / Playwright / Computer Use",
       "### Multi-domain primary-skill precedence",
       "Component Requirement Contract",
       "Visual Direction Contract"
@@ -152,15 +154,8 @@
       "Page Instance",
       "Breakpoint Override",
       "## Platform gate",
-      "npx @framer/agent@latest setup",
-      "npx @framer/agent@latest session new",
-      "npx @framer/agent@latest exec -s",
-      "official `$framer` Skill",
-      "projects/<safeProjectId>/index.md",
-      "required elevated permissions",
       "Gate remains closed",
       "Framer Agent gate receipt",
-      "Browser / Playwright / Computer Use",
       "## Compile a Component Requirement Contract",
       "Decision / N/A reason",
       "Internal padding / hit area",
@@ -173,15 +168,8 @@
       "deepest valid max-width owner",
       "senior structural parent",
       "## Platform gate",
-      "npx @framer/agent@latest setup",
-      "npx @framer/agent@latest session new",
-      "npx @framer/agent@latest exec -s",
-      "official `$framer` Skill",
-      "projects/<safeProjectId>/index.md",
-      "required elevated permissions",
       "Gate remains closed",
       "Framer Agent gate receipt",
-      "Browser / Playwright / Computer Use",
       "Visual Direction Contract"
     ],
     "framer/basic/workflows/change-control.md": [
@@ -226,27 +214,13 @@
     ],
     ".agents/skills/framer-interactions/SKILL.md": [
       "## Platform gate",
-      "npx @framer/agent@latest setup",
-      "npx @framer/agent@latest session new",
-      "npx @framer/agent@latest exec -s",
-      "official `$framer` Skill",
-      "projects/<safeProjectId>/index.md",
-      "required elevated permissions",
       "Gate remains closed",
-      "Framer Agent gate receipt",
-      "Browser / Playwright / Computer Use"
+      "Framer Agent gate receipt"
     ],
     ".agents/skills/framer-qa/SKILL.md": [
       "## Platform gate",
-      "npx @framer/agent@latest setup",
-      "npx @framer/agent@latest session new",
-      "npx @framer/agent@latest exec -s",
-      "official `$framer` Skill",
-      "projects/<safeProjectId>/index.md",
-      "required elevated permissions",
       "Gate remains closed",
       "Framer Agent gate receipt",
-      "Browser / Playwright / Computer Use",
       "Contract symmetry",
       "unclassified",
       "Visual-contract symmetry",
@@ -308,6 +282,34 @@
       "zz0sK4qC1",
       "w84t84ST7",
       "O0dtSoRtO"
+    ]
+  },
+  "inactive_document_reasons": {
+    "content-library/aurelia/checklist/knowledge-architecture/2026-08-15-progressive-disclosure-migration.md": "Closed repository architecture migration; preserved evidence, not an active construction contract."
+  },
+  "required_routes": {
+    "AGENTS.md": [
+      "framer/README.md",
+      ".agents/skills/knowledge-maintenance/SKILL.md"
+    ],
+    "framer/README.md": [
+      "AGENTS.md#live-framer-canvas-gate"
+    ],
+    ".agents/skills/framer-components/SKILL.md": [
+      "AGENTS.md#live-framer-canvas-gate",
+      "framer/README.md#2-只选一个-primary-repo-skill"
+    ],
+    ".agents/skills/framer-layout-responsive/SKILL.md": [
+      "AGENTS.md#live-framer-canvas-gate",
+      "framer/README.md#2-只选一个-primary-repo-skill"
+    ],
+    ".agents/skills/framer-interactions/SKILL.md": [
+      "AGENTS.md#live-framer-canvas-gate",
+      "framer/README.md#2-只选一个-primary-repo-skill"
+    ],
+    ".agents/skills/framer-qa/SKILL.md": [
+      "AGENTS.md#live-framer-canvas-gate",
+      "framer/README.md#2-只选一个-primary-repo-skill"
     ]
   }
 }

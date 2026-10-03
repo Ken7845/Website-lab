@@ -1,5 +1,9 @@
 # Framer 高级组件：ChefStoryRow
 
+> Status: **Canonical; project-specific**.
+> Provenance: AURELIA /chefs, recorded live verification 2026-08-16, four authored widths and eight paired states.
+> Verification boundary: Dated implementation evidence; current live state must be read back through the platform gate. Repository classification added 2026-10-03; no fresh Canvas verification.
+
 > **Current Canvas contract — verified 2026-08-16.** The `/chefs` page owns the available inline width: `Chef Profiles` and all three Page Instances are Fill (`1fr`) at Desktop, Tablet, Phone, and Wide Phone, with no `maxWidth` on the list. The portrait remains governed by its breakpoint-specific frame; the adjacent Story / identity region takes the responsive remainder. Treat this as the current source of truth over older revision notes.
 
 ## 适用范围

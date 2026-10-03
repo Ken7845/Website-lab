@@ -1,5 +1,10 @@
 # Summit Roofing — Insights Archive Checklist
 
+- Contract schema: 1
+- Component contract: N/A — this recorded Part contains no component contract; lifecycle migration makes no construction change.
+- Visual contract: Required
+- Evidence migration: 2026-10-03; repository-only. Original contract assertions are preserved in project History; no fresh Canvas or runtime proof was produced.
+
 ## Status
 
 - Page: Insights
@@ -18,19 +23,21 @@
 ## Visual Direction Contract
 
 Contract status: Blocked — structural evidence is recorded; visual evidence is pending for this Part.
+Implementation status: Implemented — historical completion record; current live state not reverified.
+Verification status: Blocked — retain bounded historical results; outstanding evidence requires the live Framer gate.
 
 | Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
 |---|---|---|---|---|---|
-| Design Read | A practical roof-notes field, not a generic blog wall or a media publication. | Page | `../PROJECT.md#4-website-goal` | One H1, named Sections and CMS list. | One bounded Desktop review. |
-| Preserve | Shared shell, condensed display type, blue-grey tokens, square geometry and restrained work imagery. | Shared system | `../PROJECT.md#6-brand-direction` | Shell/style/Card/Button readback. | Compare with live siblings. |
-| Transform | Make the archive itself the evidence field: a dark editorial threshold followed by a contained CMS article grid. | Page | `insights.md#page-narrative-and-sections` | Four Sections and collection owner. | Distinct archive rhythm. |
-| Avoid | No invented authors, dates, advice claims, search/filter system, tag cloud, newsletter, metrics or dead detail links. | Page | `../PROJECT.md#7-content-facts` | CMS/link readback. | Desktop exclusion check. |
-| Sibling-page delta | Insights is an educational field, not Projects' work archive or Contact's request desk. | Page | `../PROJECT.md#9-narrative-and-conversion` | Section/CMS comparison. | One distinct memory point. |
-| Section composition | Deep-navy notes threshold; mist editorial context; soft-white CMS field; slate-blue service handoff. | Page | `insights.md#page-narrative-and-sections` | Fill/width owner readback. | Colour and hierarchy review. |
-| Colour rhythm | Deep navy / mist / soft white / slate blue. | Page | `../PROJECT.md#6-brand-direction` | Token readback. | Desktop review. |
-| Asset map | Article Card receives only the existing CMS Image field and its current Alt. No static photo is allocated. | CMS | `../PROJECT.md#11-responsive-interaction-and-assets` | CMS binding readback. | Existing image-role review. |
-| Responsive transformation | Desktop uses a two-column article field; Tablet stabilizes the same field; Phone becomes one readable article column with 20px gutters. | Breakpoints | `insights.md#image-responsive-interaction-and-accessibility` | 1200/810/390 readback. | Desktop review; Phone later only if needed. |
-| Completion evidence | Structural: semantic Sections, CMS bindings, Article Card instances, truthful Demo state, links and breakpoint owners. Visual: bounded composition proof. | QA | `../../../framer/checklist.md#2-每个-part-的通用完成门槛` | Diagnostics/readback. | Recorded plan and one review. |
+| Design Read | A practical roof-notes field, not a generic blog wall or a media publication. | Page | `../PROJECT.md#4-website-goal` | Blocked — original record: One H1, named Sections and CMS list.; a row-specific completed result is not established here. | Blocked — original record: One bounded Desktop review.; a row-specific completed result is not established here. |
+| Preserve | Shared shell, condensed display type, blue-grey tokens, square geometry and restrained work imagery. | Shared system | `../PROJECT.md#6-brand-direction` | Blocked — original record: Shell/style/Card/Button readback.; a row-specific completed result is not established here. | Blocked — original record: Compare with live siblings.; a row-specific completed result is not established here. |
+| Transform | Make the archive itself the evidence field: a dark editorial threshold followed by a contained CMS article grid. | Page | `insights.md#page-narrative-and-sections` | Blocked — original record: Four Sections and collection owner.; a row-specific completed result is not established here. | Blocked — original record: Distinct archive rhythm.; a row-specific completed result is not established here. |
+| Avoid | No invented authors, dates, advice claims, search/filter system, tag cloud, newsletter, metrics or dead detail links. | Page | `../PROJECT.md#7-content-facts` | Blocked — original record: CMS/link readback.; a row-specific completed result is not established here. | Blocked — original record: Desktop exclusion check.; a row-specific completed result is not established here. |
+| Sibling-page delta | Insights is an educational field, not Projects' work archive or Contact's request desk. | Page | `../PROJECT.md#9-narrative-and-conversion` | Blocked — original record: Section/CMS comparison.; a row-specific completed result is not established here. | Blocked — original record: One distinct memory point.; a row-specific completed result is not established here. |
+| Section composition | Deep-navy notes threshold; mist editorial context; soft-white CMS field; slate-blue service handoff. | Page | `insights.md#page-narrative-and-sections` | Blocked — original record: Fill/width owner readback.; a row-specific completed result is not established here. | Blocked — original record: Colour and hierarchy review.; a row-specific completed result is not established here. |
+| Colour rhythm | Deep navy / mist / soft white / slate blue. | Page | `../PROJECT.md#6-brand-direction` | Blocked — original record: Token readback.; a row-specific completed result is not established here. | Blocked — original record: Desktop review.; a row-specific completed result is not established here. |
+| Asset map | Article Card receives only the existing CMS Image field and its current Alt. No static photo is allocated. | CMS | `../PROJECT.md#11-responsive-interaction-and-assets` | Blocked — original record: CMS binding readback.; a row-specific completed result is not established here. | Blocked — original record: Existing image-role review.; a row-specific completed result is not established here. |
+| Responsive transformation | Desktop uses a two-column article field; Tablet stabilizes the same field; Phone becomes one readable article column with 20px gutters. | Breakpoints | `insights.md#image-responsive-interaction-and-accessibility` | Blocked — original record: 1200/810/390 readback.; a row-specific completed result is not established here. | Blocked — original record: Desktop review; Phone later only if needed.; a row-specific completed result is not established here. |
+| Completion evidence | Structural: semantic Sections, CMS bindings, Article Card instances, truthful Demo state, links and breakpoint owners. Visual: bounded composition proof. | QA | `../../../framer/checklist.md#2-每个-part-的通用完成门槛` | Blocked — original record: Diagnostics/readback.; a row-specific completed result is not established here. | Blocked — original record: Recorded plan and one review.; a row-specific completed result is not established here. |
 
 ## Page narrative and Sections
 

@@ -1,5 +1,10 @@
 # Summit Roofing — About Page Checklist
 
+- Contract schema: 1
+- Component contract: N/A — this recorded Part contains no component contract; lifecycle migration makes no construction change.
+- Visual contract: Required
+- Evidence migration: 2026-10-03; repository-only. Original contract assertions are preserved in project History; no fresh Canvas or runtime proof was produced.
+
 ## Status
 
 - Page: About
@@ -18,19 +23,21 @@
 ## Visual Direction Contract
 
 Contract status: Blocked — structural evidence is recorded; visual evidence is blocked for this Part.
+Implementation status: Implemented — historical completion record; current live state not reverified.
+Verification status: Blocked — retain bounded historical results; outstanding evidence requires the live Framer gate.
 
 | Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
 |---|---|---|---|---|---|
-| Design Read | A people-and-principles working standard, not a corporate timeline. | Page | `../PROJECT.md#6-brand-direction` | One H1 and named Sections. | One bounded Desktop review. |
-| Preserve | Shared shell, typography, tokens, square geometry and direct CTA. | Shared system | `../PROJECT.md#10-system-and-platform-plan` | Shell/style/Button readback. | Compare with live siblings. |
-| Transform | Crew threshold, editorial standard, uneven principles field, editable people panel and quiet close. | Page | `about.md#page-narrative-and-sections` | Five Sections and image owners. | Human, practical composition review. |
-| Avoid | No founder story, profile cards, metrics, awards, testimonials, timeline or credential badges. | Page | `../PROJECT.md#7-content-facts` | Text/link readback. | Desktop exclusion check. |
-| Sibling-page delta | About is a standards-and-people field, unlike Projects’ archive or Project Detail’s record sheet. | Page | `../PROJECT.md#9-narrative-and-conversion` | Section/asset comparison. | One distinct memory point. |
-| Section composition | Deep-navy image threshold; white standard; mist principles; slate editable people panel; white handoff. | Page | `about.md#page-narrative-and-sections` | Fill/width owner readback. | Colour and hierarchy review. |
-| Colour rhythm | Deep navy/image / soft white / mist / slate blue / soft white. | Page | `../PROJECT.md#6-brand-direction` | Token readback. | Desktop review. |
-| Asset map | Use only `team.webp`, `crew-lead.webp`, `roof-harness.webp`; no identity or credential claim. | Page assets | `../PROJECT.md#11-responsive-interaction-and-assets` | Image/Alt readback. | Non-decorative role review. |
-| Responsive transformation | Desktop editorial field; Tablet stabilizes pairs; Phone is one reading column with 20px gutters. | Breakpoints | `about.md#image-responsive-interaction-and-accessibility` | 1200/810/390/320 checks. | Desktop review; Phone later only if needed. |
-| Completion evidence | Structural: semantic Sections, H1, truthful Demo copy, Alt, CTA and responsive owners. Visual: bounded composition proof. | QA | `../../../framer/checklist.md#2-每个-part-的通用完成门槛` | Diagnostics/readback. | Recorded plan and one review. |
+| Design Read | A people-and-principles working standard, not a corporate timeline. | Page | `../PROJECT.md#6-brand-direction` | Blocked — original record: One H1 and named Sections.; a row-specific completed result is not established here. | Blocked — original record: One bounded Desktop review.; a row-specific completed result is not established here. |
+| Preserve | Shared shell, typography, tokens, square geometry and direct CTA. | Shared system | `../PROJECT.md#10-system-and-platform-plan` | Blocked — original record: Shell/style/Button readback.; a row-specific completed result is not established here. | Blocked — original record: Compare with live siblings.; a row-specific completed result is not established here. |
+| Transform | Crew threshold, editorial standard, uneven principles field, editable people panel and quiet close. | Page | `about.md#page-narrative-and-sections` | Blocked — original record: Five Sections and image owners.; a row-specific completed result is not established here. | Blocked — original record: Human, practical composition review.; a row-specific completed result is not established here. |
+| Avoid | No founder story, profile cards, metrics, awards, testimonials, timeline or credential badges. | Page | `../PROJECT.md#7-content-facts` | Blocked — original record: Text/link readback.; a row-specific completed result is not established here. | Blocked — original record: Desktop exclusion check.; a row-specific completed result is not established here. |
+| Sibling-page delta | About is a standards-and-people field, unlike Projects’ archive or Project Detail’s record sheet. | Page | `../PROJECT.md#9-narrative-and-conversion` | Blocked — original record: Section/asset comparison.; a row-specific completed result is not established here. | Blocked — original record: One distinct memory point.; a row-specific completed result is not established here. |
+| Section composition | Deep-navy image threshold; white standard; mist principles; slate editable people panel; white handoff. | Page | `about.md#page-narrative-and-sections` | Blocked — original record: Fill/width owner readback.; a row-specific completed result is not established here. | Blocked — original record: Colour and hierarchy review.; a row-specific completed result is not established here. |
+| Colour rhythm | Deep navy/image / soft white / mist / slate blue / soft white. | Page | `../PROJECT.md#6-brand-direction` | Blocked — original record: Token readback.; a row-specific completed result is not established here. | Blocked — original record: Desktop review.; a row-specific completed result is not established here. |
+| Asset map | Use only `team.webp`, `crew-lead.webp`, `roof-harness.webp`; no identity or credential claim. | Page assets | `../PROJECT.md#11-responsive-interaction-and-assets` | Blocked — original record: Image/Alt readback.; a row-specific completed result is not established here. | Blocked — original record: Non-decorative role review.; a row-specific completed result is not established here. |
+| Responsive transformation | Desktop editorial field; Tablet stabilizes pairs; Phone is one reading column with 20px gutters. | Breakpoints | `about.md#image-responsive-interaction-and-accessibility` | Blocked — original record: 1200/810/390/320 checks.; a row-specific completed result is not established here. | Blocked — original record: Desktop review; Phone later only if needed.; a row-specific completed result is not established here. |
+| Completion evidence | Structural: semantic Sections, H1, truthful Demo copy, Alt, CTA and responsive owners. Visual: bounded composition proof. | QA | `../../../framer/checklist.md#2-每个-part-的通用完成门槛` | Blocked — original record: Diagnostics/readback.; a row-specific completed result is not established here. | Blocked — original record: Recorded plan and one review.; a row-specific completed result is not established here. |
 
 ## Page narrative and Sections
 

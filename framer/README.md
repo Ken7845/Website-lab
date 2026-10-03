@@ -4,29 +4,16 @@
 
 ## 0. Live Canvas Hard Gate
 
-纯仓库文档、规划和知识维护跳过本 Gate，不连接 Canvas。
+完整连接协议只由 [AGENTS — Live Framer Canvas Gate](../AGENTS.md#live-framer-canvas-gate) 维护。本 router 和仓库 Skills 不复制平台命令。
 
-任何需要读取、审计或修改真实 Framer Canvas 的任务必须按顺序执行：
-
-所有 `npx @framer/agent@latest ...` CLI 命令在 sandbox 中必须从第一次尝试就使用 **required elevated permissions**（network + skill / session file access）。不得先用默认 sandbox 试跑；permission / network error 是环境 blocker，不证明 Framer Agent 没有对应能力。
-
-1. 运行 `npx @framer/agent@latest setup` 并等待进程退出；只有成功退出且没有 setup error 才算完成。显示 setup 状态、自述成功、超时或报错都不算。
-2. 加载已安装的 official `$framer` Skill。
-3. 使用已确认的 Project URL / ID 运行 `npx @framer/agent@latest session new "<url-or-id>"`，成功取得 session ID，并在本轮全程复用。
-4. 读取由 `session new` 刷新的 `projects/<safeProjectId>/index.md` task map：先读 `Anything` 行，再读当前任务对应行及其指向。
-5. 再选择下方一个 primary repo Skill，作为平台入口之上的判断层。
-6. 写入前先运行一次 `npx @framer/agent@latest exec -s <sessionId>` targeted live-tree readback；后续 Framer CLI 命令继续使用同一 session。
-
-上述任一步报错、超时、无输出或缺少必需证据时，**Gate remains closed**。仓库 Skills 不提供 Canvas 连接；不得静默切换到 Browser / Playwright / Computer Use、猜测的本地 API 或官网搜索。只有官方 task map / docs 已证实精确能力缺口，且用户在获知 blocker 后明确授权，UI 工具才可作为 fallback；Agent 不得自行授权。官网文档不是 Skill，编辑器 DOM 观察也不是 Framer Agent targeted readback。
-
-正式实施前显示一行 **Framer Agent gate receipt**：`setup OK / session connected / task-map <row> / live readback OK`。不报告 session ID 或内部节点 ID；任一项未通过就停止。
+真实 Canvas 读取、审计或写入必须先完成该 Gate；official `$framer` Skill 和动态 task map 提供当前能力。**Gate remains closed** 时停止 Canvas 判断；Browser / Playwright / Computer Use fallback 仍须符合 canonical Gate 的明确授权条件。正式实施前显示 **Framer Agent gate receipt**。纯仓库文档、规划和知识维护跳过连接。
 
 ## 1. 先 Inspect / Reconcile
 
 任何写入前先确认：
 
-1. 当前任务的项目、页面、Part、授权范围和明确不做的内容。
-2. 当前项目 `content-library/<project>/PROJECT.md`。只有任务正在恢复中断状态时再读 `RECOVERY.md`；只有用户指定了现有 Part 合同时再读对应页面 / 请求 Checklist。
+1. 当前任务的项目、页面、Part、授权范围和 task mode：Audit only / Repair / Build / Publish。按 [authorization table](basic/workflows/change-control.md#authorization-and-task-mode) 判定；Audit only 不写 Canvas，发现修复项只报告。
+2. 当前项目 `content-library/<project>/PROJECT.md`。只有任务正在恢复中断状态时再读 `RECOVERY.md`；通过 PROJECT 的 active pointer 读取当前页面 / 请求合同，不猜测最新日期文件。
 3. 用户本轮要求是新增、校正还是明确覆盖旧要求；连续修改按 [`basic/workflows/change-control.md`](basic/workflows/change-control.md) 建立约束锁。
 4. 当前真实结构与最后成功状态；中断任务先恢复，不根据聊天记忆重做。
 5. 当前结论的证据来源是 Framer Agent targeted readback、明确标注的 UI fallback，还是尚未验证；只有第一种可直接写为 Verified Canvas current state。
@@ -44,6 +31,8 @@
 | Styles、Component、Variant、Property、CMS、共享结构 | [`framer-components`](../.agents/skills/framer-components/SKILL.md) | Button、Navbar、Footer、卡片、可编辑内容系统 |
 | Motion、Hover、Overlay、Lightbox、Cursor、Sticky 与高级装置 | [`framer-interactions`](../.agents/skills/framer-interactions/SKILL.md) | 原生交互选择、状态路由、Advanced Pattern |
 | 只读审查、诊断、Preflight 或交付验收 | [`framer-qa`](../.agents/skills/framer-qa/SKILL.md) | Audit、回归、Pass / Fix Required / Blocked |
+
+Link / Copy / Metadata / Naming 小修按被改对象的责任选 primary；复用现有合同，不因改 Property 值重建 Component 合同。纯 layout 诊断用 Layout；跨域只读验收用 QA。
 
 完整网站任务也只选择当前实施 Part 的主要 Skill；Part 改变时重新 inspect / reconcile，再决定是否切换 primary Skill。
 

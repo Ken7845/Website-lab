@@ -20,7 +20,7 @@ Read PROJECT.md and only the relevant page checklist
 → complete content, styles, structure, links, semantics, responsive, and interaction
 → reopen Website-lab/framer/checklist.md
 → route to every applicable checklist section
-→ targeted readback and one necessary Preview path
+→ targeted readback and evidence selected for the actual claim
 → mark Pass / Fix Required / Blocked
 → batch-fix the current class of problems
 → recheck only the affected scope

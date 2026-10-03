@@ -1,5 +1,9 @@
 # Framer 高级组件：Dish Selector 图片矩阵与文字 Reel
 
+> Status: **Canonical selector / reel; project-specific**.
+> Provenance: AURELIA fixed seven-item selector, exact recorded instance 2026-08-10.
+> Verification boundary: Parameters belong to this example; content count, width and breakpoint changes need fresh validation. Repository classification added 2026-10-03; no fresh Canvas verification.
+
 ## 适用范围
 
 用于固定数量的菜品、作品或产品选择器：点击缩略图后，当前主图横向推入，其他缩略图保持较暗和较小；数字、标题与说明在各自裁切窗口内同步滚动。

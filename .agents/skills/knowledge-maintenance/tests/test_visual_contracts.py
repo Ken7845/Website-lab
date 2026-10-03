@@ -79,6 +79,8 @@ class VisualContractValidationTests(unittest.TestCase):
             checklist = root / "content-library" / "fixture" / "checklist"
             checklist.mkdir(parents=True)
             (checklist / "request.md").write_text(text, encoding="utf-8")
+            (checklist / "PROJECT.md").write_text("# Fixture\n## Visual direction\n## Asset usage ledger\n", encoding="utf-8")
+            (checklist / "preflight-audit.md").write_text("# QA\n## Visual composition\n", encoding="utf-8")
             validator = MODULE.Validator(root, {"inactive_text_globs": []}, strict=True)
             validator.check_visual_contracts()
             return [finding.code for finding in validator.findings]

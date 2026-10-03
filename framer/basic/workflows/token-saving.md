@@ -304,9 +304,9 @@ Review warning 不要机械清零，要判断它是不是设计意图。
 - 哪些交互已恢复。
 - 是否还有已知限制。
 
-如果需要截图，只截目标容器，不截整页。
+局部 claim 只截目标容器；整页构图 claim 按 [evidence selection](image-workflow.md#evidence-selection) 使用低像素整页联系表或编排图。
 
-如果需要回读，只回读目标节点，不读整页。
+只回读能证明 claim 的最小 scope；共享影响或整页 inventory 要覆盖其必要依赖。
 
 ## Morrow & Grain Polish 复盘
 

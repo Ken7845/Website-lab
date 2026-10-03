@@ -1,5 +1,10 @@
 # Insight Detail — Page Checklist
 
+- Contract schema: 1
+- Component contract: N/A — this recorded Part contains no component contract; lifecycle migration makes no construction change.
+- Visual contract: Required
+- Evidence migration: 2026-10-03; repository-only. Original contract assertions are preserved in project History; no fresh Canvas or runtime proof was produced.
+
 - **Path:** `/insights/:Insights`
 - **Current status:** In progress — Structural Pass at Desktop, Tablet and Phone; visual, stress and Preview evidence pending
 - **Content status:** Existing Insight CMS values are Demo. Only Title, Category, Summary and Image are available; article body, author, date, expertise claims and service facts are Missing.
@@ -13,20 +18,22 @@ Do not add or alter CMS fields, CMS items, Custom Code, forms, contact facts, au
 
 ## Visual Direction Contract
 
-Contract status: Ready
+Contract status: Blocked — recorded implementation exists; the full row-specific evidence matrix is not established by this repository-only repair.
+Implementation status: Implemented — historical completion record; current live state not reverified.
+Verification status: Blocked — retain bounded historical results; outstanding evidence requires the live Framer gate.
 
 | Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
 |---|---|---|---|---|---|
-| Design Read | A concise, reading-first CMS record sheet for a template article whose body field is currently Missing. | Page structure | `PROJECT.md#6-brand-direction` | Named semantic Sections and CMS bindings. | One bounded Desktop composition review. |
-| Preserve | Site Shell, Big Shoulders/Inter hierarchy, blue-grey palette, zero-radius edges, direct CTA behavior, and existing CMS image/Alt. | Existing shared systems | Canvas `/insights` readback, 2026-09-19 | Shared-shell/card/button readback. | Consistent type, surfaces, hard edges, and image treatment. |
-| Transform | Archive grid becomes a single-column editorial reading path with an image threshold and summary-led content record. | Detail page | `PROJECT.md#9-narrative-and-conversion` | Independent CMS detail route and readable width chain. | Detail does not repeat the archive grid. |
-| Avoid | Fabricated long-form body, author/date/chapter metadata, equal card grids, rounded UI, generic testimonials, and unverified claims. | Content and page structure | `PROJECT.md#7-content-facts` | No new CMS data/fields; explicit Missing note. | Restrained record-sheet composition. |
-| Sibling-page delta | Unlike `/insights` two-column archive, the detail page centers one article record; unlike Project Detail, it does not mimic a metadata case-study sheet. | Page composition | `PROJECT.md#8-sitemap-and-page-goals` | Named Section sequence differs from both siblings. | Single editorial reading rail with image threshold. |
-| Section composition | Threshold → Article Record → Editable Content Note → Service Handoff. | Page sections | `PROJECT.md#9-narrative-and-conversion` | Four semantic Section nodes. | Deep-navy threshold, soft-white reading field, mist limitation note, slate handoff. |
-| Colour rhythm | Deep Navy → Soft White → Mist Grey → Slate Blue. | Section fills | `PROJECT.md#6-brand-direction` | Token-backed fills on the four Sections. | Clear but restrained progress through the record. |
-| Asset map | Bind only the current item Image and its attached Alt; no static or generated image. | CMS image binding | Canvas `Insights` collection readback, 2026-09-19 | Responsive image source uses the current CMS Image variable. | Screenshot may check crop only after image workflow plan. |
-| Responsive transformation | Desktop uses a readable text rail beside/under a bounded image threshold; Tablet preserves the reading order; Phone becomes one column with 20px gutters. | Breakpoint overrides | `insights.md#image-responsive-interaction-and-accessibility` | Desktop/Tablet/Phone owner readback. | Desktop and Phone review if image evidence is scoped. |
-| Completion evidence | Structural proof covers CMS route, variable bindings, detail links, semantics and breakpoint owners; visual proof remains separately bounded. | QA | `../../../framer/checklist.md#2-每个-part-的通用完成门槛` | Targeted live readback. | One planned image review only. |
+| Design Read | A concise, reading-first CMS record sheet for a template article whose body field is currently Missing. | Page structure | `../PROJECT.md#6-brand-direction` | Blocked — original record: Named semantic Sections and CMS bindings.; a row-specific completed result is not established here. | Blocked — original record: One bounded Desktop composition review.; a row-specific completed result is not established here. |
+| Preserve | Site Shell, Big Shoulders/Inter hierarchy, blue-grey palette, zero-radius edges, direct CTA behavior, and existing CMS image/Alt. | Existing shared systems | Canvas `/insights` readback, 2026-09-19 | Blocked — original record: Shared-shell/card/button readback.; a row-specific completed result is not established here. | Blocked — original record: Consistent type, surfaces, hard edges, and image treatment.; a row-specific completed result is not established here. |
+| Transform | Archive grid becomes a single-column editorial reading path with an image threshold and summary-led content record. | Detail page | `../PROJECT.md#9-narrative-and-conversion` | Blocked — original record: Independent CMS detail route and readable width chain.; a row-specific completed result is not established here. | Blocked — original record: Detail does not repeat the archive grid.; a row-specific completed result is not established here. |
+| Avoid | Fabricated long-form body, author/date/chapter metadata, equal card grids, rounded UI, generic testimonials, and unverified claims. | Content and page structure | `../PROJECT.md#7-content-facts` | Blocked — original record: No new CMS data/fields; explicit Missing note.; a row-specific completed result is not established here. | Blocked — original record: Restrained record-sheet composition.; a row-specific completed result is not established here. |
+| Sibling-page delta | Unlike `/insights` two-column archive, the detail page centers one article record; unlike Project Detail, it does not mimic a metadata case-study sheet. | Page composition | `../PROJECT.md#8-sitemap-and-page-goals` | Blocked — original record: Named Section sequence differs from both siblings.; a row-specific completed result is not established here. | Blocked — original record: Single editorial reading rail with image threshold.; a row-specific completed result is not established here. |
+| Section composition | Threshold → Article Record → Editable Content Note → Service Handoff. | Page sections | `../PROJECT.md#9-narrative-and-conversion` | Blocked — original record: Four semantic Section nodes.; a row-specific completed result is not established here. | Blocked — original record: Deep-navy threshold, soft-white reading field, mist limitation note, slate handoff.; a row-specific completed result is not established here. |
+| Colour rhythm | Deep Navy → Soft White → Mist Grey → Slate Blue. | Section fills | `../PROJECT.md#6-brand-direction` | Blocked — original record: Token-backed fills on the four Sections.; a row-specific completed result is not established here. | Blocked — original record: Clear but restrained progress through the record.; a row-specific completed result is not established here. |
+| Asset map | Bind only the current item Image and its attached Alt; no static or generated image. | CMS image binding | Canvas `Insights` collection readback, 2026-09-19 | Blocked — original record: Responsive image source uses the current CMS Image variable.; a row-specific completed result is not established here. | Blocked — original record: Screenshot may check crop only after image workflow plan.; a row-specific completed result is not established here. |
+| Responsive transformation | Desktop uses a readable text rail beside/under a bounded image threshold; Tablet preserves the reading order; Phone becomes one column with 20px gutters. | Breakpoint overrides | `insights.md#image-responsive-interaction-and-accessibility` | Blocked — original record: Desktop/Tablet/Phone owner readback.; a row-specific completed result is not established here. | Blocked — original record: Desktop and Phone review if image evidence is scoped.; a row-specific completed result is not established here. |
+| Completion evidence | Structural proof covers CMS route, variable bindings, detail links, semantics and breakpoint owners; visual proof remains separately bounded. | QA | `../../../framer/checklist.md#2-每个-part-的通用完成门槛` | Blocked — original record: Targeted live readback.; a row-specific completed result is not established here. | Blocked — original record: One planned image review only.; a row-specific completed result is not established here. |
 
 ## Page Narrative and Sections
 
@@ -51,7 +58,7 @@ Contract status: Ready
 
 ## Image, Responsive, Interaction and Accessibility
 
-- Use only the CMS image and its existing attached Alt. No image review or crop adjustment is authorized until the Image Review Plan is recorded in `PROJECT.md#14-recovery` and `image-workflow.md` is read.
+- Use only the CMS image and its existing attached Alt. No image review or crop adjustment is authorized until the Image Review Plan is recorded in `../PROJECT.md#14-recovery` and `image-workflow.md` is read.
 - Desktop 1200: image threshold and reading rail use one max-width owner. Tablet 810 preserves legible text width and reading order. Phone 390 uses a single column with 20px outer gutters. Stress widths 320 and 1440+ remain deferred.
 - No motion, hover-only information, overlay, Lightbox, cursor effect or new interaction. Preserve keyboard order, visible focus and reduced-motion behavior from the shared shell.
 

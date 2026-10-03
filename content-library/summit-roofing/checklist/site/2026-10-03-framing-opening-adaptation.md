@@ -1,5 +1,10 @@
 # Framing Opening Adaptation — 2026-10-03
 
+- Contract schema: 1
+- Component contract: N/A — this recorded Part contains no component contract; lifecycle migration makes no construction change.
+- Visual contract: Required
+- Evidence migration: 2026-10-03; repository-only. Original contract assertions are preserved in project History; no fresh Canvas or runtime proof was produced.
+
 ## User request
 
 > the design of Framing Opening in the new-construction page is good. Apply this design to the page(Projects Pages) and page(storm-damage-repair)
@@ -18,19 +23,21 @@
 ## Visual Direction Contract
 
 Contract status: Blocked — implemented; Structural Pass and Desktop opening Visual Pass. Tablet/Phone rendered fit and the relocated Projects strip remain visually unverified within this Part's exhausted screenshot budget.
+Implementation status: Implemented — historical completion record; current live state not reverified.
+Verification status: Blocked — retain bounded historical results; outstanding evidence requires the live Framer gate.
 
 | Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
 |---|---|---|---|---|---|
-| Design Read | Preserve-mode adaptation of the user-approved photographic threshold. | Target openings | User request; current Canvas Framing Opening | Pass — reference and targets read live | Pass — reference viewed once |
-| Preserve | Big Shoulders / Inter, shared tokens, square geometry, copy, Button and shell. | Existing styles / instances | [PROJECT brand direction](../../PROJECT.md#6-brand-direction); current Canvas | Pass — no text/label/destination differences; no shared-definition writes. Unattributed Projects button variant change retained. | Pass — two Desktop result views |
-| Transform | Full background image and bottom-left, content-height 70% Navy title band. | Existing opening and copy frames | Current Canvas reference | Pass — end/start Stack, gap 0; auto band, gap 20 in all six targets | Pass — both Desktop results match the anchor/overlay pattern |
-| Avoid | No split opaque rail, copied framing photo, deleted summary, instructional copy or new interaction. | Targets only | User request; scope lock | Pass — same node counts, no text edits or new components | Pass — clear photographic openings |
-| Sibling-page delta | Opening similarity is explicitly requested; each target keeps its own imagery/copy and subsequent narrative. | Page-owned sections | User request; current Canvas | Pass — source/detail and all following target Sections preserve attributes/order | Pass for openings only; whole-page comparison not claimed |
-| Section composition | One image opening, one title band. Projects summary rail relocated just below; Storm next section untouched. | Target section / Projects existing rail | Current Canvas; scope lock | Pass — one band each; Projects rail second in all three content stacks | Opening Pass; relocated summary-strip rendered spacing Blocked |
-| Colour rhythm | Image + Navy 70% band, light text; downstream tokens unchanged. | Band / text nodes | Current Canvas reference | Pass — exact fills and light text tokens read back | Desktop legibility Pass; not a full contrast certification |
-| Asset map | Projects modern-deck reused as overall architectural context, distinct from closing handoff; Storm damaged roof retained. | Existing image fills | [Asset ledger](../../PROJECT.md#asset-usage-ledger) | Pass — exact URL/Alt readback; close and CMS binding attributes unchanged | Desktop subject/crop Pass; narrower crops Blocked |
-| Responsive transformation | Opening heights D/T/P 700/640/740; band widths 720/590/fill, max-width 100%; pads 48/40/36 vertically and 40/32/20 left. Phone body uses Body/Default. | Breakpoint overrides | Current Canvas reference | Pass — all six breakpoint structures match values and retain one H1 | Desktop Pass; Tablet/Phone/stress rendered fit Blocked |
-| Completion evidence | No command/parse errors; exact text/CTA-label/destination preservation; source/detail/adjacent unchanged. | QA | [Section Done](../../../../framer/checklist.md#section-done) | Pass — baseline comparison; readiness zero errors/warnings. Layout lint limitations documented below. | Three bounded views completed once; remaining rendered acceptance Blocked |
+| Design Read | Preserve-mode adaptation of the user-approved photographic threshold. | Target openings | User request; current Canvas Framing Opening | Pass — reference and targets read live; [recorded evidence](#result) | Pass — reference viewed once; [recorded evidence](#result) |
+| Preserve | Big Shoulders / Inter, shared tokens, square geometry, copy, Button and shell. | Existing styles / instances | [PROJECT brand direction](../../PROJECT.md#6-brand-direction); current Canvas | Pass — no text/label/destination differences; no shared-definition writes. Unattributed Projects button variant change retained.; [recorded evidence](#result) | Pass — two Desktop result views; [recorded evidence](#result) |
+| Transform | Full background image and bottom-left, content-height 70% Navy title band. | Existing opening and copy frames | Current Canvas reference | Pass — end/start Stack, gap 0; auto band, gap 20 in all six targets; [recorded evidence](#result) | Pass — both Desktop results match the anchor/overlay pattern; [recorded evidence](#result) |
+| Avoid | No split opaque rail, copied framing photo, deleted summary, instructional copy or new interaction. | Targets only | User request; scope lock | Pass — same node counts, no text edits or new components; [recorded evidence](#result) | Pass — clear photographic openings; [recorded evidence](#result) |
+| Sibling-page delta | Opening similarity is explicitly requested; each target keeps its own imagery/copy and subsequent narrative. | Page-owned sections | User request; current Canvas | Pass — source/detail and all following target Sections preserve attributes/order; [recorded evidence](#result) | Blocked — original record: Pass for openings only; whole-page comparison not claimed; a row-specific completed result is not established here. |
+| Section composition | One image opening, one title band. Projects summary rail relocated just below; Storm next section untouched. | Target section / Projects existing rail | Current Canvas; scope lock | Pass — one band each; Projects rail second in all three content stacks; [recorded evidence](#result) | Blocked — original record: Opening Pass; relocated summary-strip rendered spacing Blocked; a row-specific completed result is not established here. |
+| Colour rhythm | Image + Navy 70% band, light text; downstream tokens unchanged. | Band / text nodes | Current Canvas reference | Pass — exact fills and light text tokens read back; [recorded evidence](#result) | Blocked — original record: Desktop legibility Pass; not a full contrast certification; a row-specific completed result is not established here. |
+| Asset map | Projects modern-deck reused as overall architectural context, distinct from closing handoff; Storm damaged roof retained. | Existing image fills | [Asset ledger](../../PROJECT.md#asset-usage-ledger) | Pass — exact URL/Alt readback; close and CMS binding attributes unchanged; [recorded evidence](#result) | Blocked — original record: Desktop subject/crop Pass; narrower crops Blocked; a row-specific completed result is not established here. |
+| Responsive transformation | Opening heights D/T/P 700/640/740; band widths 720/590/fill, max-width 100%; pads 48/40/36 vertically and 40/32/20 left. Phone body uses Body/Default. | Breakpoint overrides | Current Canvas reference | Pass — all six breakpoint structures match values and retain one H1; [recorded evidence](#result) | Blocked — original record: Desktop Pass; Tablet/Phone/stress rendered fit Blocked; a row-specific completed result is not established here. |
+| Completion evidence | No command/parse errors; exact text/CTA-label/destination preservation; source/detail/adjacent unchanged. | QA | [Section Done](../../../../framer/checklist.md#section-done) | Pass — baseline comparison; readiness zero errors/warnings. Layout lint limitations documented below.; [recorded evidence](#result) | Blocked — original record: Three bounded views completed once; remaining rendered acceptance Blocked; a row-specific completed result is not established here. |
 
 ## Image Review Plan
 

@@ -8,17 +8,18 @@ Website-lab 是个人网站与独立站的设计实验室、项目事实库与 F
 
 ## 权威优先级
 
-信息冲突时按以下顺序判断：
+按问题选择权威，不把“现在存在什么”误当成“允许改变什么”：
 
-1. 用户当前明确要求
-2. 实际 Canvas / current implementation
-3. 当前 `PROJECT.md` 与其链接的 Approved sources
-4. 当前平台的 hard constraints
-5. 本轮 selected Skill
-6. 相关 `inspiration`
-7. `HISTORY.md`、`history/` 和其他历史记录
+| 问题 | 权威 |
+|---|---|
+| 允许修改什么 | 用户当前明确授权与仍有效 Scope |
+| 应实现什么方向 | 用户明确意图、active Decisions 与 Approved sources |
+| 当前存在什么 | targeted Canvas / current implementation evidence |
+| 可使用什么事实 | PROJECT 链接的 Approved sources 与事实状态 |
+| 平台能做什么 | 当前官方能力与 hard constraints |
+| 如何执行 | 本轮 selected Skill 与 canonical workflow；Inspiration / History 仅为参考 |
 
-实际 Canvas 只证明“现在存在什么”，不自动授权改变方向；若它与批准方案不一致，先记录差异，再按 Scope 修复或向用户确认。低优先级资料不得静默覆盖高优先级事实和决定。
+实际 Canvas 只证明“现在存在什么”，不自动授权改变方向；与批准方案不一致时记录差异并在 Scope 内协调。历史不得覆盖 current evidence 或 active 意图。
 
 ## 永久硬边界
 
@@ -58,19 +59,14 @@ Website-lab 是个人网站与独立站的设计实验室、项目事实库与 F
 
 | 任务 | 追加读取 |
 |---|---|
-| 品牌、事实、文案、素材 | `PROJECT.md` 链接的 Approved sources |
-| 设计方向与反模板化 | 本轮明确相关的 `.agents/skills/design-taste/SKILL.md` 与少量 Inspiration |
-| 真实 Framer Canvas 读取或写入 | 先完成 `Live Framer Canvas Gate`，再选择下面一个 primary repo Skill |
-| Framer Section / Page 布局与断点 | `.agents/skills/framer-layout-responsive/SKILL.md` |
-| Framer Component / Variant / Property / shared system | `.agents/skills/framer-components/SKILL.md` |
-| Framer motion / Overlay / Lightbox / Hover | `.agents/skills/framer-interactions/SKILL.md` |
-| 已完成范围的 QA / Preflight | `.agents/skills/framer-qa/SKILL.md`，再按其路由读取当前 Part Checklist |
-| 图片或视觉审阅 | `framer/basic/workflows/image-workflow.md` |
-| 连续修改、长 Prompt、需求锁 | `framer/basic/workflows/change-control.md` |
-| 高级组件模式 | `framer/advance-design/` 中与当前项目或模式直接相关的文件 |
-| 知识新增、迁移、去重、Skill / Router 修改 | `.agents/skills/knowledge-maintenance/SKILL.md` |
+| 品牌、事实、文案、素材 | PROJECT 链接的 Approved sources |
+| 平台无关的视觉方向 | [design-taste](.agents/skills/design-taste/SKILL.md) 与必要 Inspiration |
+| Framer 规划、Canvas、Component、Layout、Interaction、QA | [唯一 Framer dispatcher](framer/README.md)；先按 mode 与 multi-domain precedence 路由，再读一个 primary Skill |
+| 知识审计、修订、迁移、Router / Skill 修改 | [knowledge-maintenance](.agents/skills/knowledge-maintenance/SKILL.md)；不连接 Canvas |
 
-普通小范围 Framer 任务通常只需本文件、当前 `PROJECT.md`、live Canvas 平台入口（仅在真实连接时）和一个 primary repo Skill；只有 Skill 明确路由时才追加详细 Reference。任务类型不清楚时再读 `framer/README.md`。旧项目没有 `PROJECT.md` 时，先用 `content-library/project-manifest-template.md` 建立入口并标记未知事实。Context 压缩或 Session 恢复后，重新读取 official `$framer` Skill 及 task-map 行、当前 Part 的 PROJECT、请求 Checklist、primary repo Skill 和 active Component Requirement Contract；先用同一 session targeted readback 重建证据，不靠记忆或压缩摘要续写。
+Framer dispatcher 是 Skill 选择的唯一 owner，即使用户点名 Skill 也先扫描 Component / Layout / Interaction 责任。Skill 列表不是平行 dispatcher。图片、连续修改、高级模式与 evaluator 的 conditional references 由 dispatcher / selected Skill 路由。
+
+旧项目没有 PROJECT 时从 [manifest template](content-library/project-manifest-template.md) 建立最小入口；未知实现标 Needs refresh。Context 压缩或 Session 恢复按 [Framer re-entry](framer/README.md#3-change-control-是写入前的条件路由) 重读 active 来源与合同；通过同一有效 session targeted readback 重建证据，旧 session 失效时遵守官方重连流程，不靠摘要续写。
 
 知识维护任务完成前运行 `knowledge-maintenance` 的 strict validator；不得用扩大排除范围或删除精确证据换取通过。
 
@@ -89,12 +85,7 @@ Website-lab 是个人网站与独立站的设计实验室、项目事实库与 F
 
 ## 长篇 Prompt Gate
 
-长篇、多分点 Prompt 若会指导后续 Canvas、页面、组件、素材、排版、交互或多轮建设，在任何正式建设写入前必须执行 [change-control.md](framer/basic/workflows/change-control.md)：
-
-- 页面长期 Checklist 与本次请求 Checklist 分开；不建立平行聊天日志或 `checklist-2`。
-- 将用户每一条原始要求逐字写入语义明确的请求文件；可追加验收项，但不得省略、合并或削弱原话。
-- 写入后回读，向用户说明已记录范围并等待明确确认；确认前不开始正式建设。
-- 用户已明确要求创建时不重复询问；用户明确拒绝项目级 Checklist 时不擅自创建。小修、诊断、审阅和现有 Checklist Part 的连续执行不触发新建。
+建设类长篇 Prompt 的逐字记录、页面与请求 Checklist 分层、约束锁及确认规则由 [change-control](framer/basic/workflows/change-control.md#authorization-and-task-mode) 唯一维护。未经批准的建设合同先回读并等待确认；用户已经明确授权原 Scope 时不为记录或派生合同再次询问。新方向、破坏性变更和发布仍须相应授权。用户拒绝项目级 Checklist 时不擅自创建。知识审计、小修、诊断和已确认 Part 的连续执行不触发新的开工 Gate。
 
 ## 当前状态与交付
 

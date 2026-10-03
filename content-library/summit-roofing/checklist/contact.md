@@ -1,5 +1,10 @@
 # Summit Roofing — Contact Page Checklist
 
+- Contract schema: 1
+- Component contract: N/A — this recorded Part contains no component contract; lifecycle migration makes no construction change.
+- Visual contract: Required
+- Evidence migration: 2026-10-03; repository-only. Original contract assertions are preserved in project History; no fresh Canvas or runtime proof was produced.
+
 ## Status
 
 - Page: Contact
@@ -18,19 +23,21 @@
 ## Visual Direction Contract
 
 Contract status: Blocked — structural evidence is recorded; visual evidence and form delivery are blocked for this Part.
+Implementation status: Implemented — historical completion record; current live state not reverified.
+Verification status: Blocked — retain bounded historical results; outstanding evidence requires the live Framer gate.
 
 | Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
 |---|---|---|---|---|---|
-| Design Read | A practical enquiry threshold, not a local-office profile or a generic card wall. | Page | `../PROJECT.md#4-website-goal` | One H1, page-owned form and named Sections. | One bounded Desktop review. |
-| Preserve | Shared shell, condensed display type, blue-grey tokens, square geometry and direct CTA language. | Shared system | `../PROJECT.md#6-brand-direction` | Shell/style/Button readback. | Compare with live siblings. |
-| Transform | Build a text-and-form conversion sequence with no unverified location image or credential content. | Page | `contact.md#page-narrative-and-sections` | Four Sections and field ownership. | Functional, non-card-wall composition. |
-| Avoid | No phone/email/address placeholders presented as real, map, office-hours claims, testimonials, metrics, external form service or third-party embed. | Page | `../PROJECT.md#7-content-facts` | Text/link/form readback. | Desktop exclusion check. |
-| Sibling-page delta | Contact is an operational request desk, unlike About's people field or Projects' evidence record. | Page | `../PROJECT.md#9-narrative-and-conversion` | Section sequence comparison. | One distinct memory point. |
-| Section composition | Deep-navy request threshold; soft-white form workspace; mist editable-contact notice; slate-blue service handoff. | Page | `contact.md#page-narrative-and-sections` | Fill/width owner readback. | Colour and hierarchy review. |
-| Colour rhythm | Deep navy / soft white / mist / slate blue. | Page | `../PROJECT.md#6-brand-direction` | Token readback. | Desktop review. |
-| Asset map | No image is used: a verified office/contact scene is Missing and photography would not improve an editable form flow. | Page | `../PROJECT.md#11-responsive-interaction-and-assets` | No page-owned image node. | N/A. |
-| Responsive transformation | Desktop uses a wide request workspace; Tablet stabilizes the text/form pair; Phone becomes a single reading and input column with 20px gutters. | Breakpoints | `contact.md#responsive-interaction-and-accessibility` | 1200/810/390 readback. | Desktop review; Phone later only if needed. |
-| Completion evidence | Structural: semantic Sections, heading order, field labels/types, honest delivery state, CTA and responsive owners. Visual: one bounded composition review. | QA | `../../../framer/checklist.md#2-每个-part-的通用完成门槛` | Diagnostics/readback. | Recorded plan and one review. |
+| Design Read | A practical enquiry threshold, not a local-office profile or a generic card wall. | Page | `../PROJECT.md#4-website-goal` | Blocked — original record: One H1, page-owned form and named Sections.; a row-specific completed result is not established here. | Blocked — original record: One bounded Desktop review.; a row-specific completed result is not established here. |
+| Preserve | Shared shell, condensed display type, blue-grey tokens, square geometry and direct CTA language. | Shared system | `../PROJECT.md#6-brand-direction` | Blocked — original record: Shell/style/Button readback.; a row-specific completed result is not established here. | Blocked — original record: Compare with live siblings.; a row-specific completed result is not established here. |
+| Transform | Build a text-and-form conversion sequence with no unverified location image or credential content. | Page | `contact.md#page-narrative-and-sections` | Blocked — original record: Four Sections and field ownership.; a row-specific completed result is not established here. | Blocked — original record: Functional, non-card-wall composition.; a row-specific completed result is not established here. |
+| Avoid | No phone/email/address placeholders presented as real, map, office-hours claims, testimonials, metrics, external form service or third-party embed. | Page | `../PROJECT.md#7-content-facts` | Blocked — original record: Text/link/form readback.; a row-specific completed result is not established here. | Blocked — original record: Desktop exclusion check.; a row-specific completed result is not established here. |
+| Sibling-page delta | Contact is an operational request desk, unlike About's people field or Projects' evidence record. | Page | `../PROJECT.md#9-narrative-and-conversion` | Blocked — original record: Section sequence comparison.; a row-specific completed result is not established here. | Blocked — original record: One distinct memory point.; a row-specific completed result is not established here. |
+| Section composition | Deep-navy request threshold; soft-white form workspace; mist editable-contact notice; slate-blue service handoff. | Page | `contact.md#page-narrative-and-sections` | Blocked — original record: Fill/width owner readback.; a row-specific completed result is not established here. | Blocked — original record: Colour and hierarchy review.; a row-specific completed result is not established here. |
+| Colour rhythm | Deep navy / soft white / mist / slate blue. | Page | `../PROJECT.md#6-brand-direction` | Blocked — original record: Token readback.; a row-specific completed result is not established here. | Blocked — original record: Desktop review.; a row-specific completed result is not established here. |
+| Asset map | No image is used: a verified office/contact scene is Missing and photography would not improve an editable form flow. | Page | `../PROJECT.md#11-responsive-interaction-and-assets` | Blocked — original record: No page-owned image node.; a row-specific completed result is not established here. | Blocked — original record: N/A.; a row-specific completed result is not established here. |
+| Responsive transformation | Desktop uses a wide request workspace; Tablet stabilizes the text/form pair; Phone becomes a single reading and input column with 20px gutters. | Breakpoints | `contact.md#image-responsive-interaction-and-accessibility` | Blocked — original record: 1200/810/390 readback.; a row-specific completed result is not established here. | Blocked — original record: Desktop review; Phone later only if needed.; a row-specific completed result is not established here. |
+| Completion evidence | Structural: semantic Sections, heading order, field labels/types, honest delivery state, CTA and responsive owners. Visual: one bounded composition review. | QA | `../../../framer/checklist.md#2-每个-part-的通用完成门槛` | Blocked — original record: Diagnostics/readback.; a row-specific completed result is not established here. | Blocked — original record: Recorded plan and one review.; a row-specific completed result is not established here. |
 
 ## Page narrative and Sections
 

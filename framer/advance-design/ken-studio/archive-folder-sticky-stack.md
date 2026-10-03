@@ -1,5 +1,9 @@
 # Framer archive folder sticky stack
 
+> Status: **Reference; incomplete reproduction contract**.
+> Provenance: Ken Studio Works, project-derived notes beginning 2026-07-14.
+> Verification boundary: Useful mechanism evidence; no complete independent breakpoint or reproduction proof. Inspect current project structure before implementation. Repository classification added 2026-10-03; no fresh Canvas verification.
+
 Created for Ken Studio Works on 2026-07-14.
 
 ## Goal
