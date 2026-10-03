@@ -114,6 +114,8 @@
     ],
     "history/workflow-observations/README.md": [
       "Do not preload",
+      "one append-only file per project",
+      "Do not create a file after every Prompt",
       "Later-discovered issue",
       "Workflow candidate",
       "not automatically a new rule"

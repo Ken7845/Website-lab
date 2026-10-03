@@ -3,7 +3,7 @@
 ## Scope and evidence
 
 - Date: 2026-10-03.
-- Status: Audit complete; proposed implementation remains unstarted.
+- Status: Pre-edit audit snapshot. High-priority implementation and its current QA are recorded in the [shared-hover request checklist](./2026-10-03-hover-implementation.md); the tables below preserve what existed before those edits.
 - Source: official Framer Agent session 7, live page trees, Component definitions, CMS variable ownership, Link Styles and root metadata.
 - Coverage: all 12 buyer-facing routes, their Desktop / Tablet / Phone owners, eight native Components and shared Navbar/Footer. `/reveal-text-test` was inventoried but excluded from buyer-facing hover work.
 - Evidence level: Verified structural settings and routes. Pointer timing, visual contrast during transitions, keyboard focus, touch behaviour and Reduced Motion execution remain Preview checks. No Canvas changes were made during this audit.

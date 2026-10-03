@@ -77,7 +77,7 @@ AGENTS.md
 
 有实际建设价值的 Framer / 网站任务在实施与 targeted QA 完成后，可以自然地写入一条简短 workflow observation：记录用户要求、Agent 选择的 route、实际完成内容、验证结果，以及后来发现的遗漏。它用于阶段性复盘和改进 Router / Skill / Reference，不用于证明 current state。
 
-这不是工作日志压力：小型文案、链接、命名或单点 spacing 修复默认不记录；建设中不维护逐步日记；单次记录不复制聊天、工具输出或内部推理。Observations 位于 [`history/workflow-observations/`](history/workflow-observations/README.md)，普通任务不得预读，只有 retrospective 或 knowledge-maintenance 才按需读取。
+这不是工作日志压力：小型文案、链接、命名或单点 spacing 修复默认不记录；建设中不维护逐步日记；单次记录不复制聊天、工具输出或内部推理。每个项目只维护一个简短的 append-only observation 文件，同一任务的多条 Prompt 合并为一条 closing entry。Observations 位于 [`history/workflow-observations/`](history/workflow-observations/README.md)，普通任务不得预读，只有 retrospective 或 knowledge-maintenance 才按需读取。
 
 ## Agent 如何使用本仓库
 

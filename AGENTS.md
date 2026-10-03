@@ -107,6 +107,7 @@ Framer 的建设顺序、Responsive、Accessibility、交互、Part 验收和 Pr
 完成有实际建设价值的 Page、Section、Component、Interaction 或跨断点 Part 后，在不影响实施和 QA 的前提下，按 [`history/workflow-observations/README.md`](history/workflow-observations/README.md) 追加一条简短 observation。记录用户要求、实际 route、完成内容、验证结果和后来发现的遗漏；只写可核对事实，不写逐步日记、完整聊天、内部推理、节点倾倒或原始工具输出。
 
 - 小型文案、链接、命名、单点 spacing 等普通修复默认不记录；若它暴露了可复用的 workflow failure 才记录。
+- Observation 以项目分类：每个项目只维护一个 append-only 文件；同一任务中的多条 Prompt 合并为一条简短 closing entry，不按 Prompt 建文件或逐条记录。
 - Observation 在实施与 targeted QA 后写入，不是新的开工 Gate，不得暂停建设等待日志，也不得为了日志扩大读取范围。
 - 任务当下只写短记录；后来发现问题时追加 `Later-discovered issue` 与 correction，不改写原始事实。
 - 普通建设不得预读 observations；只有 retrospective 或 knowledge-maintenance 才按项目、时间或失败类型 targeted read。

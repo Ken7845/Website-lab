@@ -10,12 +10,21 @@ Do not record routine copy, link, naming, or isolated spacing fixes unless they 
 
 ## Where to record
 
-Use one monthly append-only file named `YYYY-MM.md`. A task receives one entry; later discoveries append to that same entry rather than creating a competing account. These files are retrospective evidence, not current project truth.
+Use one append-only file per project, named with the same project slug used in `content-library/`:
+
+```text
+history/workflow-observations/
+├── aurelia.md
+├── summit-roofing.md
+└── <project-slug>.md
+```
+
+Do not create a file after every Prompt. Multiple Prompts, corrections, and follow-ups that belong to one meaningful construction task become one brief closing entry in that project's file. Later discoveries append to the same entry rather than creating a competing account. Cross-project workflow work may use `repository.md` only when no single project owns it. These files are retrospective evidence, not current project truth.
 
 ## Entry format
 
 ```markdown
-## YYYY-MM-DD — Project / Part
+## YYYY-MM-DD — Part
 
 - Task reference: task, request Checklist, or Git commit when available
 - Request: one or two factual sentences describing what the user asked for
