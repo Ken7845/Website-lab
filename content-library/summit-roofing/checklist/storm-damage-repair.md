@@ -4,11 +4,13 @@
 
 - Page: Storm Damage Repair
 - Path: `/services/storm-damage-repair`
-- Current status: In progress — live route and page content were created on 2026-09-17. Structural readback and the separately scoped bounded Desktop visual QA pass.
+- Current status: In progress — 2026-10-03 opening adaptation applied with three-breakpoint Structural Pass and Desktop opening Visual Pass; narrower rendered/stress and runtime checks remain.
 - Content status: Demo explanatory copy. Emergency availability, response times, insurance support, restoration scope, credentials, pricing, contact facts and service area remain Missing.
-- Primary CTA: `Request an Inspection` → `/#contact` until a real Contact page exists.
+- Primary CTA: `Request an Inspection` → `/contact`; current label/destination read back on 2026-10-03.
 
 ## Scope lock / Definition of Ready
+
+Current opening direction is governed by the user-requested [Framing Opening adaptation](./site/2026-10-03-framing-opening-adaptation.md), superseding the original opaque response-rail composition below. All downstream Sections retain their current implementation.
 
 - **Add:** when explicitly approved for build, one authored service-detail page using the current `Site Shell`, shared Button and established styles.
 - **Reuse:** Big Shoulders display type, Inter body type, approved blue-grey Color Styles, zero-radius geometry, shared Navbar/Footer and honest Demo / Missing content treatment.
@@ -79,23 +81,23 @@ Contract status: Ready — preparation only. The user must explicitly approve Ca
 
 ## Latest Part Result
 
-Scope: Visual QA
-Status: In progress — Structural and bounded Desktop visual Pass
+Scope: Framing Opening adaptation, 2026-10-03
+Status: In progress — Structural Pass; Desktop opening Visual Pass; narrower rendered QA remains separate in [request result](./site/2026-10-03-framing-opening-adaptation.md#result)
 
 Pass:
-- The live `/services/storm-damage-repair` route has the recorded metadata, one H1, six named semantic Sections, the shared Button with `/#contact` CTA destinations, and the approved supplied-image roles with factual Alt text.
+- The live `/services/storm-damage-repair` route preserves metadata, one H1 per breakpoint, six semantic Sections and approved image/Alt values. Its opening now has a bottom-left 70% Navy auto-height title band; copy and shared Button controls, including `/contact`, are unchanged.
 - Desktop 1200, Tablet 810 and Phone 390 own the authored page structures. The existing Services `Storm Damage Repair` row routes to this page on Desktop, Tablet and Phone.
 - The documented `storm-repair.webp` source remains Missing; only the approved `roof-damage.webp` alternate was uploaded for the documentation field.
-- One separately scoped Desktop QA screenshot confirms the calm response-board composition: the deep-navy response rail, large condition image, restrained slate documentation field, narrow condition-evidence band and quiet handoff establish the approved page rhythm without alarmist treatment or duplication of the other service pages.
+- One bounded Desktop opening screenshot confirms the user-requested photographic field and bottom-left title-band treatment. Downstream documentation/evidence/FAQ/handoff nodes remain unchanged. This Part does not claim whole-page rhythm or responsive visual acceptance.
 
 Fix Required:
 - None found by the targeted live structural readback.
 
 Blocked:
-- 320px, 1440px, Preview, real contact details/route, emergency and insurance facts, credentials, project facts, image licences and publication authorization remain unavailable or deferred.
+- Tablet/Phone opening crop, 320px, 1440px and runtime Preview remain deferred. Contact route exists but real contact details, emergency and insurance facts, credentials, project facts, image licences and publication authorization remain unavailable.
 
 Verified widths:
-- Desktop 1200px: structural and bounded visual QA pass. Tablet 810px and Phone 390px: structural readback only.
+- Desktop 1200px: structural and bounded opening visual Pass. Tablet 810px and Phone 390px: opening structural readback only, at 640/740px height with 590/fill title bands.
 
 Verified paths:
 - `/services/storm-damage-repair` and Services-row destinations on `/services`.
@@ -105,4 +107,4 @@ Shared components affected:
 
 Recovery:
 - Canonical current pointer: `../PROJECT.md#14-recovery`
-- This Part result date: 2026-09-17
+- This Part result date: 2026-10-03

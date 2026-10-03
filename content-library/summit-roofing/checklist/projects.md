@@ -4,11 +4,13 @@
 
 - Page: Projects
 - Path: `/projects`
-- Current status: In progress — live at `/projects` with structural and bounded Desktop visual Pass on 2026-09-18; 320px / 1440px stress and Preview checks remain.
+- Current status: In progress — 2026-10-03 opening adaptation applied with three-breakpoint Structural Pass and Desktop opening Visual Pass; summary-strip and narrower rendered QA, 320px / 1440px stress and runtime Preview remain.
 - Content status: The existing `Projects` CMS Collection has four editable Demo items. Project titles, locations, categories, scopes, captions, results, dates, before/after relationships and image licences remain Demo or Missing.
-- Primary CTA: `Discuss a Project` → `/#contact` until a real Contact page exists.
+- Primary CTA: `Discuss a Project` → `/contact`; current label/destination read back on 2026-10-03.
 
 ## Scope lock / Definition of Ready
+
+Current opening direction is governed by the user-requested [Framing Opening adaptation](./site/2026-10-03-framing-opening-adaptation.md), which supersedes the original soft-white opening and opening-differentiation restrictions below. The original archive narrative remains approved outside that opening. Project Detail is excluded.
 
 - **Add:** when explicitly approved for build, one CMS-backed Projects archive page using the existing `Projects` Collection and its native repeated-item pattern.
 - **Reuse:** current `Site Shell`, shared Button, Big Shoulders / Inter, blue-grey Color Styles, zero-radius geometry, existing native `Project Card · CMS` repeated template, and the four current CMS fields: Title, Project Type, Location and Image.
@@ -80,24 +82,24 @@ Contract status: Ready — preparation only. The user must explicitly approve Ca
 
 ## Latest Part Result
 
-Scope: Projects page build
-Status: In progress — Structural and bounded Desktop visual Pass
+Scope: Framing Opening adaptation, 2026-10-03
+Status: In progress — Structural Pass; Desktop opening Visual Pass; remaining rendered QA classified in [request result](./site/2026-10-03-framing-opening-adaptation.md#result)
 
 Pass:
-- Live `/projects` has metadata, one H1 and five named semantic Sections: Projects Index Opening, Demo Record Band, Lead Project Record, Projects Field and Project Discussion Handoff.
+- Live `/projects` retains metadata and one H1; its existing summary rail is now a semantic Section directly after the image opening. The other four Sections preserve their structure, attributes and order.
 - Two native Collection Lists reuse the existing four-item Demo `Projects` Collection: lead record `limit=1`; remaining record field `limit=3`, `offset=1`. Image, project type, title and location remain CMS-bound, and the existing Project Card pattern is reused without a shared Component or CMS schema change.
-- Targeted readback verifies the shared Site Shell, Button CTA destinations to `/#contact`, no finished Project Detail links, and independently owned Desktop 1200 / Tablet 810 / Phone 390 structures.
-- One bounded Desktop review passes the archive hierarchy, colour rhythm, record density and sibling-page delta. The review budget is exhausted for this Part.
+- Opening readback verifies 700/640/740px image fields, 720/590/fill auto-height title bands, 70% Navy fill, existing typography and `/contact` destinations at Desktop 1200 / Tablet 810 / Phone 390. All text is unchanged. The latest Secondary CTA variant is retained without attributing its origin.
+- One bounded Desktop opening review passes the user-requested anchor, overlay, image crop and legibility. No whole-page visual acceptance is claimed; see the request for exact screenshot evidence.
 
 Fix Required:
 - None in the approved build scope.
 
 Blocked:
-- 320px / 1440px stress checks and Preview remain deferred. Verified project facts, commercial image licences, Project Detail, a real Contact route/details and publication authorization remain unavailable.
+- Tablet/Phone opening and relocated summary-strip rendered acceptance, 320px / 1440px stress and runtime Preview remain deferred. Rect-derived spacing warnings are unreliable rendered proof and are not silently accepted. Verified project facts, real contact facts, commercial image licences and publication authorization remain unavailable. Project Detail and Contact routes exist; this Part does not certify their runtime behavior.
 
 Verified widths:
 - Structural: Desktop 1200, Tablet 810 and Phone 390.
-- Visual: bounded Desktop composition.
+- Visual: bounded Desktop opening only.
 
 Verified paths:
 - `/projects`; existing Home Projects CMS list remains unchanged.
@@ -107,4 +109,4 @@ Shared components affected:
 
 Recovery:
 - Canonical current pointer: `../PROJECT.md#14-recovery`
-- This Part result date: 2026-09-18
+- This Part result date: 2026-10-03
