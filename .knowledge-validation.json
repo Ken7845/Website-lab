@@ -85,7 +85,7 @@
     "owners complete / N/A reasoned / readback planned / preview planned",
     "Visual Direction Contract",
     "Visual contract receipt",
-    "Website_Lab_V2.1.0",
+    "Website_Lab_V2.1.1",
     "Workflow Observations",
     "Later-discovered issue",
     "Workflow candidate"
@@ -108,7 +108,7 @@
       "普通建设不得预读 observations"
     ],
     "README.md": [
-      "Website_Lab_V2.1.0",
+      "Website_Lab_V2.1.1",
       "## Workflow Observations",
       "history/workflow-observations/"
     ],
@@ -142,7 +142,10 @@
       "Asset map",
       "Structural proof",
       "Visual proof",
-      "Visual contract receipt"
+      "Visual contract receipt",
+      "functionally justified reuse",
+      "site-wide layout monoculture",
+      "content-relative image role"
     ],
     ".agents/skills/framer-components/SKILL.md": [
       "Component Definition",
@@ -167,6 +170,8 @@
     ],
     ".agents/skills/framer-layout-responsive/SKILL.md": [
       "width ownership",
+      "deepest valid max-width owner",
+      "senior structural parent",
       "## Platform gate",
       "npx @framer/agent@latest setup",
       "npx @framer/agent@latest session new",
@@ -191,14 +196,31 @@
       "## 0A. Visual Direction Gate",
       "Contract status: Ready",
       "Visual contract receipt",
+      "site-wide layout monoculture",
+      "content-relative image role",
+      "deepest valid max-width owner",
+      "senior structural parent",
       "Structural status",
       "Visual status"
+    ],
+    "framer/basic/standards/website-baseline.md": [
+      "Max-width ownership rule",
+      "deepest valid max-width owner",
+      "senior structural parent",
+      "bounded canvas / centered shell"
+    ],
+    "framer/basic/workflows/preflight-audit.md": [
+      "deepest valid max-width owner",
+      "senior structural parent",
+      "bounded-canvas exception"
     ],
     "framer/checklist.md": [
       "Component Requirement Contract",
       "不得带未分类的 `[ ]` 结束",
       "Deferred",
       "Visual Direction Contract",
+      "deepest valid max-width owner",
+      "senior structural parent",
       "Structural status",
       "Visual status"
     ],
@@ -228,6 +250,10 @@
       "Contract symmetry",
       "unclassified",
       "Visual-contract symmetry",
+      "site-wide layout monoculture",
+      "content-relative image role",
+      "deepest valid max-width owner",
+      "senior structural parents",
       "Structural status",
       "Visual status"
     ],

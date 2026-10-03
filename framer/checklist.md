@@ -147,6 +147,7 @@ content-library/<project>/
 - [ ] 用户要求“完成”、“一次性完成”或完成当前 Part 时，Scope 内每个项目必须为 `Pass`、有证据的 `Blocked` 或用户明确授权的 `Deferred`；不得带未分类的 `[ ]` 结束。
 - [ ] 新建、复制或改写可复用 Component 责任时，实施前的 `Component Requirement Contract` 已为 `Ready`；实施后已按同一合同反向验证为 `Pass` 或 `Blocked`。
 - [ ] 新 Page、主要 Section 重设计、跨页面差异化或“different layout”范围在实施前已有 `Ready` 的 `Visual Direction Contract`；实施后按同一合同反向验证，并分别记录 Structural status 与 Visual status。
+- [ ] 跨页面差异以全站 layout-family distribution 判断，不要求每个 Section 独一无二：同职责 Contact / CTA / Form 与共享系统可有理由复用；所有 sibling pages 使用同一 Hero 或完整页面构图的 site-wide layout monoculture 不通过；示例数量不是硬配额。
 - [ ] 用户明确设计意图与通用规则冲突时保留用户意图，并在 `DECISIONS.md` 或 PROJECT 的 Decisions / Exceptions 章节记录。
 - [ ] 只复检当前 Part 及受影响的共享依赖，不无目的重读整页或整站。
 
@@ -286,7 +287,7 @@ content-library/<project>/
 - [ ] 当前 Part 有明确的视觉层级、阅读顺序和一个主要重点。
 - [ ] 使用 Stack / Grid 建立稳定布局，Absolute 只用于明确重叠、动效或特殊构图。
 - [ ] 已明确 Section、Container、Row/Grid、Component 和内容层之间的宽度所有权。
-- [ ] 内容区有合理 max-width；全宽 Section 是明确设计意图。
+- [ ] `max-width` 只位于需要阅读行长或几何上限的 deepest valid max-width owner；Page root、full-bleed Section 与负责分配宽度的 senior structural parent 保持 Fill / `1fr`。Approved bounded-canvas exception 有独立全视口背景 Owner 和全断点证据。
 - [ ] Gap、Padding 和 Section rhythm 来自稳定系统，不逐层随机补值。
 - [ ] Text 不贴可见容器边缘；外层可见容器拥有必要 padding。
 - [ ] 内容增长、标题变长和图片比例变化时布局仍能自然扩展。
@@ -397,6 +398,7 @@ content-library/<project>/
 - [ ] 没有地图 UI、黑块、角落控件或截图痕迹。
 - [ ] `Asset usage ledger` 已记录候选素材的 narrative qualities、Approved role、Current use、Reuse decision / reason、裁切焦点和 allocated / used / reassigned / blocked 状态。
 - [ ] 用户内容库中适合当前叙事且已获批准的素材已被使用、明确重新分配或有证据地标记 Blocked；没有因邻页已方便使用某图就无理由复用。
+- [ ] 每张图片承担明确的 content-relative image role；替换标题、颜色或布局不构成使用叙事不相关图片的理由。
 
 ### Gallery / Hover
 
@@ -423,12 +425,13 @@ content-library/<project>/
 
 - [ ] 已画清 Section → Container → Row/Grid → Component → Text/Image 的宽度链。
 - [ ] 明确固定宽度、`1fr`、`100%`、max-width 和隐藏规则分别由哪一层拥有。
+- [ ] 没有把 `max-width` 放在 Page root、full-bleed Section 或 senior structural parent 上来统一封顶整组内容；需要封顶时已下移到 deepest valid max-width owner。
 - [ ] 没有先用缩小字体掩盖父级宽度错误。
 - [ ] 无横向溢出、负宽度、零尺寸可见层或意外裁切。
 
 ### Desktop
 
-- [ ] 内容区 max-width 合理，宽屏不无限拉伸。
+- [ ] 外层骨架在宽屏继续响应；只有局部 deepest valid max-width owner 保持合理上限，阅读内容不会无限拉伸。
 - [ ] 构图、留白、大图比例和 Section 节奏成立。
 - [ ] Navbar 单行且 Sticky 正常。
 - [ ] Preserve 的品牌系统与 Transform 的页面构图同时成立；与 sibling page 的 masthead、Section 顺序、图文比例和主要视觉记忆点存在合同中定义的 coherent difference。

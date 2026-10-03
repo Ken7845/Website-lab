@@ -37,10 +37,10 @@
 
 - [ ] Design Read 与当前品牌、页面目的和用户行动一致。
 - [ ] Preserve 项没有被“为了不同”而破坏；Transform 项确实改变了内容需要的构图责任。
-- [ ] Hero / masthead paradigm、Section/layout-family sequence、colour-block rhythm、图片、process treatment 与 CTA composition 没有无理由复制 sibling page。
+- [ ] 全站 layout-family distribution 有可解释的重复与变化：Contact / CTA / Form 等同职责区域可以一致，但所有 sibling pages 没有机械复用同一 Hero 或完整 Section/layout-family sequence 而形成 site-wide layout monoculture；未用“每个 Section 必须不同”的数量配额制造无意义变化。
 - [ ] 每个 Section 有明确 focal point、比例、密度、留白与进入下一段的过渡，不是平均化容器。
 - [ ] Colour rhythm 使用批准的 palette roles，但页面之间不是同一 dark / light / accent 序列的机械复刻。
-- [ ] Asset map 与实际 Fill、Alt、crop、breakpoint 使用一致；复用和遗漏均有理由。
+- [ ] Asset map 与实际 Fill、Alt、crop、breakpoint 使用一致；每张图片支持分配给它的 content-relative image role，复用和遗漏均有理由，不能只因尺寸或色调方便而替换叙事不相关的素材。
 - [ ] 一张高效 full-page 或 compiled Desktop/Phone evidence 足以证明整体节奏；Section screenshot 不冒充整页证据。
 
 输出分别记录 `Structural status` 与 `Visual status`。命令成功、clean diagnostics 或结构 readback 不能单独让 Visual status 通过。
@@ -85,6 +85,7 @@
 - [ ] Grid/Row 在 Phone 转换合理。
 - [ ] CTA 易于点击。
 - [ ] 无横向溢出。
+- [ ] Page root、full-bleed Section 与 senior structural parent 保持 Fill / `1fr`；`max-width` 位于 deepest valid max-width owner。若存在 bounded-canvas exception，能证明它已获批准、外层背景仍覆盖视口且窄屏/宽屏均成立。
 - [ ] 图片焦点与内容顺序合理。
 - [ ] Footer 留白、列数与阅读顺序合理。
 

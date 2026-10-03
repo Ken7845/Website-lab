@@ -42,7 +42,7 @@ Page breakpoint root
 → media/text child
 ```
 
-- A full-bleed outer Section and its near-outer structural Stacks should remain fluid. Do not automatically place `max-width` on the first inner wrapper; trace to the deepest Content Wrapper, reading column, list, or component that genuinely owns the constraint. See `framer/basic/standards/website-baseline.md#5-layout-与共享结构`.
+- Keep the Page breakpoint root, outer Page Content, full-bleed Section, and any senior structural parent whose job is distributing available width fluid with Fill / `1fr`. Do not place `max-width` on them by default or automatically cap the first inner wrapper; trace to the **deepest valid max-width owner**—a local Content Wrapper, reading column, specific Grid, list, or component that genuinely needs the constraint. A deliberately bounded canvas is an exception only when approved by the project/user, wrapped by a separate full-viewport background owner, and verified across the relevant narrow and wide widths. See `framer/basic/standards/website-baseline.md#5-layout-与共享结构`.
 - Let exactly one layer own horizontal gutters. Do not repair child alignment by stacking padding at multiple levels.
 - Prefer `Fill / 1fr` for page instances when the parent owns available width. Do not use `100% Relative` to hide an unclear ownership chain.
 - Fixed-coordinate tracks, reels, viewports, slides, and windows keep their internal fixed geometry; make the surrounding page responsive instead.
@@ -61,7 +61,7 @@ Read [token-saving.md](../../../framer/basic/workflows/token-saving.md) only for
 ## Implement and verify
 
 1. Make the smallest coherent batch inside the authorized Section/Page.
-2. Read back only the changed root, its parent width chain, and affected breakpoint instances.
+2. Read back only the changed root, its parent width chain, and affected breakpoint instances. For a `max-width` fix, prove which node is the deepest valid owner and that every senior structural parent remains fluid.
 3. Verify that adjacent sections, shared components, and untouched breakpoints remain unchanged.
 4. Invoke `framer-qa` after implementation for targeted evaluation. Read only the applicable Checklist sections then.
 

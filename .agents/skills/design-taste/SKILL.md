@@ -65,7 +65,14 @@ Declare `Contract status: Draft`, then change it to `Ready` only when every owne
 
 For coherent difference, preserve the approved typography, palette roles, geometry, spacing logic, image treatment and interaction character unless the user changes them. Transform topology, proportion, alignment, density, media sequence or hierarchy because the content needs it. A layout is not acceptable merely because it differs: unrelated colors, arbitrary cards, decorative noise or foreign spacing do not satisfy the contract.
 
-For an existing multi-page project, compare the target with relevant sibling pages. Name intentional similarities from the shared system and prohibit accidental reuse of the same hero paradigm, section/layout-family sequence, colour-block rhythm, imagery, process treatment or CTA composition. Apply [image-workflow.md](../../../framer/basic/workflows/image-workflow.md) before selecting or reusing assets.
+For an existing multi-page project, compare the target with relevant sibling pages and judge layout repetition as a site-level distribution, not a uniqueness test for every Section. Name intentional similarities from the shared system and distinguish **functionally justified reuse** from accidental copying:
+
+- Shared navigation, footer, form, Contact, CTA and other utility patterns may reuse the same layout when consistency supports the same job. Repeated content systems may also share a family when their hierarchy is genuinely equivalent.
+- A layout family may recur within a page or across sibling pages, but avoid long mechanical sequences and **site-wide layout monoculture**. Do not give every sibling page the same Hero or the same complete Section/layout-family sequence merely by swapping text and images.
+- Use page roles to choose the distribution; do not enforce a novelty quota. For example, four Hero families across an eight-page site can be a reasonable plan, but it is neither a minimum nor a universal formula.
+- Preserve a repeated Contact layout when its function is unchanged, while adapting its title, copy and imagery to the page's actual context. Different content alone is not sufficient when the page hierarchy or narrative purpose calls for a different composition.
+
+Apply [image-workflow.md](../../../framer/basic/workflows/image-workflow.md) before selecting or reusing assets. Treat every image as a **content-relative image role**, not interchangeable decoration: understand what the image communicates, assign it to the Section whose narrative it supports, preserve its meaningful subject through cropping, and document a real reason for cross-page reuse. A new title or layout never makes an unrelated image appropriate.
 
 Before implementation, emit: `Visual contract receipt: direction complete / preserved system named / sibling delta defined / assets assigned / proof planned`. Missing evidence keeps the contract `Draft`; a genuine direction conflict requires user confirmation.
 
@@ -73,7 +80,7 @@ Before implementation, emit: `Visual contract receipt: direction complete / pres
 
 - Avoid automatic AI-purple gradients, generic glass panels, centered dark-mesh heroes, equal three-card rows, decorative micro-labels, fake metrics, filler testimonials, and motion with no communicative purpose.
 - Do not convert these cautions into universal bans. A pattern is valid when brand context, content, and the existing system justify it.
-- Vary section composition through narrative needs, not novelty quotas.
+- Build a coherent page- and site-level distribution of layout families through narrative needs, not novelty quotas or forced one-off Sections.
 - Let real content and images determine density and hierarchy; never invent operational facts or fake precision to make a layout feel complete.
 - Motivate motion through hierarchy, storytelling, feedback, or state change.
 

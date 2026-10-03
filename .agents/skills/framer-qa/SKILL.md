@@ -39,7 +39,7 @@ For any local image, screenshot, Preview capture, Gallery, crop, upload, or Alt 
 Check only what the scope can affect:
 
 - Existence and duplication: the requested function appears once where intended; no redundant Section or CTA intent was added.
-- Structure and ownership: Definition → Instance → Breakpoint Override; full-bleed, wrapper, gutter, and component boundaries are coherent.
+- Structure and ownership: Definition → Instance → Breakpoint Override; full-bleed, wrapper, gutter, and component boundaries are coherent. Page root, full-bleed Section, and senior structural parents remain fluid; `max-width` belongs to the deepest valid max-width owner. A bounded-canvas exception passes only with approved intent, a separate full-viewport background owner, and narrow/wide evidence.
 - Contract symmetry: for every Component concern, compare planned Decision / Owner with the actual Canvas owner, then replace planned readback/Preview proof with evidence or an explicit Blocked reason.
 - Content and facts: Approved/Draft/Demo/Missing states remain honest; links and labels lead to real destinations.
 - Breakpoints: actual Desktop, Tablet, Phone, and any project-specific widths are inspected; narrow layouts transform rather than mechanically shrink.
@@ -47,7 +47,7 @@ Check only what the scope can affect:
 - Accessibility: semantic headings, Alt, contrast, visible focus, keyboard path, touch targets, and reading order.
 - Delivery: SEO, performance, licensing, editing path, error/loading/empty states, and Marketplace replacement pressure when in scope.
 - Visual-contract symmetry: compare Design Read, Preserve / Transform / Avoid, sibling delta, Section composition, colour rhythm, asset map and responsive transformation against actual evidence. A different structure is not a visual Pass if it abandons the approved project language.
-- Cross-page differentiation: for a new Page, compare masthead paradigm, layout-family sequence, colour-block rhythm, image reuse, heading/body proportion, whitespace, repeated process treatment and CTA composition with the relevant siblings.
+- Cross-page differentiation: evaluate the site's layout-family distribution rather than requiring every Section to be unique. Functionally justified reuse of Contact, CTA, form and shared-system layouts may Pass; using the same Hero or complete page composition across every sibling page is site-wide layout monoculture and must fail. Treat numeric diversity examples as heuristics, not quotas. Verify that each image still performs its content-relative image role instead of acting as an interchangeable skin.
 
 Use relevant headings only from:
 

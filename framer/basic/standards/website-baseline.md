@@ -251,10 +251,15 @@ Layout Template
 - 页面只维护自己的 Content。
 - Navbar/Footer 不在每页复制。
 - 优先使用 Stack 和 Grid，明确谁拥有宽度。
-- 最外层 Page Content 与承担背景色/图的 full-bleed Section 必须使用全宽，不设 `max-width`；它们负责铺满 Preview 视口，避免在超出设计画板宽度时露出两侧色带。
-- 紧邻 Section 的第一层或前几层结构 Stack 通常仍属于流式页面骨架，也不得因为“统一内容宽度”就默认加 `max-width`。尤其在 Desktop，过早约束会让 Hero、Grid、Navbar 和 Footer 停止响应更宽视口，并把本应由子级承担的宽度责任锁死。
-- `max-width` 只放在真正需要控制阅读行长或组件尺寸契约的最深有效 Owner，例如局部 Content Wrapper、文本列、列表或组件。判断时沿 `Breakpoint → Section → structural Stack → local content owner` 逐层追踪；先区分“铺背景/分配可用宽度的骨架”与“约束具体内容的内层”，不要把两者合并。
-- 验证时至少比较 Desktop 1200 与 1440+：外层和近外层 Stack 应继续 Fill / `1fr` 扩展，只有被明确选定的局部 Owner 保持最大宽度。若移除约束后行长过长，应约束文字列或局部 Grid，而不是把 `max-width` 重新加回靠外层的公共 Stack。
+- **Max-width ownership rule**：默认不在 Page breakpoint root、最外层 Page Content、full-bleed Section 或负责分配可用宽度的 senior structural parent 上设置 `max-width`。这些层使用 Fill / `1fr` 跟随视口，负责背景、外部构图和可用宽度分配，不能同时承担局部内容封顶。
+- 紧邻 Section 的第一层或前几层结构 Stack 通常仍属于流式页面骨架，不得因为“统一内容宽度”就默认加 `max-width`。过早约束会让 Hero、Grid、Navbar、Footer 或整组 Page Content 像一个固定画板，在宽屏停止扩展、在窄屏过早换行或留下不受控边带。
+- `max-width` 只放在真正需要控制阅读行长或组件尺寸契约的 **deepest valid max-width owner**，例如局部 Content Wrapper、文本列、特定 Grid、列表或组件。判断时沿 `Breakpoint → Section → structural Stack → local content owner` 逐层追踪；先区分“铺背景/分配可用宽度的骨架”与“约束具体内容的内层”，不要把两者合并。
+- 若设计明确需要 bounded canvas / centered shell，只有在项目语言或用户要求批准、外层仍有独立的全视口背景 Owner、且 320 / 390 / 810 / 1200 / 1440+ 均验证成立时，senior parent 才可例外拥有 `max-width`；不得把这个例外当成普通响应式默认值。
+- 验证时至少比较 Desktop 1200 与 1440+：外层和 senior structural parents 应继续 Fill / `1fr` 扩展，只有被明确选定的局部 Owner 保持最大宽度。若移除约束后行长过长，应约束文字列或局部 Grid，而不是把 `max-width` 重新加回靠外层的公共 Stack。
+- 修复顺序：先从 Page root 沿 width chain 向下定位第一个不应封顶的 Owner → 移除或下移该 `max-width` → 保持外层 Fill / `1fr` → 在最深有效 Owner 恢复必要的阅读宽度或几何上限 → 复检相邻 Section 与全部相关断点。不要先缩小字号、固定子层宽度或添加额外 Padding 来补偿。
+
+已观察到的 failure signature（Summit Roofing，2026-10-03 用户截图）：图片、标题与正文被 senior parent 一起封装成窄的居中画板；视口变化时整组内容不按可用宽度重排，只改变外部空白、过早换行或裁切。该现象证明需要检查 width ownership，但截图本身不授权假设具体节点或数值；仍须通过 live-tree readback 定位真实 Owner。
+
 - 间距来自稳定系统，不逐个 Section 随机设置。
 - Targeted Preview 或截图如确认文字被父级 Stack 裁切，先排查该父级的固定尺寸、Padding 和宽度所有权；确认文字本应自然外溢且不存在横向溢出后，把该父级 Stack 的 `overflow` 改为 `visible`，再复检相关断点。不要把 `visible` 设为默认值，也不要用它掩盖错误尺寸或布局溢出。
 - 允许不同 Section 使用不同构图，不把全站变成同一种容器模板。

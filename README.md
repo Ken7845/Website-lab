@@ -4,14 +4,14 @@ Website-lab 是面向人类与 AI Agent 的网站设计、项目事实和 Framer
 
 ## Knowledge Base Version
 
-- Repository version: `Website_Lab_V2.1.0`
-- Current release: `v2.1.0`
+- Repository version: `Website_Lab_V2.1.1`
+- Current release: `v2.1.1`
 - Architecture base: `v2.0.0`
-- Released: 2026-09-16
+- Released: 2026-10-03
 - Updated: 2026-10-03
-- Scope: adds the Visual Direction Contract, page/asset identity persistence, symmetric structural/visual QA and machine-checkable contract integrity while preserving the v2 routing and progressive-disclosure architecture.
-- Current revision: adds lightweight workflow observations for later retrospective improvement without adding them to normal task context.
-- Migration record: [Website-lab Visual Workflow Improvement — v2.1.0](history/repository/2026-09-16-visual-workflow-v2.1.0.md)
+- Scope: preserves the v2 progressive-disclosure architecture and v2.1 Visual Direction / QA contracts while refining two design decisions that were previously easy to apply too mechanically.
+- Current revision: permits functionally justified layout-family reuse while rejecting site-wide layout monoculture, preserves content-relative image selection, and assigns `max-width` to the deepest valid local owner instead of senior page/Section containers.
+- Architecture migration record (v2.1.0 base): [Website-lab Visual Workflow Improvement — v2.1.0](history/repository/2026-09-16-visual-workflow-v2.1.0.md)
 
 ## 架构
 

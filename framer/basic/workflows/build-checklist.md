@@ -21,10 +21,10 @@
 
 - [ ] 一行 Design Read 明确页面种类、用户、转化目标与项目视觉语言。
 - [ ] Preserve / Transform / Avoid 区分共享系统、允许变化与禁止默认模式。
-- [ ] Existing multi-page site 已完成 Sibling-page delta，不复制同一 Hero、Section/layout-family sequence、colour-block rhythm、图片、process treatment 或 CTA composition。
-- [ ] 每个 Section 已明确叙事目的、layout family、focal point、内容密度与过渡关系。
+- [ ] Existing multi-page site 已完成 Sibling-page delta 与全站 layout-family distribution：允许有功能理由的 Contact / CTA / Form / shared-system 布局复用，但不得让所有 sibling pages 使用同一 Hero 或整套 Section/layout-family sequence，形成 site-wide layout monoculture；不设置“每段必须不同”的数量配额。
+- [ ] 每个 Section 已明确叙事目的、layout family、focal point、内容密度与过渡关系；复用 family 时能说明相同职责，变化时能说明内容需要。
 - [ ] Colour rhythm 已说明每段的 background、text、accent、image relationship 与下一段 transition；仅有 palette token 清单不算完成。
-- [ ] Asset map 已记录候选素材、现有使用位置、叙事角色、复用理由、裁切焦点和三端计划。
+- [ ] Asset map 已记录候选素材、现有使用位置、content-relative image role、复用理由、裁切焦点和三端计划；图片不是只为配合布局或替换标题而互换的装饰物。
 - [ ] Structural proof 与 Visual proof 均已规划。
 - [ ] `Contract status: Ready`，并已显示 `Visual contract receipt`。
 
@@ -130,7 +130,7 @@ Page 未通过以上条件时，不得标记 Done。
 
 ### Desktop
 
-- [ ] 外层 Page Content、full-bleed Section 与近外层结构 Stack 使用全宽，不设 `max-width`；约束落在最深的局部内容 Owner，并对比 1200 / 1440+ 确认 Desktop 仍会扩展。
+- [ ] Page root、外层 Page Content、full-bleed Section 与负责宽度分配的 senior structural parent 使用 Fill / `1fr`，默认不设 `max-width`；约束落在 deepest valid max-width owner，并对比 1200 / 1440+ 确认外层仍会扩展。若采用 approved bounded-canvas exception，已有独立全视口背景 Owner 和全断点证据。
 - [ ] Navbar 单行且 Sticky 正常。
 - [ ] 图片构图、留白和大屏节奏成立。
 
