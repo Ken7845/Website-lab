@@ -10,16 +10,16 @@
 - Page: Project Detail
 - Path: `/projects/:Projects`
 - Current status: In progress — live at `/projects/:Projects` with Structural and bounded Desktop visual Pass. Archive record destinations are live; 320px / 1440px stress and Preview checks remain.
-- Content status: The live `Projects` Collection has four editable Demo items and only Title, Slug, Project Type, Location and Image fields. Verified project scope, challenge, solution, results, gallery images, dates, captions and licences are Missing.
+- Content status: The live `Projects` Collection has four editable Demo items with Title, Slug, Project Type, Location, Image and Project Approach fields. Verified project scope, challenge, solution, results, gallery images, dates, captions and licences remain Missing.
 - Primary CTA: `Discuss a Project` → `/#contact` until a real Contact page exists.
 
 ## Scope lock / Definition of Ready
 
 - **Add:** when explicitly approved for build, one CMS detail page at `/projects/:Projects` using only the existing `Projects` Collection and its five current fields.
 - **Reuse:** current `Site Shell`, shared Button, Big Shoulders / Inter, blue-grey Color Styles, zero-radius geometry, and the existing CMS Image / Title / Project Type / Location variables.
-- **Modify:** only the new detail route and, after its route is live, the existing `/projects` card instances as necessary to provide native CMS detail destinations. Do not change the Collection schema, CMS items, Project Card definition, Home archive, Navbar or Footer.
-- **No-op:** service pages, Home, Insights, Contact, forms, Custom Code, new CMS fields, galleries, related-project logic, filters, publishing and brand-name resolution.
-- **Confirmed content:** every visible project field stays CMS-bound and visibly Demo until the buyer supplies verified facts. A transparent template note replaces unsupported challenge, solution and result claims.
+- **Modify:** the existing detail route and the `Projects` Collection schema only as defined by the current [CMS-editable Detail Content request](./detail-pages/2026-10-03-cms-editable-detail-content.md). Preserve the Project Card definition, Home archive, Navbar and Footer.
+- **No-op:** service pages, Home, Insights archive, Contact, forms, Custom Code, galleries, related-project logic, filters, publishing and brand-name resolution.
+- **Confirmed content:** every visible project field stays CMS-bound and remains Demo reference content until the buyer supplies verified facts. The editable Project Approach field replaces the former status-filler copy without introducing a fabricated case study.
 - **Blocked / Missing:** verified project scope, challenge, solution, result, date, gallery, licence and contact facts. Do not create fields to simulate these facts in this page scope.
 
 ## Visual Direction Contract
@@ -27,6 +27,8 @@
 Contract status: Blocked — recorded implementation exists; the full row-specific evidence matrix is not established by this repository-only repair.
 Implementation status: Implemented — historical completion record; current live state not reverified.
 Verification status: Blocked — retain bounded historical results; outstanding evidence requires the live Framer gate.
+
+The dated CMS-schema restriction in this historical contract is superseded only by the 2026-10-03 CMS-editable Detail Content request; its preservation and fact-boundary rules remain active.
 
 | Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
 |---|---|---|---|---|---|
@@ -44,8 +46,8 @@ Verification status: Blocked — retain bounded historical results; outstanding 
 ## Page narrative and Sections
 
 1. **Project Record Threshold** — A deep-navy, image-led opening binds the current CMS Image, Project Type, Title and Location into one record introduction. The H1 is the CMS Title; the surrounding language states that it is editable Demo content.
-2. **Record Metadata Sheet** — A soft-white offset sheet repeats the CMS Project Type and Location with a factual “current fields” explanation. It displays no dates, scope, result or location claim beyond the field itself.
-3. **Demo Detail Status** — A narrow mist-grey band explains that challenge, scope, result, gallery and licensing fields are not yet part of this template’s current CMS record. It is a truthful template status, not empty editorial filler.
+2. **Project Snapshot** — A soft-white offset sheet frames the existing CMS Project Type and Location as the compact record facts beneath the image-led introduction.
+3. **Project Approach** — A narrow mist-grey band binds the CMS Project Approach rich-text field, giving each record an editable narrative that complements its single image without presenting unsupported project results.
 4. **Record Image and Editing Note** — A slate-blue field uses the same CMS Image as a single image record alongside an editorial note describing what the buyer can replace: image, title, type and location. It deliberately does not masquerade as a gallery or case-study result.
 5. **Project Discussion Handoff** — A restrained soft-white close offers `Discuss a Project` to `/#contact`, marked as a Demo CTA until a dedicated Contact route and real details exist.
 
@@ -58,8 +60,8 @@ Verification status: Blocked — retain bounded historical results; outstanding 
 
 ## Components, CMS, navigation and conversion
 
-- Create one native `WebPageNode` detail route at `/projects/:Projects`; bind only `var(--variable-fiWjBoWXS)`, `var(--variable-qtKu0ioQh)`, `var(--variable-Y8uniNhkU)` and `var(--variable-C9w9owXSC)`.
-- Reuse the current `Projects` Collection exactly as read: Title, Slug, Project Type, Location and Image. Do not create scope, description, date, gallery, result, related-project or taxonomy fields.
+- Reuse the native `WebPageNode` detail route at `/projects/:Projects`; bind Title, Project Type, Location, Image and the rich-text Project Approach field.
+- Reuse the existing `Projects` Collection and its new Project Approach field. Do not create scope, date, gallery, result, related-project or taxonomy fields.
 - After route verification, set the two existing `/projects` native CMS record patterns to their matching CMS detail destination. Do not alter the Project Card component definition or Home archive; cards must remain usable without hover.
 - Reuse the shared Button for the CTA to `/#contact`. Do not create a contact form, external destination or a false scheduling promise.
 
@@ -85,37 +87,33 @@ Verification status: Blocked — retain bounded historical results; outstanding 
 
 ## Page Done threshold
 
-- The live `/projects/:Projects` route has metadata, the shared shell/Button, one CMS-bound H1, five named semantic Sections, the current four field bindings, truthful Demo status and Desktop/Tablet/Phone ownership read back.
+- The live `/projects/:Projects` route has metadata, the shared shell/Button, one CMS-bound H1, five named semantic Sections, five editable content bindings, and Desktop/Tablet/Phone ownership read back.
 - Archive record patterns lead to the matching CMS detail item; Home and the CMS schema are unchanged. The route contains no fabricated project narrative, gallery, result or unsupported fact.
 - The Visual Direction Contract has Structural and Visual Pass evidence, including one bounded image review. 320px, 1440px, Preview, verified project facts, licensing, real Contact route and Marketplace publication remain explicitly classified.
 
 ## Latest Part Result
 
-Scope: Project Detail route, archive destinations and responsive page structure
-Status: In progress — Structural and bounded Desktop visual Pass
+Scope: CMS-editable Project Detail content
+Status: Structural Pass / bounded Desktop visual Pass
 
 Pass:
-- Live `/projects/:Projects` now has the default Site Shell, metadata, five named semantic Sections and only the current CMS Image, Title, Project Type and Location bindings.
-- Targeted readback confirms Desktop 1200, Tablet 810 and Phone 390 breakpoint ownership. The negative Canvas-editor coordinates reported for both detail and the already working Projects Phone replicas are not page collapse evidence; the Phone replica’s serialized one-column hierarchy, gutters and content are intact.
-- The two `/projects` CMS record wrappers now resolve to `/projects/:slug` with their current CMS Slug binding. No CMS schema, CMS item, Project Card definition, Home archive or shared Component was changed.
-- One bounded Desktop review passes the image threshold, metadata sheet, Demo-status strip, single-image editing note and quiet close as an individual editable record sheet, distinct from Projects and service-detail narratives. The review budget is exhausted for this Part.
-
-Fix Required:
-- None in the approved build scope.
+- Added the `Project Approach` rich-text field to all four Projects records; each record has three editable reference-content blocks.
+- Renamed and revised Record Metadata Sheet as Project Snapshot and Demo Detail Status as Project Approach. The new approach block is CMS-bound on Desktop, Tablet and Phone.
+- A bounded Desktop screenshot confirms the current image threshold → Project Snapshot → Project Approach order. Existing image binding/Alt and `/projects` return path are retained.
 
 Blocked:
-- Verified project facts, commercial image licences, richer CMS fields, real Contact route/details and publication authorization remain unavailable.
+- 320px / 1440px stress, Preview, verified project facts, commercial image licences, real Contact details and publication authorization remain outside this Part.
 
 Verified widths:
 - Structural: Desktop 1200, Tablet 810 and Phone 390.
-- Visual: bounded Desktop composition. 320px / 1440px and Preview are not checked.
+- Visual: bounded Desktop composition only.
 
 Verified paths:
-- `/projects/:Projects` has the five-section structure; `/projects` lead and field CMS record wrappers resolve to matching `/projects/:slug` items.
+- `/projects/:Projects` and its existing `/projects` return path.
 
 Shared components affected:
-- Reused only: Site Shell and Button. The existing Projects archive record wrappers gained native destinations; no shared Component change occurred.
+- Reused only: Site Shell and Button; no shared Component definition changed.
 
 Recovery:
 - Canonical current pointer: `../PROJECT.md#14-recovery`
-- This Part result date: 2026-09-18
+- This Part result date: 2026-10-03

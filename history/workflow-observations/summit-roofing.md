@@ -35,3 +35,39 @@
 - Later-discovered issue: None.
 - Correction: Rect-derived sibling-spacing warnings relied on 200px placeholder-like section widths and conflicted with actual Stack child order; no arbitrary repair was made from those measurements. Rendered summary-strip spacing remains unverified.
 - Workflow candidate: Reserve a visual budget for structural moves outside a reference-matching opening; static opening screenshots cannot certify the moved adjacent content or responsive behavior. No new repository rule added.
+
+## 2026-10-03 — CMS-editable detail content
+
+- Task reference: [Request checklist](../../content-library/summit-roofing/checklist/detail-pages/2026-10-03-cms-editable-detail-content.md).
+- Request: Make Project and Insight detail content CMS-editable, replace static status/availability sections, and use text-rich content where a second image is unnecessary.
+- Route selected: PROJECT → official Framer live readback → framer-components for CMS ownership → targeted CMS/detail-page guidance → framer-qa.
+- Actions: Added Project Approach, Article Body and Field Checklist rich-text fields; seeded Demo reference content; bound the revised Project Snapshot/Project Approach and Article Reading/Field Checklist sections without changing shared components, image fields/Alt, routes or CTAs.
+- Verification: Read back all CMS fields and items, all Desktop/Tablet/Phone bindings, one H1 style per responsive detail page, existing routes, and one bounded Desktop screenshot per revised page.
+- Outcome: Pass — structural and bounded Desktop visual scope.
+- Later-discovered issue: Placeholder-like Canvas Rect measurements continued to report 200px/negative values and are not reliable rendered-layout evidence.
+- Correction: Classified those inherited warnings against the bounded screenshot evidence rather than moving unaffected page-root geometry.
+- Workflow candidate: CMS rich-text fields provide a safer marketplace content-density path than adding unrelated images when a record already has one meaningful image. No repository rule change made.
+
+## 2026-10-04 — Project Card surface controls
+
+- Task reference: User screenshots and component-repair request.
+- Request: Prevent the Project Card text from sitting flush against a distinct card surface; expose the card and text colours outside the definition; preserve the lesson in Website_Lab.
+- Route selected: PROJECT → official Framer component/instance readback → framer-components → bounded component screenshot → framer-qa; knowledge-maintenance updated the platform-general card rule.
+- Actions: Added 20px root padding and Surface, Label, Title and Meta color controls to the existing Project Card; retained its CMS image/type/title/location controls and Default/Hover state model.
+- Verification: Compared Article Card and Project Card definitions, read back all nine Project Card instances, confirmed new control exposure and reviewed one bounded Default screenshot.
+- Outcome: Pass — structural and bounded visual scope.
+- Later-discovered issue: None.
+- Correction: None.
+- Workflow candidate: Promoted the image/text shared-inset and external-color-control rule to `framer/basic/standards/website-baseline.md` with a project-derived example and explicit decision boundary.
+
+## 2026-10-04 — Insight CMS checklist rows
+
+- Task reference: User correction to the CMS-editable Insight Detail content.
+- Request: Replace the plain-text Field Checklist with ten hoverable Frame rows while keeping every step editable in CMS.
+- Route selected: PROJECT and Insight Detail contract → official CMS List / CMS Detail Pages / Effects guidance → live CMS and breakpoint readback → page-local repeated Frame pattern.
+- Actions: Added a required `Checklist Steps` List field with one `Step` string item to both Insight records, migrated the ten existing Demo entries, preserved the original rich-text field, and replaced its page display with one repeated bordered/padded row template.
+- Verification: Confirmed ten List items per record; verified the repeat binding, row padding/border and non-scaling Hover configuration on Desktop, Tablet and Phone; reviewed one bounded Desktop Field Checklist screenshot.
+- Outcome: Structural Pass / bounded Desktop visual Pass. Runtime pointer Hover remains Preview-blocked.
+- Later-discovered issue: The first array-item binding used the array variable plus item name and was rejected by Framer; the generated item-field variable is the canonical render binding.
+- Correction: Re-read the generated CMS List schema, then bound the row text to the canonical item-field variable and explicitly set hover scale to 1.
+- Workflow candidate: Use a CMS List plus a repeated page-local Frame when individual CMS entries need their own surface or interaction; a rich-text field cannot provide per-entry states.

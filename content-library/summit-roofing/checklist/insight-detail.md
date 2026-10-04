@@ -1,26 +1,28 @@
 # Insight Detail — Page Checklist
 
 - Contract schema: 1
-- Component contract: N/A — this recorded Part contains no component contract; lifecycle migration makes no construction change.
-- Visual contract: Required
-- Evidence migration: 2026-10-03; repository-only. Original contract assertions are preserved in project History; no fresh Canvas or runtime proof was produced.
+- Component contract: N/A — this Part creates a page-local repeated Frame and CMS List, not a reusable Component.
+- Visual contract: Legacy — the established page direction remains; the 2026-10-04 row repair is a scoped CMS/rendering correction, not a new visual-direction decision.
+- Evidence migration: 2026-10-04 live update. Original page-direction assertions remain preserved in project History; current row structure has targeted Canvas and bounded Desktop visual proof, while runtime Hover remains unverified.
 
 - **Path:** `/insights/:Insights`
-- **Current status:** In progress — Structural Pass at Desktop, Tablet and Phone; visual, stress and Preview evidence pending
-- **Content status:** Existing Insight CMS values are Demo. Only Title, Category, Summary and Image are available; article body, author, date, expertise claims and service facts are Missing.
+- **Current status:** In progress — Structural Pass at Desktop, Tablet and Phone; bounded Field Checklist Desktop visual Pass. Stress, runtime Hover and full Preview evidence remain pending.
+- **Content status:** Existing Insight CMS values are Demo. Title, Category, Summary, Image, Article Body and a required ten-item `Checklist Steps` CMS List are editable. The original Field Checklist rich-text field is preserved as legacy content; author, date, expertise claims and service facts remain Missing.
 - **Primary CTA:** Explore Services → `/services`
 
 ## Scope Lock / Definition of Ready
 
 Create one CMS-backed detail route for the existing `Insights` collection, then make the existing archive card route to its corresponding record. Reuse the Site Shell, Article Card and Button, existing type/color roles, straight-edge geometry, and the item image plus supplied Alt.
 
-Do not add or alter CMS fields, CMS items, Custom Code, forms, contact facts, author/date metadata, articles, related-content claims, service-area claims, new visual assets, or publishing. The user’s 2026-09-19 `start` confirms this contract and its bounded build scope.
+The 2026-10-03 [CMS-editable Detail Content request](./detail-pages/2026-10-03-cms-editable-detail-content.md) authorizes Article Body and Field Checklist content plus their Demo reference content. The 2026-10-04 user correction authorizes the Field Checklist's page display to use a required ten-item `Checklist Steps` CMS List, repeated page-local Frame rows, and a row Hover effect. It does not authorize Custom Code, forms, contact facts, author/date metadata, related-content claims, service-area claims, new visual assets, or publishing.
 
 ## Visual Direction Contract
 
-Contract status: Blocked — recorded implementation exists; the full row-specific evidence matrix is not established by this repository-only repair.
-Implementation status: Implemented — historical completion record; current live state not reverified.
-Verification status: Blocked — retain bounded historical results; outstanding evidence requires the live Framer gate.
+Contract status: Blocked — existing page direction retained; the row repair has bounded visual evidence, but runtime Hover and broader Preview remain unverified.
+Implementation status: Implemented — current live Field Checklist structure was updated on 2026-10-04.
+Verification status: Blocked — CMS, Desktop/Tablet/Phone inheritance and one bounded Desktop visual sample pass; runtime Hover and broader Preview remain unverified.
+
+The dated restriction against CMS fields and long-form article content is superseded only by the 2026-10-03 CMS-editable Detail Content request; the existing visual system and fact boundaries remain active.
 
 | Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
 |---|---|---|---|---|---|
@@ -38,8 +40,8 @@ Verification status: Blocked — retain bounded historical results; outstanding 
 ## Page Narrative and Sections
 
 1. **Article Threshold** — deep-navy opening with CMS Category, Title, Summary and bound item Image. It establishes an editable article record rather than a fabricated authority claim.
-2. **Article Record** — soft-white reading section with the Summary and a clear content-availability statement. The Summary is the only current article text field and must remain visibly truthful.
-3. **Editable Content Note** — mist-grey plain-language note: add verified article copy in the CMS before publishing. This makes the Missing long-form body an editing requirement, not false content.
+2. **Article Reading** — soft-white reading section with the CMS Summary and Article Body. Each record can now carry an image-relevant editorial story without changing the page structure.
+3. **Field Checklist** — mist-grey reading section with a `Checklist Steps` CMS List. One repeated, padded Frame row renders each of the ten editable Demo items; a restrained Hover shifts the row 6px and changes its surface without changing content or route.
 4. **Service Handoff** — slate-blue close with `Explore Services` → `/services` and an optional route back to `/insights` if it remains a real destination.
 
 ## Text, Styles, Semantics and Naming
@@ -51,8 +53,8 @@ Verification status: Blocked — retain bounded historical results; outstanding 
 
 ## Components, CMS, Links and Conversion
 
-- **Reuse:** Site Shell, Article Card and Button. **Add:** one WebPage CMS detail route and page-local Frames/RichText nodes. **Modify:** the archive's repeating page-local Article Card wrapper to point to the matching new detail record. **No-op:** CMS schema/items, shared component definitions and Navbar/Footer.
-- Bind Title, Category, Summary and Image directly to the `Insights` variables. Bind metadata title/description safely to the available CMS data.
+- **Reuse:** Site Shell, Article Card and Button. **Add:** one `Checklist Steps` List field and page-local repeated Frame row. **Modify:** the Field Checklist display source. **No-op:** shared component definitions, Navbar/Footer, image/Alt, archive routes and the legacy Field Checklist rich-text data.
+- Bind Title, Category, Summary, Image and Article Body directly to the `Insights` variables. Bind each repeated row to the `Checklist Steps → Step` item field. Bind metadata title/description safely to the available CMS data.
 - Each card link targets `/insights/:Insights` with the current item slug as its collection item. Its previously absent link becomes valid only after the detail route exists.
 - `Explore Services` points to existing `/services`; any archive-return link points to existing `/insights`.
 
@@ -60,44 +62,42 @@ Verification status: Blocked — retain bounded historical results; outstanding 
 
 - Use only the CMS image and its existing attached Alt. No image review or crop adjustment is authorized until the Image Review Plan is recorded in `../PROJECT.md#14-recovery` and `image-workflow.md` is read.
 - Desktop 1200: image threshold and reading rail use one max-width owner. Tablet 810 preserves legible text width and reading order. Phone 390 uses a single column with 20px outer gutters. Stress widths 320 and 1440+ remain deferred.
-- No motion, hover-only information, overlay, Lightbox, cursor effect or new interaction. Preserve keyboard order, visible focus and reduced-motion behavior from the shared shell.
+- The checklist row uses a native Hover effect only: a 6px horizontal shift and surface-colour change with no scale, no hover-only information, no cursor change and no route. Phone preserves the static row; keyboard order, visible focus and reduced-motion behavior remain owned by the shared shell. Runtime pointer playback remains a Preview check.
 
 ## SEO, Performance, Marketplace and Preview
 
 - Metadata: `{{Title}} | Summit Roofing`; description: `Editable roofing guidance for a contractor template. Add verified article content before publishing.`
-- No dependency, Custom Code, external embed or CMS schema change. The template must tolerate long titles/summaries, different image ratios, missing article body, item reordering and future items.
+- No dependency, Custom Code or external embed. The template must tolerate long titles, long article/checklist content, different image ratios, item reordering and future items.
 - Targeted Preview path: one existing item under `/insights/:Insights`. Publication remains excluded.
 
 ## Page Done Threshold
 
-- The route exists as one CMS detail page with shared shell, truthful CMS-only content, four named semantic Sections, one H1, item image/Alt binding, valid archive-to-detail routes and valid service handoff.
-- Desktop, Tablet and Phone breakpoint owners are structurally verified. Visual evidence, 320/1440 stress, Preview, article body content, image licensing and publishing remain explicit work when unavailable.
+- The route exists as one CMS detail page with shared shell, editable CMS content, four named semantic Sections, one H1, item image/Alt binding, valid archive-to-detail routes and valid service handoff.
+- Desktop, Tablet and Phone breakpoint owners are structurally verified. Visual evidence, 320/1440 stress, Preview, image licensing and publishing remain explicit work when unavailable.
 
 ## Latest Part Result
 
-Scope: Insight Detail CMS route, archive linking and structural QA
-Status: Structural Pass / Visual Blocked
+Scope: CMS checklist rows
+Status: Structural Pass / bounded Desktop visual Pass
 
 Pass:
-- `/insights/:Insights` is associated with the existing Insights CMS collection, uses Site Shell metadata and has independent Desktop 1200, Tablet 810 and Phone 390 breakpoint owners.
-- Four named semantic Sections follow the contracted Deep Navy → Soft White → Mist Grey → Slate Blue sequence. Category, Title, Summary and Image are CMS-bound; no collection, item, field, Component definition, Custom Code or dependency changed.
-- The existing Insights collection-list wrapper now links each record to `/insights/:slug` with the active CMS slug. Article Card remains unmodified; the service CTA reaches the existing `/services` route.
-
-Fix Required:
-- None in the authorized structural scope.
+- Added a required, ten-item `Checklist Steps` CMS List to both Insight records and migrated the existing ten Demo steps for each. The original Field Checklist rich-text data remains preserved but is no longer the page display source.
+- Replaced the plain rich-text display with a named parent Stack and one repeated, padded/bordered page-local Frame row. The Row binds its text to `Checklist Steps → Step` and carries a non-scaling 6px Hover surface change.
+- Targeted readback confirms the CMS item count, repeat binding, row styling and Hover configuration on Desktop, Tablet and Phone. A bounded Desktop screenshot confirms all ten individual rows are visible.
 
 Blocked:
-- Long-form article body, factual editorial content, author/date data, image licensing, visual review, 320/1440 stress widths, Preview and publishing remain unavailable or outside this Part.
+- Runtime pointer Hover playback, 320px / 1440px stress, Preview, author/date facts, commercial image licences and publication authorization remain outside this Part.
 
 Verified widths:
-- Structural: Desktop 1200, Tablet 810 and Phone 390. Deferred: 320 and 1440+ stress widths.
+- Structural: Desktop 1200, Tablet 810 and Phone 390.
+- Visual: bounded Desktop composition only.
 
 Verified paths:
-- `/insights`, `/insights/:slug` and `/services`.
+- `/insights/:Insights`, with existing archive and service destinations retained.
 
 Shared components affected:
-- Reused only: Site Shell, Article Card and Button. The archive's page-local repeat wrapper gained the valid dynamic destination; no shared component changed.
+- Reused only: Site Shell, Article Card and Button; no shared Component definition changed.
 
 Recovery:
 - Canonical current pointer: `../PROJECT.md#14-recovery`
-- This Part result date: 2026-09-19
+- This Part result date: 2026-10-04

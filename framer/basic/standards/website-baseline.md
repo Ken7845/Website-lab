@@ -173,6 +173,19 @@ Instance Properties
 
 `Desktop Hover` 是默认唯一的 pointer hover 状态；Phone 触摸路径不机械复制 Hover Variant。若特定项目确实需要手机外接指针状态，必须先由真实 Preview 证明，再增加最小必要变体。
 
+### Card surface, padding and external colour controls
+
+When a reusable card can sit on a background different from its own surface, the Component Definition owns the complete inner edge: apply one intentional padding value to the visible card surface so its image and text content share the same inset. Do not leave a text stack flush against a distinct card fill merely because the default surface happens to match the surrounding page.
+
+- Expose the card's `Surface Color` and the independently meaningful text colours (for example Label, Title and Meta) as Component Properties / Variables when buyers or page Instances may need to adapt the card to a different background.
+- Keep CMS responsible for record content and images; it should not be the workaround for a presentation-only surface or text-colour decision.
+- If the image is intentionally full-bleed, make that a deliberate media-frame contract and give the text surface its own explicit padding. The image/text edge relationship must still be visually intentional.
+- Keep Default, Hover and other visible variants on the same padding and colour-variable contract unless their state specifically requires a documented contrast change. Do not solve a hover mismatch by creating a content-specific Variant.
+
+Failure mode: a card appears aligned only while its surface blends into the parent, then looks broken as soon as its fill changes. Repair the Definition rather than each CMS Instance: add the visible-surface padding, bind the root fill and relevant text nodes to exposed colour variables, then verify a Default sample, any visible state, and one page Instance with a contrasting surrounding background.
+
+Verified project-derived example: Summit Roofing Project Card, 2026-10-04. Its unpadded dark root made the CMS text visually flush when placed on a different background; the repair added 20px root padding and external Surface / Label / Title / Meta colour controls while retaining CMS image and text bindings. This is evidence for the decision rule above, not a required universal 20px value.
+
 Variant 只承担 Desktop / Phone、Default / Hover 等真实结构或状态差异。新增项目通常只增加一个 Instance 和对应内容，不增加一组内容 Variant。
 
 禁止：
@@ -431,6 +444,18 @@ Motion 服务：
 - 页面级 Modal → Fixed Overlay。
 - Dense Row Hover → Gesture Variant + color/opacity。
 - Image Hover → Outer Frame + Inner Image scale。
+- Image-and-text Card Highlight → keep the card geometry stable and apply a brightness filter to the image layer only; use `120%` as a tuning reference when a lighter, not darker, photo response is desired.
+
+### Image-card brightness highlight
+
+For a card that combines an image and adjacent text, a hovered image can signal focus by increasing the image layer's `brightness` (for example, `120%`) instead of placing a low-opacity dark fill over the image. Apply the filter to the image/content layer inside its clipping frame—not to the card root—so the text, card surface, padding and external colour controls do not brighten with the photograph.
+
+- Keep the card's outer geometry, image crop, text placement and row/grid position unchanged. Brightness is a visual highlight, not a layout animation.
+- Treat `120%` as a starting point, not a universal number. Tune only enough to preserve photo detail and text/surface contrast; retain a documented project-specific value when current Canvas evidence differs.
+- Do not use a dark mask merely to simulate this highlight. A separate overlay remains appropriate only when it is needed for readable over-image text or an intentionally darker art direction.
+- Keep the Pointer Hover state separate from the Phone static/touch path, and verify one actual pointer interaction before calling runtime behavior passed.
+
+Verified project-derived example: Summit Roofing Project Card, 2026-10-04. The Hover image layer has no dark-mask override and uses `brightness: 130%`; the user identified `120%` as the reusable tuning reference. The nine CMS-bound instances inherit the same image-only state while their CMS content and card colour controls remain independent. This is project evidence, not a universal requirement.
 
 禁止：
 

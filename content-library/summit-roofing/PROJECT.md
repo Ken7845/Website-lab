@@ -174,7 +174,7 @@ Landing → understand the offer → select a service → view proof / process �
 | Hero | Wide 55–65vh image plane; copy aligned left | Preserve type hierarchy, reduce image height | Image remains contextual; text and primary CTA lead before scrolling |
 | Main layout | Alternating full-bleed image / contained editorial blocks | Shift asymmetrical pairs to stable two-column or stack | One clear reading column; services become rows rather than cramped cards |
 | Footer | Multi-column utility grid | Two-column groups | Stacked contact and legal groups |
-| Special interaction | Project Card uses a dark image mask plus slate-blue text Hover variant | Same behaviour | Tap-safe default state; no hover-only information |
+| Special interaction | Project Card highlights its image layer with Hover brightness (current live value 130%; 120% is a tunable reference); card and text geometry remain separate | Same image-layer behavior | Tap-safe default state; no hover-only information |
 
 - Required test widths: Verified at 1200px, 810px and 390px, with a structural 320px narrow-width stress check and a capped/centred wide-layout review.
 - Reduced Motion: No essential movement; transition effects disabled or simplified.
@@ -212,15 +212,15 @@ Landing → understand the offer → select a service → view proof / process �
 
 ## 12. Current Status
 
-- State revision: 2026-10-03-repository
-- Active request: [Framing Opening adaptation](./checklist/site/2026-10-03-framing-opening-adaptation.md)
-- Evidence basis: dated repository evidence; no new Canvas inspection.
+- State revision: 2026-10-04-project-card-brightness-knowledge
+- Active request: None — the CMS checklist row repair and Project Card brightness knowledge capture completed on 2026-10-04; runtime Hover playback remains a future Preview check.
+- Evidence basis: official Framer Agent session 8; targeted Insight Detail / Insights collection and Project Card Hover-variant readback on 2026-10-04, plus one bounded Field Checklist screenshot.
 
 - Current phase: Home is complete and Services remains in progress. Repair & Maintenance has bounded Desktop and Phone visual evidence; Roof Replacement, New Construction, Storm Damage Repair, Projects and Project Detail have Structural and bounded Desktop visual Pass. About, Contact, Insights and Insight Detail have Structural Pass with explicit visual/delivery limitations. All retain stress and Preview work.
-- Active Part: [Framing Opening adaptation](./checklist/site/2026-10-03-framing-opening-adaptation.md) applied to Projects archive and Storm Damage Repair with Structural Pass at 1200/810/390 and Desktop opening Visual Pass. Tablet/Phone crop and the relocated Projects summary strip remain visually unverified; prior page-wide stress/delivery and [hover runtime blockers](./checklist/site/2026-10-03-hover-implementation.md) remain. The [copy repair](./checklist/site/2026-10-03-instructional-copy-repair.md) retains its completed scoped Copy Pass. Development-only Reveal Text work is excluded.
-- Current blockers: Insights has no article-body field; its titles, categories, summaries and images remain Demo. The detail page’s fictional reference story is not CMS-specific editorial content; its visual review, 320px / 1440px stress widths and Preview remain pending. Contact's form recipient, delivery configuration, privacy terms, successful-submission Preview and visual review remain Blocked; clearly fictional Demo email and phone references are visible, but no real phone, email, address, service area or hours are claimed. About's sole Desktop visual-review result became unavailable during context interruption, so its visual status remains Blocked. Commercial image licensing, Marketplace Demo/Remix URLs and listing assets do not yet exist. The `Summit Roofing` / `SUBMIT ROOFING` mismatch and Reveal Text retain/remove decision remain unresolved.
-- Next approved step: Focused rendered acceptance of the adapted Tablet/Phone openings and Projects summary strip, followed by existing Hover → Leave, routing, Tab focus, Phone static/tap and Reduced Motion checks. No UI fallback is authorized. Optional informational hovers remain deferred; image licensing and explicit approval still block publication.
-- Last verified: 2026-10-03 — official Framer Agent fresh readback confirms both opening adaptations, all six responsive structures, one H1 per breakpoint, zero copy changes and unchanged CTA labels/destinations. New Construction and Project Detail have no attribute/name/order differences; following target Sections and CMS bindings remain unchanged. An unattributed Projects CTA variant change is retained. Two bounded Desktop result screenshots pass; readiness reports zero errors/warnings without publication. Placeholder-like Rect measurements do not resolve summary-strip rendered spacing; narrower visual/runtime checks remain separate.
+- Active Part: No active Canvas write. The Insight Detail checklist repair remains complete. The shared Project Card's Hover image layer uses a brightness highlight rather than a dark mask; its current verified value is 130%, while `120%` is retained as a user-provided tuning reference for this reusable pattern.
+- Current blockers: Project and Insight detail records now have editable rich-text CMS content, and the Insight checklist has a ten-item CMS List with bounded Desktop visual evidence. 320px / 1440px stress widths, runtime Hover Preview and full Preview remain pending. Contact's form recipient, delivery configuration, privacy terms, successful-submission Preview and visual review remain Blocked; clearly fictional Demo email and phone references are visible, but no real phone, email, address, service area or hours are claimed. About's sole Desktop visual-review result became unavailable during context interruption, so its visual status remains Blocked. Commercial image licensing, Marketplace Demo/Remix URLs and listing assets do not yet exist. The `Summit Roofing` / `SUBMIT ROOFING` mismatch and Reveal Text retain/remove decision remain unresolved.
+- Next approved step: No remaining Canvas write is authorized. A future Preview may confirm actual pointer Hover playback for the Insight checklist and Project Card; broader page stress, Preview, image licensing and explicit approval still block publication.
+- Last verified: 2026-10-04 — official Framer Agent confirms that the Project Card Hover image uses `brightness: 130%`, has no dark-mask override, and preserves the card's 20px surface inset and all nine CMS-bound instances. The Insight Detail checklist repair remains structurally verified at Desktop, Tablet and Phone with one bounded Desktop screenshot.
 
 | Page | Content | Styles | Components | Links | SEO | Alt | Desktop | Tablet | Phone | Evidence |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -247,6 +247,10 @@ Landing → understand the offer → select a service → view proof / process �
 | Use an independent blue-grey palette | User explicitly rejected red and selected grey and blue; slate blue provides roofing/material character without reading as generic tech branding | Home color system | Active | 2026-08-23 | Safety-red primary decision |
 | Use zero-radius geometry | User explicitly rejected rounded corners; square edges better match the approved industrial reference | All Home Components and surfaces | Active | 2026-08-23 | Earlier allowance for restrained rounding |
 | Fill empty template slots with fictional reference content when explicitly authorized | User directed the template to use complete, coherent reference content instead of visible publishing / verification instructions. Emails use `.example`; phone numbers use reserved fictional formats; stories remain internally `Demo` and never imply verified operations, credentials, legal terms, pricing or real locations. | All buyer-facing template content | Active | 2026-10-02 | Treat service facts and contact details as Missing |
+| Add CMS-rich detail content to Project and Insight records | User requested editable detail-page content that relates to each CMS image, replacing static status/availability filler. Project records use one editable approach; Insight records use an article body and ten-row field checklist. All seeded copy is Demo reference content. | Project Detail and Insight Detail | Active | 2026-10-03 | Earlier detail-page restrictions against richer CMS fields |
+| Render Insight checklist entries as CMS List rows | A rich-text field cannot give individual entries a Frame surface or native Hover effect. Preserve it as legacy content; add a required ten-item `Checklist Steps` CMS List and repeat one page-local row template for each item. | Insight Detail Field Checklist | Active repair | 2026-10-04 | Treat the rich-text checklist as the render source |
+| Highlight image-and-text cards with image brightness | User established a lighter image-hover response in place of a low-opacity dark mask. Apply brightness to the image layer only, retain card/text geometry, and treat 120% as a tuning reference rather than a universal value. | Project Card and reusable image/text card guidance | Active repair | 2026-10-04 | Dark-mask hover as the default highlight treatment |
+| Expose Project Card surface and text colours | User identified that the card only appeared aligned while its dark fill blended into the parent. The definition now owns 20px root padding and exposes Surface, Label, Title and Meta colours for instance-level adaptation. | Shared Project Card | Active repair | 2026-10-04 | Assumption that the surrounding background would always match the card surface |
 | Retain original asset folder and rename files only | Initial asset-management direction before the user required format conversion and source removal | Supplied assets | Superseded | 2026-08-23 | — |
 | Convert supplied assets to WebP at ≤500KB and remove old formats | User explicitly required WebP delivery and removal of prior formats; converted outputs were decoded and size-checked before source deletion | Desktop source folder and project asset library | Active | 2026-08-23 | Retain-original asset decision |
 | Use a cropped supplied Logo in the shared Navbar | The square white-background Logo was cropped to its roof-mark and wordmark bounds before use so the shared navigation remains compact; Footer retains editable text branding for contrast on its dark surface | Navbar Component, Desktop/Tablet/Phone | Active | 2026-08-23 | Text-only Navbar brand |
@@ -259,24 +263,25 @@ Landing → understand the offer → select a service → view proof / process �
 
 ## 14. Recovery
 
-- State revision: 2026-10-03-repository
-- Active request: [Framing Opening adaptation](./checklist/site/2026-10-03-framing-opening-adaptation.md)
+- State revision: 2026-10-04-project-card-brightness-knowledge
+- Active request: None — the CMS checklist row repair and Project Card brightness knowledge capture completed on 2026-10-04; runtime Hover verification remains outstanding.
 - State reference: [Current Status](#12-current-status)
-- Evidence basis: repository reconciliation from the recorded October 3 request; no new live Canvas verification.
-- Connection: previous sessions are historical; establish current official connection before Canvas work.
-- Current scope: Projects archive and Storm opening adaptation; preserve completed copy repair and the scoped hover result.
-- Last documented evidence: October 3 opening request records three-breakpoint structure and bounded Desktop opening visuals; narrower crops, Projects summary-strip spacing and runtime checks remain unproven.
-- Exact next action: follow the Next approved step and blockers in [Current Status](#12-current-status), with targeted re-entry readback first.
+- Evidence basis: official Framer Agent session 8; both Insight records contain ten `Checklist Steps` List items, and the Insight Detail row template is verified across Desktop, Tablet and Phone. Project Card Hover readback confirms 130% image brightness and no dark-mask override. One bounded Desktop Field Checklist screenshot was reviewed.
+- Connection: official Framer Agent session 8 is active.
+- Current scope: Project Card brightness-hover knowledge capture; preserve the existing Hover state, CMS image/text bindings, all instance colour controls and the already-complete Insight Detail checklist result.
+- Last documented evidence: the Project Card Hover Image frame has `brightness: 130%`; its inherited mask remains transparent and no dark-mask override is present. Text opacity remains a separate state choice. The image-only brightness pattern and the user-provided 120% tuning reference are recorded in the platform baseline without changing the live Canvas value.
+- Image Review Result: Pass — the single planned Desktop screenshot was reviewed and confirms ten distinct, padded and bordered rows with readable hierarchy. The static screenshot cannot prove pointer playback.
+- Exact next action: when Preview is authorized, test one actual pointer Hover path for the Project Card and one checklist row; this repair has no remaining authorized Canvas write.
 - Previous checkpoint evidence: [preserved recovery](./history/2026-10-03-recovery-before-routing-repair.md), not a current continuation.
-- Updated at: 2026-10-03 — repository only.
+- Updated at: 2026-10-04 — Project Card brightness-hover structural evidence and knowledge capture complete.
 
 ## 15. Checklist and Change Control
 
 - Project checklist index: [checklist/README.md](./checklist/README.md)
-- Active page checklist: [Projects](./checklist/projects.md) and [Storm Damage Repair](./checklist/storm-damage-repair.md), affected by the active request.
-- Active request checklist: [Framing Opening adaptation](./checklist/site/2026-10-03-framing-opening-adaptation.md); the [approved expansion plan](./checklist/site/2026-08-26-site-expansion-planning.md) remains a scope source, not the continuation pointer.
+- Active page checklist: [Insight Detail](./checklist/insight-detail.md), where the CMS List and repeated row template are used.
+- Active request checklist: None — this was a scoped CMS/page-local Frame repair, not a new page-build request. The [approved expansion plan](./checklist/site/2026-08-26-site-expansion-planning.md) remains a scope source, not the continuation pointer.
 - Checklist status: Project-wide plan Approved; Services remains in progress; all completed pages retain outstanding stress/Preview checks; About is Structural Pass / Visual Blocked; Contact is Structural Pass / delivery and visual Blocked; Insights archive and Insight Detail are Structural Pass / Visual Blocked; publishing excluded.
-- Last synchronization with Current Status: 2026-10-03 — repository reconciliation
+- Last synchronization with Current Status: 2026-10-04 — Insight Detail checklist row repair
 
 ## 16. History
 
