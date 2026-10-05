@@ -71,3 +71,27 @@
 - Later-discovered issue: The first array-item binding used the array variable plus item name and was rejected by Framer; the generated item-field variable is the canonical render binding.
 - Correction: Re-read the generated CMS List schema, then bound the row text to the canonical item-field variable and explicitly set hover scale to 1.
 - Workflow candidate: Use a CMS List plus a repeated page-local Frame when individual CMS entries need their own surface or interaction; a rich-text field cannot provide per-entry states.
+
+## 2026-10-05 — Inspection Handoff component
+
+- Task reference: User request to componentize the recurring inspection handoff without altering each page's palette or content.
+- Request: Create one native reusable section for every matching inspection handoff and expose the text and colours as instance properties.
+- Route selected: PROJECT → official Framer live readback → framer-components → native component conversion → targeted responsive QA.
+- Actions: Created Desktop, Tablet and Phone `Inspection Handoff` variants and replaced the twelve matching page-level sections. Instances retain page-specific surface/panel/text colours, copy, image, CTA label/link/style and divider visibility; the structurally distinct Roof Replacement `Decision To Handoff` was not changed.
+- Verification: Confirmed one component definition, 36 responsive instances (12 per breakpoint), no legacy page-local inspection-handoff frames, representative property readbacks and generated representative Desktop, Contact and Phone screenshots.
+- Outcome: Structural Pass. Preview-based page-stress and runtime interaction acceptance remain outside this task.
+- Later-discovered issue: None.
+- Correction: None.
+- Workflow candidate: A recurring responsive section should own geometry in one Component while pages retain semantic copy and palette values as instance controls.
+
+## 2026-10-05 — Hero entrance-effect rollout
+
+- Task reference: User request to extend the Home and Repair & Maintenance hero effects to all page heroes.
+- Request: Reuse the established hero effect without changing page content or colour composition.
+- Route selected: PROJECT → official Framer live readback → framer-interactions → native Effects guidance → responsive QA.
+- Actions: Applied the existing on-mount line reveal to hero titles and supporting copy on ten remaining buyer-facing pages; applied the existing delayed left-enter effect only to the five heroes that already contained a CTA. Home, Repair & Maintenance and the development-only reveal test page were not changed.
+- Verification: Confirmed 30 title, 27 supporting-copy and 15 CTA responsive copies across Desktop, Tablet and Phone; generated one bounded Services hero screenshot. Existing linter messages were inherited full-bleed-wrapper guidance, outside this effect-only scope.
+- Outcome: Structural Pass. Runtime on-mount playback remains Preview-blocked.
+- Later-discovered issue: The CTA replay setting has no effect with an on-mount trigger.
+- Correction: Removed it from all five affected CTA effects and re-read the result.
+- Workflow candidate: A restrained hero sequence can be propagated safely through primary breakpoint targets when the motion language, text roles and existing CTA ownership are first read from approved reference pages.
