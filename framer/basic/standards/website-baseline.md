@@ -100,6 +100,8 @@ Baseline 必须在首次搭建阶段进入 Definition of Done，不能等到最�
 - 同一种语义角色复用同一 Text Style。
 - 页面背景、主要文字、品牌色、按钮、Navbar、Footer、Overlay 和 Link States 优先使用 Styles/Variables。
 - 允许少量有理由的局部例外，不能让直接样式成为主要系统。
+- 当项目已经有等值的命名 Color Style / token 时，必须引用该 token，不得再写等值 hex 或 RGB（例如 `#FFFFFF` 应使用项目的 `Pure White`，`#172B3A` 应使用 `Deep Navy`）。这样后续改色只需更新系统定义，现有实例会同步继承。
+- 需要新增、替换或扩展项目颜色时，先说明用途、所影响的 surface/state 与现有 token 为什么不适用，并取得用户明确许可；未经许可不得为了局部效果创建新颜色。
 
 Heading 语义与视觉 Style 是两件事：
 
@@ -171,7 +173,11 @@ Instance Properties
 └── Hover Surface
 ```
 
-`Desktop Hover` 是默认唯一的 pointer hover 状态；Phone 触摸路径不机械复制 Hover Variant。若特定项目确实需要手机外接指针状态，必须先由真实 Preview 证明，再增加最小必要变体。
+`Desktop Hover` 是默认唯一的 pointer hover 状态；在没有项目级证据要求不同输入模型时，Desktop 与 Tablet 的 pointer feedback 默认使用 Hover，Phone 触摸路径默认使用 Press / Tap，且不机械复制 Hover Variant。若特定项目确实需要手机外接指针状态，必须先由真实 Preview 证明，再增加最小必要变体。
+
+### Interactive row default surface
+
+任何会在 Hover 或 Press 时改变背景的可见 Row / Stack，必须先在 Default 状态的行容器上显式填写与其直接父级表面相同的命名 Color Style / token；不得依赖透明背景“看起来一样”。Hover / Press 只从这个明确的 Default surface 改变到反馈色，且必须保持现有几何。这样指针离开或按压结束时，Framer 会回到同一已定义表面，避免透明层重新露出造成闪烁。例：Pure White 菜单上的 `Services All Row` Default fill 应引用 `Pure White` token，Hover 才切换至 Slate Blue token。若父表面随后改色，必须同步更新该交互行的 Default fill。
 
 ### Card surface, padding and external colour controls
 
@@ -439,7 +445,7 @@ Motion 服务：
 默认模式：
 
 - Sticky/scroll Navbar → Navbar Variants。
-- Phone Navbar Menu → Relative Overlay。
+- Phone Navbar Menu → integrated drawer用Closed/Open Variants；anchored floating panel用Relative Overlay；选择与验证读 [Navbar models](../patterns/navbar-footer.md#响应式-variant)。
 - 简单图片放大 → Lightbox Effect。
 - 页面级 Modal → Fixed Overlay。
 - Dense Row Hover → Gesture Variant + color/opacity。

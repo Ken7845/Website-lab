@@ -94,7 +94,7 @@
     "owners complete / N/A reasoned / readback planned / preview planned",
     "Visual Direction Contract",
     "Visual contract receipt",
-    "Website_Lab_V2.2.0",
+    "Website_Lab_V2.2.1",
     "Workflow Observations",
     "Later-discovered issue",
     "Workflow candidate"
@@ -117,7 +117,7 @@
       "普通建设不得预读 observations"
     ],
     "README.md": [
-      "Website_Lab_V2.2.0",
+      "Website_Lab_V2.2.1",
       "## Workflow Observations",
       "history/workflow-observations/"
     ],

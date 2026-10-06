@@ -8,9 +8,9 @@
 
 | 需求 | 默认方案 | 不要默认使用 | 详细规则 |
 |---|---|---|---|
-| 多页面共享结构 | Layout Template + Navbar/Footer Components | 每页复制 Navbar/Footer | `framer/basic/patterns/navbar-footer.md` |
+| 稳定的多页面共享 Shell | Layout Template + Navbar/Footer Components；Shell 不稳定或有意移除模板时使用页面级 Component Instances | 每页复制裸 Navbar/Footer Frame | `framer/basic/patterns/navbar-footer.md` |
 | Sticky 且滚动隐藏 Navbar | Scroll Direction Variant Effect | Custom Code scroll listener | `framer/basic/patterns/navbar-footer.md` |
-| Phone Navbar Menu | integrated reveal → Drawer Variant；anchored floating panel → Relative Overlay | 把两种机制混成一条 state route | [Navbar models](navbar-footer.md#phone-drawer-variant紧凑-navbar-的推荐模式) |
+| Phone Navbar Menu | integrated drawer → Closed/Open Variants；anchored floating panel → Relative Overlay | 把两种机制混成一条 state route | [Navbar models](navbar-footer.md#phone-drawer-variant紧凑-navbar-的推荐模式) |
 | 简单 Gallery 放大 | Lightbox Effect | 每图一个 Overlay/Variant | `framer/basic/patterns/motion-design.md` |
 | 复杂页面级 Modal | Fixed Overlay | Component 内 Fixed Overlay | `framer/basic/patterns/motion-design.md` |
 | Accordion / Disclosure | Open/Closed Component Variants | 多个重叠 Frames | Baseline / Framer 原生 Variant |
@@ -24,7 +24,7 @@
 | Contact / Visit 信息 | 可点击文本 +真实协议链接 | 纯展示文字 | Baseline |
 | Desktop Grid 到 Phone | Phone Stack / 简化结构 | 一列 Grid 硬撑 | Baseline |
 
-## 1. Layout Template
+## 1. Shared Shell Strategy
 
 ```text
 Layout Template
@@ -33,13 +33,15 @@ Layout Template
 └── Footer Component Instance
 ```
 
-适用：所有多页面网站。
+适用：大多数页面共用稳定 Navbar、Content Placeholder 与 Footer 的网站。
+
+如果页面结构需要独立变化、项目已故意移除模板，或共享 Shell 尚未稳定，则改用页面级 Navbar/Footer Component Instances；不为满足模式而恢复模板。两种策略都复用同一个组件定义，而不是复制 Frame。
 
 完成条件：
 
 - Navbar/Footer 只有一套共享定义。
 - Desktop/Tablet/Phone 使用清晰 Variants。
-- 页面只维护自己的 Content。
+- Template 策略下页面只维护自己的 Content；页面级策略下页面负责实例位置和当前路由 Variant。
 - Navbar Sticky 和 Footer 高度不破坏内容流。
 
 ## 2. Phone Navbar Menu
@@ -57,7 +59,7 @@ Phone Navbar Variant
 
 默认：bottom/end、collision detection、340px at 390px、约 360ms opacity + slight y/scale。
 
-禁止：为了普通手机菜单创建 page-level Fixed Overlay、Event Variable 和跨 Scope 映射。
+禁止：为了普通锚定菜单创建 page-level Fixed Overlay 或不必要的跨 Scope 映射。Frame Trigger无需额外Event Variable；nested Component Trigger按其已暴露Event接口连接父级。复杂Navbar的Row/Menu责任读 [Component ownership](navbar-footer.md#复杂-navbar先划分-component-与-state-ownership)。
 
 ## 3. Gallery Lightbox
 

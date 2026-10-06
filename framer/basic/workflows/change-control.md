@@ -157,7 +157,7 @@ content-library/<project>/
 - 项目级 Checklist 的用途和状态词定义。
 - 强制执行闭环和 Part 路由提醒。
 - 当前页面、路径、文件和状态索引。
-- Shared Foundation Gate：Layout Template、Navbar、Footer、Button、Styles、Focus、Reduced Motion、favicon、Open Graph、授权和编辑说明。
+- Shared Foundation Gate：Shell 策略（Layout Template 或页面级共享实例）、Navbar、Footer、Button、Styles、Focus、Reduced Motion、favicon、Open Graph、授权和编辑说明。
 - Latest Part Result 与 canonical Recovery reference 的统一记录格式。
 - 对 `PROJECT.md`、当前 Status / Decisions / Recovery owner、`framer/basic/` 和本文件的有效相对链接。
 

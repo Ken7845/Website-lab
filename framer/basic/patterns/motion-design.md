@@ -273,12 +273,12 @@ Morrow & Grain 的手机菜单之所以发生多轮修改，不是视觉方案�
 
 | 需求 | 默认 Framer 方案 |
 |---|---|
-| Navbar menu、dropdown、popover、tooltip | Relative Overlay |
+| 锚定浮动 Navbar panel、dropdown、popover、tooltip | Relative Overlay |
 | 图片简单放大 | Lightbox Effect |
 | 真正覆盖页面的 modal、复杂 lightbox | Fixed Overlay |
 | 同一区块的展开/折叠状态 | Component Variant |
 
-手机 Navbar 的默认方案是 Relative Overlay。只有明确需要全屏遮罩、锁定背景滚动、焦点管理和页面级居中 Modal 时，才使用 Fixed Overlay。
+此处的 Morrow & Grain 配方适用于锚定浮动 panel；集成式 Drawer 使用 Closed/Open Variants，先读 [Navbar 菜单模型](navbar-footer.md#响应式-variant)。只有明确需要全屏遮罩、锁定背景滚动、焦点管理和页面级居中 Modal 时，才使用 Fixed Overlay。
 
 ### 已验证的组件层级
 
@@ -305,7 +305,7 @@ Navbar Component
                 └── Contact CTA (Button Instance)
 ```
 
-Overlay 直接挂在 `Menu Trigger` 下，Trigger 使用 `SHOW_OVERLAY`，Close 使用 `DISMISS_OVERLAY`。不要为了这个结构创建 Component Event Variable，也不要把菜单拆到 Layout Template 再跨 Scope 连接。
+Overlay 直接挂在 `Menu Trigger` 下，Frame Trigger 使用 `SHOW_OVERLAY`，Close 使用 `DISMISS_OVERLAY`。这个Frame-trigger结构无需额外Component Event Variable；若复用nested Component触发器，沿用其已暴露Event接口。不要把菜单拆到Layout Template再制造不必要的跨Scope连接。
 
 ### Morrow & Grain 已验证参数
 
@@ -389,7 +389,7 @@ Phone 再补一次 320px 静态检查即可。除非发现问题，不重复打�
 
 ## Navbar
 
-Navbar要有stick的效果，最好也要有向下滚动时隐藏，向上滚动时出现的效果
+Navbar按项目选择Fixed / Sticky；滚动隐藏为可选增强，不强制添加。行为与尺寸责任读 [Navbar / Footer](navbar-footer.md#布局与行为)。
 
 ## 产品卡片
 

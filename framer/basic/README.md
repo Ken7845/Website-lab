@@ -28,7 +28,7 @@ framer/basic/
 |---|---|
 | [`patterns/pattern-recipes.md`](patterns/pattern-recipes.md) | 不确定 Relative Overlay、Lightbox、Fixed Overlay、Variant、Property 或 CMS 的原生归属时 |
 | [`patterns/buttons.md`](patterns/buttons.md) | Button Fit / Fit、Padding 所有权、Link 边界、Small / Hover Variant |
-| [`patterns/navbar-footer.md`](patterns/navbar-footer.md) | Layout Template、共享 Navbar / Footer、Phone Drawer / Menu |
+| [`patterns/navbar-footer.md`](patterns/navbar-footer.md) | Shell选择、Navbar / Menu / Row责任、Properties / nested Events、static/CMS dropdown、Tablet/Phone Drawer；精确项目例子由该文条件链接 |
 | [`patterns/motion-design.md`](patterns/motion-design.md) | Motion、Hover、Overlay、Lightbox 与 Row 状态；只读当前 Pattern 章节 |
 | [`../advance-design/README.md`](../advance-design/README.md) | 当前任务明确命中高级原生组件或交互装置时，选择一个 Canonical Pattern |
 

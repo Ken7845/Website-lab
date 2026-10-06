@@ -199,8 +199,8 @@
 - [ ] Gap、Padding 和 Section rhythm 来自稳定系统，不逐层随机补值。
 - [ ] Text 不贴可见容器边缘；外层可见容器拥有必要 padding。
 - [ ] 内容增长、标题变长和图片比例变化时布局仍能自然扩展。
-- [ ] 多页面网站使用 `Layout Template → Navbar → Content Placeholder → Footer`。
-- [ ] Page 只维护自己的 Content，没有复制 Navbar / Footer。
+- [ ] 已选择并记录 Shell 策略：稳定共享 Shell 使用 `Layout Template → Navbar → Content Placeholder → Footer`；否则在页面级放置共享 Navbar / Footer Component Instances。
+- [ ] Page 没有复制裸 Navbar / Footer Frame；Template 策略下只维护 Content，页面级策略下只维护实例位置、宽度和当前路由状态。
 - [ ] 共享结构修改后已检查所有受影响页面。
 - [ ] Section 没有因为动效 Trigger、Absolute Layer 或隐藏层产生意外高度、裁切或 overlap。
 - [ ] 页面视觉保留项目独特性，没有把不同 Section 平均化成同一种容器模板。
@@ -209,7 +209,7 @@
 
 - 结构不稳定：先修最上游 Stack/Grid、width、max-width、gap 和 padding，再修子层。
 - 内容增长破坏布局：去除不必要固定高度，改为内容驱动高度或合理最小值。
-- 共享结构出现副本：合并为 Component / Layout Template，并重新检查实例。
+- 共享结构出现裸副本：合并为 Component；仅在共享 Shell 稳定且适合集中维护时再采用 Layout Template，并重新检查实例。
 - Absolute / Scroll Section 已由用户调试：先记录 Rect、位置和 Effect target；未经明确必要不移动。
 
 ---
@@ -384,7 +384,7 @@
 
 模式选择：
 
-- [ ] Phone Navbar Menu → Relative Overlay。
+- [ ] Navbar Menu模型按 [canonical selection](basic/patterns/navbar-footer.md#响应式-variant) 选择；integrated drawer用Closed/Open Variants，anchored panel用Relative Overlay。
 - [ ] 简单图片放大 → Lightbox Effect。
 - [ ] 页面级复杂 Modal → Fixed Overlay。
 - [ ] Disclosure → Open / Closed Component Variants。
@@ -401,36 +401,42 @@
 
 ## 10. Navbar
 
-- [ ] Navbar、Footer 与 Content 使用共享 Layout Template。
+- [ ] Navbar、Footer 与 Content 使用已选择的 Shell 策略：共享 Layout Template，或页面级共享 Component Instances。
 - [ ] Navbar 是共享 Component，不在每页复制。
-- [ ] Desktop 单行，通常不超过 80px。
-- [ ] Sticky、top 0 和 z-index 正常。
+- [ ] Desktop单行，高度满足Logo、内容与hit-area合同；80px是紧凑参考而非硬上限。
+- [ ] 所选Fixed / Sticky、top与z-index正常，页面内容避让符合合同。
+- [ ] Fixed / Sticky Navbar 的页面实例在 Desktop、Tablet、Phone 都有明确的内容之上层级；不要仅检查 Component Definition 的 z-index。
 - [ ] 使用滚动隐藏时，向下隐藏、向上出现且不改变页面布局高度。
 - [ ] Logo、所有导航和 CTA 使用真实链接。
+- [ ] 有对应目的地时，Navbar / Footer在实际可见的各断点branch呈现正确Current；详情页高亮父级。Home无对应菜单项可无Current。属性值已设置不替代binding与rendered证据。
 - [ ] Desktop / Tablet / Phone Variant 清楚且已应用到页面实例。
-- [ ] Tablet 间距和 padding 已收紧但仍清晰。
+- [ ] Tablet按空间与输入合同采用清晰单行或Closed/Open Drawer。
 - [ ] Phone 只保留 Logo 与必要入口，核心导航不依赖 Footer。
 
-### Phone Menu
+### Drawer、Dropdown 与重复 Row
 
-- [ ] Menu Trigger 在共享 Navbar Component 内，触控高度至少约 44px。
-- [ ] Relative Overlay 直接挂在 Trigger 下。
-- [ ] Overlay 有 Home、核心页面、主要 CTA 和可见 Close。
-- [ ] 390px 面板保留屏幕边距；320px 无溢出。
-- [ ] Collision detection、外部点击和键盘关闭正常。
-- [ ] Desktop / Tablet 不显示 Phone Trigger。
-- [ ] Preview 完成 Open → Close → Open → Core Link。
+- [ ] 已区分Navbar整体state、Menu独立disclosure state、Row feedback与page current-route配置；不按内容组合复制Navbar Variants。
+- [ ] Row Content、Link、Icon/visibility、Padding与Gesture样式由实际Properties/Instances配置；CMS list只重复一个Row template，Archive link独立。
+- [ ] Variables、controls lookup、实际bindings一致；nested Component Trigger沿用有效Event接口，state action位于正确owner。
+- [ ] primary和受影响replicas中的文字、Link、visibility与CMS overrides均已核对；没有把隐藏default值覆盖到Open state。
+- [ ] Menu Trigger在共享Navbar内，触控目标满足约44px合同；Tablet使用Drawer时也有适用trigger。
+- [ ] Visibility-toggle Drawer按直接展开合同验证；continuous height reveal保持相同内容、Closed bounded height、两端clip、外部instance auto height。
+- [ ] Relative Overlay（若使用）直接挂在Trigger下；面板保留边距，collision/关闭行为正常，trigger→panel间隔不会提前dismiss。
+- [ ] 核心页面和CTA有真实目标、Close可达；Drawer长内容有可用viewport/滚动路径，不依赖Footer。
+- [ ] Preview完成整体Open → Close → Open → disclosure Open/Close → real child link；检查root tap、child link与nested Event传播。
+- [ ] CMS首末/最长标题、320px与宽屏、keyboard/focus、touch与reduced motion按范围验证；未执行项目明确Blocked。
 
 自修补：
 
-- 普通手机菜单误用 Fixed Overlay：改回 Trigger 内 Relative Overlay。
-- 组件化后链接或滚动行为丢失：逐个页面实例复查 Variant、Link、Effect。
+- 模型不符：按 [Navbar owner](basic/patterns/navbar-footer.md#响应式-variant) 修复drawer/anchored panel/modal对应机制，不一律改成Relative Overlay。
+- 组件化后链接或滚动行为丢失：检查definition→instance→breakpoint bindings与state-specific overrides。
+- Current只配置到隐藏branch、CTA无有效link或nested tap冲突：修实际owner并复检受影响states，不以属性存在报Pass。
 
 ---
 
 ## 11. Footer
 
-- [ ] Footer 是共享 Component，并通过 Layout Template 服务所有页面。
+- [ ] Footer 是共享 Component，并通过已选择的 Shell 策略服务所有页面。
 - [ ] 包含项目已确认存在的 Brand、tagline、导航、CTA 和必要辅助信息。
 - [ ] 地址、时间、电话、Email、Social 只在有真实事实时加入。
 - [ ] 电话、Email、地图和外部链接均使用真实协议/目标。
@@ -446,7 +452,7 @@
 自修补：
 
 - 缺少事实：不填虚构联系信息，只保留已确认导航和 CTA。
-- 多页副本：合并为共享 Footer Component + Layout Template。
+- 多页裸副本：合并为共享 Footer Component；当 Shell 稳定时可进一步集中到 Layout Template。
 - Phone 拥挤：重排内容顺序、列数和 gap，不只缩小字号。
 
 ---

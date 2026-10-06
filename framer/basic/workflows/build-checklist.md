@@ -62,7 +62,7 @@
 - [ ] Primary / Secondary / On Dark Button Variants
 - [ ] Navbar Desktop / Tablet / Phone
 - [ ] Footer Desktop / Tablet / Phone
-- [ ] Layout Template：Navbar / Content Placeholder / Footer
+- [ ] 若共享 Shell 稳定：Layout Template：Navbar / Content Placeholder / Footer；否则：页面级 Navbar / Footer Component Instances
 - [ ] 可复用组件在自身 Variant 中拥有真实的横向 Padding；不依赖页面 Section 的统一横向 Padding 才能正确预览。
 - [ ] 混合 Section 将组件与普通文字/图片拆到各自的 Padding Wrapper；外层 Section 只保留背景和垂直节奏。
 
@@ -72,10 +72,10 @@
 
 - [ ] Sitemap 与正式路径一致。
 - [ ] 每页有明确目的和主要 CTA。
-- [ ] 页面使用共享 Layout Template。
+- [ ] 页面遵循已选 Shell 策略：共享 Layout Template 或页面级共享 Component Instances。
 - [ ] Section 顺序服务内容叙事，不机械复制模板结构。
 - [ ] Desktop、Tablet、Phone 骨架同时存在。
-- [ ] Content Placeholder、Navbar、Footer 没有重复副本。
+- [ ] Content Placeholder（若使用）、Navbar、Footer 没有重复的裸 Frame；每页只保留所需的共享组件实例。
 - [ ] 第一段代表性视觉 Section 已在目标画布或截图中检查，确认视觉语言成立后再传播到整页；不能用命令成功替代此检查。
 
 ## 3. Section 纵向完成循环
@@ -116,7 +116,7 @@ Page 未通过以上条件时，不得标记 Done。
 
 创建复杂交互前先从 `framer/basic/patterns/pattern-recipes.md` 选择模式：
 
-- [ ] Phone Navbar Menu：Relative Overlay。
+- [ ] Navbar Menu已按 [行为模型](../patterns/navbar-footer.md#响应式-variant) 选择：integrated drawer → Closed/Open Variants；anchored floating panel → Relative Overlay。
 - [ ] 简单 Gallery 放大：Lightbox Effect。
 - [ ] 页面级 Modal：Fixed Overlay。
 - [ ] 展开/折叠：Component Variant。
