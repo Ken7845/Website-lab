@@ -275,3 +275,36 @@
 - Route selected: Official Framer Navbar / CMS live readback → `framer-components` repair → targeted tree audit.
 - Actions: Replaced the Services and Projects Desktop overlay Frames with named `Text Row` instances, retaining every route and CMS detail binding. The audit found that Insights had no Desktop overlay despite the active Navbar requirement, so restored one with the existing Insights archive and CMS detail routes. Aligned all three overlay surfaces to the Pure White token so their component Default fill cannot flash after hover. Named `Contact CTA` and `Drawer CTA`.
 - Verification: The live tree has no unnamed Frame or Stack in `Navigation/Navbar`; all three overlays contain named linked `Text Row` children, and Projects / Insights Collection Lists preserve their title-and-slug repeat templates. Runtime hover playback remains pending.
+
+## 2026-10-06 — Contact native submit-state repair
+
+- Task reference: User replaced the Contact submit with the hover-enabled shared Button and requested incomplete, pending, success and error states.
+- Route selected: PROJECT → official Framer Forms guidance and live component/form readback → `framer-components` → targeted responsive QA.
+- Actions: Added four native Button variants and mapped them exclusively to the Request Form submit instance: muted `Complete Required Fields`, `Sending Request…`, `Request Sent`, and `Try Again`. Retained the normal Blue hover state and existing named colour tokens.
+- Verification: Read back the Button variants, semantic form registration and all four mappings on Contact Desktop, Tablet and Phone. The new status labels retain the established uppercase Button typography.
+- Outcome: Structural Pass. Runtime invalid/pending/success/error playback, actual delivery, recipient and privacy configuration remain blocked and were not claimed.
+- Later-discovered issue: Framer requires canonical variant identifiers when assigning native form-state mappings, and replacing variant text resets its typography.
+- Correction: Applied the generated variant references on the Request Form only, then restored the shared Button label typography with existing token-backed colours.
+- Workflow candidate: When a user swaps a native submit control for an interactive shared Button, add form feedback as named variants but bind the form-state properties only on the authorized submit instance.
+
+## 2026-10-06 — Inspection Handoff CTA link repair
+
+- Task reference: User reported that CTA buttons in the shared Inspection Handoff did not work and authorized the repair.
+- Route selected: PROJECT → official Framer component/link readback → native component-contract repair → preview readiness check.
+- Actions: Added one `CTA Link` property to Inspection Handoff, forwarded it to the nested shared Button `Destination` control in all three responsive variants, and set the 33 enquiry/project instances to `/contact` and the three Contact-page `Browse Our Services` instances to `/services`. Existing copy, images, colours and geometry were retained.
+- Verification: Targeted readback confirms one link property, three component bindings and all 36 Desktop/Tablet/Phone instance destinations. Framer preview readiness reports zero errors and zero warnings.
+- Outcome: Structural Pass. Runtime click-through at Desktop and Phone remains pending.
+- Later-discovered issue: The first API write used a duplicate test link variable and an unsupported nested-instance link attribute; both were removed before final verification.
+- Correction: Retained only the native `CTA Link` property and forwarded it through the Button’s existing `Destination` control.
+- Workflow candidate: When composing a link through nested Framer components, expose the LinkVariable at the parent and pass it to the child component’s existing link control; verify property persistence on one live instance before batch assignment.
+
+## 2026-10-06 — Contact FAQ disclosure
+
+- Task reference: User requested a Contact FAQ section that folds and unfolds with hover feedback, using repository FAQ guidance.
+- Route selected: PROJECT → official Framer readback → native component contract and FAQ disclosure pattern → targeted responsive structural QA.
+- Actions: Created `Contact FAQ Row` with editable Question and Answer properties, Closed/Open variants, semantic button trigger and Chevron indicator; added four named instances before Inspection Handoff. Desktop and Tablet use paired hover routes, while Phone uses tap routes and a no-scale press state.
+- Verification: Targeted live readback confirms Contact section order, available-width instances, Clip containment, named token-backed surfaces, all three breakpoint selections and the intended event routes.
+- Outcome: Structural Pass. Runtime pointer/tap and keyboard/focus Preview remain pending.
+- Later-discovered issue: Component design-canvas roots cannot own a fractional width, and inherited mouse handlers can leak into touch variants.
+- Correction: Used fixed component-canvas widths while page instances fill their parent, and cleared inherited mouse handlers on the Tablet/Phone states that changed input model.
+- Workflow candidate: When a responsive disclosure changes input model, explicitly clear inherited handlers and separately verify each breakpoint’s paired state routes.
