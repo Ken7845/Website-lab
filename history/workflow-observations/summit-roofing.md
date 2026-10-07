@@ -308,3 +308,15 @@
 - Later-discovered issue: Component design-canvas roots cannot own a fractional width, and inherited mouse handlers can leak into touch variants.
 - Correction: Used fixed component-canvas widths while page instances fill their parent, and cleared inherited mouse handlers on the Tablet/Phone states that changed input model.
 - Workflow candidate: When a responsive disclosure changes input model, explicitly clear inherited handlers and separately verify each breakpoint’s paired state routes.
+
+## 2026-10-07 — Home review rail copy correction
+
+- Task reference: `content-library/summit-roofing/checklist/home/2026-10-07-review-rail.md`.
+- Request: Make the existing no-instructional-copy rule mandatory and revise the Home review section.
+- Route selected: PROJECT → official Framer live component readback → copy-only repair → knowledge-maintenance → targeted QA.
+- Actions: Promoted the visitor-facing copy rule into the shared website baseline and checklist, then replaced review-rail placeholders and the section description with complete fictional Demo reference content.
+- Verification: Targeted readback confirmed the component defaults and Desktop, Tablet and Phone instance values match; the section description also matches across all three breakpoints.
+- Outcome: Structural Pass. Rendered review-rail motion and interaction Preview remain pending.
+- Later-discovered issue: The new rail reintroduced template-facing copy after the earlier project-wide corrective pass.
+- Correction: The baseline now treats such copy as `Fix Required`, while preserving useful visitor guidance.
+- Workflow candidate: Any new public-facing Demo content should be checked against the visitor-copy rule before its first live write.
