@@ -320,3 +320,32 @@
 - Later-discovered issue: The new rail reintroduced template-facing copy after the earlier project-wide corrective pass.
 - Correction: The baseline now treats such copy as `Fix Required`, while preserving useful visitor guidance.
 - Workflow candidate: Any new public-facing Demo content should be checked against the visitor-copy rule before its first live write.
+
+## 2026-10-08 — Home Review Rail layout and layer naming
+
+- Task reference: `content-library/summit-roofing/checklist/home/2026-10-07-review-rail.md`.
+- Request: Improve the Review Rail layout, shorten its properties, and name Frames/Stacks across sections and components by repository rules.
+- Route selected: PROJECT → official Framer live readback → `framer-components` / `framer-qa` → layer-naming standard → targeted structural scan.
+- Actions: Shortened nine editable controls, tightened responsive rail heights, balanced controls, and named the previously blank page/component Frames by local role.
+- Verification: The live tree contains 1,014 Frame layers with zero blank/default names; all nine slide states retain cyclic navigation and concise property labels. Two screenshots predated the final height adjustment; final visual and interactive Preview remain pending.
+- Outcome: Structural Pass; rendered/runtime verification Partial.
+- Later-discovered issue: The bounded renders showed excess vertical whitespace, so viewport heights were reduced after the screenshot limit was reached.
+- Correction: Reduced the Desktop / Tablet / Phone viewports to 240px / 220px / 200px; schedule final rendered inspection in the next Preview pass.
+- Workflow candidate: None.
+
+- Later-discovered issue: The next Preview showed the Desktop slides were 560px wide but positioned 532px apart, and the first Phone quote retained a fixed 488px width. Track/card heights also exceeded their clipping windows.
+- Correction: Aligned all nine state tracks and cards to exact viewport pitch and height; made quote width responsive; set a 90px Phone quote window and reduced only Phone card padding/gap to keep metadata within the rail.
+- Verification: Framer Agent readback confirmed all nine offsets, dimensions, property labels and cyclic routes. Desktop screenshot was readable; final Phone visual and runtime playback remain pending.
+- Workflow candidate: Include fixed text widths inside responsive component replicas in the first width-chain audit; preserve exact clip-window/track geometry.
+
+## 2026-10-09 — Insight Article Body expansion
+
+- Task reference: `content-library/summit-roofing/checklist/detail-pages/2026-10-03-cms-editable-detail-content.md`.
+- Request: Replace the very brief Insight CMS Article Bodies with detailed articles.
+- Route selected: PROJECT → official Framer CMS readback → `framer-components` CMS/detail guidance → official ARMA / NRCA homeowner guidance → targeted CMS and binding readback.
+- Actions: Expanded both existing Demo items with distinct long-form articles of 830 and 913 words; preserved summaries, images/Alt, checklist values, routes, and page layout.
+- Verification: The two-item collection and rich-text block counts (22 and 23) read back correctly; Article Body remains bound on Desktop, Tablet, and Phone.
+- Outcome: Structural content Pass. No visual/runtime claim was needed for the text-only CMS edit.
+- Later-discovered issue: A mixed command that attempted to update existing virtual text runs while appending new blocks returned stale virtual-node errors even though appended blocks had applied.
+- Correction: Re-read the field, restored the missing opening blocks, then updated the second item’s existing blocks separately from appending new blocks; final full-body readback passed.
+- Workflow candidate: Separate edits to existing rich-text nodes from append operations, with a readback checkpoint between them, to avoid virtual child index changes.

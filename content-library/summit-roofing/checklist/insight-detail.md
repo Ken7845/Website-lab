@@ -6,7 +6,7 @@
 - Evidence migration: 2026-10-04 live update. Original page-direction assertions remain preserved in project History; current row structure has targeted Canvas and bounded Desktop visual proof, while runtime Hover remains unverified.
 
 - **Path:** `/insights/:Insights`
-- **Current status:** In progress — Structural Pass at Desktop, Tablet and Phone; bounded Field Checklist Desktop visual Pass. Stress, runtime Hover and full Preview evidence remain pending.
+- **Current status:** Article Body content Pass — both CMS items now have detailed image-relevant Demo articles and the existing body binding reads on Desktop, Tablet and Phone. The Field Checklist retains its bounded Desktop visual Pass; page-wide stress, runtime Hover and full Preview evidence remain pending.
 - **Content status:** Existing Insight CMS values are Demo. Title, Category, Summary, Image, Article Body and a required ten-item `Checklist Steps` CMS List are editable. The original Field Checklist rich-text field is preserved as legacy content; author, date, expertise claims and service facts remain Missing.
 - **Primary CTA:** Explore Services → `/services`
 
@@ -26,10 +26,10 @@ The dated restriction against CMS fields and long-form article content is supers
 
 | Concern | Decision / N/A reason | Owner | Governing source | Structural proof | Visual proof |
 |---|---|---|---|---|---|
-| Design Read | A concise, reading-first CMS record sheet for a template article whose body field is currently Missing. | Page structure | `../PROJECT.md#6-brand-direction` | Blocked — original record: Named semantic Sections and CMS bindings.; a row-specific completed result is not established here. | Blocked — original record: One bounded Desktop composition review.; a row-specific completed result is not established here. |
+| Design Read | A reading-first CMS detail page with a substantial image-relevant article body and useful field checklist. | Page structure | `../PROJECT.md#6-brand-direction`; 2026-10-03 Detail Content request | Structural proof — named semantic Sections and CMS bindings are established. | Blocked — page-wide rendered review remains outstanding. |
 | Preserve | Site Shell, Big Shoulders/Inter hierarchy, blue-grey palette, zero-radius edges, direct CTA behavior, and existing CMS image/Alt. | Existing shared systems | Canvas `/insights` readback, 2026-09-19 | Blocked — original record: Shared-shell/card/button readback.; a row-specific completed result is not established here. | Blocked — original record: Consistent type, surfaces, hard edges, and image treatment.; a row-specific completed result is not established here. |
 | Transform | Archive grid becomes a single-column editorial reading path with an image threshold and summary-led content record. | Detail page | `../PROJECT.md#9-narrative-and-conversion` | Blocked — original record: Independent CMS detail route and readable width chain.; a row-specific completed result is not established here. | Blocked — original record: Detail does not repeat the archive grid.; a row-specific completed result is not established here. |
-| Avoid | Fabricated long-form body, author/date/chapter metadata, equal card grids, rounded UI, generic testimonials, and unverified claims. | Content and page structure | `../PROJECT.md#7-content-facts` | Blocked — original record: No new CMS data/fields; explicit Missing note.; a row-specific completed result is not established here. | Blocked — original record: Restrained record-sheet composition.; a row-specific completed result is not established here. |
+| Avoid | Unsupported business claims, invented author/date/credentials, unsupported roof diagnoses, equal card grids, and rounded UI. Detailed, source-grounded Demo articles are authorized. | Content and page structure | `../PROJECT.md#7-content-facts`; 2026-10-03 Detail Content request; 2026-10-09 Article Body depth correction | Pass — articles remain general and qualified; no pictured property or Summit capability is claimed. | N/A — text-only CMS value change. |
 | Sibling-page delta | Unlike `/insights` two-column archive, the detail page centers one article record; unlike Project Detail, it does not mimic a metadata case-study sheet. | Page composition | `../PROJECT.md#8-sitemap-and-page-goals` | Blocked — original record: Named Section sequence differs from both siblings.; a row-specific completed result is not established here. | Blocked — original record: Single editorial reading rail with image threshold.; a row-specific completed result is not established here. |
 | Section composition | Threshold → Article Record → Editable Content Note → Service Handoff. | Page sections | `../PROJECT.md#9-narrative-and-conversion` | Blocked — original record: Four semantic Section nodes.; a row-specific completed result is not established here. | Blocked — original record: Deep-navy threshold, soft-white reading field, mist limitation note, slate handoff.; a row-specific completed result is not established here. |
 | Colour rhythm | Deep Navy → Soft White → Mist Grey → Slate Blue. | Section fills | `../PROJECT.md#6-brand-direction` | Blocked — original record: Token-backed fills on the four Sections.; a row-specific completed result is not established here. | Blocked — original record: Clear but restrained progress through the record.; a row-specific completed result is not established here. |
@@ -75,7 +75,7 @@ The dated restriction against CMS fields and long-form article content is supers
 - The route exists as one CMS detail page with shared shell, editable CMS content, four named semantic Sections, one H1, item image/Alt binding, valid archive-to-detail routes and valid service handoff.
 - Desktop, Tablet and Phone breakpoint owners are structurally verified. Visual evidence, 320/1440 stress, Preview, image licensing and publishing remain explicit work when unavailable.
 
-## Latest Part Result
+## Part Result — CMS checklist rows (2026-10-04)
 
 Scope: CMS checklist rows
 Status: Structural Pass / bounded Desktop visual Pass
@@ -101,3 +101,24 @@ Shared components affected:
 Recovery:
 - Canonical current pointer: `../PROJECT.md#14-recovery`
 - This Part result date: 2026-10-04
+
+## Latest Part Result — Article Body expansion (2026-10-09)
+
+Scope: Expand both existing Insight CMS Article Body values.
+
+Status: Structural content Pass; page-level visual/runtime acceptance not changed.
+
+Pass:
+- `roof-inspection` now contains 830 words across 22 semantic rich-text blocks, covering inspection scope, roof-system details, interior clues, evidence, useful reporting, questions, and records.
+- `replacement-signs` now contains 913 words across 23 semantic rich-text blocks, covering repair options, broader replacement considerations, recover vs. replacement, comparing proposals, uncertainty, and practical next steps.
+- Official Framer Agent readback confirms the Article Body field remains bound on Desktop, Tablet, and Phone. Titles, summaries, images/Alt, ten-item checklists, the two-item collection, and detail route remain intact.
+- Roofing guidance is qualified and grounded in ARMA / NRCA sources; article copy does not assert a diagnosis for either pictured property or a Summit-specific service fact.
+
+Limits:
+- No page screenshot or runtime Preview was needed for this copy-only CMS update. Existing page visual, stress, and runtime checks remain as previously recorded.
+
+Verified widths: CMS binding readback covers Desktop, Tablet, and Phone; no new width claim.
+
+Sources: [ARMA repair guidance](https://www.asphaltroofing.org/asphalt-shingle-roofs-are-repairable-what-you-need-to-know/); [ARMA replacement vs. recover guidance](https://www.asphaltroofing.org/reroofing-replacement-vs-recover/); [NRCA homeowner inspection and maintenance guide](https://www.nrca.net/roofingguidelines/pdf?id=177659&k=3224943).
+
+Recovery: PROJECT §14 — Insight Article Body expansion; result date 2026-10-09.

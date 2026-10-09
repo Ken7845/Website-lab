@@ -24,6 +24,14 @@
 - The same item Image should remain the image source; content should be sized and sequenced to complement, not compete with, that image.
 - The user’s new CMS-editability request overrides the older page-contract restrictions against CMS fields and long-form content, but not the project’s Demo/fact boundaries.
 
+## Follow-up constraint lock — Insight Article Body depth
+
+- **Modify:** Expand the `Article Body` rich-text content for both existing `Insights` CMS items: `roof-inspection` and `replacement-signs`.
+- **Preserve:** Current titles, slugs, categories, summaries, images/Alt text, ten-item Checklist Steps, CMS schema, detail-page bindings, section order, layout, archive routes, and CTA.
+- **Content direction:** Replace placeholder copy with substantial, distinct homeowner education that matches each item’s image and topic. Ground technical statements in authoritative roofing sources; retain generic Demo/template status internally.
+- **Do not add:** New CMS items/fields, author/date/credential claims, prices, warranties, service-area claims, company capabilities, diagnosis of the pictured property, or instructions for homeowners to access a roof.
+- **Verify:** Read back both complete rich-text bodies and word counts; confirm the CMS item count, checklist values, image/Alt, and existing Article Body binding remain unchanged. Runtime/visual acceptance is separate from the content readback.
+
 ## Verification plan
 
 - Read back both collection schemas and the first/middle/last available collection items after the update.
@@ -36,3 +44,11 @@
 - Structural status: Pass — new fields are populated and bound to each corresponding detail page at Desktop, Tablet and Phone; existing CMS image/Alt and route bindings remain intact.
 - Visual status: Pass — one bounded Desktop screenshot per page confirms the image-led reading sequence and the revised named sections.
 - Known limits: 320px / 1440px stress and Preview are not part of this request; inherited placeholder-Rect linter warnings are not treated as rendered overlap because the bounded screenshots show the scoped sections in a continuous reading order.
+
+## Follow-up result — Insight Article Body depth (2026-10-09)
+
+- Structural status: Pass — `roof-inspection` now has 830 words across 22 rich-text blocks; `replacement-signs` has 913 words across 23 blocks. Both bodies use semantic H2 and paragraph blocks and remain in the existing `Article Body` field.
+- Content direction: The inspection article covers scope, connected roof details, interior clues, observed evidence, useful reporting, questions, and records. The repair/replacement article covers localized repair considerations, broader replacement factors, recover vs. replacement, proposal scope, uncertainty, and next steps. Technical statements are qualified and grounded in ARMA/NRCA guidance; no pictured home is diagnosed.
+- Preservation: The two-item collection, titles, slugs, categories, summaries, CMS images/Alt, `Checklist Steps` arrays, CMS schema, page structure, detail routes, and CTA remain unchanged. The Article Body variable remains bound on Desktop, Tablet, and Phone.
+- Visual/runtime status: N/A for this text-only CMS edit; no image, layout, or interaction changed. This is not a new page-level visual or runtime acceptance claim.
+- Scope retained: No author/date/credential claims, prices, warranties, service-area claims, additional CMS items/fields, or publishing.

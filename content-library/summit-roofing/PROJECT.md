@@ -13,7 +13,7 @@
 - Project / Canvas URL: `https://framer.com/projects/Submit-Roofing--tdaqnMK09J7IYROr3Ma0-2uiTa?node=augiA20Il` — Verified through the official Framer Agent on 2026-08-23.
 - Demo URL: Missing
 - Content status: Mixed — brand identity and supplied assets are available; all operational copy and contact facts are Demo or Missing.
-- Last updated: 2026-10-03
+- Last updated: 2026-10-09
 - Last verified against current implementation: 2026-10-03 — official Framer Agent verifies the [Framing Opening adaptation](./checklist/site/2026-10-03-framing-opening-adaptation.md) on Projects and Storm at three breakpoints, with Desktop opening screenshot evidence. Earlier [copy repair](./checklist/site/2026-10-03-instructional-copy-repair.md) retains its scoped result; full-site visual/runtime acceptance is not claimed.
 
 ## 2. Scope and Authority
@@ -103,7 +103,7 @@
 | Project Detail | `/projects/:Projects` | Examine one editable project record without fabricating a case study | Discuss a Project | Existing Projects CMS; all richer case-study facts remain Missing | Structural and bounded Desktop visual Pass; stress and Preview checks pending |
 | About | `/about` | Understand editable working principles and crew imagery | Discuss a Project | Demo template copy and supplied crew imagery | Structural Pass at Desktop, Tablet and Phone; Visual Blocked; stress and Preview checks pending |
 | Insights | `/insights` | Find practical roofing guidance and maintenance education | Explore Services | Existing Insights CMS; Title, Category, Summary and Image remain Demo | Structural Pass at Desktop, Tablet and Phone; visual review and detail route pending |
-| Insight Detail | `/insights/:Insights` | Read one useful article and continue to a relevant service | Explore Services / Request an Inspection | Existing Insights CMS | Structural Pass at Desktop, Tablet and Phone; visual, stress and Preview evidence pending |
+| Insight Detail | `/insights/:Insights` | Read one useful article and continue to a relevant service | Explore Services / Request an Inspection | Existing Insights CMS; two detailed Demo Article Bodies | Article Body content Pass at Desktop, Tablet and Phone; page visual, stress and Preview evidence remain pending |
 | Contact | `/contact` | Submit a short inspection or estimate enquiry | Send Request | Contact and service-area facts Missing | Structural Pass at Desktop, Tablet and Phone; delivery and visual evidence blocked |
 | Reveal Text test | `/reveal-text-test` | Development-only code-component inspection | `ScrollRevealText.tsx` test instance | No buyer-facing content source | Exists in Canvas; exclude from Marketplace scope until retain/remove decision |
 
@@ -213,15 +213,15 @@ Landing → understand the offer → select a service → view proof / process �
 
 ## 12. Current Status
 
-- State revision: 2026-10-06-inspection-handoff-cta-link-binding
-- Active request: None — the shared Inspection Handoff now exposes one native CTA Link control, forwarding it through the shared Button across Desktop, Tablet and Phone without changing page content or colour composition.
-- Evidence basis: official Framer Agent targeted readback on 2026-10-06 confirms the one-property → three responsive Handoff Button bindings and the intended destinations on all 36 page instances. Preview readiness reports zero errors and zero warnings. The Navbar and About portrait-field evidence remains current.
+- State revision: 2026-10-09-review-rail-reel-geometry
+- Active request: Review Rail reel geometry correction. The continuous clipped track now uses exact Desktop slide pitch and viewport-matched heights at Desktop, Tablet and Phone; final rendered and runtime Preview remain pending.
+- Evidence basis: Official Framer Agent readback on 2026-10-09 confirms all nine Review Rail states have viewport-matched track heights, exact Desktop/Tablet/Phone slide pitches, responsive quote widths and cyclic Previous/Next routes. Desktop and Phone screenshots were captured; the final Phone composition and interactive playback remain unverified.
 
 - Current phase: Home is complete and Services remains in progress. Repair & Maintenance has bounded Desktop and Phone visual evidence; Roof Replacement, New Construction, Storm Damage Repair, Projects and Project Detail have Structural and bounded Desktop visual Pass. About, Contact, Insights and Insight Detail have Structural Pass with explicit visual/delivery limitations. All retain stress and Preview work.
-- Active Part: The About page has one page-owned `Crew Portrait Field` after the existing people panel and before the shared inspection handoff. It uses the four user-uploaded `roofer portait` WebP assets, a Desktop four-up / Tablet two-up / Phone two-up image grid, factual alt text, and Demo supporting copy without names or credentials. The original Editable People Panel remains unchanged. Page-level Section frames remain fluid `1fr`; the portrait grid is the local responsive owner.
+- Active Part: Home Review Rail reel geometry, using the fixed viewport and continuous-track principle from the Dish Selector pattern. Demo review values, concise Properties, section placement, and cyclic behavior remain intact.
 - Current blockers: Runtime pointer and touch Preview is still needed for the expanded Navbar route sequence, in addition to the outstanding 320px / 1440px stress widths, hero on-mount playback and full Preview. Contact's form recipient, delivery configuration, privacy terms, successful-submission Preview and visual review remain Blocked; clearly fictional Demo email and phone references are visible, but no real phone, email, address, service area or hours are claimed. About has bounded Desktop visual evidence for its new Crew Portrait Field, but its broader page, stress and Preview review remain pending. Commercial image licensing, Marketplace Demo/Remix URLs and listing assets do not yet exist. The `Summit Roofing` / `SUBMIT ROOFING` mismatch and Reveal Text retain/remove decision remain unresolved.
-- Next approved step: A future Preview may confirm one Desktop Projects/Insights CMS overlay route, one Tablet click/tap disclosure path, and one Phone press disclosure path, then the restored Navbar / Footer placement and current-link appearance at Desktop and Phone. Broader page stress, Preview, image licensing and explicit approval still block publication.
-- Last verified: 2026-10-06 — official Framer Agent confirms the Inspection Handoff has one `CTA Link` property, each of its Desktop / Tablet / Phone Button instances receives that property through the Button `Destination` control, and all 36 responsive page instances resolve to `/contact` except Contact’s `Browse Our Services` handoff, which resolves to `/services`. Preview readiness reports zero errors and zero warnings.
+- Next approved step: Preview the final Phone rail with its responsive quote window and compact spacing, then exercise Previous/Next on Desktop, Tablet and Phone including cyclic wrap. Keep the broader site stress, delivery, licensing and publication checks tracked separately.
+- Last verified: 2026-10-09 — official Framer Agent confirms all nine Review Rail geometry and route mappings; Desktop screenshot is readable and Phone final rendered/runtime review is pending. The Article Body expansion remains complete in its request checklist.
 
 | Page | Content | Styles | Components | Links | SEO | Alt | Desktop | Tablet | Phone | Evidence |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -270,26 +270,27 @@ Landing → understand the offer → select a service → view proof / process �
 
 ## 14. Recovery
 
-- State revision: 2026-10-06-inspection-handoff-cta-link-binding
-- Active request: None — the shared Inspection Handoff CTA Link control and all current page destinations are structurally verified.
-- State reference: [Current Status](#12-current-status)
-- Evidence basis: official Framer Agent readback establishes the Desktop Services trigger → anchored light overlay route, all-index links, Projects/Insights CMS overlays, and named Tablet/Phone disclosure states, in addition to the preserved Navbar/Footer placement evidence.
-- Connection: Official Framer Agent connection must be refreshed before a later live edit.
-- Current scope: Preserve the shared Inspection Handoff’s one native CTA Link property, Button forwarding, responsive variants, page-specific destinations and all existing surface/content controls. Do not change `/reveal-text-test`.
-- Last documented evidence: Targeted readback confirms one Handoff CTA Link property, forwarding to the shared Button in Desktop, Tablet and Phone, with `/contact` on 33 enquiry/project instances and `/services` on the three Contact-page service handoffs. Existing Navbar overlays, all-index rows, disclosure input states, fluid section widths, Navbar layer priority and current-link states remain preserved.
-- Image Review Plan: One compact contact sheet of the four already-verified local portrait WebPs answered crop/order and factual-alt questions. One bounded Canvas screenshot answered the new section's Desktop composition question.
-- Image Review Result: The local contact sheet confirmed four distinct Summit-branded portrait images: beanie-and-hoodie worker, black-cap worker, smiling worker in workwear and harnessed worker. The bounded Canvas screenshot confirms a mist-grey editorial contact sheet with readable hierarchy, hard-edged four-up portrait field and no profile-card treatment. The original Editable People Panel remains separate.
-- Exact next action: If later authorized, Preview an Inspection Handoff CTA click at Desktop and Phone, then test the outstanding Navbar interaction paths and broader 320px / 1440px stress widths; no further Canvas write is currently needed.
-- Previous checkpoint evidence: [preserved recovery](./history/2026-10-03-recovery-before-routing-repair.md), not a current continuation.
-- Updated at: 2026-10-06 — Inspection Handoff CTA Link ownership, Button forwarding and all page-instance destinations structurally verified; preview readiness is clean.
+- State revision: 2026-10-09-insight-article-body-expansion
+- Active request: Expand both existing Insight Article Body CMS values with detailed, image-relevant Demo education.
+- State reference: [CMS-editable Detail Content request checklist](./checklist/detail-pages/2026-10-03-cms-editable-detail-content.md) and [Insight Detail page checklist](./checklist/insight-detail.md)
+- Evidence basis: Official Framer Agent readback on 2026-10-09 confirms 2 Insights items, Article Body lengths of 830 and 913 words, 22 and 23 rich-text blocks, existing Article Body bindings on Desktop/Tablet/Phone, preserved item images/Alt, summaries, and ten checklist values per item.
+- Connection: Official Framer Agent setup and session connection succeeded; reuse the active session for all remaining reads and writes in this task.
+- Current scope: Review Rail component geometry only — keep three Demo records, concise properties, Home section placement and cyclic controls; align each slide to the clipped viewport and preserve exact one-slide track movement across nine states.
+- Last documented evidence: Both Insight titles, summaries, images/Alt, ten-item `Checklist Steps`, and the Article Body binding were read before editing. Readback after editing confirms 830 and 913 words, with the bound body node present on Desktop, Tablet and Phone.
+- Content sources: [ARMA repair guidance](https://www.asphaltroofing.org/asphalt-shingle-roofs-are-repairable-what-you-need-to-know/); [ARMA replacement vs. recover guidance](https://www.asphaltroofing.org/reroofing-replacement-vs-recover/); [NRCA homeowner inspection/maintenance guidance](https://www.nrca.net/roofingguidelines/pdf?id=177659&k=3224943). Copy stays educational and qualified; it does not diagnose the pictured properties or assert Summit-specific facts.
+- Image Review Plan: Target component captures: Desktop Slide 1 for card composition and slide boundary; Phone Slide 1 for compact card readability; one final Phone Slide 1 capture after repairing the discovered fixed-width quote. Use Framer Agent screenshots; maximum three captures, then stop visual inspection and use structure readback if any fails. No source images are inspected.
+- Image Review Result: Partial — Desktop capture shows the full quote, author/context and controls. The initial Phone capture exposed a fixed-width quote; after the width repair, the quote fits horizontally. A later compact-spacing adjustment was structurally read back but not recaptured; final Phone metadata/control visibility and all runtime paths remain pending.
+- Exact next action: Preview the final Phone Review Rail and exercise Previous/Next at all breakpoints, including cyclic wrap. No further screenshots until that Preview pass.
+- Previous checkpoint evidence: The 2026-10-08 Review Rail structure and project-wide naming scan are preserved in [the Review Rail checklist](./checklist/home/2026-10-07-review-rail.md); final Review Rail visual/runtime checks remain pending.
+- Updated at: 2026-10-09 — Review Rail now uses viewport-matched track heights and exact Desktop slide pitch; visual/runtime review pending. The completed Article Body checkpoint remains in the linked request checklist.
 
 ## 15. Checklist and Change Control
 
 - Project checklist index: [checklist/README.md](./checklist/README.md)
 - Active page checklist: [Insight Detail](./checklist/insight-detail.md), where the CMS List and repeated row template are used.
-- Active request checklist: None — this was a scoped shared-component restoration after intentional removal of the Layout Template, not a new page build. The [approved expansion plan](./checklist/site/2026-08-26-site-expansion-planning.md) remains a scope source, not the continuation pointer.
+- Active request checklist: [Home Review Rail](./checklist/home/2026-10-07-review-rail.md) — geometry correction implemented; targeted structural readback and rendered/runtime Preview pending.
 - Checklist status: Project-wide plan Approved; Services remains in progress; all completed pages retain outstanding stress/Preview checks; About is Structural Pass / Visual Blocked; Contact is Structural Pass / delivery and visual Blocked; Insights archive and Insight Detail are Structural Pass / Visual Blocked; publishing excluded.
-- Last synchronization with Current Status: 2026-10-05 — page-owned navigation shell
+- Last synchronization with Current Status: 2026-10-09 — Review Rail reel geometry correction
 
 ## 16. History
 
