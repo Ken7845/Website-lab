@@ -1,3 +1,4 @@
+
 # Framer 高级组件：Dish Selector 图片矩阵与文字 Reel
 
 > Status: **Canonical selector / reel; project-specific**.
