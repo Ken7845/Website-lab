@@ -31,6 +31,7 @@ Check only what the scope can affect:
 
 - Existence and duplication: the requested function appears once where intended; no redundant Section or CTA intent was added.
 - Structure and ownership: Definition → Instance → Breakpoint Override; full-bleed, wrapper, gutter, and component boundaries are coherent. Page root, full-bleed Section, and senior structural parents remain fluid; `max-width` belongs to the deepest valid max-width owner. A bounded-canvas exception passes only with approved intent, a separate full-viewport background owner, and narrow/wide evidence.
+- Width-policy validity: check [Max-width ownership](../../../framer/basic/standards/website-baseline.md#max-width-ownership) and active user direction before accepting the planned contract. Matching an incorrectly capped contract is still Fix Required; generic lint suggestions do not authorize restoring caps.
 - Contract symmetry: for every Component concern, compare planned Decision / Owner with the actual Canvas owner, then replace planned readback/Preview proof with evidence or an explicit Blocked reason.
 - Content and facts: Approved/Draft/Demo/Missing states remain honest; links and labels lead to real destinations.
 - Breakpoints: actual Desktop, Tablet, Phone, and any project-specific widths are inspected; narrow layouts transform rather than mechanically shrink.
@@ -64,5 +65,7 @@ Update project state by responsibility:
 - Active continuation pointer only → `RECOVERY.md`.
 - A genuinely new why-decision → `DECISIONS.md`.
 - Completed or retired implementation narrative → `HISTORY.md` or request-specific Checklist.
+
+Before the final response, complete [observation closeout](../../../history/workflow-observations/README.md#closeout) for eligible outcomes. Read back the saved entry and Current Status receipt in the actual knowledge repository; a Partial/Blocked implementation still needs its record.
 
 Report only the outcome, verified widths/paths, fixes, blockers, and known limits. Never mark a scope complete because Desktop merely looks finished.

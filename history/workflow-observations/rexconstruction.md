@@ -95,3 +95,25 @@
 - Later-discovered issue: Years of Experience, Roofs Installed, and Client Rating values lack authoritative confirmation.
 - Correction: No numeric claim was approved or treated as verified; the site remained unpublished.
 - Workflow candidate: Separate each user prompt in the observation when the user explicitly requests prompt-level history.
+
+## 2026-10-13 — Home parent-width correction
+
+- Task reference: Follow-up repair after REX Construction Home U5
+- Request: Remove max-width constraints from parent containers throughout the website.
+- Route selected: refreshed Framer project map → `framer-layout-responsive` → live page/component width audit → targeted breakpoint QA.
+- Actions: Cleared 27 `1120px` max-width values from Home content parents across Desktop, Tablet and Phone, including shared Trust Bar and Footer structures; preserved existing width and layout settings.
+- Verification: Global live-tree readback found zero remaining `maxWidth` values; screenshots were captured for all three breakpoints. No publication was performed.
+- Outcome: Pass for the requested structural correction. Framer emitted 21 lint warnings, including max-width recommendations that conflict with the user's explicit rule; those caps were not restored.
+- Later-discovered issue: Parent content wrappers had been capped despite the user's no-parent-max-width rule.
+- Correction: Removed all live caps and verified the full current project tree.
+- Workflow candidate: Reconcile the user’s width-ownership rule against generic linter and default design guidance before applying max-width constraints.
+
+### 2026-10-13 — Later-discovered closeout issue
+
+- Task reference: REX-2, referenced chat read on 2026-10-13; Website_Lab width/history maintenance request.
+- Later-discovered issue: U5.3–U5.6 and the width-fix turn had no Website_Lab record writes until user reminders. The 27-cap removal was already appended before this maintenance task, while PROJECT/Recovery and three contracts still prescribed older states or 1120px parent caps. One requested filler note was written in the separate REXconstruction chat workspace.
+- Actions: Preserved the original records exactly; reconciled active width decisions, later U5 constraints, Status and Recovery; added required width routing, QA closeout and a checked observation receipt. Preserved all existing observation entries, including the user's uncommitted width-fix entry. Saved the requested filler reference in the existing pattern owner.
+- Verification: REX-2 command output recorded 27 removals and zero remaining maxWidth; repository reads established the missed writes and stale contracts. This task used no Canvas connection and does not certify new visual/runtime results.
+- Outcome: Repository correction implemented; live Needs refresh. Scope and validation details are in the [maintenance report](../repository/2026-10-13-width-and-closeout-repair.md).
+- Correction: Parent caps are no longer approved by current contracts; history is now a routed closeout obligation, including meaningful Partial/Blocked outcomes. Numeric facts and existing Button/White consolidation remain unresolved, not silently approved.
+- Workflow candidate: Implemented after the repeated failure; test both route selection and saved-receipt validation. A validator cannot detect an entirely unrecorded external task.

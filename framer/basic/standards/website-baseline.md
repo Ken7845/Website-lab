@@ -270,14 +270,22 @@ Layout Template
 - 页面只维护自己的 Content。
 - Navbar/Footer 不在每页复制。
 - 优先使用 Stack 和 Grid，明确谁拥有宽度。
+
+### Max-width ownership
+
 - **Max-width ownership rule**：默认不在 Page breakpoint root、最外层 Page Content、full-bleed Section 或负责分配可用宽度的 senior structural parent 上设置 `max-width`。这些层使用 Fill / `1fr` 跟随视口，负责背景、外部构图和可用宽度分配，不能同时承担局部内容封顶。
 - 紧邻 Section 的第一层或前几层结构 Stack 通常仍属于流式页面骨架，不得因为“统一内容宽度”就默认加 `max-width`。过早约束会让 Hero、Grid、Navbar、Footer 或整组 Page Content 像一个固定画板，在宽屏停止扩展、在窄屏过早换行或留下不受控边带。
 - `max-width` 只放在真正需要控制阅读行长或组件尺寸契约的 **deepest valid max-width owner**，例如局部 Content Wrapper、文本列、特定 Grid、列表或组件。判断时沿 `Breakpoint → Section → structural Stack → local content owner` 逐层追踪；先区分“铺背景/分配可用宽度的骨架”与“约束具体内容的内层”，不要把两者合并。
 - 若设计明确需要 bounded canvas / centered shell，只有在项目语言或用户要求批准、外层仍有独立的全视口背景 Owner、且 320 / 390 / 810 / 1200 / 1440+ 均验证成立时，senior parent 才可例外拥有 `max-width`；不得把这个例外当成普通响应式默认值。
 - 验证时至少比较 Desktop 1200 与 1440+：外层和 senior structural parents 应继续 Fill / `1fr` 扩展，只有被明确选定的局部 Owner 保持最大宽度。若移除约束后行长过长，应约束文字列或局部 Grid，而不是把 `max-width` 重新加回靠外层的公共 Stack。
 - 修复顺序：先从 Page root 沿 width chain 向下定位第一个不应封顶的 Owner → 移除或下移该 `max-width` → 保持外层 Fill / `1fr` → 在最深有效 Owner 恢复必要的阅读宽度或几何上限 → 复检相邻 Section 与全部相关断点。不要先缩小字号、固定子层宽度或添加额外 Padding 来补偿。
+- 按职责而非层名或嵌套深度判断：同时向标题、媒体、列表或多个 Section 分配宽度的 `Content` / `Inner` / `Wrapper` 仍是结构父层；把它称为 internal wrapper 不构成封顶理由。子层的 `100% Relative` / Fill 相对于父层计算，不能抵消祖先的固定 `max-width`。
+- 写入前在现有 width / placement 合同中明确父层职责、width、max-width（包括 `None`）、局部上限 Owner 与批准来源；现存 Canvas 属性只是现状，不能当作批准。普通 platform recipe、lint 的 max-width 建议与示例数值不是平台 hard constraint，也不能覆盖本规则或用户明确禁止父层封顶的指令。只有实际能力限制才按 Gate 报告 blocker。
+- QA 先检查合同本身是否符合用户约束，再比较 Canvas；合同与 Canvas 都写了相同错误上限也不能 Pass。针对 capped ancestor 的修复必须回读父层链及 Definition → Instance → Breakpoint Override，并分别记录结构和窄屏/宽屏视觉证据；缺失的宽度或运行证据标 `Blocked`，不拿三断点截图代替全部 stress-width 检查。
 
 已观察到的 failure signature（Summit Roofing，2026-10-03 用户截图）：图片、标题与正文被 senior parent 一起封装成窄的居中画板；视口变化时整组内容不按可用宽度重排，只改变外部空白、过早换行或裁切。该现象证明需要检查 width ownership，但截图本身不授权假设具体节点或数值；仍须通过 live-tree readback 定位真实 Owner。
+
+### Shared layout checks
 
 - 间距来自稳定系统，不逐个 Section 随机设置。
 - Targeted Preview 或截图如确认文字被父级 Stack 裁切，先排查该父级的固定尺寸、Padding 和宽度所有权；确认文字本应自然外溢且不存在横向溢出后，把该父级 Stack 的 `overflow` 改为 `visible`，再复检相关断点。不要把 `visible` 设为默认值，也不要用它掩盖错误尺寸或布局溢出。
@@ -292,7 +300,7 @@ Layout Template
 
 ```text
 Section（Surface / 外部 Padding）
-└── Content Stack（内容最大宽度 / 主段之间的节奏）
+└── Content Stack（Fill / 分配可用宽度 / 主段之间的节奏）
     ├── Heading Group（标题与开场留白）
     └── Narrative Stack（多个叙事段之间的大停顿）
         ├── Story-Image Group（故事与其直接承接图片之间的小 gap）

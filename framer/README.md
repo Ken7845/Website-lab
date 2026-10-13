@@ -51,6 +51,8 @@ Link / Copy / Metadata / Naming 小修按被改对象的责任选 primary；复�
 
 当 primary 为 `framer-components` 且会建立或改写组件责任时，必须先通过其 **Component Requirement Contract**；当任务命中上述视觉方向范围时，必须先通过 **Visual Direction Contract**。读过 Baseline 不等于已将规则应用到当前对象。
 
+无论选择哪个 primary，只要创建、保留或修改宽度约束，就读取 [Max-width ownership](basic/standards/website-baseline.md#max-width-ownership)，把父层是否封顶及批准来源写进现有合同；Component 路线不能跳过该规则。
+
 ## 3. Change Control 是写入前的条件路由
 
 仅在以下情况读取 [`basic/workflows/change-control.md`](basic/workflows/change-control.md)：
@@ -74,9 +76,11 @@ Checklist 不是开工前的全量教材。完成一个明确 Part 后：
 → Targeted readback / 必要 Preview
 → Pass / Fix Required / Blocked
 → 批量修补并只复检受影响范围
+→ 同步当前状态并完成 Workflow Observation closeout
 ```
 
 - 实施后的 evaluator：[`checklist.md`](checklist.md) 与 `framer-qa`。
+- 有实际建设结果或可复用失败的 Part，在最终回复前执行 [observation closeout](../history/workflow-observations/README.md#closeout)，包括 Partial / Blocked 的已实施结果；不等待用户提醒。
 - Page / Website 报告完成前：读取 [`basic/workflows/preflight-audit.md`](basic/workflows/preflight-audit.md)。
 - Marketplace 项目：在普通 Baseline 通过后追加 [`basic/standards/marketplace-guidelines.md`](basic/standards/marketplace-guidelines.md)。
 - 图片或截图开始前：先读取 [`basic/workflows/image-workflow.md`](basic/workflows/image-workflow.md) 的视觉预算、驻留检查和失败降级。

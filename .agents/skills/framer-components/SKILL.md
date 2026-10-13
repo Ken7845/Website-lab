@@ -44,6 +44,8 @@ Use `rg -n` to locate the applicable headings rather than loading whole referenc
 | Accessibility / touch / focus |  |  |  |  |  |
 | Evidence sample |  |  |  |  |  |
 
+For `Available width / placement` and `Readable max-width`, first read [Max-width ownership](../../../framer/basic/standards/website-baseline.md#max-width-ownership). Name the structural parent role, its width and max-width (including `None`), the local constraint owner and any approved exception. An internal wrapper carrying several peer regions remains a structural parent. Existing caps and platform/lint suggestions do not authorize them; a contract that preserves an unapproved parent cap is not Ready.
+
 Use [Contract lifecycle](../../../framer/basic/workflows/change-control.md#contract-lifecycle) for applicability, separate authorization, implementation and verification states, and scoped evidence links.
 
 Set `Contract status: Ready` only after all owner decisions and planned proof paths are complete. If a request Checklist exists, persist the table there under `## Component Requirement Contract`; otherwise keep the compact contract in working state. Do not create another repository file merely for the contract.
@@ -77,7 +79,7 @@ Before implementation, show one concise **Component contract receipt**: `owners 
 4. Fix a Breakpoint Override only when the difference is intentionally breakpoint-specific.
 5. Batch the known changes, then read back each contract row through Definition, representative first/middle/last Instances, affected Breakpoint Overrides, standalone Component, and real Page Preview as applicable.
 6. Replace planned proof with actual evidence and set the contract to `Pass` or `Blocked`; never mark it `Pass` from a successful write command.
-7. Invoke `framer-qa` after the system is implemented; do not preload the entire QA checklist.
+7. Invoke `framer-qa` after the system is implemented; do not preload the entire QA checklist. Before the final response, complete [observation closeout](../../../history/workflow-observations/README.md#closeout) for the implemented outcome, including Partial or Blocked work.
 
 ## Conditional references
 

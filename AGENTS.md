@@ -100,6 +100,7 @@ Framer 的建设顺序、Responsive、Accessibility、交互、Part 验收和 Pr
 - 小型文案、链接、命名、单点 spacing 等普通修复默认不记录；若它暴露了可复用的 workflow failure 才记录。
 - Observation 以项目分类：每个项目只维护一个 append-only 文件；同一任务中的多条 Prompt 合并为一条简短 closing entry，不按 Prompt 建文件或逐条记录。
 - Observation 在实施与 targeted QA 后写入，不是新的开工 Gate，不得暂停建设等待日志，也不得为了日志扩大读取范围。
+- 最终回复前按 [closeout](history/workflow-observations/README.md#closeout) 写入并回读适用记录与 Current Status receipt；Partial / Blocked 的已实施结果同样适用，不等待用户提醒，不用其他 workspace 的笔记替代。
 - 任务当下只写短记录；后来发现问题时追加 `Later-discovered issue` 与 correction，不改写原始事实。
 - 普通建设不得预读 observations；只有 retrospective 或 knowledge-maintenance 才按项目、时间或失败类型 targeted read。
 - 单条记录只是 evidence，不自动升级为规则。只有重复模式或高影响缺陷经复盘后，才修改 Router、Skill、Reference 或 validator。

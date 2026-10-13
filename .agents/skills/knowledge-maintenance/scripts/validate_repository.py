@@ -708,6 +708,7 @@ class Validator:
                 continue
             status_path, status_fragment, status = owners["Current status owner"]
             recovery_path, _, recovery = owners["Recovery owner"]
+            self.check_closeout(project, status_path, status)
             revisions = [self.field(t, "State revision") for t in (status, recovery)]
             if any(not v or not re.fullmatch(r"\d{4}-\d{2}-\d{2}(?:[a-z0-9.-]*)?", v) for v in revisions):
                 self.error("state.revision_missing", project, "Both current owners require an explicit state revision.")
@@ -726,6 +727,36 @@ class Validator:
                 self.error("state.reference_conflict", project, "Recovery must reference its declared Status owner.")
             if len(recovery.splitlines()) > 120:
                 self.error("state.recovery_overloaded", project, "Inline or split Recovery exceeds 120 lines; move chronology to History.")
+
+    def check_closeout(self, project: Path, status_path: Path, status: str) -> None:
+        """Validate a declared receipt; do not infer unrecorded external work."""
+        schema = self.field(status, "Closeout schema")
+        receipt = self.field(status, "Observation")
+        if schema is None and receipt is None:
+            return  # Older untouched state has no declared closeout schema.
+        if schema != "1":
+            self.error("closeout.schema", status_path, "Observation receipts require Closeout schema: 1.")
+            return
+        if receipt and re.fullmatch(r"(?:N/A|Blocked)\s+—\s+\S.*", receipt, re.I):
+            return
+        if not receipt or not re.match(r"Recorded\s+—\s+", receipt, re.I):
+            self.error("closeout.receipt_missing", status_path, "Declare Recorded — linked entry, N/A — scope reason, or Blocked — write blocker.")
+            return
+        point = self.pointer(status_path, receipt)
+        if not point or point[0] == "none" or not point[1]:
+            self.error("closeout.entry_missing", status_path, "Recorded needs an existing local observation entry heading.")
+            return
+        path, fragment = Path(point[0]).resolve(), point[1]
+        observation_dir = (self.root / "history/workflow-observations").resolve()
+        slug = re.sub(r"[^a-z0-9]+", "-", project.parent.name.casefold()).strip("-")
+        if path.parent != observation_dir or path.name != slug + ".md":
+            self.error("closeout.wrong_project", status_path, "Observation must use this project's canonical repository log, not another project or workspace.")
+            return
+        entry = self.owner_section(path, fragment)
+        for field in ("Task reference", "Actions", "Verification", "Outcome"):
+            value = self.field(entry, field)
+            if not value or re.fullmatch(r"(?:TODO|TBD|Pending)", value, re.I):
+                self.error("closeout.entry_incomplete", status_path, f"Recorded entry lacks factual {field}.")
 
     def check_archives(self) -> None:
         for rel_path, expected in sorted(self.config.get("immutable_archives", {}).items()):

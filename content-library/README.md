@@ -102,3 +102,4 @@ New projects use the manifest template. Repo-only reconciliation writes `Evidenc
 | Morrow & Grain | [PROJECT](morrow-grain-bakehouse/PROJECT.md) | Inline legacy state; live Needs refresh |
 | HK Place | [PROJECT](HK%20Place/PROJECT.md) | Inline state and page checklist |
 | Dutch Treat | [PROJECT](dutch-treat-restaurant/PROJECT.md) | Minimal entry; legacy evidence separate |
+| REX Construction | [PROJECT](REXconstruction/PROJECT.md) | Inline Status / Recovery; project observation log |

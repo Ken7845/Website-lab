@@ -42,6 +42,7 @@
 → 同类问题批量自修补
 → 只复检受影响范围
 → 更新 STATUS / RECOVERY 的当前 owner
+→ 按 observation closeout 写入并回读适用的历史记录及 receipt
 → 才能进入下一个 Part
 ```
 
@@ -58,6 +59,7 @@
 - [ ] 跨页面差异以全站 layout-family distribution 判断，不要求每个 Section 独一无二：同职责 Contact / CTA / Form 与共享系统可有理由复用；所有 sibling pages 使用同一 Hero 或完整页面构图的 site-wide layout monoculture 不通过；示例数量不是硬配额。
 - [ ] 用户明确设计意图与通用规则冲突时保留用户意图，并在 `DECISIONS.md` 或 PROJECT 的 Decisions / Exceptions 章节记录。
 - [ ] 只复检当前 Part 及受影响的共享依赖，不无目的重读整页或整站。
+- [ ] 最终回复前已执行 [observation closeout](../history/workflow-observations/README.md#closeout)：适用 Part 的记录与当前状态已落盘并回读；Partial / Blocked 的已实施结果也须记录。
 
 ### 高效率审查分级
 
@@ -641,6 +643,7 @@ Shared components:
 - [ ] 第一次视觉查看前已在 canonical Recovery owner 写入一个当前 Checkpoint。
 - [ ] 每完成一个 Part 已覆盖更新 canonical Recovery owner 中的项目、页面、Session、组件、Variant、实例、断点、完成项和剩余项；没有在多个文件追加第二份 current diary。
 - [ ] `PROJECT.md` current manifest、`STATUS.md` / Current Status、`DECISIONS.md` / Decisions、`RECOVERY.md` / Recovery 已按项目实际拆分更新，且没有维护两份 current 明细。
+- [ ] History 写入使用 PROJECT 指向的知识仓库与项目文件；在 canonical Current Status 保存 [closeout receipt](../history/workflow-observations/README.md#closeout)，不把另一个 chat workspace 的笔记当作已归档。
 
 推荐单元：
 

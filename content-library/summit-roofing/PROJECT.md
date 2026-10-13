@@ -214,7 +214,7 @@ Landing → understand the offer → select a service → view proof / process �
 ## 12. Current Status
 
 - State revision: 2026-10-09-review-rail-reel-geometry
-- Active request: Review Rail reel geometry correction. The continuous clipped track now uses exact Desktop slide pitch and viewport-matched heights at Desktop, Tablet and Phone; final rendered and runtime Preview remain pending.
+- Active request: [Home Review Rail reel geometry correction](./checklist/home/2026-10-07-review-rail.md) — exact Desktop slide pitch and viewport-matched heights are recorded; final rendered and runtime Preview remain pending.
 - Evidence basis: Official Framer Agent readback on 2026-10-09 confirms all nine Review Rail states have viewport-matched track heights, exact Desktop/Tablet/Phone slide pitches, responsive quote widths and cyclic Previous/Next routes. Desktop and Phone screenshots were captured; the final Phone composition and interactive playback remain unverified.
 
 - Current phase: Home is complete and Services remains in progress. Repair & Maintenance has bounded Desktop and Phone visual evidence; Roof Replacement, New Construction, Storm Damage Repair, Projects and Project Detail have Structural and bounded Desktop visual Pass. About, Contact, Insights and Insight Detail have Structural Pass with explicit visual/delivery limitations. All retain stress and Preview work.
@@ -270,18 +270,17 @@ Landing → understand the offer → select a service → view proof / process �
 
 ## 14. Recovery
 
-- State revision: 2026-10-09-insight-article-body-expansion
-- Active request: Expand both existing Insight Article Body CMS values with detailed, image-relevant Demo education.
-- State reference: [CMS-editable Detail Content request checklist](./checklist/detail-pages/2026-10-03-cms-editable-detail-content.md) and [Insight Detail page checklist](./checklist/insight-detail.md)
-- Evidence basis: Official Framer Agent readback on 2026-10-09 confirms 2 Insights items, Article Body lengths of 830 and 913 words, 22 and 23 rich-text blocks, existing Article Body bindings on Desktop/Tablet/Phone, preserved item images/Alt, summaries, and ten checklist values per item.
-- Connection: Official Framer Agent setup and session connection succeeded; reuse the active session for all remaining reads and writes in this task.
+- State revision: 2026-10-09-review-rail-reel-geometry
+- Active request: [Home Review Rail reel geometry correction](./checklist/home/2026-10-07-review-rail.md) — final rendered and runtime Preview remain pending.
+- State reference: [Current Status](#12-current-status)
+- Evidence basis: Dated 2026-10-09 Review Rail structural readback and screenshots recorded in the active checklist; repository reconciliation only, live Needs refresh.
+- Connection: Historical session only; complete official re-entry before any new Canvas claim or write.
 - Current scope: Review Rail component geometry only — keep three Demo records, concise properties, Home section placement and cyclic controls; align each slide to the clipped viewport and preserve exact one-slide track movement across nine states.
-- Last documented evidence: Both Insight titles, summaries, images/Alt, ten-item `Checklist Steps`, and the Article Body binding were read before editing. Readback after editing confirms 830 and 913 words, with the bound body node present on Desktop, Tablet and Phone.
-- Content sources: [ARMA repair guidance](https://www.asphaltroofing.org/asphalt-shingle-roofs-are-repairable-what-you-need-to-know/); [ARMA replacement vs. recover guidance](https://www.asphaltroofing.org/reroofing-replacement-vs-recover/); [NRCA homeowner inspection/maintenance guidance](https://www.nrca.net/roofingguidelines/pdf?id=177659&k=3224943). Copy stays educational and qualified; it does not diagnose the pictured properties or assert Summit-specific facts.
+- Last documented evidence: All nine Review Rail offsets, dimensions, property labels and cyclic routes were read back; Desktop screenshot was readable, while final Phone visual and runtime playback remained pending.
 - Image Review Plan: Target component captures: Desktop Slide 1 for card composition and slide boundary; Phone Slide 1 for compact card readability; one final Phone Slide 1 capture after repairing the discovered fixed-width quote. Use Framer Agent screenshots; maximum three captures, then stop visual inspection and use structure readback if any fails. No source images are inspected.
 - Image Review Result: Partial — Desktop capture shows the full quote, author/context and controls. The initial Phone capture exposed a fixed-width quote; after the width repair, the quote fits horizontally. A later compact-spacing adjustment was structurally read back but not recaptured; final Phone metadata/control visibility and all runtime paths remain pending.
 - Exact next action: Preview the final Phone Review Rail and exercise Previous/Next at all breakpoints, including cyclic wrap. No further screenshots until that Preview pass.
-- Previous checkpoint evidence: The 2026-10-08 Review Rail structure and project-wide naming scan are preserved in [the Review Rail checklist](./checklist/home/2026-10-07-review-rail.md); final Review Rail visual/runtime checks remain pending.
+- Previous checkpoint evidence: The completed Insight Article Body expansion remains in [the Insight Detail checklist](./checklist/insight-detail.md); the superseded mixed Recovery is preserved in [History](./history/2026-10-13-stale-recovery-before-validation.md).
 - Updated at: 2026-10-09 — Review Rail now uses viewport-matched track heights and exact Desktop slide pitch; visual/runtime review pending. The completed Article Body checkpoint remains in the linked request checklist.
 
 ## 15. Checklist and Change Control

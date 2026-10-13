@@ -83,7 +83,7 @@ Run from the repository root:
 python3 .agents/skills/knowledge-maintenance/scripts/validate_repository.py --strict
 ```
 
-The validator checks structural routes, declared state/contract schemas, proof-state consistency, link targets, metadata, discovery, immutable archives, preservation terms, migrations and whitespace. It cannot prove arbitrary prose agreement, user intent, historical migration fidelity or live Canvas truth; complete the manual conflict and preservation review too.
+The validator checks structural routes, declared state/contract schemas, proof-state consistency, declared observation closeout receipts, link targets, metadata, discovery, immutable archives, preservation terms, migrations and whitespace. It cannot prove arbitrary prose agreement, user intent, historical migration fidelity or live Canvas truth; complete the manual conflict and preservation review too.
 
 - Fix every Error.
 - In strict mode, resolve every new Warning or document a narrow baseline exception in `.knowledge-validation.json` with a reason.

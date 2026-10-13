@@ -8,18 +8,18 @@ This directory owns page plans and acceptance criteria. The current request auth
 - [Current Status](../PROJECT.md#12-current-status)
 - [Decisions](../PROJECT.md#13-decisions-and-exceptions)
 - [Recovery](../PROJECT.md#14-recovery)
-- [Platform workflow](../../../framer/README.md#1-先-inspect--reconcile)
+- [Platform workflow](../../../framer/README.md#1-先-inspect-reconcile)
 - [Change control](../../../framer/basic/workflows/change-control.md#authorization-and-task-mode)
 
 ## Page Index
 
 | Page | Path | Canonical checklist | Status |
 |---|---|---|---|
-| Home | `/` | [home.md](home.md) | Partial — Navbar, button variants, and six-review selector implemented; Hero counter instances await approved values |
+| Home | `/` | [home.md](home.md) | Partial — U5 and width repair recorded; see Current Status for evidence and fact gaps |
 
 Only Home has an active checklist. Existing supporting pages are reference destinations.
 
-Latest request record: [Navigation, Buttons, Reviews, and Counters revision](home/navigation-buttons-reviews-counters.md) — implemented except Hero metric placement, which awaits approved values.
+Latest request record: [Navigation, Buttons, Reviews, and Counters revision](home/navigation-buttons-reviews-counters.md) — reconciled through the parent-width follow-up; existing metric values remain unverified.
 
 ## Status Meaning
 
@@ -44,7 +44,7 @@ Before implementation, inspect existing structures and decide Add / Reuse / Modi
 
 ## Execution Loop
 
-Read the page scope and contract → resolve the next Part's dependencies → implement that Part when authorized → targeted readback and Preview → record actual results → synchronize PROJECT status and its single Recovery owner.
+Read the page scope and contract → resolve the next Part's dependencies → implement that Part when authorized → targeted readback and Preview → record actual results → synchronize PROJECT status and its single Recovery owner → complete [observation closeout](../../../history/workflow-observations/README.md#closeout).
 
 Choose one primary implementation skill through the platform router. The local plan does not establish a Framer connection or prove current platform behavior.
 
@@ -54,9 +54,4 @@ Update the page's Latest Part Result with Part name, date, Pass / Fix Required /
 
 ## Latest Part Result
 
-- Part: Navigation, Buttons, Reviews, and Counters revision
-- Date: 2026-10-13
-- Result: Partial — Phone hover removed; reusable Yellow-fill navigation, red, and white buttons implemented; white CTAs applied to three sections; six-review selector implemented. Hero Counter instances await approved metric values.
-- Verified widths: 1200 and 390 visual; 810 structural.
-- Verified paths/states: Phone Closed/Open with no row hover; Desktop nav and red/white button hover variants; section destinations; six review selections; Counter code-component registration; clean preview readiness.
-- Canonical Recovery: [PROJECT §14](../PROJECT.md#14-recovery)
+See the single [page result](home.md#latest-part-result) and [current Status](../PROJECT.md#12-current-status); this index does not duplicate their details.

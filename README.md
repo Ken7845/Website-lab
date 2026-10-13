@@ -4,16 +4,16 @@ Website-lab 是面向人类与 AI Agent 的网站设计、项目事实和 Framer
 
 ## Knowledge Base Version
 
-- Repository version: `Website_Lab_V2.2.1`
-- Current release: `V2.2.1`
-- Release source: current local working tree, based on `d708a0e`; uncommitted
-- Previous release: `V2.2.0` (local working-tree release; architecture source `d708a0e`)
+- Repository version: `Website_Lab_V2.2.2`
+- Current release: `V2.2.2`
+- Release source: current local working tree, based on `6b255b0`; uncommitted
+- Previous release: `V2.2.1` (local working-tree release; source `d708a0e`)
 - Architecture base: `v2.0.0`
-- Released: 2026-10-06
-- Updated: 2026-10-06
+- Released: 2026-10-13
+- Updated: 2026-10-13
 - Scope: knowledge routing, authorization, current-state ownership, contract lifecycle, evidence requirements and maintenance validation; preserves the existing design system and website content.
-- Current revision: retains the V2.2.0 architecture; adds the Submit Roofing navbar structure reference and improves navigation component ownership, reusable properties, drawer/overlay selection and verification guidance.
-- Release notes: [Website_Lab V2.2.1](history/repository/2026-10-06-knowledge-base-v2.2.1.md)
+- Current revision: retains the V2.2.1 architecture; strengthens max-width ownership across Component, Layout and QA routes, makes eligible workflow-observation closeout verifiable, and reconciles the REX Construction current records without changing website content.
+- Release notes: [Website_Lab V2.2.2](history/repository/2026-10-13-knowledge-base-v2.2.2.md)
 - Architecture migration record (v2.1.0 base): [Website-lab Visual Workflow Improvement — v2.1.0](history/repository/2026-09-16-visual-workflow-v2.1.0.md)
 
 ## 架构

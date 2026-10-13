@@ -9,13 +9,13 @@
 - Project name: REX Construction LLC website redesign
 - Platform: Framer — confirmed by the user.
 - Project type: Business website / roofing and exterior construction
-- Overall status: Built — Home is review-ready in Framer; not published.
+- Overall status: Partial — repository reconciled through the parent-width repair; live Needs refresh; not published.
 - Production website: https://rexconstructionllc.com/
 - Project / Canvas URL: https://framer.com/projects/REX-Construction--sTWVLfrpuNKD6x8u6CXh-cSBqA
 - Preview URL: Missing
-- Content status: Source-backed homepage summaries implemented; conflicting or unverified facts remain omitted.
+- Content status: Source-backed homepage summaries implemented; displayed Hero metrics were later reported as unverified; see Current Status. Source copy is unchanged by this reconciliation.
 - Last updated: 2026-10-13
-- Last verified against current implementation: navigation/buttons and six-state Review Selector read back; Counter code component registered; Desktop/Phone screenshots reviewed; preview readiness passed without warnings on 2026-10-13. Hero counter instances await exact metric values.
+- Last verified against current implementation: No fresh Canvas verification in this task. REX-2 recorded 27 maxWidth removals and a zero-remaining scan on 2026-10-13; see [dated width correction](../../history/workflow-observations/rexconstruction.md#2026-10-13-home-parent-width-correction).
 
 ## 2. Scope and Authority
 
@@ -37,7 +37,7 @@
 | Responsibility | Current source | Status |
 |---|---|---|
 | Source copy and factual notes | [Info.md](Info.md#business-profile) and [verbatim copy](Info.md#verbatim-website-copy) | Approved source; unresolved claims flagged |
-| Brand and visual direction | [Home visual contract](checklist/home.md#visual-direction-contract) | Pass |
+| Brand and visual direction | [Home visual contract](checklist/home.md#visual-direction-contract) | Dated evidence retained; later revisions need targeted QA |
 | Homepage structure and acceptance criteria | [Home checklist](checklist/home.md) | Built; current revision recorded |
 | Assets | [Branding](images/branding/), [project photos](images/project-photos/), [trust badges](images/trust-badges/), [review avatars](images/review-avatars/) | Available; usage candidates below |
 | Current status / recovery | [Status](#12-current-status) / [Recovery](#14-recovery) | Current owners |
@@ -88,10 +88,14 @@ Most area remains dark neutral; red highlights identify actions. Photographs kee
 
 ### Hover Treatment
 
-- Primary CTA: red fill with off-white text normally; coral fill with charcoal text on hover/focus, plus a restrained coral shadow.
-- Navigation links: coral text/underline on hover and a visible keyboard-focus outline.
+Current U5 follow-ups supersede the initial coral/shadow proposal: Red and White Button appearances use Yellow left-to-right fillers, no shadow, square corners, hidden filler L:-1px and Hover Relative width 101%; Desktop navigation uses Yellow with no offset; Phone rows have no hover. White belongs to the existing Button definition; implementation consolidation Needs refresh. [Active request](checklist/home/navigation-buttons-reviews-counters.md#constraint-lock) owns the details.
+
+The original palette contrast calculations below remain dated measurements, not proof of the current Yellow states.
+
+- Primary CTA: preserve red normal state and apply the active Yellow filler contract; verify current label contrast against both surfaces.
+- Navigation links: Desktop Yellow hover with no offset; Phone no hover; visible keyboard focus requires runtime verification.
 - Service rows: lighter charcoal surface and a coral arrow/leading rule; preserve readable body text.
-- Timing proposal: 180 ms for color and shadow transitions. Reduced motion removes transitions. Essential actions remain visible on touch; a hover effect is never required to reveal information.
+- Initial timing reference: 180 ms; current filler timing requires targeted readback. Reduced motion removes transitions. Essential actions remain visible on touch; a hover effect is never required to reveal information.
 - Calculated solid-color contrast: main text/canvas 17.24:1; muted text/surface 8.95:1; normal CTA text/red 4.56:1; hover CTA charcoal/coral 6.17:1. These verify color pairs, not a completed page or all runtime states.
 
 ## 7. Content Facts
@@ -121,7 +125,7 @@ Only Home is in the current design scope. Existing routes are recorded as destin
 | Services | `/services` | Explain services and project stages | Reference only |
 | Our Work | `/gallery` | Show residential and townhome work | Reference only |
 | About Us | `/about-us` | Company story | Reference only |
-| Reviews | `/testimonials` | Customer feedback | Reference only; exact review text Missing |
+| Reviews | `/testimonials` | Customer feedback | Reference destination; six source reviews saved |
 | Contact Us | `/contact-us` | Inspection enquiry and contact information | Existing CTA destination; runtime verification needed |
 
 ## 9. Narrative and Conversion
@@ -153,7 +157,7 @@ Reviews are conditional on verified content. The existing subscription function 
 
 - Planning skill: repository [design-taste](../../.agents/skills/design-taste/SKILL.md).
 - Implementation route: official Framer connection → generated task map → repository `framer-components` → `framer-qa`.
-- Implemented shared elements: Inspection Button with Label/Link Properties, no shadow, and Yellow filler gesture states; Yellow-fill Desktop Navigation Button; White Button with Yellow filler; six-state Review Selector; reusable `Counter.tsx`; Site Navbar with Desktop, Tablet, Phone and Phone Open variants; Site Footer and Trust Bar.
+- Implemented shared elements: Inspection Button with Label/Link Properties, no shadow, and Yellow filler gesture states; Yellow-fill Desktop Navigation Button; White appearance requested as a variant of the existing Button; consolidation Needs refresh; six-state Review Selector; reusable `Counter.tsx`; Site Navbar with Desktop, Tablet, Phone and Phone Open variants; Site Footer and Trust Bar.
 - Component and visual contracts are recorded in [Home](checklist/home.md).
 - CMS: Not required for the proposed static homepage; decide later if work/reviews need an editorial collection.
 - Forms / newsletter: Connection and owner Missing. Keep existing working destinations until replacements are verified.
@@ -169,11 +173,12 @@ Reviews are conditional on verified content. The existing subscription function 
 | Selected work | Two images with differing emphasis | Two or one columns according to readable width | Stack with captions |
 | Story / contact | Image-text story; Contact uses a project image beside copy/actions | Contact stacks the image, copy and actions | Vertical image, copy and large touch targets |
 
+- Width policy: No max-width on structural parent containers. Follow [Max-width ownership](../../framer/basic/standards/website-baseline.md#max-width-ownership); generic lint recommendations cannot restore removed parent caps. No bounded-shell exception is approved for REX.
 - Verification widths proposed: 320, 390, 810, 1200 and 1440+ px.
 - Motion: Subtle optional entry feedback; meaningful focus/pressed states; reduced-motion alternative.
 - Web assets: [images/](images/). Current inventory contains 34 named assets; the flyer is currently JPG. This planning task does not alter formats.
 - Licensing: User-supplied source-site assets; confirm delivery/republication rights before launch.
-- Full-page Desktop and Phone visual evidence: Pass. Tablet: structural Pass. Live runtime link/hover/focus checks: Blocked because preview readiness supplied no staging URL.
+- Dated visual evidence and its limits are recorded in [Current Status](#12-current-status); no fresh visual or runtime Pass is claimed by this repository repair.
 
 ### Asset Usage Ledger
 
@@ -191,18 +196,22 @@ The approved homepage assets below are implemented in the redesigned Home.
 
 ## 12. Current Status
 
-- State revision: 2026-10-13-08
-- Active request: [U5 — Navigation, Buttons, Reviews, and Counters revision](checklist/home/navigation-buttons-reviews-counters.md)
-- Evidence basis: Framer component/variant readback, six review mappings, code-component catalog, component and full Desktop/Phone screenshots, and clean preview readiness.
-- Current phase: Partial — Navbar, button variants, and Review Selector implemented; Counter definition exists; Hero metric instances await approved values.
-- Active page: Home
-- Open dependencies: Exact Years of Experience, Roofs Installed, and Client Rating values; favicon/Open Graph asset; runtime hover/focus/click evidence; separate 320 / 1440 visual evidence.
-- Next approved step: User supplies exact metric values; place the three Hero counters and complete responsive QA. Publication remains a separate explicit request.
-- Last verified: 2026-10-13 — components, selector mappings and links read back; Desktop/Phone visual review completed; preview readiness passed without errors or warnings; not published.
+- State revision: 2026-10-13-09
+- Active request: [U5 and parent-width follow-up](checklist/home/navigation-buttons-reviews-counters.md)
+- Evidence basis: repository records and referenced REX-2 command outputs dated 2026-10-13; live Needs refresh. This maintenance task did not connect to Canvas.
+- Current phase: Partial — parent-width structural repair was recorded; later U5 implementation and unresolved proof are reconciled below.
+- Active page: Home — only page found in the dated REX-2 project audit.
+- Last recorded width result: 27 `1120px` caps cleared from content parents and shared structures; global remaining `maxWidth` count 0. Existing width/layout values were preserved. This is dated tool evidence, not a new live claim.
+- Later U5 outcome: reported three-image Hero autoplay (4s), review avatars, 300px review cards, arrow selection and full-review links to `/testimonials`. Existing Button/White-variant consolidation remains unproven. See [U5 observations](../../history/workflow-observations/rexconstruction.md#2026-10-13-u56-autoplay-and-review-cardlink-follow-up).
+- Open dependencies: displayed `10+`, `100+`, `5.0/5` were reported without authoritative business verification; approved values remain Missing. Also unresolved: White-variant consolidation, runtime links/focus/hover, 320 / 1440+ stress-width evidence, favicon/Open Graph and launch checks. This reconciliation does not approve numeric claims or change site content.
+- Next approved step: on the next authorized Canvas continuation, re-enter the official gate and read back the existing components, counters and width chain before changing anything; do not create duplicate counter instances or reintroduce parent caps. Resolve facts from approved sources/user input before treating metrics as verified. Publishing remains outside scope.
+- Last verified: dated global width-property readback in REX-2, 2026-10-13; three breakpoint screenshots were captured. No new visual/runtime verification here.
+- Closeout schema: 1
+- Observation: Recorded — [closeout reconciliation](../../history/workflow-observations/rexconstruction.md#2026-10-13-later-discovered-closeout-issue)
 
-| Page | Plan | Content | Styles | Components | Links/runtime | SEO | Alt | Desktop | Tablet | Phone | Evidence |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| Home | Partial — Hero metric values needed | Source-backed summaries and six reviews; exact metrics Missing | Pass | Partial — Navbar/buttons/review selector Pass; counter instances pending | State routes structurally Pass; live runtime proof unavailable | Pass | Pass | Pass | Pass — structural | Pass for implemented scope | Definition/variant/code-catalog readback + component/full-page screenshots + clean preview readiness |
+| Page | Implementation | Structural evidence | Visual/runtime evidence | Current result |
+|---|---|---|---|---|
+| Home | U5 follow-ups and parent-cap removal reported | Dated zero-maxWidth scan; current Needs refresh | Three breakpoint captures recorded; 320 / 1440+ and runtime proof incomplete | Partial; no publication |
 
 ## 13. Decisions and Exceptions
 
@@ -214,37 +223,34 @@ The approved homepage assets below are implemented in the redesigned Home.
 | Build Home in the supplied REX Construction Framer project | U3 and supplied editor URL | Homepage implementation | Active | 2026-10-13 |
 | Dark theme with bright hover highlights | U2 | Homepage visual direction | Active | 2026-10-13 |
 | Convert Navbar/Footer to responsive components; add Trust Bar ticker and Contact image | U4 | Homepage shared shell, trust evidence and enquiry close | Implemented | 2026-10-13 |
-| Refine Phone hover, add Yellow-fill navigation/buttons, review selector, and Hero counters from verified data | U5 | Navbar, buttons, Reviews and Hero metrics | Partial — only Hero metric values pending | 2026-10-13 |
+| Refine Phone hover, add Yellow-fill navigation/buttons, review selector, and Hero counters from verified data | U5 | Navbar, buttons, Reviews and Hero metrics | Partial — see Current Status for later implementation and proof gaps | 2026-10-13 |
+| No max-width on REX structural parents | Explicit user correction in REX-2; generic linter guidance is not authorization | Home and shared component width chains | Active; dated repair recorded | 2026-10-13 |
 
 Dark theme and bright hover highlights are user-directed. Exact palette tokens, final wording, crops and section composition remain proposals in the checklist.
 
 ## 14. Recovery
 
-- State revision: 2026-10-13-08
-- Active request: [U5 — Navigation, Buttons, Reviews, and Counters revision](checklist/home/navigation-buttons-reviews-counters.md)
+- State revision: 2026-10-13-09
+- Active request: [U5 and parent-width follow-up](checklist/home/navigation-buttons-reviews-counters.md)
 - State reference: [Current Status](#12-current-status)
-- Active connection: Official Framer Agent session 2 connected; generated task map and live revised Home readback complete.
+- Active connection: None established in this repository reconciliation; old sessions are historical and require official re-entry validation.
 - Current page: Home
-- Last successful change: Removed Phone row hover; created Yellow-fill navigation, red and white buttons; applied white buttons to Services, Selected Work and About Rex; built a six-state review selector; retained Counter code component. Preview readiness clean.
-- Last targeted readback: Button/nav/review states, CTA destinations, selector mappings and component catalog; Desktop/Phone visuals and preview readiness; 2026-10-13.
-- Verified breakpoints / states: Desktop 1200 and Phone 390 visually reviewed; Tablet 810 structurally verified; Navbar Phone Closed/Open visually and structurally verified.
-- Remaining approved work: Place three Hero counters after exact metric values are supplied, then finish responsive QA. Runtime interaction proof, favicon/Open Graph and publication remain separate limitations or follow-ups.
-- Exact next action: Obtain the three exact metric values from the user.
+- Last recorded operation: 27 parent maxWidth values cleared; global scan returned zero remaining. See [width observation](../../history/workflow-observations/rexconstruction.md#2026-10-13-home-parent-width-correction).
+- Exact next action: follow the [official re-entry route](../../framer/README.md#3-change-control-是写入前的条件路由), then targeted-read existing instances and width owners. Current blockers and approved continuation scope live only in [Status](#12-current-status).
 - Important asset paths: [Asset ledger](#asset-usage-ledger)
-- Visual review checkpoint: Phone Closed/Open, component fill variants, review selector, and full Desktop/Phone pages reviewed; implemented scope passed without layout regressions.
-- Updated at: 2026-10-13
+- Updated at: 2026-10-13; repository evidence only, live Needs refresh.
 
 ## 15. Checklist and Change Control
 
 - Index: [Checklist README](checklist/README.md)
 - Canonical page owner: [Home](checklist/home.md)
-- Request checklist: [U5 Navigation, Buttons, Reviews, and Counters revision](checklist/home/navigation-buttons-reviews-counters.md) — implemented except Hero metric placement.
-- Checklist status: Partial — implemented scope QA complete; Hero Counter instances await exact metric values.
-- Last synchronized: 2026-10-13, revision 2026-10-13-08.
+- Request checklist: [U5 Navigation, Buttons, Reviews, and Counters revision](checklist/home/navigation-buttons-reviews-counters.md) — reconciled through the width follow-up; existing metrics require fact verification.
+- Checklist status: Partial — [Current Status](#12-current-status) owns later implementation and evidence gaps.
+- Last synchronized: 2026-10-13, revision 2026-10-13-09.
 
 ## 16. History
 
-See [REX Construction workflow observations](../../history/workflow-observations/rexconstruction.md).
+See [REX Construction workflow observations](../../history/workflow-observations/rexconstruction.md) and the [exact pre-reconciliation records](history/2026-10-13-before-width-closeout-repair.md).
 
 ## 17. Definition of Ready
 

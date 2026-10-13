@@ -89,6 +89,15 @@ Hover 从同一结构继承，只修改内部视觉层：
 - 组件画布没有 Ground node overlap、文本对比度或零尺寸可见层警告。
 - Phone 不依赖 Hover；按钮在触摸状态下仍可辨认且可操作。
 
+## REX horizontal filler reference
+
+Reference — user-specified geometry from REX-2, 2026-10-13; this is a separate horizontal-fill variant, not a replacement for the dated AURELIA example or a universal default. The original note was saved outside Website_Lab; this entry repairs that destination error. [Project observation](../../../history/workflow-observations/rexconstruction.md#2026-10-13-later-discovered-closeout-issue).
+
+- Keep the filler inside the Button's clipped visual frame and outside normal Stack flow. Initial left position: `L: -1px`; Hover width: `Relative 101%` of the Button's local width. These values hide the starting edge and cover the far edge; they do not justify a max-width on a page or component placement parent.
+- Preserve the actual hidden-state width and transition from targeted readback; do not guess them from the two supplied values. Use the project’s active radius contract: later REX direction requires square buttons and matching square fillers.
+- Verify Default, Hover and Pressed at the actual Button sizes and page instances, including label visibility, clipped edges and no layout shift. Phone does not require hover. Static states and recorded parameters do not prove runtime animation.
+- REX White appearance belongs to a variant of the existing Button definition. Do not create a second definition to imitate the reference. Consolidation and runtime completion still need evidence.
+
 ## 常见失效模式
 
 | 症状 | 原因 | 修正 |
