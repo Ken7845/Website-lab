@@ -1,0 +1,257 @@
+# REX Construction LLC — Project
+
+- State schema: 1
+- Current status owner: [Inline Status](#12-current-status)
+- Recovery owner: [Inline Recovery](#14-recovery)
+
+## 1. Project Identity
+
+- Project name: REX Construction LLC website redesign
+- Platform: Framer — confirmed by the user.
+- Project type: Business website / roofing and exterior construction
+- Overall status: Built — Home is review-ready in Framer; not published.
+- Production website: https://rexconstructionllc.com/
+- Project / Canvas URL: https://framer.com/projects/REX-Construction--sTWVLfrpuNKD6x8u6CXh-cSBqA
+- Preview URL: Missing
+- Content status: Source-backed homepage summaries implemented; conflicting or unverified facts remain omitted.
+- Last updated: 2026-10-13
+- Last verified against current implementation: Revised shared Navbar/Footer/Trust Bar definitions, page instances and three breakpoints read back; focused Desktop/Phone screenshots reviewed; preview readiness passed without warnings on 2026-10-13.
+
+## 2. Scope and Authority
+
+- Authorized request U1: “Now plan to design the homepage. make a checklist and start the project.md.”
+- Authorized request U3: “start to build the homepage and I have created a project named REX Construction in the framer”
+- Direction U2: “what color composition will you choose? I hope it will be a dark theme with bright highlight in the hover effect”
+- Authorized request U4: “1.improve and revise the navbar and footer refer to the repository, especially the 'component' and 'response' issue 2. revise the Confidence part and turn it into a trust bar. use the images in the trust badges folder and apply a ticker effect. 3. input an image in the contact section to make this section better”
+- Current scope: Maintain the responsive homepage in the user-created Framer project, including the shared shell, Trust Bar ticker and enhanced Contact section authorized by U4.
+- Primary page: Home, path `/`.
+- Authority: User instruction → official REX website → [Info.md](Info.md#verbatim-website-copy). Maps and other listings are supplementary.
+- Add / Reuse / Modify: Add PROJECT and homepage checklist because no equivalent owners exist; reuse the current Info file and categorized image library.
+- Confirmed direction: Website redesign using REX's existing business information and saved imagery; dark theme with bright hover highlights, per U2.
+- Proposed direction: A clear, local, approachable roofing homepage with charcoal surfaces, REX red actions and bright coral hover/focus highlights, focused on free inspection enquiries. Detailed direction lives in [the homepage contract](checklist/home.md#visual-direction-contract).
+- Scope boundary: Homepage implementation and its necessary native styles/components are authorized. Other-page redesign, publication, custom code and paid dependencies are outside scope.
+- Current implementation differences: Home now uses Barlow Condensed/Barlow, a charcoal/red/coral system, editorial service rows, three responsive breakpoints and direct official-site/protocol links. Other source-site pages remain outside scope.
+
+## 3. Knowledge Map
+
+| Responsibility | Current source | Status |
+|---|---|---|
+| Source copy and factual notes | [Info.md](Info.md#business-profile) and [verbatim copy](Info.md#verbatim-website-copy) | Approved source; unresolved claims flagged |
+| Brand and visual direction | [Home visual contract](checklist/home.md#visual-direction-contract) | Pass |
+| Homepage structure and acceptance criteria | [Home checklist](checklist/home.md) | Built; current revision recorded |
+| Assets | [Branding](images/branding/), [project photos](images/project-photos/), [trust badges](images/trust-badges/), [review avatars](images/review-avatars/) | Available; usage candidates below |
+| Current status / recovery | [Status](#12-current-status) / [Recovery](#14-recovery) | Current owners |
+| Decisions | [Inline decisions](#13-decisions-and-exceptions) | Active decisions synchronized |
+| Checklist index | [Checklist README](checklist/README.md) | Active |
+| History | [Workflow observations](../../history/workflow-observations/rexconstruction.md) | Active |
+
+## 4. Website Goal
+
+Help a homeowner understand what REX does, where it works, how a roofing project is handled, and how to request a free inspection.
+
+- Primary CTA: Free inspection enquiry, initially directed to the existing official Contact page.
+- Secondary CTA: Call the office at (919) 946-8100.
+- Success evidence for design: Visitors can identify the service, local coverage, next step and phone number without searching.
+- Measurement proposal: Contact CTA clicks, phone clicks and completed enquiries; tracking and enquiry delivery remain to be configured and verified.
+
+## 5. Target User
+
+- Primary audience: Homeowners in Raleigh, Wake Forest, Clayton, Cary and Garner.
+- Secondary audience: Townhome / HOA decision makers, supported by the official gallery copy.
+- Main questions: Do you handle my roofing or exterior problem? Can you explain storm damage and the insurance process? What happens during the job? How do I contact you?
+- Device priority: Balanced; prioritize simple mobile enquiry and call paths.
+- Trust needs: Real work photos, clear process, accurate contact information and attributable reviews.
+
+## 6. Brand Direction
+
+User-directed theme: Dark throughout, with bright highlights on hover. Preserve the red, white and gray REX logo, the quality-work promise, local service focus and Rex's story. Use strong readable typography, generous spacing, straightforward service language and real project photography. Alternate charcoal canvas and slightly lighter surfaces to create section depth.
+
+The homepage should move from offer to evidence to contact. Use different compositions for services, work, process and story rather than repeating the same card grid. Font family, spacing and final crops remain design tasks in [the checklist](checklist/home.md#visual-direction-contract).
+
+### Color Palette
+
+The following tokens are the proposed implementation palette, supporting the existing logo rather than representing a supplied brand standard.
+
+| Role | Color | Use |
+|---|---|---|
+| Canvas | `#101214` | Hero, Work, footer and base page |
+| Surface | `#1A1E23` | Services/process bands and contact panel |
+| Raised surface | `#242A31` | Interactive service rows and secondary hover surfaces |
+| Main text | `#F5F5F7` | Headings, body copy and normal primary-button labels |
+| Muted text | `#B8BEC7` | Supporting text and captions |
+| Primary action | `#D7263D` | Normal primary-button fill; logo-associated red emphasis |
+| Hover / focus highlight | `#FF5A66` | Primary hover fill, links, arrows and focus outlines |
+| Decorative divider | `#3B444F` | Quiet separators; not a required form/control boundary |
+| Control boundary | `#707B88` | Form/control outlines where the boundary conveys necessary information |
+
+Most area remains dark neutral; red highlights identify actions. Photographs keep their natural colors. Main text and muted text retain contrast against their actual surfaces.
+
+### Hover Treatment
+
+- Primary CTA: red fill with off-white text normally; coral fill with charcoal text on hover/focus, plus a restrained coral shadow.
+- Navigation links: coral text/underline on hover and a visible keyboard-focus outline.
+- Service rows: lighter charcoal surface and a coral arrow/leading rule; preserve readable body text.
+- Timing proposal: 180 ms for color and shadow transitions. Reduced motion removes transitions. Essential actions remain visible on touch; a hover effect is never required to reveal information.
+- Calculated solid-color contrast: main text/canvas 17.24:1; muted text/surface 8.95:1; normal CTA text/red 4.56:1; hover CTA charcoal/coral 6.17:1. These verify color pairs, not a completed page or all runtime states.
+
+## 7. Content Facts
+
+| Fact | Value / handling | Source | Status |
+|---|---|---|---|
+| Main phone | (919) 946-8100; use `tel:+19199468100` | [Info](Info.md#business-profile) | Approved source |
+| Contact | Nick; (919) 946-8200; Nick@rexconstructionllc.com | [Info](Info.md#business-profile) | Approved source |
+| Address | Official site: 1111 Consortium Drive, Unit 113, Raleigh, NC 27603; listing differs | [Conflict notes](Info.md#listing-cross-check-and-unresolved-address) | Draft — confirm before a map / location schema |
+| Service area | Raleigh, Wake Forest, Clayton, Cary and Garner | [Info](Info.md#services-and-service-area) | Approved source |
+| Inspection offer | Free roof inspection | [Info](Info.md#business-profile) | Approved source |
+| Weekly hours | Site shows “Open today” 7 a.m.–7 p.m.; weekly schedule unconfirmed | [Info](Info.md#business-profile) | Missing |
+| Experience figure | 18 combined years / thousands on Home; 10 years / hundreds on About | [Conflict notes](Info.md#brand-and-story-notes) | Missing — reconcile before use |
+| License | Website claims #8744; current official registry status unverified | [Info](Info.md#business-profile) | Draft — source claim only |
+| Reviews | Exact quotes and current rating/count unavailable in source extraction | [Info](Info.md#verbatim-website-copy) | Missing |
+| Affiliations / certifications | Five saved badge images are displayed in the Trust Bar at the user's explicit direction; no additional status or rating claim was added | [Info](Info.md#image-library), U4 | User-directed display; current status not independently reverified |
+| Donation program | Site describes a yearly donation intention | [Info](Info.md#brand-and-story-notes) | Draft — confirm ongoing practice |
+| Social links / warranties / pricing | No confirmed values supplied | [Info](Info.md#business-profile) | Missing |
+
+## 8. Sitemap and Page Goals
+
+Only Home is in the current design scope. Existing routes are recorded as destination references, not new page build tasks.
+
+| Page | Existing path | Role | Current redesign status |
+|---|---|---|---|
+| Home | `/` | Introduce services and lead to a free inspection | Built — review-ready, not published |
+| Services | `/services` | Explain services and project stages | Reference only |
+| Our Work | `/gallery` | Show residential and townhome work | Reference only |
+| About Us | `/about-us` | Company story | Reference only |
+| Reviews | `/testimonials` | Customer feedback | Reference only; exact review text Missing |
+| Contact Us | `/contact-us` | Inspection enquiry and contact information | Existing CTA destination; runtime verification needed |
+
+## 9. Narrative and Conversion
+
+| Home section | Purpose | Source / media | Next step |
+|---|---|---|---|
+| Navigation | Orient and provide immediate contact | Logo; existing page routes; office phone | Free inspection / phone |
+| Hero | Explain the offer and local service | Existing quality-work heading; roofing crew image candidate | Contact page / call |
+| Confidence statement | Explain communication, documentation and cleanup | Official service/process copy; badge use conditional | Continue to services |
+| Services | Show roofing as the primary offer and exterior work as supporting services | Services and Contact copy; editorial service list | Services page |
+| Selected work | Show actual roofs and homes | Townhomes and finished-home photo candidates; factual captions only | Our Work |
+| Project process | Reduce uncertainty before, during and after the job | Pre-Construction → Construction → Post-Construction | Free inspection |
+| Rex and cleanup | Give the business a recognizable human story | Official Rex story; Rex and Sophie image candidate | About Us |
+| Customer reviews | Provide attributed evidence if exact reviews become available | Verified quotes required; avatars alone insufficient | Reviews page |
+| Final contact prompt | Give one clear next action | Main phone, inspection offer and Contact route | Contact page / call |
+| Footer | Business identity and useful destinations | Official contacts; subscription handling to confirm | Phone / email / pages / subscription |
+
+Primary path: Understand services → see work and process → request an inspection or call.
+
+Reviews are conditional on verified content. The existing subscription function is recorded for preservation; connection details are Missing. No enquiry form success state should be presented without a working submission destination.
+
+### Page Visual Identity
+
+| Page | Visual memory point | Composition | Color rhythm | Sibling difference | Status |
+|---|---|---|---|---|---|
+| Home | REX logo, real roofing work and Rex's story | Split hero, service rows, selected work, process sequence, story and contact close | Charcoal canvas and surfaces; off-white text; red actions; bright coral hover/focus highlights | Homepage gives an overview; detailed source pages retain their separate purpose | Implemented |
+
+## 10. System and Platform Plan
+
+- Planning skill: repository [design-taste](../../.agents/skills/design-taste/SKILL.md).
+- Implementation route: official Framer connection → generated task map → repository `framer-components` → `framer-qa`.
+- Implemented shared elements: Inspection Button with Label/Link Properties and gesture states; Site Navbar with Desktop, Tablet, Phone and Phone Open variants; Site Footer and Trust Bar with Desktop, Tablet and Phone variants.
+- Component and visual contracts are recorded in [Home](checklist/home.md).
+- CMS: Not required for the proposed static homepage; decide later if work/reviews need an editorial collection.
+- Forms / newsletter: Connection and owner Missing. Keep existing working destinations until replacements are verified.
+- Custom Code / paid dependencies: Not proposed.
+
+## 11. Responsive, Interaction and Assets
+
+| Area | Desktop | Tablet | Phone |
+|---|---|---|---|
+| Navigation | Logo, route links, office phone and contact CTA | Reduced spacing; office number hidden | Compact sticky bar with labeled 48px menu control and explicit Closed/Open drawer states |
+| Hero | Copy and roofing photo side by side | Balanced columns if content fits | Copy, CTA, then image; independent crop |
+| Services / process | Editorial rows / numbered sequence | Fewer columns | Vertical reading order |
+| Selected work | Two images with differing emphasis | Two or one columns according to readable width | Stack with captions |
+| Story / contact | Image-text story; Contact uses a project image beside copy/actions | Contact stacks the image, copy and actions | Vertical image, copy and large touch targets |
+
+- Verification widths proposed: 320, 390, 810, 1200 and 1440+ px.
+- Motion: Subtle optional entry feedback; meaningful focus/pressed states; reduced-motion alternative.
+- Web assets: [images/](images/). Current inventory contains 34 named assets; the flyer is currently JPG. This planning task does not alter formats.
+- Licensing: User-supplied source-site assets; confirm delivery/republication rights before launch.
+- Full-page Desktop and Phone visual evidence: Pass. Tablet: structural Pass. Live runtime link/hover/focus checks: Blocked because preview readiness supplied no staging URL.
+
+### Asset Usage Ledger
+
+The approved homepage assets below are implemented in the redesigned Home.
+
+| Asset | Narrative qualities | Approved role | Current use | Reuse decision / reason | Crop / focal notes | Status |
+|---|---|---|---|---|---|---|
+| [REX logo](images/branding/rex-logo.webp) | Existing identity | Existing brand asset | Header and Footer | Repeated for identity | Full logo remains readable | Used |
+| [Roofing crew](images/project-photos/roofing-crew-at-work.webp) | Workers, materials, home and Rex | Hero | Hero principal image | One principal Home use | Roof work, people and Rex remain legible | Used |
+| [Townhomes](images/project-photos/townhomes.webp) | Multi-family roofing scene | Selected Work | First work figure | Supports the source's townhome service story | Rooflines retained | Used |
+| [Brick home and Rex](images/project-photos/brick-home-yard-sign-rex.webp) | House, roof, yard sign and Rex | Selected Work | Second work figure | Complements townhome image | Roof and Rex remain visible | Used |
+| [Rex and Sophie](images/project-photos/rex-and-sophie.webp) | Named dogs in the source story | Rex Story | Story image | One supporting story use | Both dogs remain visible | Used |
+| [Home with roof sign](images/project-photos/home-with-roof-sign.webp) | Finished home, REX sign and Rex | Contact | Contact project image | Distinct from Hero and supports the enquiry close | Home, sign and Rex remain visible | Used |
+| [Trust badges](images/trust-badges/) | Five supplied platform/association marks | Trust Bar | Native ticker with one duplicate visual group | User explicitly requested these assets | Full marks remain legible; duplicate group has empty Alt | Used |
+
+## 12. Current Status
+
+- State revision: 2026-10-13-06
+- Active request: [U4 — Navbar, Trust Bar and Contact revision](checklist/home/navbar-trust-contact-revision.md)
+- Evidence basis: Framer definition → instance → breakpoint readback, exact Phone state actions, clean preview readiness and bounded Desktop/Phone screenshots.
+- Current phase: Homepage revision implemented and QA recorded; awaiting user review or a separate publish request.
+- Active page: Home
+- Open dependencies: Favicon/Open Graph asset, runtime hover/focus/click evidence, and separate 320 / 1440 visual evidence. Relevant content gaps remain recorded in §7.
+- Next approved step: User visual review in Framer; publication requires an explicit publish request.
+- Last verified: 2026-10-13 — Desktop/Phone visual review; Tablet and all three breakpoints structurally read back; preview readiness passed without errors or warnings.
+
+| Page | Plan | Content | Styles | Components | Links/runtime | SEO | Alt | Desktop | Tablet | Phone | Evidence |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Home | Complete | Source-backed summaries; user-directed trust imagery | Pass | Pass — Button, Navbar, Footer, Trust Bar | State routes structurally Pass; live runtime proof Blocked | Pass | Pass | Pass | Pass — structural | Pass | Definition/instance/breakpoint readback + focused Desktop/Phone screenshots + clean preview readiness |
+
+## 13. Decisions and Exceptions
+
+| Decision | Reason | Scope | Status | Date |
+|---|---|---|---|---|
+| Official REX website is the source of truth | User instruction | Facts and source copy | Active | 2026-10-13 |
+| Preserve exact extracted text in Info.md | User instruction | Source record | Active | 2026-10-13 |
+| Create homepage plan/checklist and project entry | U1 | Repository planning | Active | 2026-10-13 |
+| Build Home in the supplied REX Construction Framer project | U3 and supplied editor URL | Homepage implementation | Active | 2026-10-13 |
+| Dark theme with bright hover highlights | U2 | Homepage visual direction | Active | 2026-10-13 |
+| Convert Navbar/Footer to responsive components; add Trust Bar ticker and Contact image | U4 | Homepage shared shell, trust evidence and enquiry close | Implemented | 2026-10-13 |
+
+Dark theme and bright hover highlights are user-directed. Exact palette tokens, final wording, crops and section composition remain proposals in the checklist.
+
+## 14. Recovery
+
+- State revision: 2026-10-13-06
+- Active request: [U4 — Navbar, Trust Bar and Contact revision](checklist/home/navbar-trust-contact-revision.md)
+- State reference: [Current Status](#12-current-status)
+- Active connection: Official Framer Agent session 1 connected; generated task map and live revised Home readback complete.
+- Current page: Home
+- Last successful change: Converted Navbar/Footer to responsive shared components, replaced Confidence with the five-badge Trust Bar ticker, and added the distinct Contact project image; preview readiness clean.
+- Last targeted readback: Shared component controls, exact Phone menu actions, five first-group badge assets and duplicate ticker group, Contact Alt/crops, section order and three page instances; 2026-10-13.
+- Verified breakpoints / states: Desktop 1200 and Phone 390 visually reviewed; Tablet 810 structurally verified; Navbar Phone Closed/Open visually and structurally verified.
+- Remaining approved work: None for the authorized build. Runtime interaction proof, favicon/Open Graph and publication require a follow-up scope or capability.
+- Exact next action: User reviews the Framer canvas; on request, address feedback or run the publish confirmation flow.
+- Important asset paths: [Asset ledger](#asset-usage-ledger)
+- Visual review checkpoint: Trust-badge/contact candidates reviewed; the first Contact photo was replaced after a capture artifact was found. Final Navbar, Trust Bar, Contact and Footer evidence passed at Desktop/Phone.
+- Updated at: 2026-10-13
+
+## 15. Checklist and Change Control
+
+- Index: [Checklist README](checklist/README.md)
+- Canonical page owner: [Home](checklist/home.md)
+- Request checklist: [U4 Navbar, Trust Bar and Contact revision](checklist/home/navbar-trust-contact-revision.md) — Pass.
+- Checklist status: Built — QA complete with explicit runtime/evidence limitations.
+- Last synchronized: 2026-10-13, revision 2026-10-13-06.
+
+## 16. History
+
+See [REX Construction workflow observations](../../history/workflow-observations/rexconstruction.md).
+
+## 17. Definition of Ready
+
+- [x] Authorized planning scope and source authority recorded.
+- [x] Page goal, audience, CTA and narrative proposed.
+- [x] Source content, asset candidates and missing facts recorded.
+- [x] Canonical homepage checklist created.
+- [x] Final copy and visual direction ready for implementation.
+- [x] Platform and project target identified.
+- [x] Current page/shared structures audited before creating or replacing them.
+- [x] Relevant content gaps resolved or explicitly handled in the approved design.
