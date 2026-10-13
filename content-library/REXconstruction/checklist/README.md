@@ -15,11 +15,11 @@ This directory owns page plans and acceptance criteria. The current request auth
 
 | Page | Path | Canonical checklist | Status |
 |---|---|---|---|
-| Home | `/` | [home.md](home.md) | Built — structural and visual QA complete; runtime proof limitations recorded |
+| Home | `/` | [home.md](home.md) | Partial — Navbar, button variants, and six-review selector implemented; Hero counter instances await approved values |
 
 Only Home has an active checklist. Existing supporting pages are reference destinations.
 
-Latest request record: [Navbar, Trust Bar and Contact revision](home/navbar-trust-contact-revision.md) — Pass.
+Latest request record: [Navigation, Buttons, Reviews, and Counters revision](home/navigation-buttons-reviews-counters.md) — implemented except Hero metric placement, which awaits approved values.
 
 ## Status Meaning
 
@@ -54,9 +54,9 @@ Update the page's Latest Part Result with Part name, date, Pass / Fix Required /
 
 ## Latest Part Result
 
-- Part: Navbar, Trust Bar, Footer and Contact responsive revision
+- Part: Navigation, Buttons, Reviews, and Counters revision
 - Date: 2026-10-13
-- Result: Pass — shared Navbar/Footer/Trust Bar components, Phone menu states, five-badge ticker and responsive Contact image implemented.
+- Result: Partial — Phone hover removed; reusable Yellow-fill navigation, red, and white buttons implemented; white CTAs applied to three sections; six-review selector implemented. Hero Counter instances await approved metric values.
 - Verified widths: 1200 and 390 visual; 810 structural.
-- Verified paths/states: Navbar Phone Closed/Open and exact actions; Contact/phone/email links structurally preserved; preview readiness clean.
+- Verified paths/states: Phone Closed/Open with no row hover; Desktop nav and red/white button hover variants; section destinations; six review selections; Counter code-component registration; clean preview readiness.
 - Canonical Recovery: [PROJECT §14](../PROJECT.md#14-recovery)

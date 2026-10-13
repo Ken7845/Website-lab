@@ -23,3 +23,15 @@
 - Later-discovered issue: Multi-node insertion placed Trust before Hero and Footer before Contact; the first Contact photo contained a white capture artifact.
 - Correction: Restored the canonical section order and replaced the photo with `home-with-roof-sign.webp`, then repeated bounded visual review.
 - Workflow candidate: When inserting several replacements into one parent, calculate indexes against the post-insert tree or move the replacements to canonical positions before visual QA.
+
+## 2026-10-13 — Navigation, button, reviews and counters revision
+
+- Task reference: REX Construction Home U5
+- Request: Use Submit Roofing as an interaction/stack reference for the Navbar and Button, redesign Reviews as a card selector, and add three animated Hero counters.
+- Route selected: reference-project readback → request contract → `framer-components` → advanced Counter pattern → `framer-qa`.
+- Actions: Removed Phone row hover; created Yellow-filler red and white buttons plus Yellow-filling Desktop Navigation Button; applied the white variant to Services, Selected Work and About Rex; built a six-state selector from the saved reviews; preserved the reusable `Counter.tsx` code component.
+- Verification: Button/Navbar definitions, routes, review-state mappings and catalog readback; component Hover and selector screenshots; full Desktop/Phone screenshots; preview readiness returned ready with no errors or warnings.
+- Outcome: Partial — requested navigation, button and review work implemented; Hero Counter instances await exact metric values.
+- Later-discovered issue: None in this follow-up.
+- Correction: Updated prior checklist claims of missing reviews and bright-red filler to reflect the saved source and Yellow interactions.
+- Workflow candidate: Treat authoritative content files and metric values as a precondition for testimonial and numeric-proof components; create reusable definitions without instantiating unverified claims.

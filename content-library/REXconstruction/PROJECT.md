@@ -15,7 +15,7 @@
 - Preview URL: Missing
 - Content status: Source-backed homepage summaries implemented; conflicting or unverified facts remain omitted.
 - Last updated: 2026-10-13
-- Last verified against current implementation: Revised shared Navbar/Footer/Trust Bar definitions, page instances and three breakpoints read back; focused Desktop/Phone screenshots reviewed; preview readiness passed without warnings on 2026-10-13.
+- Last verified against current implementation: navigation/buttons and six-state Review Selector read back; Counter code component registered; Desktop/Phone screenshots reviewed; preview readiness passed without warnings on 2026-10-13. Hero counter instances await exact metric values.
 
 ## 2. Scope and Authority
 
@@ -23,7 +23,7 @@
 - Authorized request U3: “start to build the homepage and I have created a project named REX Construction in the framer”
 - Direction U2: “what color composition will you choose? I hope it will be a dark theme with bright highlight in the hover effect”
 - Authorized request U4: “1.improve and revise the navbar and footer refer to the repository, especially the 'component' and 'response' issue 2. revise the Confidence part and turn it into a trust bar. use the images in the trust badges folder and apply a ticker effect. 3. input an image in the contact section to make this section better”
-- Current scope: Maintain the responsive homepage in the user-created Framer project, including the shared shell, Trust Bar ticker and enhanced Contact section authorized by U4.
+- Current scope: Maintain the responsive homepage in the user-created Framer project, including the U5 Navbar/Button refinements and the data-dependent Review Selector and Hero Counters.
 - Primary page: Home, path `/`.
 - Authority: User instruction → official REX website → [Info.md](Info.md#verbatim-website-copy). Maps and other listings are supplementary.
 - Add / Reuse / Modify: Add PROJECT and homepage checklist because no equivalent owners exist; reuse the current Info file and categorized image library.
@@ -106,7 +106,7 @@ Most area remains dark neutral; red highlights identify actions. Photographs kee
 | Weekly hours | Site shows “Open today” 7 a.m.–7 p.m.; weekly schedule unconfirmed | [Info](Info.md#business-profile) | Missing |
 | Experience figure | 18 combined years / thousands on Home; 10 years / hundreds on About | [Conflict notes](Info.md#brand-and-story-notes) | Missing — reconcile before use |
 | License | Website claims #8744; current official registry status unverified | [Info](Info.md#business-profile) | Draft — source claim only |
-| Reviews | Exact quotes and current rating/count unavailable in source extraction | [Info](Info.md#verbatim-website-copy) | Missing |
+| Reviews | Six attributable exact customer quotes saved and wired into the Home selector; aggregate rating/count unavailable | [reviews.md](reviews.md) | Quotes available; aggregate rating Missing |
 | Affiliations / certifications | Five saved badge images are displayed in the Trust Bar at the user's explicit direction; no additional status or rating claim was added | [Info](Info.md#image-library), U4 | User-directed display; current status not independently reverified |
 | Donation program | Site describes a yearly donation intention | [Info](Info.md#brand-and-story-notes) | Draft — confirm ongoing practice |
 | Social links / warranties / pricing | No confirmed values supplied | [Info](Info.md#business-profile) | Missing |
@@ -135,7 +135,7 @@ Only Home is in the current design scope. Existing routes are recorded as destin
 | Selected work | Show actual roofs and homes | Townhomes and finished-home photo candidates; factual captions only | Our Work |
 | Project process | Reduce uncertainty before, during and after the job | Pre-Construction → Construction → Post-Construction | Free inspection |
 | Rex and cleanup | Give the business a recognizable human story | Official Rex story; Rex and Sophie image candidate | About Us |
-| Customer reviews | Provide attributed evidence if exact reviews become available | Verified quotes required; avatars alone insufficient | Reviews page |
+| Customer reviews | Provide attributed evidence using the six saved exact reviews and selector | [reviews.md](reviews.md) | Reviews selector |
 | Final contact prompt | Give one clear next action | Main phone, inspection offer and Contact route | Contact page / call |
 | Footer | Business identity and useful destinations | Official contacts; subscription handling to confirm | Phone / email / pages / subscription |
 
@@ -147,13 +147,13 @@ Reviews are conditional on verified content. The existing subscription function 
 
 | Page | Visual memory point | Composition | Color rhythm | Sibling difference | Status |
 |---|---|---|---|---|---|
-| Home | REX logo, real roofing work and Rex's story | Split hero, service rows, selected work, process sequence, story and contact close | Charcoal canvas and surfaces; off-white text; red actions; bright coral hover/focus highlights | Homepage gives an overview; detailed source pages retain their separate purpose | Implemented |
+| Home | REX logo, real roofing work and Rex's story | Split hero, service rows, selected work, process sequence, story and contact close | Charcoal canvas and surfaces; off-white text; red actions; Yellow interactive fills | Homepage gives an overview; detailed source pages retain their separate purpose | Implemented |
 
 ## 10. System and Platform Plan
 
 - Planning skill: repository [design-taste](../../.agents/skills/design-taste/SKILL.md).
 - Implementation route: official Framer connection → generated task map → repository `framer-components` → `framer-qa`.
-- Implemented shared elements: Inspection Button with Label/Link Properties and gesture states; Site Navbar with Desktop, Tablet, Phone and Phone Open variants; Site Footer and Trust Bar with Desktop, Tablet and Phone variants.
+- Implemented shared elements: Inspection Button with Label/Link Properties, no shadow, and Yellow filler gesture states; Yellow-fill Desktop Navigation Button; White Button with Yellow filler; six-state Review Selector; reusable `Counter.tsx`; Site Navbar with Desktop, Tablet, Phone and Phone Open variants; Site Footer and Trust Bar.
 - Component and visual contracts are recorded in [Home](checklist/home.md).
 - CMS: Not required for the proposed static homepage; decide later if work/reviews need an editorial collection.
 - Forms / newsletter: Connection and owner Missing. Keep existing working destinations until replacements are verified.
@@ -191,18 +191,18 @@ The approved homepage assets below are implemented in the redesigned Home.
 
 ## 12. Current Status
 
-- State revision: 2026-10-13-06
-- Active request: [U4 — Navbar, Trust Bar and Contact revision](checklist/home/navbar-trust-contact-revision.md)
-- Evidence basis: Framer definition → instance → breakpoint readback, exact Phone state actions, clean preview readiness and bounded Desktop/Phone screenshots.
-- Current phase: Homepage revision implemented and QA recorded; awaiting user review or a separate publish request.
+- State revision: 2026-10-13-08
+- Active request: [U5 — Navigation, Buttons, Reviews, and Counters revision](checklist/home/navigation-buttons-reviews-counters.md)
+- Evidence basis: Framer component/variant readback, six review mappings, code-component catalog, component and full Desktop/Phone screenshots, and clean preview readiness.
+- Current phase: Partial — Navbar, button variants, and Review Selector implemented; Counter definition exists; Hero metric instances await approved values.
 - Active page: Home
-- Open dependencies: Favicon/Open Graph asset, runtime hover/focus/click evidence, and separate 320 / 1440 visual evidence. Relevant content gaps remain recorded in §7.
-- Next approved step: User visual review in Framer; publication requires an explicit publish request.
-- Last verified: 2026-10-13 — Desktop/Phone visual review; Tablet and all three breakpoints structurally read back; preview readiness passed without errors or warnings.
+- Open dependencies: Exact Years of Experience, Roofs Installed, and Client Rating values; favicon/Open Graph asset; runtime hover/focus/click evidence; separate 320 / 1440 visual evidence.
+- Next approved step: User supplies exact metric values; place the three Hero counters and complete responsive QA. Publication remains a separate explicit request.
+- Last verified: 2026-10-13 — components, selector mappings and links read back; Desktop/Phone visual review completed; preview readiness passed without errors or warnings; not published.
 
 | Page | Plan | Content | Styles | Components | Links/runtime | SEO | Alt | Desktop | Tablet | Phone | Evidence |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Home | Complete | Source-backed summaries; user-directed trust imagery | Pass | Pass — Button, Navbar, Footer, Trust Bar | State routes structurally Pass; live runtime proof Blocked | Pass | Pass | Pass | Pass — structural | Pass | Definition/instance/breakpoint readback + focused Desktop/Phone screenshots + clean preview readiness |
+| Home | Partial — Hero metric values needed | Source-backed summaries and six reviews; exact metrics Missing | Pass | Partial — Navbar/buttons/review selector Pass; counter instances pending | State routes structurally Pass; live runtime proof unavailable | Pass | Pass | Pass | Pass — structural | Pass for implemented scope | Definition/variant/code-catalog readback + component/full-page screenshots + clean preview readiness |
 
 ## 13. Decisions and Exceptions
 
@@ -214,32 +214,33 @@ The approved homepage assets below are implemented in the redesigned Home.
 | Build Home in the supplied REX Construction Framer project | U3 and supplied editor URL | Homepage implementation | Active | 2026-10-13 |
 | Dark theme with bright hover highlights | U2 | Homepage visual direction | Active | 2026-10-13 |
 | Convert Navbar/Footer to responsive components; add Trust Bar ticker and Contact image | U4 | Homepage shared shell, trust evidence and enquiry close | Implemented | 2026-10-13 |
+| Refine Phone hover, add Yellow-fill navigation/buttons, review selector, and Hero counters from verified data | U5 | Navbar, buttons, Reviews and Hero metrics | Partial — only Hero metric values pending | 2026-10-13 |
 
 Dark theme and bright hover highlights are user-directed. Exact palette tokens, final wording, crops and section composition remain proposals in the checklist.
 
 ## 14. Recovery
 
-- State revision: 2026-10-13-06
-- Active request: [U4 — Navbar, Trust Bar and Contact revision](checklist/home/navbar-trust-contact-revision.md)
+- State revision: 2026-10-13-08
+- Active request: [U5 — Navigation, Buttons, Reviews, and Counters revision](checklist/home/navigation-buttons-reviews-counters.md)
 - State reference: [Current Status](#12-current-status)
-- Active connection: Official Framer Agent session 1 connected; generated task map and live revised Home readback complete.
+- Active connection: Official Framer Agent session 2 connected; generated task map and live revised Home readback complete.
 - Current page: Home
-- Last successful change: Converted Navbar/Footer to responsive shared components, replaced Confidence with the five-badge Trust Bar ticker, and added the distinct Contact project image; preview readiness clean.
-- Last targeted readback: Shared component controls, exact Phone menu actions, five first-group badge assets and duplicate ticker group, Contact Alt/crops, section order and three page instances; 2026-10-13.
+- Last successful change: Removed Phone row hover; created Yellow-fill navigation, red and white buttons; applied white buttons to Services, Selected Work and About Rex; built a six-state review selector; retained Counter code component. Preview readiness clean.
+- Last targeted readback: Button/nav/review states, CTA destinations, selector mappings and component catalog; Desktop/Phone visuals and preview readiness; 2026-10-13.
 - Verified breakpoints / states: Desktop 1200 and Phone 390 visually reviewed; Tablet 810 structurally verified; Navbar Phone Closed/Open visually and structurally verified.
-- Remaining approved work: None for the authorized build. Runtime interaction proof, favicon/Open Graph and publication require a follow-up scope or capability.
-- Exact next action: User reviews the Framer canvas; on request, address feedback or run the publish confirmation flow.
+- Remaining approved work: Place three Hero counters after exact metric values are supplied, then finish responsive QA. Runtime interaction proof, favicon/Open Graph and publication remain separate limitations or follow-ups.
+- Exact next action: Obtain the three exact metric values from the user.
 - Important asset paths: [Asset ledger](#asset-usage-ledger)
-- Visual review checkpoint: Trust-badge/contact candidates reviewed; the first Contact photo was replaced after a capture artifact was found. Final Navbar, Trust Bar, Contact and Footer evidence passed at Desktop/Phone.
+- Visual review checkpoint: Phone Closed/Open, component fill variants, review selector, and full Desktop/Phone pages reviewed; implemented scope passed without layout regressions.
 - Updated at: 2026-10-13
 
 ## 15. Checklist and Change Control
 
 - Index: [Checklist README](checklist/README.md)
 - Canonical page owner: [Home](checklist/home.md)
-- Request checklist: [U4 Navbar, Trust Bar and Contact revision](checklist/home/navbar-trust-contact-revision.md) — Pass.
-- Checklist status: Built — QA complete with explicit runtime/evidence limitations.
-- Last synchronized: 2026-10-13, revision 2026-10-13-06.
+- Request checklist: [U5 Navigation, Buttons, Reviews, and Counters revision](checklist/home/navigation-buttons-reviews-counters.md) — implemented except Hero metric placement.
+- Checklist status: Partial — implemented scope QA complete; Hero Counter instances await exact metric values.
+- Last synchronized: 2026-10-13, revision 2026-10-13-08.
 
 ## 16. History
 
