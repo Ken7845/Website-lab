@@ -9,13 +9,13 @@
 - Project name: REX Construction LLC website redesign
 - Platform: Framer — confirmed by the user.
 - Project type: Business website / roofing and exterior construction
-- Overall status: Partial — repository reconciled through the parent-width repair; live Needs refresh; not published.
+- Overall status: Partial — Review Selector arrows and routes received a live readback on 2026-10-14; broader site proof remains incomplete; not published.
 - Production website: https://rexconstructionllc.com/
 - Project / Canvas URL: https://framer.com/projects/REX-Construction--sTWVLfrpuNKD6x8u6CXh-cSBqA
 - Preview URL: Missing
 - Content status: Source-backed homepage summaries implemented; displayed Hero metrics were later reported as unverified; see Current Status. Source copy is unchanged by this reconciliation.
-- Last updated: 2026-10-13
-- Last verified against current implementation: No fresh Canvas verification in this task. REX-2 recorded 27 maxWidth removals and a zero-remaining scan on 2026-10-13; see [dated width correction](../../history/workflow-observations/rexconstruction.md#2026-10-13-home-parent-width-correction).
+- Last updated: 2026-10-14
+- Last verified against current implementation: Live Framer readback on 2026-10-14 verified all six Review Selector routes, arrow instances and testimonials CTA URLs. First/middle/last and John screenshots confirmed icon order; a sample preview click advanced Alex Corbett to John Zare. Broader site, breakpoint and exhaustive runtime checks remain incomplete. The width result is dated; see [width correction](../../history/workflow-observations/rexconstruction.md#2026-10-13-home-parent-width-correction).
 
 ## 2. Scope and Authority
 
@@ -196,22 +196,22 @@ The approved homepage assets below are implemented in the redesigned Home.
 
 ## 12. Current Status
 
-- State revision: 2026-10-13-09
-- Active request: [U5 and parent-width follow-up](checklist/home/navigation-buttons-reviews-counters.md)
-- Evidence basis: repository records and referenced REX-2 command outputs dated 2026-10-13; live Needs refresh. This maintenance task did not connect to Canvas.
+- State revision: 2026-10-14-10
+- Active request: [U5 and parent-width follow-up](checklist/home/navigation-buttons-reviews-counters.md), including Follow-up 8
+- Evidence basis: live Framer readback dated 2026-10-14 for the Review Selector component; surrounding page and runtime state remain Needs refresh.
 - Current phase: Partial — parent-width structural repair was recorded; later U5 implementation and unresolved proof are reconciled below.
 - Active page: Home — only page found in the dated REX-2 project audit.
 - Last recorded width result: 27 `1120px` caps cleared from content parents and shared structures; global remaining `maxWidth` count 0. Existing width/layout values were preserved. This is dated tool evidence, not a new live claim.
-- Later U5 outcome: reported three-image Hero autoplay (4s), review avatars, 300px review cards, arrow selection and full-review links to `/testimonials`. Existing Button/White-variant consolidation remains unproven. See [U5 observations](../../history/workflow-observations/rexconstruction.md#2026-10-13-u56-autoplay-and-review-cardlink-follow-up).
-- Open dependencies: displayed `10+`, `100+`, `5.0/5` were reported without authoritative business verification; approved values remain Missing. Also unresolved: White-variant consolidation, runtime links/focus/hover, 320 / 1440+ stress-width evidence, favicon/Open Graph and launch checks. This reconciliation does not approve numeric claims or change site content.
-- Next approved step: on the next authorized Canvas continuation, re-enter the official gate and read back the existing components, counters and width chain before changing anything; do not create duplicate counter instances or reintroduce parent caps. Resolve facts from approved sources/user input before treating metrics as verified. Publishing remains outside scope.
-- Last verified: dated global width-property readback in REX-2, 2026-10-13; three breakpoint screenshots were captured. No new visual/runtime verification here.
+- Later U5 outcome: reported three-image Hero autoplay (4s), review avatars and 300px review cards. On 2026-10-14, the six-state selector readback confirmed cyclic previous/next routes, two visible Next Button instances per state, and Testimonials CTA links. Existing Button/White-variant consolidation remains unproven. See [U5 observations](../../history/workflow-observations/rexconstruction.md#2026-10-13-u56-autoplay-and-review-cardlink-follow-up) and [latest selector closeout](../../history/workflow-observations/rexconstruction.md#2026-10-14-review-selector-next-button-follow-up).
+- Open dependencies: displayed `10+`, `100+`, `5.0/5` were reported without authoritative business verification; approved values remain Missing. Also unresolved: White-variant consolidation, exhaustive runtime route/focus/hover coverage, 320 / 1440+ stress-width evidence, favicon/Open Graph and launch checks. This reconciliation does not approve numeric claims or change site content.
+- Next approved step: confirm counter facts from approved sources, resolve White Button consolidation, then verify runtime interactions and 320 / 1440+ widths; preserve the no-parent-max-width rule. Publishing remains outside scope.
+- Last verified: live Review Selector readback dated 2026-10-14: all six previous/next routes, two visible Next Button instances per state, and six Testimonials CTA links. First/middle/last and John screenshots visually confirmed arrow order; one preview click advanced Alex Corbett to John Zare. A complete six-state cycle and focus behavior were not tested.
 - Closeout schema: 1
-- Observation: Recorded — [closeout reconciliation](../../history/workflow-observations/rexconstruction.md#2026-10-13-later-discovered-closeout-issue)
+- Observation: Recorded — [Review Selector Next Button closeout](../../history/workflow-observations/rexconstruction.md#2026-10-14-review-selector-next-button-follow-up)
 
 | Page | Implementation | Structural evidence | Visual/runtime evidence | Current result |
 |---|---|---|---|---|
-| Home | U5 follow-ups and parent-cap removal reported | Dated zero-maxWidth scan; current Needs refresh | Three breakpoint captures recorded; 320 / 1440+ and runtime proof incomplete | Partial; no publication |
+| Home | U5 follow-ups and parent-cap removal reported; Review Selector arrow component/routes live-read on 2026-10-14 | Six-state route/CTA readback; dated zero-maxWidth scan | First/middle/last and John selector screenshots visually reviewed; 320 / 1440+ and exhaustive runtime proof incomplete | Partial; no publication |
 
 ## 13. Decisions and Exceptions
 
@@ -230,15 +230,15 @@ Dark theme and bright hover highlights are user-directed. Exact palette tokens, 
 
 ## 14. Recovery
 
-- State revision: 2026-10-13-09
-- Active request: [U5 and parent-width follow-up](checklist/home/navigation-buttons-reviews-counters.md)
+- State revision: 2026-10-14-10
+- Active request: [U5 and parent-width follow-up](checklist/home/navigation-buttons-reviews-counters.md), including Follow-up 8
 - State reference: [Current Status](#12-current-status)
-- Active connection: None established in this repository reconciliation; old sessions are historical and require official re-entry validation.
+- Active connection: Existing REX Construction Framer project session was used for the 2026-10-14 selector edit; revalidate the live tree before future writes.
 - Current page: Home
-- Last recorded operation: 27 parent maxWidth values cleared; global scan returned zero remaining. See [width observation](../../history/workflow-observations/rexconstruction.md#2026-10-13-home-parent-width-correction).
-- Exact next action: follow the [official re-entry route](../../framer/README.md#3-change-control-是写入前的条件路由), then targeted-read existing instances and width owners. Current blockers and approved continuation scope live only in [Status](#12-current-status).
+- Last recorded operation: Replaced the six local previous-arrow frames with reusable Next Button instances and corrected the six previous and six next routes; preserved all six Testimonials CTA links.
+- Exact next action: follow the [official re-entry route](../../framer/README.md#3-change-control-是写入前的条件路由) before further Canvas edits. Resolve counter facts, White Button ownership and remaining visual/runtime checks in [Status](#12-current-status).
 - Important asset paths: [Asset ledger](#asset-usage-ledger)
-- Updated at: 2026-10-13; repository evidence only, live Needs refresh.
+- Updated at: 2026-10-14; repository status includes live Review Selector readback.
 
 ## 15. Checklist and Change Control
 
@@ -246,7 +246,7 @@ Dark theme and bright hover highlights are user-directed. Exact palette tokens, 
 - Canonical page owner: [Home](checklist/home.md)
 - Request checklist: [U5 Navigation, Buttons, Reviews, and Counters revision](checklist/home/navigation-buttons-reviews-counters.md) — reconciled through the width follow-up; existing metrics require fact verification.
 - Checklist status: Partial — [Current Status](#12-current-status) owns later implementation and evidence gaps.
-- Last synchronized: 2026-10-13, revision 2026-10-13-09.
+- Last synchronized: 2026-10-14, revision 2026-10-14-10.
 
 ## 16. History
 

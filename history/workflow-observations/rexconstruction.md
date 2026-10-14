@@ -117,3 +117,18 @@
 - Outcome: Repository correction implemented; live Needs refresh. Scope and validation details are in the [maintenance report](../repository/2026-10-13-width-and-closeout-repair.md).
 - Correction: Parent caps are no longer approved by current contracts; history is now a routed closeout obligation, including meaningful Partial/Blocked outcomes. Numeric facts and existing Button/White consolidation remain unresolved, not silently approved.
 - Workflow candidate: Implemented after the repeated failure; test both route selection and saved-receipt validation. A validator cannot detect an entirely unrecorded external task.
+
+### 2026-10-14 — Review Selector Next Button follow-up
+
+- Task reference: REX Construction Home, Follow-up 8.
+- User prompts, recorded separately:
+  1. “read the whole context carefully and update the history file according to the requirement in the repository”
+  2. “no you should separate each prompt I send”
+  3. “read the repository before workong.read the Review Selector and sync the statue to the repository.I make the Next button for the Review Selector. now replace all the button with this component and fix the links in the component”
+- Route selected: repository state and active checklist → official Framer project readback → reuse existing Next Button → targeted variant and CTA audit.
+- Actions: Replaced the six local Previous Review arrow frames with reusable Next Button instances; set Chevron Left for previous and Chevron Right for next; corrected all cyclic destinations; preserved the six Testimonials links; restored the John variant’s arrow order after preview review.
+- Verification: Live readback confirmed two visible Next Button instances and correct previous/next destinations in each of six variants, plus all six CTA URLs. First, middle, last and John variant screenshots visually confirmed arrow order. A preview click advanced Alex Corbett to John Zare; a complete six-state cycle and focus behavior were not tested.
+- Outcome: Partial — component structure, routes, links and representative visuals pass; exhaustive runtime/focus proof and the broader Home revision’s other blockers remain.
+- Later-discovered issue: None.
+- Correction: None.
+- Workflow candidate: None.
