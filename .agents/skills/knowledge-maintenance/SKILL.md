@@ -45,6 +45,7 @@ For a router, migration, current-state repair, or repository audit, use [mainten
 
 ## Preserve evidence
 
+- Write all newly added or substantively revised repository-authored prose in English, regardless of the source language. This is a forward-writing rule, not a bulk-translation task: convert only the smallest coherent unit being edited and preserve untouched legacy language. Keep authoritative quotations, approved site copy, legal text, code, identifiers, filenames, proper names and language-specific UI labels unchanged unless their translation is explicitly authorized.
 - Keep exact values, ids, state names, breakpoints, dimensions, formulas, transition parameters, failure causes, repair order, tool/session caveats, and validation limits.
 - Record provenance: project, date or version, implementation scope, and evidence type.
 - Label claims as `Verified`, `Inference`, `Unverified`, `Legacy`, or `Retired` where ambiguity matters.

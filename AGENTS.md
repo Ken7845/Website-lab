@@ -33,6 +33,14 @@ Website-lab 是个人网站与独立站的设计实验室、项目事实库与 F
 
 读取、审计、targeted readback 和其他可逆验证可以直接进行。用户已明确授权的局部修复，以及不改变方向的 Responsive、SEO、Alt、Link、命名和结构完善，可以直接完成并验证。
 
+## Repository writing language
+
+New or revised repository-authored prose must be written in English, regardless of the language of the source material or user request. This applies prospectively to rules, routers, Skills, References, project state, Decisions, Recovery, Checklists, indexes and workflow observations.
+
+This policy is not authorization for a repository-wide translation. Do not rewrite untouched legacy content merely to make a file uniformly English. When revising non-English material, write only the smallest coherent unit being changed in English and leave unrelated surrounding content intact.
+
+Preserve all meaning, exact values, evidence, caveats, provenance and status. Keep verbatim sources, quotations, approved website copy, legal text, code, commands, identifiers, filenames, proper names and language-specific UI labels in their authoritative language unless their translation is explicitly authorized; repository-authored explanation around them remains English.
+
 ## Live Framer Canvas Gate
 
 任何需要读取、审计或修改真实 Framer Canvas 的任务，必须按以下状态机进入；不得跳步：

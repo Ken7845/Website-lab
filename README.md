@@ -1,92 +1,92 @@
 # Website-lab
 
-Website-lab 是面向人类与 AI Agent 的网站设计、项目事实和 Framer 交付知识库。它的目标不是让 Agent 阅读更多，而是让每类信息只有一个权威位置，使网站在中断、换 Session 或多轮修改后仍能被准确接续。
+Website-lab is a knowledge base for website design, project facts, and Framer delivery, built for humans and AI Agents. Its goal is not to make Agents read more, but to give each type of information one authoritative location so website work can be resumed accurately after interruptions, across new Sessions, or through multiple rounds of revision.
 
 ## Knowledge Base Version
 
-- Repository version: `Website_Lab_V2.2.2`
-- Current release: `V2.2.2`
-- Release source: current local working tree, based on `6b255b0`; uncommitted
-- Previous release: `V2.2.1` (local working-tree release; source `d708a0e`)
+- Repository version: `Website_Lab_V2.2.3`
+- Current release: `V2.2.3`
+- Release source: current local working tree, based on `543afa3`; uncommitted
+- Previous release: `V2.2.2` (source `543afa3`)
 - Architecture base: `v2.0.0`
-- Released: 2026-10-13
-- Updated: 2026-10-13
+- Released: 2026-10-15
+- Updated: 2026-10-15
 - Scope: knowledge routing, authorization, current-state ownership, contract lifecycle, evidence requirements and maintenance validation; preserves the existing design system and website content.
-- Current revision: retains the V2.2.1 architecture; strengthens max-width ownership across Component, Layout and QA routes, makes eligible workflow-observation closeout verifiable, and reconciles the REX Construction current records without changing website content.
-- Release notes: [Website_Lab V2.2.2](history/repository/2026-10-13-knowledge-base-v2.2.2.md)
+- Current revision: retains the V2.2.2 architecture; adds a forward-only English repository-writing policy with preservation exceptions, and translates only `README.md` into English without authorizing a bulk repository translation.
+- Previous release notes: [Website_Lab V2.2.2](history/repository/2026-10-13-knowledge-base-v2.2.2.md)
 - Architecture migration record (v2.1.0 base): [Website-lab Visual Workflow Improvement — v2.1.0](history/repository/2026-09-16-visual-workflow-v2.1.0.md)
 
-## 架构
+## Architecture
 
 ```text
 AGENTS.md
-├── 仓库级优先级、最小读取路由与永久硬边界
-├── .knowledge-validation.json    不可变归档、迁移与验证策略
+├── Repository-level priorities, minimal-read routing, and permanent hard boundaries
+├── .knowledge-validation.json    Immutable archives, migrations, and validation policy
 ├── .agents/skills/
-│   ├── design-taste/             平台无关的设计判断
-│   ├── framer-*/                 按任务选择的 Framer Skills
-│   └── knowledge-maintenance/    在知识审计、写入、迁移与验证时触发
+│   ├── design-taste/             Platform-independent design judgment
+│   ├── framer-*/                 Task-selected Framer Skills
+│   └── knowledge-maintenance/    Triggered for knowledge audits, writes, migrations, and validation
 ├── content-library/
-│   ├── README.md                 项目知识职责
+│   ├── README.md                 Project-knowledge responsibilities
 │   ├── project-manifest-template.md
-│   └── <project>/PROJECT.md      每个项目的唯一入口
+│   └── <project>/PROJECT.md      The single entry point for each project
 ├── inspiration/
-│   └── 按网站类型保存创意参考，不保存 current 项目状态
-├── history/                       退役手册、迁移证据与 workflow observations；默认不读
+│   └── Creative references organized by website type; never current project state
+├── history/                       Retired manuals, migration evidence, and workflow observations; not read by default
 └── framer/
-    ├── README.md                唯一 Framer task router
-    ├── basic/                    稳定的平台标准、Patterns 与 Workflows
-    ├── checklist.md              Part / Page / Website 验收
-    └── advance-design/           已验证的项目级高级模式
+    ├── README.md                 The single Framer task router
+    ├── basic/                    Stable platform standards, Patterns, and Workflows
+    ├── checklist.md              Part / Page / Website acceptance criteria
+    └── advance-design/           Verified project-level advanced patterns
 ```
 
-## 信息所有权
+## Information Ownership
 
-| 信息 | 权威位置 | 不承担的职责 |
+| Information | Authoritative location | Not responsible for |
 |---|---|---|
-| 仓库路由、授权、事实边界 | `AGENTS.md` | 不复制 Framer 实施手册 |
-| 项目目标、Scope、事实与资料索引 | `content-library/<project>/PROJECT.md` | 不保存长篇过程流水 |
-| 当前建设状态 | 项目 `STATUS.md` 或 PROJECT 的 Current Status | 不保存旧状态时间线 |
-| 持久设计决定与真实例外 | 项目 `DECISIONS.md` 或 PROJECT 的 Decisions | 不记录每次小操作 |
-| 当前恢复点 | 项目 `RECOVERY.md` 或 PROJECT 的 Recovery | 只保留一个最新 checkpoint |
-| 已关闭的 Prompt、handoff、旧快照 | 项目 `HISTORY.md` / `history/` | 不覆盖 current state |
-| 已批准的逐页与请求合同 | 项目 `checklist/` | 不替代 PROJECT 或平台验收 |
-| 品牌事实、正式文案与素材 | PROJECT 链接的 Approved sources | 不从 Inspiration 推断事实 |
-| 基础设计判断 | `.agents/skills/design-taste/SKILL.md` | 不替代品牌或平台约束 |
-| Framer 实施与验收 | `framer/basic/`、`framer/checklist.md`、选中的 Framer Skill | 不决定品牌事实 |
-| 创意参考 | `inspiration/` | 不保存项目 current status |
-| 退役的仓库级手册 | `history/` | 不参与 current 路由或覆盖现行规则 |
-| 真实建设过程的轻量观测 | `history/workflow-observations/` | 不作为 current state、Recovery 或普通任务启动上下文 |
-| 知识新增、迁移与结构验证 | `.agents/skills/knowledge-maintenance/`、`.knowledge-validation.json` | 不参与普通网站任务 |
+| Repository routing, authorization, and fact boundaries | `AGENTS.md` | Does not duplicate the Framer implementation manual |
+| Project goals, Scope, facts, and source index | `content-library/<project>/PROJECT.md` | Does not store long process logs |
+| Current build state | Project `STATUS.md` or PROJECT Current Status | Does not preserve an old-state timeline |
+| Durable design decisions and genuine exceptions | Project `DECISIONS.md` or PROJECT Decisions | Does not record every small operation |
+| Current recovery point | Project `RECOVERY.md` or PROJECT Recovery | Keeps only one latest checkpoint |
+| Closed Prompts, handoffs, and old snapshots | Project `HISTORY.md` / `history/` | Does not override current state |
+| Approved page-level and request contracts | Project `checklist/` | Does not replace PROJECT or platform acceptance checks |
+| Brand facts, approved copy, and assets | Approved sources linked from PROJECT | Does not infer facts from Inspiration |
+| Foundational design judgment | `.agents/skills/design-taste/SKILL.md` | Does not replace brand or platform constraints |
+| Framer implementation and acceptance | `framer/basic/`, `framer/checklist.md`, and the selected Framer Skill | Does not decide brand facts |
+| Creative references | `inspiration/` | Does not store project current status |
+| Retired repository-level manuals | `history/` | Does not participate in current routing or override active rules |
+| Lightweight observations from real construction work | `history/workflow-observations/` | Not current state, Recovery, or normal task-start context |
+| Knowledge additions, migrations, and structural validation | `.agents/skills/knowledge-maintenance/`, `.knowledge-validation.json` | Does not participate in ordinary website tasks |
 
-若信息冲突，以 `AGENTS.md` 的权威优先级为准。
+When information conflicts, follow the authority order in `AGENTS.md`.
 
-## 开始或更新一个项目
+## Starting or Updating a Project
 
-1. 在 `content-library/<project-name>/` 创建或更新 `PROJECT.md`。
-2. 新项目从 `content-library/project-manifest-template.md` 开始。
-3. 提供网站目标、目标用户、页面与 CTA、品牌方向、事实、文案、素材和参考。
-4. 将未知事实标为 `Missing`，演示事实标为 `Demo`；不要为了资料完整而猜测。
-5. 大项目总览或长篇多分点建设要求按 `framer/basic/workflows/change-control.md` 决定 PROJECT、Checklist 和请求记录。
-6. 当前状态持续覆盖更新；旧 Prompt、handoff 和有长期价值的快照再进入 History。
+1. Create or update `PROJECT.md` inside `content-library/<project-name>/`.
+2. Start a new project from `content-library/project-manifest-template.md`.
+3. Provide the website goal, target users, pages and CTA, brand direction, facts, copy, assets, and references.
+4. Mark unknown facts as `Missing` and demo facts as `Demo`; do not guess merely to make the source set appear complete.
+5. For a large project overview or a long, multi-part construction request, use `framer/basic/workflows/change-control.md` to determine the PROJECT, Checklist, and request records.
+6. Keep current state up to date by replacing old values; move old Prompts, handoffs, and snapshots with long-term value into History.
 
-## Current 与 History
+## Current and History
 
-`PROJECT.md`、`STATUS.md` 和 `RECOVERY.md` 回答“现在是什么、做到哪里、下一步是什么”。更新时替换旧值，不向文件尾部追加聊天式日志。
+`PROJECT.md`, `STATUS.md`, and `RECOVERY.md` answer “What exists now?”, “How far has the work progressed?”, and “What comes next?”. Replace old values when updating them; do not append chat-style logs to the end of these files.
 
-`DECISIONS.md` 保存仍会影响未来工作的决定，并把被替代项标记为 `Superseded`。`HISTORY.md` 与 `history/` 保存已经结束且值得追溯的材料。普通版本变化由 Git 负责，不需要为每个旧版本建立副本。
+`DECISIONS.md` stores decisions that still affect future work and marks replaced items as `Superseded`. `HISTORY.md` and `history/` preserve completed material worth tracing. Git tracks ordinary version changes, so a separate copy is not required for every earlier version.
 
 ## Workflow Observations
 
-有实际建设价值的 Framer / 网站任务在实施与 targeted QA 完成后，可以自然地写入一条简短 workflow observation：记录用户要求、Agent 选择的 route、实际完成内容、验证结果，以及后来发现的遗漏。它用于阶段性复盘和改进 Router / Skill / Reference，不用于证明 current state。
+After implementation and targeted QA, a Framer or website task with meaningful construction value may naturally produce one short workflow observation. It records the user request, the route selected by the Agent, what was actually completed, the validation result, and any omissions discovered later. It supports periodic retrospectives and improvements to Routers, Skills, and References; it does not prove current state.
 
-这不是工作日志压力：小型文案、链接、命名或单点 spacing 修复默认不记录；建设中不维护逐步日记；单次记录不复制聊天、工具输出或内部推理。每个项目只维护一个简短的 append-only observation 文件，同一任务的多条 Prompt 合并为一条 closing entry。Observations 位于 [`history/workflow-observations/`](history/workflow-observations/README.md)，普通任务不得预读，只有 retrospective 或 knowledge-maintenance 才按需读取。
+This is not a work-log burden: small copy, link, naming, or single-point spacing fixes are not recorded by default; construction work does not maintain a step-by-step diary; and an observation does not copy the chat, tool output, or internal reasoning. Each project maintains only one short append-only observation file, and multiple Prompts from the same task are combined into one closing entry. Observations live in [`history/workflow-observations/`](history/workflow-observations/README.md). Ordinary tasks must not preload them; only retrospective or knowledge-maintenance work reads them as needed.
 
-## Agent 如何使用本仓库
+## How Agents Use This Repository
 
-Agent 从 `AGENTS.md` 开始，只读取当前 Scope 必要的 PROJECT、Approved sources、平台规则和 selected Skill。README 只解释架构，不是另一份执行手册。仓库维护走 [knowledge-maintenance](.agents/skills/knowledge-maintenance/SKILL.md)；Framer 工作统一走 [dispatcher](framer/README.md)；项目从 [Content Library index](content-library/README.md) 进入；参考站从 [Inspiration index](inspiration/README.md) 进入。
+Agents start with `AGENTS.md` and read only the PROJECT, Approved sources, platform rules, and selected Skill required by the current Scope. This README explains the architecture; it is not a second implementation manual. Repository maintenance routes through [knowledge-maintenance](.agents/skills/knowledge-maintenance/SKILL.md); all Framer work routes through the [dispatcher](framer/README.md); projects begin at the [Content Library index](content-library/README.md); and reference sites begin at the [Inspiration index](inspiration/README.md).
 
-Framer 的完成标准与执行细节由以下入口管理：
+Framer completion criteria and implementation details are managed through these entry points:
 
 - `framer/README.md`
 - `.agents/skills/framer-*/SKILL.md`
@@ -95,20 +95,20 @@ Framer 的完成标准与执行细节由以下入口管理：
 - `framer/basic/workflows/change-control.md`
 - `framer/basic/workflows/preflight-audit.md`
 
-## 知识写入验证
+## Knowledge Write Validation
 
-新增、移动、去重或重构 Basic、Advanced Design、项目状态、Router 或 Skill 时，使用 `knowledge-maintenance`，并在完成前运行：
+When adding, moving, deduplicating, or restructuring Basic knowledge, Advanced Design knowledge, project state, a Router, or a Skill, use `knowledge-maintenance` and run the following command before completion:
 
 ```bash
 python3 .agents/skills/knowledge-maintenance/scripts/validate_repository.py --strict
 ```
 
-验证器检查 active links / anchors、Skill metadata、旧路由、索引覆盖、不可变归档、全库关键词与 canonical 文件中的精确知识契约、current/history 卫生、Markdown 删除迁移目标和 `git diff HEAD --check`。普通网站建设不预读这套维护上下文。
+The validator checks active links and anchors, Skill metadata, stale routes, index coverage, immutable archives, repository-wide keywords and precise knowledge contracts in canonical files, current/history hygiene, migration destinations for deleted Markdown, and `git diff HEAD --check`. Ordinary website construction does not preload this maintenance context.
 
 ## Laboratory operating reference
 
 [Payment SOP](payment-SOP.md) preserves the personal client-payment reference. It does not authorize transactions or override project facts. Root TODO.md is an empty legacy placeholder, not a current work queue.
 
-## 核心目标
+## Core Objective
 
-交付必须同时满足品牌与真实内容、可维护结构、Desktop / Tablet / Phone、必要交互、语义与可访问性。知识库本身也必须可维护：当前状态清楚、历史不冒充事实、下一位 Agent 不需要重新拼接聊天记录。
+Every delivery must align with the brand and factual content while providing a maintainable structure, correct Desktop / Tablet / Phone behavior, necessary interactions, semantics, and accessibility. The knowledge base itself must also remain maintainable: current state is clear, history does not masquerade as fact, and the next Agent does not need to reconstruct context from chat records.

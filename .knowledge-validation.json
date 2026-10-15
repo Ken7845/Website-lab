@@ -98,7 +98,7 @@
     "owners complete / N/A reasoned / readback planned / preview planned",
     "Visual Direction Contract",
     "Visual contract receipt",
-    "Website_Lab_V2.2.2",
+    "Website_Lab_V2.2.3",
     "Workflow Observations",
     "Later-discovered issue",
     "Workflow candidate"
@@ -115,13 +115,22 @@
       "Gate remains closed",
       "Framer Agent gate receipt",
       "Browser / Playwright / Computer Use",
+      "## Repository writing language",
+      "New or revised repository-authored prose must be written in English",
+      "not authorization for a repository-wide translation",
       "## 轻量 Workflow Observation",
       "history/workflow-observations/README.md",
       "不是新的开工 Gate",
       "普通建设不得预读 observations"
     ],
+    ".agents/skills/knowledge-maintenance/SKILL.md": [
+      "repository-authored prose in English",
+      "not a bulk-translation task",
+      "smallest coherent unit",
+      "approved site copy"
+    ],
     "README.md": [
-      "Website_Lab_V2.2.2",
+      "Website_Lab_V2.2.3",
       "## Workflow Observations",
       "history/workflow-observations/"
     ],
