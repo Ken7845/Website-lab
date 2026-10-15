@@ -165,6 +165,26 @@ class KnowledgeRegressionTests(unittest.TestCase):
         self.config["inactive_text_globs"] = ["content-library/*/checklist/**"]
         self.assertIn("policy.broad_exclusion", self.check("check_policy"))
 
+    def test_local_only_project_files_are_not_repository_validation_input(self):
+        project = self.write("content-library/fixture/PROJECT.md", "# Local project\n")
+        guide = self.write("content-library/README.md", "# Tracked guide\n")
+        self.config["local_only_path_globs"] = ["content-library/*/**"]
+        v = MODULE.Validator(self.root, self.config, True)
+        self.assertNotIn(project, v.markdown_files())
+        self.assertIn(guide, v.markdown_files())
+        self.assertEqual([x.code for x in v.findings], [])
+
+    def test_local_only_scope_cannot_hide_tracked_content_entrypoints(self):
+        self.config["local_only_path_globs"] = ["content-library/**"]
+        self.assertIn("policy.local_only_scope", self.check("check_policy"))
+
+    def test_missing_local_only_link_is_preserved_without_becoming_a_broken_repository_link(self):
+        self.write("README.md", "[Local evidence](content-library/private/PROJECT.md)\n")
+        self.config["local_only_path_globs"] = ["content-library/*/**"]
+        v = MODULE.Validator(self.root, self.config, True)
+        v.check_markdown_links()
+        self.assertEqual(v.findings, [])
+
     def test_hash_protected_exact_archive_skip_is_valid(self):
         p = self.write("history/snapshot.md", "# Exact old record\n")
         self.config.update(skip_markdown_link_globs=["history/snapshot.md"], immutable_archives={"history/snapshot.md": hashlib.sha256(p.read_bytes()).hexdigest()})

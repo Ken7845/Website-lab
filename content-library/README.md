@@ -2,6 +2,14 @@
 
 `content-library` 保存每个网站项目的 current 事实、品牌、正式内容、素材、执行合同和恢复状态。聊天记录、Inspiration 和历史 handoff 都不能代替项目入口。
 
+## Git tracking boundary
+
+Only this guide and `project-manifest-template.md` are tracked in the main Website_Lab Git repository. Every `content-library/<project>/` directory is a local-only working area containing project facts, current state, contracts, history, and assets; those directories are intentionally excluded from GitHub.
+
+This boundary changes distribution, not routing. Local project work still begins at `content-library/<project>/PROJECT.md`. A missing project directory in a fresh clone does not mean that the project never existed and must never be filled by inference: restore it from the separate local backup or ask the user for the authoritative project sources.
+
+Git is not the backup for local-only project data. Before deleting, moving, replacing, or migrating a project directory, verify that a separate recoverable backup exists. A new computer or clean clone must restore project directories separately before project work begins.
+
 ## 唯一入口
 
 每个项目必须有：
@@ -92,14 +100,6 @@ Status and Recovery contain the same `State revision` and compact `Active reques
 
 New projects use the manifest template. Repo-only reconciliation writes `Evidence basis: repository records; live Needs refresh` rather than inventing current verification. Session IDs in old records are historical until a real connection establishes validity.
 
-## Project index
+## Local project discovery
 
-| Project | Current entry | Layout |
-|---|---|---|
-| AURELIA | [PROJECT](aurelia/PROJECT.md) | Split current owners |
-| Summit Roofing | [PROJECT](summit-roofing/PROJECT.md) | Inline Status / Recovery, History separate |
-| Ken Studio | [PROJECT](ken-studio/PROJECT.md) | Split system, Status, Decisions, Recovery and History |
-| Morrow & Grain | [PROJECT](morrow-grain-bakehouse/PROJECT.md) | Inline legacy state; live Needs refresh |
-| HK Place | [PROJECT](HK%20Place/PROJECT.md) | Inline state and page checklist |
-| Dutch Treat | [PROJECT](dutch-treat-restaurant/PROJECT.md) | Minimal entry; legacy evidence separate |
-| REX Construction | [PROJECT](REXconstruction/PROJECT.md) | Inline Status / Recovery; project observation log |
+The tracked guide intentionally does not enumerate private local projects. Discover the exact local project directory requested by the user, open its `PROJECT.md`, and follow only the sources relevant to the current Scope. If the directory or manifest is absent, stop project-state inference and restore the local source set first.

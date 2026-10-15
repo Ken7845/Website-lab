@@ -1,2 +1,7 @@
 # macOS Finder metadata
 .DS_Store
+
+# Project-specific working data is local-only. Keep only the reusable guide and template in Git.
+/content-library/*
+!/content-library/README.md
+!/content-library/project-manifest-template.md

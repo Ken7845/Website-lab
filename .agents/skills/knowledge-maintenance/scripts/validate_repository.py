@@ -119,12 +119,16 @@ class Validator:
             for pattern in self.config.get(config_key, [])
         )
 
+    def is_local_only(self, path: str | Path) -> bool:
+        rel_path = path if isinstance(path, str) else self.rel(path)
+        return self.matches(rel_path, "local_only_path_globs")
+
     def markdown_files(self) -> list[Path]:
         if self._markdown_files is None:
             self._markdown_files = sorted(
                 path
                 for path in self.root.rglob("*.md")
-                if ".git" not in path.parts
+                if ".git" not in path.parts and not self.is_local_only(path)
             )
         return self._markdown_files
 
@@ -174,6 +178,28 @@ class Validator:
                 )
 
     def check_policy(self) -> None:
+        local_only_patterns = self.config.get("local_only_path_globs", [])
+        if not isinstance(local_only_patterns, list):
+            self.error("policy.invalid_globs", ".knowledge-validation.json", "local_only_path_globs must be a list.")
+        else:
+            tracked_content_entrypoints = (
+                "content-library/README.md",
+                "content-library/project-manifest-template.md",
+            )
+            for pattern in local_only_patterns:
+                if not isinstance(pattern, str):
+                    self.error("policy.invalid_globs", ".knowledge-validation.json", "Non-string local_only_path_globs pattern.")
+                    continue
+                if not pattern.startswith("content-library/") or any(
+                    fnmatch.fnmatchcase(entrypoint, pattern)
+                    for entrypoint in tracked_content_entrypoints
+                ):
+                    self.error(
+                        "policy.local_only_scope",
+                        ".knowledge-validation.json",
+                        f"Local-only scope must stay below project directories and preserve tracked Content Library entry points: {pattern}",
+                    )
+
         for key in ("inactive_text_globs", "skip_markdown_link_globs"):
             patterns = self.config.get(key, [])
             if not isinstance(patterns, list):
@@ -512,6 +538,8 @@ class Validator:
 
                     candidate, fragment = self.resolve_link(path, target)
                     location = f"{rel_path}:{line_number}"
+                    if candidate is not None and self.is_local_only(candidate):
+                        continue
                     if candidate is None or not candidate.exists():
                         self.error("markdown.broken_link", location, f"Local target does not exist: {target}")
                         continue
@@ -586,6 +614,8 @@ class Validator:
         index = self.root / "content-library/README.md"
         linked = self.local_linked_files(index)
         for p in (self.root / "content-library").glob("*/PROJECT.md"):
+            if self.is_local_only(p):
+                continue
             if self.rel(p) not in linked:
                 self.error("index.project_unlisted", p, "Project is not directly linked from Content Library index.")
         inspiration = self.root / "inspiration/README.md"
@@ -595,6 +625,8 @@ class Validator:
                 if p != inspiration and self.rel(p) not in linked:
                     self.error("index.inspiration_unlisted", p, "Reference classification is missing from Inspiration index.")
         for index in (self.root / "content-library").glob("*/checklist/README.md"):
+            if self.is_local_only(index):
+                continue
             text = self.read_text(index)
             p = index.parent.parent / "PROJECT.md"
             if self.rel(p) not in self.local_linked_files(index):
@@ -612,7 +644,13 @@ class Validator:
         manifest_exceptions = self.config.get("known_project_manifest_exceptions", {})
         overloaded = self.config.get("known_overloaded_projects", {})
 
-        for project_dir in sorted(path for path in content_root.iterdir() if path.is_dir() and not path.name.startswith(".")):
+        for project_dir in sorted(
+            path
+            for path in content_root.iterdir()
+            if path.is_dir()
+            and not path.name.startswith(".")
+            and not self.is_local_only(path / "PROJECT.md")
+        ):
             rel_dir = self.rel(project_dir)
             manifest = project_dir / "PROJECT.md"
             if not manifest.is_file():
@@ -690,7 +728,11 @@ class Validator:
         return (str(candidate), fragment.casefold())
 
     def check_current_state(self) -> None:
-        for project in sorted((self.root / "content-library").glob("*/PROJECT.md")):
+        for project in sorted(
+            path
+            for path in (self.root / "content-library").glob("*/PROJECT.md")
+            if not self.is_local_only(path)
+        ):
             text = "\n".join(self.prose_lines(self.read_text(project)))
             if self.field(text, "State schema") != "1":
                 self.error("state.schema_missing", project, "Current PROJECT must declare State schema: 1.")
@@ -947,6 +989,22 @@ class Validator:
                 continue
             source = parts[1]
             if not source.casefold().endswith(".md"):
+                continue
+
+            if self.is_local_only(source):
+                preserved = self.root / source
+                if preserved.is_file():
+                    self.note(
+                        "migration.local_only_preserved",
+                        source,
+                        "Removed from Git tracking but preserved in the configured local-only project workspace.",
+                    )
+                else:
+                    self.error(
+                        "migration.local_only_missing",
+                        source,
+                        "A local-only Markdown file was removed from Git tracking but is no longer present on disk.",
+                    )
                 continue
 
             old = self.run_git("show", f"HEAD:{source}")

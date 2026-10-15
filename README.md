@@ -6,13 +6,13 @@ Website-lab is a knowledge base for website design, project facts, and Framer de
 
 - Repository version: `Website_Lab_V2.2.3`
 - Current release: `V2.2.3`
-- Release source: current local working tree, based on `543afa3`; uncommitted
+- Release source: `main`; project-specific Content Library data remains outside Git tracking
 - Previous release: `V2.2.2` (source `543afa3`)
 - Architecture base: `v2.0.0`
 - Released: 2026-10-15
 - Updated: 2026-10-15
 - Scope: knowledge routing, authorization, current-state ownership, contract lifecycle, evidence requirements and maintenance validation; preserves the existing design system and website content.
-- Current revision: retains the V2.2.2 architecture; adds a forward-only English repository-writing policy with preservation exceptions, and translates only `README.md` into English without authorizing a bulk repository translation.
+- Current revision: retains the V2.2.2 architecture; adds a forward-only English repository-writing policy with preservation exceptions, translates only `README.md` into English without authorizing a bulk repository translation, and makes project-specific Content Library workspaces local-only while keeping reusable knowledge and Skills in Git.
 - Previous release notes: [Website_Lab V2.2.2](history/repository/2026-10-13-knowledge-base-v2.2.2.md)
 - Architecture migration record (v2.1.0 base): [Website-lab Visual Workflow Improvement — v2.1.0](history/repository/2026-09-16-visual-workflow-v2.1.0.md)
 
@@ -27,9 +27,9 @@ AGENTS.md
 │   ├── framer-*/                 Task-selected Framer Skills
 │   └── knowledge-maintenance/    Triggered for knowledge audits, writes, migrations, and validation
 ├── content-library/
-│   ├── README.md                 Project-knowledge responsibilities
-│   ├── project-manifest-template.md
-│   └── <project>/PROJECT.md      The single entry point for each project
+│   ├── README.md                 Tracked project-knowledge responsibilities
+│   ├── project-manifest-template.md  Tracked reusable manifest template
+│   └── <project>/                Local-only project facts, state, contracts, and assets
 ├── inspiration/
 │   └── Creative references organized by website type; never current project state
 ├── history/                       Retired manuals, migration evidence, and workflow observations; not read by default
@@ -45,7 +45,7 @@ AGENTS.md
 | Information | Authoritative location | Not responsible for |
 |---|---|---|
 | Repository routing, authorization, and fact boundaries | `AGENTS.md` | Does not duplicate the Framer implementation manual |
-| Project goals, Scope, facts, and source index | `content-library/<project>/PROJECT.md` | Does not store long process logs |
+| Project goals, Scope, facts, and source index | Local-only `content-library/<project>/PROJECT.md` | Does not store long process logs or enter the public Git repository |
 | Current build state | Project `STATUS.md` or PROJECT Current Status | Does not preserve an old-state timeline |
 | Durable design decisions and genuine exceptions | Project `DECISIONS.md` or PROJECT Decisions | Does not record every small operation |
 | Current recovery point | Project `RECOVERY.md` or PROJECT Recovery | Keeps only one latest checkpoint |
@@ -84,7 +84,7 @@ This is not a work-log burden: small copy, link, naming, or single-point spacing
 
 ## How Agents Use This Repository
 
-Agents start with `AGENTS.md` and read only the PROJECT, Approved sources, platform rules, and selected Skill required by the current Scope. This README explains the architecture; it is not a second implementation manual. Repository maintenance routes through [knowledge-maintenance](.agents/skills/knowledge-maintenance/SKILL.md); all Framer work routes through the [dispatcher](framer/README.md); projects begin at the [Content Library index](content-library/README.md); and reference sites begin at the [Inspiration index](inspiration/README.md).
+Agents start with `AGENTS.md` and read only the local PROJECT, Approved sources, platform rules, and selected Skill required by the current Scope. This README explains the architecture; it is not a second implementation manual. Repository maintenance routes through [knowledge-maintenance](.agents/skills/knowledge-maintenance/SKILL.md); all Framer work routes through the [dispatcher](framer/README.md); local projects follow the [Content Library guide](content-library/README.md); and reference sites begin at the [Inspiration index](inspiration/README.md).
 
 Framer completion criteria and implementation details are managed through these entry points:
 

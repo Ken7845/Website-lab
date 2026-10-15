@@ -62,7 +62,7 @@ Preserve all meaning, exact values, evidence, caveats, provenance and status. Ke
 ## 最小读取路径
 
 1. 先读本文件。
-2. 有具体项目时读 `content-library/<project>/PROJECT.md`；只跟随其中与当前 Scope 相关的链接。
+2. For a specific project, read the local `content-library/<project>/PROJECT.md` and follow only links relevant to the current Scope. Project directories are local-only and are not distributed through GitHub; if the required local project source is missing, restore or request it instead of inferring project facts.
 3. 再按任务选择：
 
 | 任务 | 追加读取 |
@@ -74,7 +74,7 @@ Preserve all meaning, exact values, evidence, caveats, provenance and status. Ke
 
 Framer dispatcher 是 Skill 选择的唯一 owner，即使用户点名 Skill 也先扫描 Component / Layout / Interaction 责任。Skill 列表不是平行 dispatcher。图片、连续修改、高级模式与 evaluator 的 conditional references 由 dispatcher / selected Skill 路由。
 
-旧项目没有 PROJECT 时从 [manifest template](content-library/project-manifest-template.md) 建立最小入口；未知实现标 Needs refresh。Context 压缩或 Session 恢复按 [Framer re-entry](framer/README.md#3-change-control-是写入前的条件路由) 重读 active 来源与合同；通过同一有效 session targeted readback 重建证据，旧 session 失效时遵守官方重连流程，不靠摘要续写。
+When a local legacy project has no PROJECT, create its minimum entry from the [manifest template](content-library/project-manifest-template.md) and mark unknown implementation as Needs refresh. For Context compression or Session recovery, follow [Framer re-entry](framer/README.md#3-change-control-是写入前的条件路由): reread active sources and contracts, rebuild evidence through targeted readback in the same valid session, and use the official reconnection flow when the old session is no longer valid instead of continuing from a summary alone.
 
 知识维护任务完成前运行 `knowledge-maintenance` 的 strict validator；不得用扩大排除范围或删除精确证据换取通过。
 
